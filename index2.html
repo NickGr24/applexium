@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flagship Products</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #131515;
+            min-height: 100vh;
+            padding: 80px 40px;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: left;
+            margin-bottom: 50px;
+        }
+
+        .header h1 {
+            color: #ffffff;
+            font-size: 2.25rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .header p {
+            color: #a0aec0;
+            font-size: 1rem;
+            font-weight: 400;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+
+        .product-card {
+            background: rgba(51, 153, 137, 0.1);
+            border: 1px solid rgba(51, 153, 137, 0.3);
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(
+                600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+                rgba(125, 226, 209, 0.15),
+                transparent 40%
+            );
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .product-card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                115deg,
+                transparent 20%,
+                rgba(125, 226, 209, 0.3) 40%,
+                rgba(125, 226, 209, 0.5) 50%,
+                rgba(125, 226, 209, 0.3) 60%,
+                transparent 80%
+            );
+            transform: translateX(-100%) translateY(-100%) rotate(45deg);
+            transition: transform 0.6s ease;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .product-card:hover::before {
+            opacity: 1;
+        }
+
+        .product-card:hover::after {
+            transform: translateX(100%) translateY(100%) rotate(45deg);
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow:
+                0 20px 40px rgba(51, 153, 137, 0.3),
+                0 0 0 1px rgba(125, 226, 209, 0.3),
+                inset 0 0 0 1px rgba(125, 226, 209, 0.1);
+            border-color: rgba(125, 226, 209, 0.6);
+        }
+
+        .product-card > * {
+            position: relative;
+            z-index: 3;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 210px;
+            background: #000000;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Neural Network Pattern for Legalia */
+        .product-image.neural {
+            background: #000;
+            position: relative;
+        }
+
+        .product-image.neural::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image:
+                radial-gradient(circle at 30% 40%, rgba(51, 153, 137, 0.4) 0%, transparent 40%),
+                radial-gradient(circle at 70% 60%, rgba(125, 226, 209, 0.3) 0%, transparent 40%),
+                radial-gradient(circle at 50% 80%, rgba(51, 153, 137, 0.3) 0%, transparent 30%);
+        }
+
+        .product-image.neural::after {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            top: -50%;
+            left: -50%;
+            background-image:
+                linear-gradient(90deg, transparent 48%, rgba(125, 226, 209, 0.5) 49%, rgba(125, 226, 209, 0.5) 51%, transparent 52%),
+                linear-gradient(180deg, transparent 48%, rgba(51, 153, 137, 0.4) 49%, rgba(51, 153, 137, 0.4) 51%, transparent 52%);
+            background-size: 60px 60px;
+            opacity: 0.5;
+            animation: flow 3s linear infinite;
+        }
+
+        /* Lock/Security Pattern for Privire */
+        .product-image.security {
+            background: linear-gradient(180deg, #131515 0%, #000000 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .product-image.security::before {
+            content: '🔒';
+            font-size: 80px;
+            position: absolute;
+            opacity: 0.7;
+            filter: drop-shadow(0 0 30px rgba(51, 153, 137, 0.8));
+        }
+
+        .product-image.security::after {
+            content: '';
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            border: 2px solid rgba(125, 226, 209, 0.4);
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        /* Communication Pattern for VoxCivica */
+        .product-image.communication {
+            background: linear-gradient(135deg, #131515 0%, #000000 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image.communication::before {
+            content: '';
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: radial-gradient(circle, rgba(51, 153, 137, 0.5) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .product-image.communication::after {
+            content: '💬';
+            position: absolute;
+            font-size: 60px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0.8;
+            filter: drop-shadow(0 0 20px rgba(125, 226, 209, 0.6));
+        }
+
+        @keyframes flow {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(60px, 60px); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.3; }
+            50% { transform: scale(1.15); opacity: 0.6; }
+        }
+
+        .product-title {
+            color: #ffffff;
+            font-size: 1.375rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .product-description {
+            color: #a0aec0;
+            font-size: 0.9375rem;
+            line-height: 1.55;
+            margin-bottom: 22px;
+            min-height: 44px;
+        }
+
+        .view-details-btn {
+            background: #339989;
+            color: #ffffff;
+            border: none;
+            padding: 11px 24px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: inline-block;
+        }
+
+        .view-details-btn:hover {
+            background: #7de2d1;
+            color: #131515;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 1100px) {
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 40px 20px;
+            }
+
+            .header h1 {
+                font-size: 1.875rem;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 data-aos="fade-right">Explore Our Flagship Products</h1>
+            <p data-aos="fade-right" data-aos-delay="100">Innovative solutions designed to elevate your business.</p>
+        </div>
+
+        <div class="products-grid">
+            <!-- Legalia Card -->
+            <div class="product-card" data-aos="zoom-in" data-aos-delay="100">
+                <div class="product-image neural"></div>
+                <h2 class="product-title" data-aos="fade-right" data-aos-delay="200">Legalia</h2>
+                <p class="product-description" data-aos="fade-right" data-aos-delay="250">Unlock data-driven insights with our powerful AI analytics platform.</p>
+                <button class="view-details-btn" data-aos="fade-right" data-aos-delay="300">View Details</button>
+            </div>
+
+            <!-- Privire Card -->
+            <div class="product-card" data-aos="zoom-in" data-aos-delay="200">
+                <div class="product-image security"></div>
+                <h2 class="product-title" data-aos="fade-right" data-aos-delay="300">Privire</h2>
+                <p class="product-description" data-aos="fade-right" data-aos-delay="350">Scalable and secure cloud infrastructure tailored for enterprise needs.</p>
+                <button class="view-details-btn" data-aos="fade-right" data-aos-delay="400">View Details</button>
+            </div>
+
+            <!-- VoxCivica Card -->
+            <div class="product-card" data-aos="zoom-in" data-aos-delay="300">
+                <div class="product-image communication"></div>
+                <h2 class="product-title" data-aos="fade-right" data-aos-delay="400">VoxCivica</h2>
+                <p class="product-description" data-aos="fade-right" data-aos-delay="450">Empower communities with seamless citizen engagement and participation tools.</p>
+                <button class="view-details-btn" data-aos="fade-right" data-aos-delay="500">View Details</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+
+        // Эффект следования градиента за курсором
+        document.querySelectorAll('.product-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = ((e.clientX - rect.left) / rect.width) * 100;
+                const y = ((e.clientY - rect.top) / rect.height) * 100;
+
+                card.style.setProperty('--mouse-x', `${x}%`);
+                card.style.setProperty('--mouse-y', `${y}%`);
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.setProperty('--mouse-x', '50%');
+                card.style.setProperty('--mouse-y', '50%');
+            });
+        });
+    </script>
+</body>
+</html>
