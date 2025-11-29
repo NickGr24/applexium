@@ -1,4 +1,96 @@
 // ===========================
+// Floating Lines Animation
+// ===========================
+const canvas = document.getElementById('floating-lines');
+if (canvas) {
+    const ctx = canvas.getContext('2d');
+    let time = 0;
+
+    function resize() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
+
+    resize();
+    window.addEventListener('resize', resize);
+
+    const lineCount = 7;
+    const lineDistance = 30;
+    const bendStrength = 70;
+
+    function drawWave(yOffset, waveOffset) {
+        ctx.beginPath();
+        const segments = 120;
+
+        for (let i = 0; i <= segments; i++) {
+            const x = (i / segments) * canvas.width;
+            const normalizedX = (x / canvas.width - 0.5) * 2;
+
+            const wave1 = Math.sin(normalizedX * 2.5 + time * 0.4 + waveOffset) * bendStrength;
+            const wave2 = Math.sin(normalizedX * 4 + time * 0.25 + waveOffset * 0.7) * (bendStrength * 0.25);
+            const wave3 = Math.cos(normalizedX * 1.5 + time * 0.5 + waveOffset * 1.2) * (bendStrength * 0.15);
+
+            const y = canvas.height * 0.55 + yOffset + wave1 + wave2 + wave3;
+
+            if (i === 0) {
+                ctx.moveTo(x, y);
+            } else {
+                ctx.lineTo(x, y);
+            }
+        }
+
+        ctx.strokeStyle = 'rgba(60, 180, 172, 0.55)';
+        ctx.lineWidth = 4;
+        ctx.stroke();
+    }
+
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        for (let i = 0; i < lineCount; i++) {
+            const yOffset = (i - lineCount / 2) * lineDistance;
+            const waveOffset = i * 0.6;
+            drawWave(yOffset, waveOffset);
+        }
+
+        time += 0.012;
+        requestAnimationFrame(animate);
+    }
+
+    animate();
+}
+
+// ===========================
+// AOS Initialization
+// ===========================
+if (typeof AOS !== 'undefined') {
+    AOS.init({
+        duration: 1000,
+        once: true,
+        offset: 100
+    });
+}
+
+// ===========================
+// Product Cards Mouse Tracking Effect
+// ===========================
+document.querySelectorAll('.product-card').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width) * 100;
+        const y = ((e.clientY - rect.top) / rect.height) * 100;
+
+        card.style.setProperty('--mouse-x', `${x}%`);
+        card.style.setProperty('--mouse-y', `${y}%`);
+    });
+
+    card.addEventListener('mouseleave', () => {
+        card.style.setProperty('--mouse-x', '50%');
+        card.style.setProperty('--mouse-y', '50%');
+    });
+});
+
+// ===========================
 // Smooth Scroll for Anchor Links
 // ===========================
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -157,4 +249,3 @@ handleResize();
 // Console Message
 // ===========================
 console.log('%c🚀 Applexium - Built with Excellence', 'color: #7de2d1; font-size: 16px; font-weight: bold;');
-

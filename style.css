@@ -9,6 +9,7 @@
     --black: #000000;
     --text-light: #e0e0e0;
     --text-gray: #a0a0a0;
+    --hero-teal: #3cb4ac;
 }
 
 * {
@@ -18,17 +19,173 @@
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
-    background-color: var(--dark-bg);
-    color: var(--white);
-    line-height: 1.6;
+    min-height: 100vh;
+    background: #0d1815;
+    font-family: 'Cormorant Garamond', 'Georgia', serif;
+    color: #ffffff;
     overflow-x: hidden;
 }
 
-.container {
-    max-width: 1200px;
+/* ===========================
+   Floating Lines Canvas
+   =========================== */
+#floating-lines {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* ===========================
+   Navigation
+   =========================== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 48px;
+    position: relative;
+    z-index: 10;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-text {
+    font-family: 'Playfair Display', 'Georgia', serif;
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: #ffffff;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+}
+
+.nav-links a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+    color: #3cb4ac;
+}
+
+.btn-primary {
+    background: #3cb4ac;
+    color: #0d1815;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 20px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.btn-primary:hover {
+    background: #4ecdc4;
+}
+
+/* ===========================
+   Hero Section
+   =========================== */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 48px 120px;
+    max-width: 1280px;
     margin: 0 auto;
-    padding: 0 20px;
+    position: relative;
+    z-index: 5;
+    min-height: 70vh;
+}
+
+.hero-content {
+    max-width: 700px;
+    text-align: center;
+}
+
+.hero h1 {
+    font-family: 'Playfair Display', 'Georgia', serif;
+    font-size: 62px;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 24px;
+    letter-spacing: -0.5px;
+    color: #ffffff;
+}
+
+.hero p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.7;
+    margin-bottom: 36px;
+    font-weight: 400;
+    letter-spacing: 0.3px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+}
+
+.btn-hero-primary {
+    background: #3cb4ac;
+    color: #0d1815;
+    border: none;
+    padding: 16px 32px;
+    border-radius: 24px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-hero-primary:hover {
+    background: #4ecdc4;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.05);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    padding: 16px 32px;
+    border-radius: 24px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: #3cb4ac;
+    color: #3cb4ac;
 }
 
 /* ===========================
@@ -162,6 +319,265 @@ body {
 }
 
 /* ===========================
+   Products Section
+   =========================== */
+.products-section {
+    padding: 80px 40px;
+    background: #131515;
+}
+
+.products-section .container {
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.products-section .header {
+    text-align: left;
+    margin-bottom: 50px;
+}
+
+.products-section .header h1 {
+    color: #ffffff;
+    font-size: 2.25rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.products-section .header p {
+    color: #a0aec0;
+    font-size: 1rem;
+    font-weight: 400;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+}
+
+.product-card {
+    background: rgba(51, 153, 137, 0.1);
+    border: 1px solid rgba(51, 153, 137, 0.3);
+    border-radius: 12px;
+    padding: 20px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.product-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+        600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+        rgba(125, 226, 209, 0.15),
+        transparent 40%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.product-card::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        115deg,
+        transparent 20%,
+        rgba(125, 226, 209, 0.3) 40%,
+        rgba(125, 226, 209, 0.5) 50%,
+        rgba(125, 226, 209, 0.3) 60%,
+        transparent 80%
+    );
+    transform: translateX(-100%) translateY(-100%) rotate(45deg);
+    transition: transform 0.6s ease;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.product-card:hover::before {
+    opacity: 1;
+}
+
+.product-card:hover::after {
+    transform: translateX(100%) translateY(100%) rotate(45deg);
+}
+
+.product-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow:
+        0 20px 40px rgba(51, 153, 137, 0.3),
+        0 0 0 1px rgba(125, 226, 209, 0.3),
+        inset 0 0 0 1px rgba(125, 226, 209, 0.1);
+    border-color: rgba(125, 226, 209, 0.6);
+}
+
+.product-card > * {
+    position: relative;
+    z-index: 3;
+}
+
+.product-image {
+    width: 100%;
+    height: 210px;
+    background: #000000;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Neural Network Pattern for Legalia */
+.product-image.neural {
+    background: #000;
+    position: relative;
+}
+
+.product-image.neural::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(circle at 30% 40%, rgba(51, 153, 137, 0.4) 0%, transparent 40%),
+        radial-gradient(circle at 70% 60%, rgba(125, 226, 209, 0.3) 0%, transparent 40%),
+        radial-gradient(circle at 50% 80%, rgba(51, 153, 137, 0.3) 0%, transparent 30%);
+}
+
+.product-image.neural::after {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    top: -50%;
+    left: -50%;
+    background-image:
+        linear-gradient(90deg, transparent 48%, rgba(125, 226, 209, 0.5) 49%, rgba(125, 226, 209, 0.5) 51%, transparent 52%),
+        linear-gradient(180deg, transparent 48%, rgba(51, 153, 137, 0.4) 49%, rgba(51, 153, 137, 0.4) 51%, transparent 52%);
+    background-size: 60px 60px;
+    opacity: 0.5;
+    animation: flow 3s linear infinite;
+}
+
+/* Lock/Security Pattern for Privire */
+.product-image.security {
+    background: linear-gradient(180deg, #131515 0%, #000000 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.product-image.security::before {
+    content: '🔒';
+    font-size: 80px;
+    position: absolute;
+    opacity: 0.7;
+    filter: drop-shadow(0 0 30px rgba(51, 153, 137, 0.8));
+}
+
+.product-image.security::after {
+    content: '';
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    border: 2px solid rgba(125, 226, 209, 0.4);
+    border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+/* Communication Pattern for VoxCivica */
+.product-image.communication {
+    background: linear-gradient(135deg, #131515 0%, #000000 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.product-image.communication::before {
+    content: '';
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle, rgba(51, 153, 137, 0.5) 0%, transparent 70%);
+    border-radius: 50%;
+}
+
+.product-image.communication::after {
+    content: '💬';
+    position: absolute;
+    font-size: 60px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.8;
+    filter: drop-shadow(0 0 20px rgba(125, 226, 209, 0.6));
+}
+
+@keyframes flow {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(60px, 60px); }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 0.3; }
+    50% { transform: scale(1.15); opacity: 0.6; }
+}
+
+.product-title {
+    color: #ffffff;
+    font-size: 1.375rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.product-description {
+    color: #a0aec0;
+    font-size: 0.9375rem;
+    line-height: 1.55;
+    margin-bottom: 22px;
+    min-height: 44px;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.view-details-btn {
+    background: #339989;
+    color: #ffffff;
+    border: none;
+    padding: 11px 24px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-block;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.view-details-btn:hover {
+    background: #7de2d1;
+    color: #131515;
+    transform: translateY(-2px);
+}
+
+/* ===========================
    Capabilities Section
    =========================== */
 .capabilities-section {
@@ -180,6 +596,7 @@ body {
     font-weight: 700;
     margin-bottom: 16px;
     color: var(--white);
+    font-family: 'Poppins', sans-serif;
 }
 
 .section-header p {
@@ -187,6 +604,7 @@ body {
     color: var(--text-gray);
     max-width: 600px;
     margin: 0 auto;
+    font-family: 'Poppins', sans-serif;
 }
 
 .capabilities-grid {
@@ -265,12 +683,14 @@ body {
     font-weight: 700;
     margin-bottom: 16px;
     color: var(--white);
+    font-family: 'Poppins', sans-serif;
 }
 
 .capability-card p {
     font-size: 16px;
     color: var(--text-gray);
     line-height: 1.7;
+    font-family: 'Poppins', sans-serif;
 }
 
 /* ===========================
@@ -295,6 +715,7 @@ body {
     font-weight: 700;
     margin-bottom: 24px;
     color: var(--white);
+    font-family: 'Poppins', sans-serif;
 }
 
 .cta-content p {
@@ -302,6 +723,7 @@ body {
     color: var(--text-gray);
     margin-bottom: 40px;
     line-height: 1.8;
+    font-family: 'Poppins', sans-serif;
 }
 
 .cta-button {
@@ -317,6 +739,7 @@ body {
     position: relative;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(125, 226, 209, 0.3);
+    font-family: 'Poppins', sans-serif;
 }
 
 .cta-button::before {
@@ -366,6 +789,7 @@ body {
     gap: 12px;
     font-size: 24px;
     font-weight: 700;
+    font-family: 'Poppins', sans-serif;
 }
 
 .footer-brand i {
@@ -388,6 +812,7 @@ body {
 .footer-info p {
     color: var(--text-gray);
     font-size: 14px;
+    font-family: 'Poppins', sans-serif;
 }
 
 .footer-social {
@@ -400,15 +825,43 @@ body {
     text-decoration: none;
     font-size: 14px;
     transition: color 0.3s ease;
+    font-family: 'Poppins', sans-serif;
 }
 
 .footer-social a:hover {
     color: var(--primary-teal);
 }
 
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
 /* ===========================
    Responsive Design
    =========================== */
+@media (max-width: 1100px) {
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 1024px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-content {
+        max-width: 100%;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+}
+
 @media (max-width: 968px) {
     .hero-section {
         min-height: 50vh;
@@ -435,6 +888,36 @@ body {
 
     .footer-social {
         justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 16px 24px;
+    }
+
+    .nav-links a {
+        display: none;
+    }
+
+    .hero {
+        padding: 40px 24px;
+    }
+
+    .hero h1 {
+        font-size: 44px;
+    }
+
+    .products-section {
+        padding: 40px 20px;
+    }
+
+    .products-section .header h1 {
+        font-size: 1.875rem;
+    }
+
+    .products-grid {
+        grid-template-columns: 1fr;
     }
 }
 
@@ -481,4 +964,3 @@ button:focus {
 html {
     scroll-behavior: smooth;
 }
-

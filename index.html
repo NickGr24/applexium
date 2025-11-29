@@ -4,313 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Applexium - We Build Digital Experiences</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@400;500;600;700&family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      min-height: 100vh;
-      background: #0d1815;
-      font-family: 'Cormorant Garamond', 'Georgia', serif;
-      color: #ffffff;
-      overflow-x: hidden;
-    }
-
-    /* Floating Lines Canvas */
-    #floating-lines {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 1;
-    }
-
-    /* Navigation */
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 48px;
-      position: relative;
-      z-index: 10;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .logo-text {
-      font-family: 'Playfair Display', 'Georgia', serif;
-      font-size: 24px;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-      color: #ffffff;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 36px;
-    }
-
-    .nav-links a {
-      color: rgba(255, 255, 255, 0.8);
-      text-decoration: none;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 16px;
-      font-weight: 500;
-      letter-spacing: 0.5px;
-      transition: color 0.2s ease;
-    }
-
-    .nav-links a:hover {
-      color: #3cb4ac;
-    }
-
-    .btn-primary {
-      background: #3cb4ac;
-      color: #0d1815;
-      border: none;
-      padding: 12px 24px;
-      border-radius: 20px;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 16px;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-      cursor: pointer;
-      transition: background 0.2s ease;
-    }
-
-    .btn-primary:hover {
-      background: #4ecdc4;
-    }
-
-    /* Hero Section */
-    .hero {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 100px 48px 120px;
-      max-width: 1280px;
-      margin: 0 auto;
-      position: relative;
-      z-index: 5;
-      min-height: 70vh;
-    }
-
-    .hero-content {
-      max-width: 700px;
-      text-align: center;
-    }
-
-    .hero h1 {
-      font-family: 'Playfair Display', 'Georgia', serif;
-      font-size: 62px;
-      font-weight: 700;
-      line-height: 1.1;
-      margin-bottom: 24px;
-      letter-spacing: -0.5px;
-      color: #ffffff;
-    }
-
-    .hero p {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 20px;
-      color: rgba(255, 255, 255, 0.6);
-      line-height: 1.7;
-      margin-bottom: 36px;
-      font-weight: 400;
-      letter-spacing: 0.3px;
-    }
-
-    .hero-buttons {
-      display: flex;
-      gap: 12px;
-      justify-content: center;
-    }
-
-    .btn-hero-primary {
-      background: #3cb4ac;
-      color: #0d1815;
-      border: none;
-      padding: 16px 32px;
-      border-radius: 24px;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 18px;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-
-    .btn-hero-primary:hover {
-      background: #4ecdc4;
-      transform: translateY(-2px);
-    }
-
-    .btn-secondary {
-      background: rgba(255, 255, 255, 0.05);
-      color: #ffffff;
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      padding: 16px 32px;
-      border-radius: 24px;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 18px;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-
-    .btn-secondary:hover {
-      background: rgba(255, 255, 255, 0.1);
-      border-color: #3cb4ac;
-      color: #3cb4ac;
-    }
-
-    /* Dashboard Section */
-    .hero-image {
-      flex: 1;
-      display: flex;
-      justify-content: flex-end;
-      position: relative;
-    }
-
-    .dashboard-glow {
-      position: absolute;
-      bottom: -30px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 70%;
-      height: 15px;
-      background: linear-gradient(90deg, transparent, #3cb4ac, transparent);
-      filter: blur(25px);
-      opacity: 0.5;
-    }
-
-    .dashboard {
-      background: linear-gradient(145deg, rgba(13, 24, 21, 0.95), rgba(16, 30, 26, 0.98));
-      border-radius: 12px;
-      padding: 20px;
-      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6), 0 0 60px rgba(60, 180, 172, 0.08);
-      border: 1px solid rgba(60, 180, 172, 0.15);
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: repeat(3, 1fr);
-      gap: 12px;
-      width: 480px;
-      height: 370px;
-    }
-
-    .panel {
-      background: rgba(13, 24, 21, 0.7);
-      border-radius: 8px;
-      padding: 6px;
-      border: 1px solid rgba(60, 180, 172, 0.1);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .panel svg {
-      width: 100%;
-      height: 100%;
-    }
-
-    .panel-wide {
-      grid-column: span 2;
-    }
-
-    .bar-chart {
-      display: flex;
-      align-items: flex-end;
-      gap: 3px;
-      padding: 10px;
-      height: 100%;
-    }
-
-    .bar {
-      flex: 1;
-      background: linear-gradient(to top, #3cb4ac, rgba(60, 180, 172, 0.3));
-      border-radius: 1px;
-    }
-
-    .progress-panel {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 6px;
-      padding: 10px;
-    }
-
-    .progress-bar {
-      height: 3px;
-      background: rgba(60, 180, 172, 0.15);
-      border-radius: 2px;
-    }
-
-    .progress-fill {
-      height: 100%;
-      background: #3cb4ac;
-      border-radius: 2px;
-    }
-
-    /* Responsive */
-    @media (max-width: 1024px) {
-      .hero {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      .hero-content {
-        max-width: 100%;
-      }
-
-      .hero-buttons {
-        justify-content: center;
-      }
-
-      .hero-image {
-        justify-content: center;
-      }
-
-      .dashboard {
-        width: 100%;
-        max-width: 480px;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .navbar {
-        padding: 16px 24px;
-      }
-
-      .nav-links a {
-        display: none;
-      }
-
-      .hero {
-        padding: 40px 24px;
-      }
-
-      .hero h1 {
-        font-size: 44px;
-      }
-
-      .dashboard {
-        width: 100%;
-        height: 300px;
-      }
-    }
-  </style>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@400;500;600;700&family=Lora:wght@400;500;600;700&family=Poppins:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- AOS Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <!-- Floating Lines Background -->
@@ -323,10 +28,10 @@
     </div>
     
     <div class="nav-links">
-      <a href="#">Products</a>
-      <a href="#">Services</a>
-      <a href="#">About</a>
-      <a href="#">Contact</a>
+      <a href="#products">Products</a>
+      <a href="#capabilities">Services</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
       <button class="btn-primary">Get a Quote</button>
     </div>
   </nav>
@@ -343,64 +48,129 @@
     </div>
   </main>
 
-  <script>
-    // Floating Lines Animation
-    const canvas = document.getElementById('floating-lines');
-    const ctx = canvas.getContext('2d');
-    let time = 0;
+  <!-- Hero Section with Video Text -->
+  <section class="hero-section">
+    <div class="video-text-container">
+      <div class="video-text">
+        <video autoplay muted loop playsinline>
+          <source src="background1.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <h1><span class="dark-part">app</span><span class="teal-part">le</span><span class="secondary-part">xium</span></h1>
+      </div>
+    </div>
+  </section>
 
-    function resize() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    }
+  <!-- Products Section -->
+  <section id="products" class="products-section">
+    <div class="container">
+      <div class="header">
+        <h1 data-aos="fade-right">Explore Our Flagship Products</h1>
+        <p data-aos="fade-right" data-aos-delay="100">Innovative solutions designed to elevate your business.</p>
+      </div>
 
-    resize();
-    window.addEventListener('resize', resize);
+      <div class="products-grid">
+        <!-- Legalia Card -->
+        <div class="product-card" data-aos="zoom-in" data-aos-delay="100">
+          <div class="product-image neural"></div>
+          <h2 class="product-title" data-aos="fade-right" data-aos-delay="200">Legalia</h2>
+          <p class="product-description" data-aos="fade-right" data-aos-delay="250">Unlock data-driven insights with our powerful AI analytics platform.</p>
+          <button class="view-details-btn" data-aos="fade-right" data-aos-delay="300">View Details</button>
+        </div>
 
-    const lineCount = 7;
-    const lineDistance = 30;
-    const bendStrength = 70;
+        <!-- Privire Card -->
+        <div class="product-card" data-aos="zoom-in" data-aos-delay="200">
+          <div class="product-image security"></div>
+          <h2 class="product-title" data-aos="fade-right" data-aos-delay="300">Privire</h2>
+          <p class="product-description" data-aos="fade-right" data-aos-delay="350">Scalable and secure cloud infrastructure tailored for enterprise needs.</p>
+          <button class="view-details-btn" data-aos="fade-right" data-aos-delay="400">View Details</button>
+        </div>
 
-    function drawWave(yOffset, waveOffset) {
-      ctx.beginPath();
-      const segments = 120;
+        <!-- VoxCivica Card -->
+        <div class="product-card" data-aos="zoom-in" data-aos-delay="300">
+          <div class="product-image communication"></div>
+          <h2 class="product-title" data-aos="fade-right" data-aos-delay="400">VoxCivica</h2>
+          <p class="product-description" data-aos="fade-right" data-aos-delay="450">Empower communities with seamless citizen engagement and participation tools.</p>
+          <button class="view-details-btn" data-aos="fade-right" data-aos-delay="500">View Details</button>
+        </div>
+      </div>
+    </div>
+  </section>
 
-      for (let i = 0; i <= segments; i++) {
-        const x = (i / segments) * canvas.width;
-        const normalizedX = (x / canvas.width - 0.5) * 2;
+  <!-- Core Capabilities Section -->
+  <section id="capabilities" class="capabilities-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Our Core Capabilities</h2>
+        <p>From concept to launch, we deliver robust digital solutions that perform.</p>
+      </div>
 
-        const wave1 = Math.sin(normalizedX * 2.5 + time * 0.4 + waveOffset) * bendStrength;
-        const wave2 = Math.sin(normalizedX * 4 + time * 0.25 + waveOffset * 0.7) * (bendStrength * 0.25);
-        const wave3 = Math.cos(normalizedX * 1.5 + time * 0.5 + waveOffset * 1.2) * (bendStrength * 0.15);
+      <div class="capabilities-grid">
+        <!-- Custom Websites -->
+        <div class="capability-card">
+          <div class="capability-icon">
+            <i class="fas fa-laptop-code"></i>
+          </div>
+          <h3>Custom Websites</h3>
+          <p>Beautiful, responsive, and high-performance websites that captivate your audience.</p>
+        </div>
 
-        const y = canvas.height * 0.55 + yOffset + wave1 + wave2 + wave3;
+        <!-- Mobile Apps -->
+        <div class="capability-card">
+          <div class="capability-icon">
+            <i class="fas fa-mobile-alt"></i>
+          </div>
+          <h3>Mobile Apps</h3>
+          <p>Intuitive and engaging mobile applications for iOS and Android platforms.</p>
+        </div>
 
-        if (i === 0) {
-          ctx.moveTo(x, y);
-        } else {
-          ctx.lineTo(x, y);
-        }
-      }
+        <!-- AI-Powered Tools -->
+        <div class="capability-card">
+          <div class="capability-icon">
+            <i class="fas fa-brain"></i>
+          </div>
+          <h3>AI-Powered Tools</h3>
+          <p>Leveraging machine learning to build intelligent tools that automate and optimize.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-      ctx.strokeStyle = 'rgba(60, 180, 172, 0.55)';
-      ctx.lineWidth = 4;
-      ctx.stroke();
-    }
+  <!-- CTA Section -->
+  <section id="contact" class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Ready to Build Your Future?</h2>
+        <p>Let's collaborate to create something extraordinary. Reach out to our experts today to discuss your vision.</p>
+        <a href="#contact" class="cta-button">Contact Us</a>
+      </div>
+    </div>
+  </section>
 
-    function animate() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <i class="fas fa-atom"></i>
+          <span><span class="brand-dark">app</span><span class="brand-teal">le</span><span class="brand-secondary">xium</span></span>
+        </div>
+        <div class="footer-info">
+          <p>&copy; 2025 Applexium. All Rights Reserved.</p>
+        </div>
+        <div class="footer-social">
+          <a href="#" aria-label="Twitter"><span>Twitter</span></a>
+          <a href="#" aria-label="LinkedIn"><span>LinkedIn</span></a>
+          <a href="#" aria-label="GitHub"><span>GitHub</span></a>
+        </div>
+      </div>
+    </div>
+  </footer>
 
-      for (let i = 0; i < lineCount; i++) {
-        const yOffset = (i - lineCount / 2) * lineDistance;
-        const waveOffset = i * 0.6;
-        drawWave(yOffset, waveOffset);
-      }
-
-      time += 0.012;
-      requestAnimationFrame(animate);
-    }
-
-    animate();
-  </script>
+  <!-- AOS Library -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  
+  <!-- Custom JavaScript -->
+  <script src="script.js"></script>
 </body>
 </html>
