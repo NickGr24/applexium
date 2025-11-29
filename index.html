@@ -18,14 +18,23 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Floating Lines Background -->
-  <canvas id="floating-lines"></canvas>
+  <!-- Hero Wrapper with Floating Lines -->
+  <div class="hero-wrapper">
+    <!-- Floating Lines Background -->
+    <canvas id="floating-lines"></canvas>
 
-  <!-- Navigation -->
-  <nav class="navbar">
+    <!-- Navigation -->
+    <nav class="navbar">
     <div class="logo">
       <span class="logo-text">Applexium</span>
     </div>
+    
+    <!-- Mobile Menu Toggle -->
+    <button class="mobile-menu-toggle" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
     
     <div class="nav-links">
       <a href="#products">Products</a>
@@ -47,19 +56,7 @@
       </div>
     </div>
   </main>
-
-  <!-- Hero Section with Video Text -->
-  <section class="hero-section">
-    <div class="video-text-container">
-      <div class="video-text">
-        <video autoplay muted loop playsinline>
-          <source src="background1.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-        <h1><span class="dark-part">app</span><span class="teal-part">le</span><span class="secondary-part">xium</span></h1>
-      </div>
-    </div>
-  </section>
+  </div>
 
   <!-- Products Section -->
   <section id="products" class="products-section">
@@ -138,6 +135,15 @@
 
   <!-- CTA Section -->
   <section id="contact" class="cta-section">
+    <div class="video-text-container">
+      <div class="video-text">
+        <video autoplay muted loop playsinline>
+          <source src="background1.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <h1><span class="dark-part">app</span><span class="teal-part">le</span><span class="secondary-part">xium</span></h1>
+      </div>
+    </div>
     <div class="container">
       <div class="cta-content">
         <h2>Ready to Build Your Future?</h2>
