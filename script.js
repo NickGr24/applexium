@@ -63,13 +63,35 @@ if (canvas) {
 // ===========================
 // AOS Initialization
 // ===========================
-if (typeof AOS !== 'undefined') {
-    AOS.init({
-        duration: 1000,
-        once: true,
-        offset: 100
-    });
-}
+document.addEventListener('DOMContentLoaded', function() {
+    if (typeof AOS !== 'undefined') {
+        console.log('AOS is loading...');
+        AOS.init({
+            duration: 2500,
+            once: false,
+            offset: 150,
+            easing: 'ease-in-out-quart',
+            delay: 0,
+            mirror: true,
+            anchorPlacement: 'top-bottom',
+            disable: false,
+            startEvent: 'DOMContentLoaded'
+        });
+        console.log('AOS initialized successfully!');
+
+        // Проверяем, какие элементы с AOS на странице
+        const aosElements = document.querySelectorAll('[data-aos]');
+        console.log(`Found ${aosElements.length} elements with AOS attributes`);
+
+        // Принудительное обновление AOS после инициализации
+        setTimeout(() => {
+            AOS.refresh();
+            console.log('AOS refreshed!');
+        }, 100);
+    } else {
+        console.error('AOS library not found!');
+    }
+});
 
 // ===========================
 // Product Cards Mouse Tracking Effect
@@ -244,6 +266,42 @@ const handleResize = () => {
 
 window.addEventListener('resize', handleResize);
 handleResize();
+
+// ===========================
+// Contact Form Submission
+// ===========================
+const contactForm = document.querySelector('.contact-form');
+
+if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const submitBtn = this.querySelector('.submit-btn');
+        const originalText = submitBtn.textContent;
+
+        // Disable button and show loading state
+        submitBtn.textContent = 'Sending...';
+        submitBtn.disabled = true;
+        submitBtn.style.opacity = '0.7';
+
+        // Simulate form submission (replace with actual API call)
+        setTimeout(() => {
+            submitBtn.textContent = 'Message Sent!';
+            submitBtn.style.background = '#4CAF50';
+
+            // Reset form
+            contactForm.reset();
+
+            // Reset button after 3 seconds
+            setTimeout(() => {
+                submitBtn.textContent = originalText;
+                submitBtn.style.background = '';
+                submitBtn.disabled = false;
+                submitBtn.style.opacity = '1';
+            }, 3000);
+        }, 1500);
+    });
+}
 
 // ===========================
 // Console Message
