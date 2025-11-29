@@ -5,10 +5,11 @@ const canvas = document.getElementById('floating-lines');
 if (canvas) {
     const ctx = canvas.getContext('2d');
     let time = 0;
+    const heroWrapper = document.querySelector('.hero-wrapper');
 
     function resize() {
         canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+        canvas.height = heroWrapper ? heroWrapper.offsetHeight : window.innerHeight;
     }
 
     resize();
@@ -58,6 +59,41 @@ if (canvas) {
     }
 
     animate();
+}
+
+// ===========================
+// Mobile Menu Toggle
+// ===========================
+const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+const navLinks = document.querySelector('.nav-links');
+const navLinksItems = document.querySelectorAll('.nav-links a');
+
+if (mobileMenuToggle) {
+    mobileMenuToggle.addEventListener('click', () => {
+        mobileMenuToggle.classList.toggle('active');
+        navLinks.classList.toggle('active');
+        document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+    });
+
+    // Close menu when clicking on a link
+    navLinksItems.forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenuToggle.classList.remove('active');
+            navLinks.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!navLinks.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
+            if (navLinks.classList.contains('active')) {
+                mobileMenuToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+    });
 }
 
 // ===========================
