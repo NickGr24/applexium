@@ -5,11 +5,12 @@ const canvas = document.getElementById('floating-lines');
 if (canvas) {
     const ctx = canvas.getContext('2d');
     let time = 0;
-    const heroWrapper = document.querySelector('.hero-wrapper');
+    const hero = document.querySelector('.hero');
 
     function resize() {
+        // Full viewport width, hero section height
         canvas.width = window.innerWidth;
-        canvas.height = heroWrapper ? heroWrapper.offsetHeight : window.innerHeight;
+        canvas.height = hero ? hero.offsetHeight : window.innerHeight;
     }
 
     resize();
@@ -31,7 +32,7 @@ if (canvas) {
             const wave2 = Math.sin(normalizedX * 4 + time * 0.25 + waveOffset * 0.7) * (bendStrength * 0.25);
             const wave3 = Math.cos(normalizedX * 1.5 + time * 0.5 + waveOffset * 1.2) * (bendStrength * 0.15);
 
-            const y = canvas.height * 0.55 + yOffset + wave1 + wave2 + wave3;
+            const y = canvas.height * 0.5 + yOffset + wave1 + wave2 + wave3;
 
             if (i === 0) {
                 ctx.moveTo(x, y);
@@ -130,7 +131,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // ===========================
-// Product Cards Mouse Tracking Effect
+//  ct Cards Mouse Tracking Effect
 // ===========================
 document.querySelectorAll('.product-card').forEach(card => {
     card.addEventListener('mousemove', (e) => {

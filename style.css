@@ -32,6 +32,7 @@ body {
 .hero-wrapper {
     position: relative;
     overflow: hidden;
+    min-height: 100vh;
 }
 
 .hero-wrapper::before {
@@ -42,7 +43,7 @@ body {
     width: 100%;
     height: 100%;
     background: rgba(13, 24, 21, 0.3);
-    z-index: 2;
+    z-index: 1;
     pointer-events: none;
     opacity: 0;
     animation: fadeIn 1s ease-out 0.3s forwards;
@@ -59,12 +60,14 @@ body {
    =========================== */
 #floating-lines {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100vw;
     height: 100%;
+    max-width: none;
     pointer-events: none;
-    z-index: 1;
+    z-index: 0;
     opacity: 0;
     animation: fadeInCanvas 1.5s ease-out forwards;
 }
@@ -84,7 +87,7 @@ body {
     align-items: center;
     padding: 20px 48px;
     position: relative;
-    z-index: 10;
+    z-index: 20;
 }
 
 .logo {
@@ -201,8 +204,9 @@ body {
     max-width: 1280px;
     margin: 0 auto;
     position: relative;
-    z-index: 5;
+    z-index: 10;
     min-height: 70vh;
+    overflow: visible;
 }
 
 .hero-content {
@@ -211,6 +215,8 @@ body {
     opacity: 0;
     transform: translateY(30px);
     animation: fadeInUp 1s ease-out 0.5s forwards;
+    position: relative;
+    z-index: 10;
 }
 
 .hero h1 {
@@ -290,6 +296,7 @@ body {
     background: linear-gradient(180deg, #0a0c0c 0%, var(--dark-bg) 100%);
     position: relative;
     overflow: hidden;
+    z-index: 5;
 }
 
 .hero-section::before {
