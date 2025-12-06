@@ -819,23 +819,6 @@ body {
     }
 }
 
-.cta-section .video-text h1 .dark-part {
-    color: #2a2d2d;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-}
-
-.cta-section .video-text h1 .teal-part {
-    color: var(--primary-teal);
-    text-shadow: 0 0 30px rgba(125, 226, 209, 0.5),
-                 0 2px 10px rgba(125, 226, 209, 0.3);
-}
-
-.cta-section .video-text h1 .secondary-part {
-    color: var(--secondary-teal);
-    text-shadow: 0 0 25px rgba(51, 153, 137, 0.4),
-                 0 2px 10px rgba(51, 153, 137, 0.3);
-}
-
 .cta-section .video-text video {
     position: absolute;
     top: 50%;
