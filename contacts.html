@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - Applexium</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@400;500;600;700&family=Lora:wght@400;500;600;700&family=Poppins:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- AOS Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Floating Lines Background -->
+  <canvas id="floating-lines"></canvas>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="logo">
+      <a href="index.html" style="text-decoration: none;">
+        <span class="logo-text">Applexium</span>
+      </a>
+    </div>
+
+    <div class="nav-links">
+      <a href="index.html#products">Products</a>
+      <a href="index.html#capabilities">Services</a>
+      <a href="index.html#about">About</a>
+      <a href="contacts.html">Contact</a>
+      <button class="btn-primary">Get a Quote</button>
+    </div>
+  </nav>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <!-- Header -->
+      <div class="contact-header" data-aos="fade-up">
+        <h1>Let's Build the Future Together.</h1>
+        <p>Reach out to our team for project inquiries, partnerships, or support. We're here to help you innovate and succeed.</p>
+      </div>
+
+      <!-- Contact Cards -->
+      <div class="contact-cards">
+        <!-- Email Card -->
+        <div class="contact-card" data-aos="fade-right" data-aos-delay="150" data-aos-duration="2500" data-aos-easing="ease-in-out-quart">
+          <div class="contact-icon">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <h3>info@applexium.io</h3>
+          <p>Email Us</p>
+        </div>
+
+        <!-- Phone Card -->
+        <div class="contact-card" data-aos="fade-up" data-aos-delay="400" data-aos-duration="2500" data-aos-easing="ease-in-out-quart">
+          <div class="contact-icon">
+            <i class="fas fa-phone-alt"></i>
+          </div>
+          <h3>+1 (555) 010-2030</h3>
+          <p>Call Us</p>
+        </div>
+
+        <!-- Address Card -->
+        <div class="contact-card" data-aos="fade-left" data-aos-delay="650" data-aos-duration="2500" data-aos-easing="ease-in-out-quart">
+          <div class="contact-icon">
+            <i class="fas fa-map-marker-alt"></i>
+          </div>
+          <h3>123 Cybernetics Way, Neo-City</h3>
+          <p>Our Office</p>
+        </div>
+      </div>
+
+      <!-- Form and Map -->
+      <div class="contact-content">
+        <!-- Contact Form -->
+        <div class="contact-form-wrapper" data-aos="fade-right" data-aos-delay="200">
+          <h2>Send Us a Message</h2>
+          <form class="contact-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="fullName">Full Name</label>
+                <input type="text" id="fullName" name="fullName" placeholder="John Doe" required>
+              </div>
+              <div class="form-group">
+                <label for="workEmail">Work Email</label>
+                <input type="email" id="workEmail" name="workEmail" placeholder="you@company.com" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="companyName">Company Name <span class="optional">(Optional)</span></label>
+              <input type="text" id="companyName" name="companyName" placeholder="Your Company Inc.">
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" placeholder="Tell us about your project..." required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Send Message</button>
+          </form>
+        </div>
+
+        <!-- Map -->
+        <div class="contact-map" data-aos="fade-left" data-aos-delay="400">
+          <div class="map-placeholder">
+            <div class="map-pin">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <i class="fas fa-atom"></i>
+          <span><span class="brand-dark">app</span><span class="brand-teal">le</span><span class="brand-secondary">xium</span></span>
+        </div>
+        <div class="footer-info">
+          <p>&copy; 2025 Applexium. All Rights Reserved.</p>
+        </div>
+        <div class="footer-social">
+          <a href="#" aria-label="Twitter"><span>Twitter</span></a>
+          <a href="#" aria-label="LinkedIn"><span>LinkedIn</span></a>
+          <a href="#" aria-label="GitHub"><span>GitHub</span></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- AOS Library -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <!-- Custom JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
