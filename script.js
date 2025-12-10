@@ -5,11 +5,12 @@ const canvas = document.getElementById('floating-lines');
 if (canvas) {
     const ctx = canvas.getContext('2d');
     let time = 0;
-    const heroSection = document.querySelector('.hero');
+    const hero = document.querySelector('.hero');
 
     function resize() {
+        // Full viewport width, hero section height
         canvas.width = window.innerWidth;
-        canvas.height = heroSection ? heroSection.offsetHeight : window.innerHeight;
+        canvas.height = hero ? hero.offsetHeight : window.innerHeight;
     }
 
     resize();
@@ -31,7 +32,7 @@ if (canvas) {
             const wave2 = Math.sin(normalizedX * 4 + time * 0.25 + waveOffset * 0.7) * (bendStrength * 0.25);
             const wave3 = Math.cos(normalizedX * 1.5 + time * 0.5 + waveOffset * 1.2) * (bendStrength * 0.15);
 
-            const y = canvas.height * 0.55 + yOffset + wave1 + wave2 + wave3;
+            const y = canvas.height * 0.5 + yOffset + wave1 + wave2 + wave3;
 
             if (i === 0) {
                 ctx.moveTo(x, y);
@@ -60,6 +61,49 @@ if (canvas) {
 
     animate();
 }
+
+// ===========================
+// Navbar Scroll Animation
+// ===========================
+const navbar = document.querySelector('.navbar');
+let lastScrollTop = 0;
+
+window.addEventListener('scroll', () => {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    
+    if (scrollTop > 50) {
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
+    }
+    
+    lastScrollTop = scrollTop;
+});
+
+// ===========================
+// Active Nav Links on Scroll
+// ===========================
+const sections = document.querySelectorAll('section[id]');
+const navLinksAll = document.querySelectorAll('.nav-links a');
+
+window.addEventListener('scroll', () => {
+    const scrollY = window.pageYOffset;
+    
+    sections.forEach(section => {
+        const sectionHeight = section.offsetHeight;
+        const sectionTop = section.offsetTop - 100;
+        const sectionId = section.getAttribute('id');
+        
+        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+            navLinksAll.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${sectionId}`) {
+                    link.classList.add('active');
+                }
+            });
+        }
+    });
+});
 
 // ===========================
 // Mobile Menu Toggle
@@ -130,7 +174,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // ===========================
-// Product Cards Mouse Tracking Effect
+//  ct Cards Mouse Tracking Effect
 // ===========================
 document.querySelectorAll('.product-card').forEach(card => {
     card.addEventListener('mousemove', (e) => {
