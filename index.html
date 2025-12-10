@@ -20,9 +20,6 @@
 <body>
   <!-- Hero Wrapper with Floating Lines -->
   <div class="hero-wrapper">
-    <!-- Floating Lines Background -->
-    <canvas id="floating-lines"></canvas>
-
     <!-- Navigation -->
     <nav class="navbar">
     <div class="logo">
@@ -47,6 +44,9 @@
 
   <!-- Hero Section -->
   <main class="hero">
+    <!-- Floating Lines Background -->
+    <canvas id="floating-lines"></canvas>
+
     <div class="hero-content">
       <h1>We Build Digital<br>Experiences</h1>
       <p>Web apps. Mobile apps. Tailored solutions. Scalable technology.</p>
@@ -56,18 +56,6 @@
       </div>
     </div>
   </main>
-
-  <!-- Hero Section with Video Text -->
-  <section class="hero-section">
-    <div class="video-text-container">
-      <div class="video-text">
-        <video autoplay muted loop playsinline>
-          <source src="background1.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-      </div>
-    </div>
-  </section>
 
   <!-- Products Section -->
   <section id="products" class="products-section">
@@ -143,18 +131,20 @@
       </div>
     </div>
   </section>
-
-  <!-- CTA Section -->
-  <section id="contact" class="cta-section">
-    <div class="video-text-container">
+      <div class="video-text-container hero-video">
       <div class="video-text">
         <video autoplay muted loop playsinline>
           <source src="background1.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
-        <h1><span class="dark-part">app</span><span class="teal-part">le</span><span class="secondary-part">xium</span></h1>
       </div>
     </div>
+
+  <!-- CTA Section -->
+  <section id="contact" class="cta-section">
+    <!-- Hero Section with Video Text -->
+
+
     <div class="container">
       <div class="cta-content">
         <h2>Ready to Build Your Future?</h2>

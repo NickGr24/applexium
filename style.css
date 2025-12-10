@@ -60,8 +60,9 @@ body {
 #floating-lines {
     position: absolute;
     top: 0;
-    left: 0;
-    width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100vw;
     height: 100%;
     pointer-events: none;
     z-index: 1;
@@ -874,6 +875,51 @@ body {
     animation: fadeInUp 1.2s ease-out 1.2s forwards;
 }
 
+.cta-logo {
+    max-width: 600px;
+    width: 100%;
+    height: auto;
+    margin-bottom: 40px;
+    filter: drop-shadow(0 4px 20px rgba(125, 226, 209, 0.3));
+}
+
+.hero-video {
+    position: relative !important;
+    margin-bottom: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 0 20px;
+}
+
+.hero-video .video-text {
+    height: 400px;
+    max-width: 1400px;
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(ellipse at center, rgba(125, 226, 209, 0.05) 0%, transparent 70%);
+    border-radius: 20px;
+}
+
+.hero-video .video-text video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    mask-image: url('applexium.svg');
+    -webkit-mask-image: url('applexium.svg');
+    mask-repeat: no-repeat;
+    -webkit-mask-repeat: no-repeat;
+    mask-size: contain;
+    -webkit-mask-size: contain;
+    mask-position: center;
+    -webkit-mask-position: center;
+    filter: brightness(2.5) contrast(2.0) saturate(2.2);
+}
+
 .cta-content h2 {
     font-size: clamp(40px, 6vw, 64px);
     font-weight: 800;
@@ -1156,6 +1202,10 @@ body {
         height: 200px;
     }
 
+    .hero-video .video-text {
+        height: 300px;
+    }
+
     .capabilities-section {
         padding: 60px 20px;
     }
@@ -1253,38 +1303,54 @@ body {
     .navbar {
         padding: 12px 12px;
     }
-    
+
     .logo-text {
         font-size: 18px;
     }
-    
+
     .mobile-menu-toggle {
         display: flex;
     }
-    
+
     .mobile-menu-toggle span {
         width: 24px;
     }
-    
+
     .nav-links {
         width: 100%;
         padding: 70px 20px 20px;
     }
-    
+
     .nav-links a {
         font-size: 18px;
     }
-    
+
     .btn-primary {
         padding: 10px 16px;
         font-size: 16px;
         border-radius: 16px;
+    }
+
+    .hero-video .video-text {
+        height: 150px;
+    }
+
+    .hero-video {
+        margin-bottom: 30px;
     }
 }
 
 @media (max-width: 640px) {
     .video-text {
         height: 150px;
+    }
+
+    .hero-video .video-text {
+        height: 200px;
+    }
+
+    .hero-video {
+        margin-bottom: 40px;
     }
 
     .capability-card {
