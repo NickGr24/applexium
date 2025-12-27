@@ -1669,13 +1669,26 @@ html {
 .contact-map {
     background: linear-gradient(135deg, #d4f1e8 0%, #b8e6d5 100%);
     border-radius: 20px;
-    padding: 40px;
+    padding: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
     overflow: hidden;
     min-height: 500px;
+}
+
+.contact-map iframe {
+    width: 100%;
+    height: 100%;
+    min-height: 500px;
+    border-radius: 20px;
+    filter: grayscale(0.2) contrast(1.1);
+    transition: all 0.3s ease;
+}
+
+.contact-map:hover iframe {
+    filter: grayscale(0) contrast(1.2);
 }
 
 .map-placeholder {
@@ -1776,5 +1789,785 @@ html {
 
     .contact-map {
         min-height: 400px;
+    }
+}
+
+/* ===========================
+   LEGALIA PAGE STYLES
+   =========================== */
+
+/* Legalia Hero Section */
+.legalia-hero {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 140px 20px 80px;
+    background: #0a0c0c;
+    position: relative;
+    overflow: hidden;
+}
+
+.legalia-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 30% 50%, rgba(125, 226, 209, 0.08) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.legalia-hero .container {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+}
+
+.legalia-hero .hero-content {
+    text-align: center;
+}
+
+.product-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(125, 226, 209, 0.15);
+    border: 1px solid rgba(125, 226, 209, 0.3);
+    padding: 8px 20px;
+    border-radius: 30px;
+    margin-bottom: 24px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: var(--primary-teal);
+    font-weight: 500;
+}
+
+.product-badge i {
+    font-size: 16px;
+}
+
+.legalia-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(56px, 8vw, 80px);
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 16px;
+    letter-spacing: -1px;
+}
+
+.hero-subtitle {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(20px, 3vw, 26px);
+    color: var(--primary-teal);
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.hero-description {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(16px, 2vw, 18px);
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.8;
+    margin-bottom: 40px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* About Section */
+.about-section {
+    padding: 100px 20px;
+    background: var(--dark-bg);
+}
+
+.about-section .container {
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.about-content h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(32px, 5vw, 44px);
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 24px;
+}
+
+.about-content p {
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 20px;
+}
+
+.about-content .highlight {
+    color: var(--primary-teal);
+    font-weight: 600;
+}
+
+.learning-cycle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.cycle-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.cycle-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--primary-teal), var(--secondary-teal));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 24px rgba(125, 226, 209, 0.3);
+    transition: all 0.3s ease;
+}
+
+.cycle-icon:hover {
+    transform: scale(1.1) rotate(10deg);
+    box-shadow: 0 12px 32px rgba(125, 226, 209, 0.5);
+}
+
+.cycle-icon i {
+    font-size: 32px;
+    color: var(--dark-bg);
+}
+
+.cycle-item span {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.cycle-arrow {
+    font-size: 24px;
+    color: var(--primary-teal);
+    opacity: 0.6;
+}
+
+/* Audience Section */
+.audience-section {
+    padding: 100px 20px;
+    background: #0a0c0c;
+}
+
+.audience-section h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(36px, 5vw, 48px);
+    font-weight: 700;
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.audience-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.audience-card {
+    background: rgba(51, 153, 137, 0.08);
+    border: 1px solid rgba(125, 226, 209, 0.2);
+    border-radius: 20px;
+    padding: 40px 30px;
+    text-align: center;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.audience-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(125, 226, 209, 0.1) 0%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.audience-card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(125, 226, 209, 0.5);
+    box-shadow: 0 20px 40px rgba(125, 226, 209, 0.2);
+}
+
+.audience-card:hover::before {
+    opacity: 1;
+}
+
+.audience-icon {
+    width: 90px;
+    height: 90px;
+    background: rgba(125, 226, 209, 0.15);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 24px;
+    position: relative;
+    z-index: 1;
+    transition: all 0.4s ease;
+}
+
+.audience-card:hover .audience-icon {
+    background: linear-gradient(135deg, var(--primary-teal), var(--secondary-teal));
+    transform: scale(1.1) rotate(5deg);
+}
+
+.audience-icon i {
+    font-size: 40px;
+    color: var(--primary-teal);
+    transition: color 0.4s ease;
+}
+
+.audience-card:hover .audience-icon i {
+    color: var(--dark-bg);
+}
+
+.audience-card h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 16px;
+    position: relative;
+    z-index: 1;
+}
+
+.audience-card p {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.7);
+    position: relative;
+    z-index: 1;
+}
+
+/* Features Section */
+.features-section {
+    padding: 100px 20px;
+    background: var(--dark-bg);
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-header h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(36px, 5vw, 48px);
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 16px;
+}
+
+.section-header p {
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.feature-card {
+    background: rgba(51, 153, 137, 0.08);
+    border: 1px solid rgba(125, 226, 209, 0.2);
+    border-radius: 16px;
+    padding: 35px 28px;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-card::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        115deg,
+        transparent 20%,
+        rgba(125, 226, 209, 0.2) 40%,
+        rgba(125, 226, 209, 0.4) 50%,
+        rgba(125, 226, 209, 0.2) 60%,
+        transparent 80%
+    );
+    transform: translateX(-100%) translateY(-100%) rotate(45deg);
+    transition: transform 0.6s ease;
+    pointer-events: none;
+}
+
+.feature-card:hover::after {
+    transform: translateX(100%) translateY(100%) rotate(45deg);
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(125, 226, 209, 0.5);
+    box-shadow: 0 15px 35px rgba(125, 226, 209, 0.2);
+}
+
+.feature-icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, rgba(125, 226, 209, 0.2), rgba(51, 153, 137, 0.3));
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    transition: all 0.4s ease;
+}
+
+.feature-card:hover .feature-icon {
+    background: linear-gradient(135deg, var(--primary-teal), var(--secondary-teal));
+    transform: scale(1.1);
+}
+
+.feature-icon i {
+    font-size: 32px;
+    color: var(--primary-teal);
+    transition: color 0.4s ease;
+}
+
+.feature-card:hover .feature-icon i {
+    color: var(--dark-bg);
+}
+
+.feature-card h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 12px;
+}
+
+.feature-card p {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Benefits Section */
+.benefits-section {
+    padding: 100px 20px;
+    background: #0a0c0c;
+}
+
+.benefits-section h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(36px, 5vw, 48px);
+    font-weight: 700;
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.benefit-card {
+    background: linear-gradient(135deg, rgba(51, 153, 137, 0.1) 0%, rgba(125, 226, 209, 0.05) 100%);
+    border: 1px solid rgba(125, 226, 209, 0.2);
+    border-radius: 20px;
+    padding: 40px 30px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+.benefit-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(180deg, var(--primary-teal), var(--secondary-teal));
+    transform: scaleY(0);
+    transition: transform 0.4s ease;
+}
+
+.benefit-card:hover::before {
+    transform: scaleY(1);
+}
+
+.benefit-card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(125, 226, 209, 0.5);
+    box-shadow: 0 20px 45px rgba(125, 226, 209, 0.25);
+}
+
+.benefit-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 56px;
+    font-weight: 700;
+    color: rgba(125, 226, 209, 0.2);
+    line-height: 1;
+    margin-bottom: 16px;
+}
+
+.benefit-card h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 12px;
+}
+
+.benefit-card p {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 20px;
+}
+
+.benefit-icon {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    font-size: 40px;
+    color: rgba(125, 226, 209, 0.1);
+    transition: all 0.4s ease;
+}
+
+.benefit-card:hover .benefit-icon {
+    color: rgba(125, 226, 209, 0.3);
+    transform: scale(1.2) rotate(10deg);
+}
+
+/* Core Features Section */
+.core-features-section {
+    padding: 100px 20px;
+    background: var(--dark-bg);
+}
+
+.core-features-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.core-features-content h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(36px, 5vw, 48px);
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 40px;
+}
+
+.features-list {
+    list-style: none;
+    padding: 0;
+}
+
+.features-list li {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.8);
+    transition: all 0.3s ease;
+}
+
+.features-list li:hover {
+    color: #ffffff;
+    transform: translateX(8px);
+}
+
+.features-list i {
+    font-size: 24px;
+    color: var(--primary-teal);
+    flex-shrink: 0;
+}
+
+.phone-mockup {
+    width: 320px;
+    height: 640px;
+    background: linear-gradient(135deg, rgba(125, 226, 209, 0.1), rgba(51, 153, 137, 0.2));
+    border: 12px solid rgba(125, 226, 209, 0.3);
+    border-radius: 40px;
+    padding: 20px;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+    position: relative;
+    margin: 0 auto;
+    transition: all 0.4s ease;
+}
+
+.phone-mockup:hover {
+    transform: scale(1.05) rotate(-2deg);
+    box-shadow: 0 40px 80px rgba(125, 226, 209, 0.3);
+}
+
+.phone-screen {
+    width: 100%;
+    height: 100%;
+    background: #131515;
+    border-radius: 28px;
+    padding: 20px;
+    overflow: hidden;
+}
+
+.mockup-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.mockup-avatar {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, var(--primary-teal), var(--secondary-teal));
+    border-radius: 50%;
+}
+
+.mockup-info {
+    flex: 1;
+}
+
+.mockup-name {
+    width: 120px;
+    height: 12px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 6px;
+    margin-bottom: 8px;
+}
+
+.mockup-progress {
+    width: 80px;
+    height: 8px;
+    background: rgba(125, 226, 209, 0.3);
+    border-radius: 4px;
+}
+
+.mockup-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.mockup-card {
+    height: 100px;
+    background: linear-gradient(135deg, rgba(51, 153, 137, 0.2), rgba(125, 226, 209, 0.1));
+    border: 1px solid rgba(125, 226, 209, 0.2);
+    border-radius: 16px;
+    animation: cardPulse 2s ease-in-out infinite;
+}
+
+.mockup-card:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+.mockup-card:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+@keyframes cardPulse {
+    0%, 100% {
+        opacity: 0.6;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.02);
+    }
+}
+
+/* Mission Section */
+.mission-section {
+    padding: 120px 20px;
+    background: #0a0c0c;
+    position: relative;
+}
+
+.mission-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(125, 226, 209, 0.1) 0%, transparent 60%);
+    pointer-events: none;
+}
+
+.mission-content {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.mission-icon {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, var(--primary-teal), var(--secondary-teal));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 32px;
+    box-shadow: 0 20px 50px rgba(125, 226, 209, 0.4);
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+.mission-icon i {
+    font-size: 48px;
+    color: var(--dark-bg);
+}
+
+.mission-content h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(36px, 5vw, 48px);
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 24px;
+}
+
+.mission-content p {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(18px, 2.5vw, 22px);
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.mission-content .highlight {
+    color: var(--primary-teal);
+    font-weight: 600;
+}
+
+/* Responsive Design for Legalia Page */
+@media (max-width: 1024px) {
+    .about-section .container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .learning-cycle {
+        gap: 15px;
+    }
+
+    .core-features-wrapper {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+
+    .phone-mockup {
+        width: 280px;
+        height: 560px;
+    }
+}
+
+@media (max-width: 768px) {
+    .legalia-hero {
+        padding: 120px 20px 60px;
+        min-height: 60vh;
+    }
+
+    .about-section,
+    .audience-section,
+    .features-section,
+    .benefits-section,
+    .core-features-section,
+    .mission-section {
+        padding: 60px 20px;
+    }
+
+    .audience-grid,
+    .features-grid,
+    .benefits-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .learning-cycle {
+        flex-direction: column;
+    }
+
+    .cycle-arrow {
+        transform: rotate(90deg);
+    }
+
+    .phone-mockup {
+        width: 260px;
+        height: 520px;
+    }
+}
+
+@media (max-width: 480px) {
+    .cycle-icon {
+        width: 60px;
+        height: 60px;
+    }
+
+    .cycle-icon i {
+        font-size: 24px;
+    }
+
+    .benefit-number {
+        font-size: 42px;
+    }
+
+    .mission-icon {
+        width: 80px;
+        height: 80px;
+    }
+
+    .mission-icon i {
+        font-size: 36px;
     }
 }
