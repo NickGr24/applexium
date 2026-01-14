@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mircea Ursu - CEO | Applexium</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@400;500;600;700&family=Lora:wght@400;500;600;700&family=Poppins:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- AOS Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <!-- Typekit Font for Tube Effect -->
+  <link rel="stylesheet" href="https://use.typekit.net/igx2nek.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* Profile Page Specific Styles */
+    .profile-page {
+      background: linear-gradient(180deg, #0a0c0c 0%, #0d1815 30%, var(--dark-bg) 100%);
+      min-height: 100vh;
+    }
+
+    .profile-page a {
+      text-decoration: none;
+    }
+
+    /* Hero Section */
+    .profile-hero {
+      padding: 160px 20px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .profile-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(ellipse at 30% 20%, rgba(125, 226, 209, 0.08) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .profile-hero-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .profile-photo-wrapper {
+      position: relative;
+    }
+
+    .profile-photo {
+      width: 300px;
+      height: 360px;
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+    }
+
+    .profile-photo::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border: 2px solid rgba(125, 226, 209, 0.2);
+      border-radius: 20px;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .profile-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    .profile-photo-placeholder {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, var(--primary-teal) 0%, var(--secondary-teal) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .profile-photo-placeholder i {
+      font-size: 120px;
+      color: var(--dark-bg);
+      opacity: 0.8;
+    }
+
+    .profile-status {
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--primary-teal);
+      color: var(--dark-bg);
+      padding: 8px 24px;
+      border-radius: 30px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: 14px;
+      letter-spacing: 0.5px;
+      white-space: nowrap;
+      box-shadow: 0 10px 30px rgba(125, 226, 209, 0.3);
+    }
+
+    .profile-info {
+      padding-top: 20px;
+    }
+
+    .profile-name {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(42px, 5vw, 64px);
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 8px;
+      line-height: 1.1;
+    }
+
+    .profile-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(20px, 2.5vw, 26px);
+      color: var(--primary-teal);
+      margin-bottom: 30px;
+      font-weight: 500;
+    }
+
+    .profile-bio {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      color: var(--text-light);
+      line-height: 1.7;
+      margin-bottom: 40px;
+      max-width: 600px;
+    }
+
+    .profile-contact-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .profile-contact-item {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .profile-contact-item i {
+      width: 45px;
+      height: 45px;
+      border-radius: 12px;
+      background: rgba(125, 226, 209, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary-teal);
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .profile-contact-item span {
+      font-family: 'Poppins', sans-serif;
+      font-size: 15px;
+      color: var(--text-light);
+    }
+
+    .profile-contact-item a {
+      font-family: 'Poppins', sans-serif;
+      font-size: 15px;
+      color: var(--text-light);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .profile-contact-item a:hover {
+      color: var(--primary-teal);
+    }
+
+    .profile-social {
+      display: flex;
+      gap: 15px;
+      margin-top: 30px;
+    }
+
+    .profile-social a {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: rgba(125, 226, 209, 0.1);
+      border: 1px solid rgba(125, 226, 209, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary-teal);
+      font-size: 20px;
+      transition: all 0.3s ease;
+    }
+
+    .profile-social a:hover {
+      background: var(--primary-teal);
+      color: var(--dark-bg);
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(125, 226, 209, 0.3);
+    }
+
+    /* Main Content */
+    .profile-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px 80px;
+    }
+
+    /* Section Styles */
+    .profile-section {
+      margin-bottom: 80px;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 3vw, 36px);
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 40px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(125, 226, 209, 0.3), transparent);
+    }
+
+    .section-title i {
+      color: var(--primary-teal);
+      font-size: 24px;
+    }
+
+    /* Timeline */
+    .timeline {
+      position: relative;
+      padding-left: 40px;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 8px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(180deg, var(--primary-teal) 0%, var(--secondary-teal) 50%, rgba(125, 226, 209, 0.1) 100%);
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-bottom: 40px;
+    }
+
+    .timeline-item:last-child {
+      padding-bottom: 0;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: -40px;
+      top: 5px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--dark-bg);
+      border: 3px solid var(--primary-teal);
+      box-shadow: 0 0 20px rgba(125, 226, 209, 0.3);
+    }
+
+    .timeline-item.current .timeline-dot {
+      background: var(--primary-teal);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 20px rgba(125, 226, 209, 0.3); }
+      50% { box-shadow: 0 0 30px rgba(125, 226, 209, 0.6); }
+    }
+
+    .timeline-date {
+      font-family: 'Poppins', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--primary-teal);
+      background: rgba(125, 226, 209, 0.1);
+      padding: 4px 12px;
+      border-radius: 20px;
+      display: inline-block;
+      margin-bottom: 12px;
+    }
+
+    .timeline-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+
+    .timeline-company {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      color: var(--secondary-teal);
+      margin-bottom: 8px;
+    }
+
+    .timeline-location {
+      font-family: 'Poppins', sans-serif;
+      font-size: 13px;
+      color: var(--text-gray);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .timeline-location i {
+      font-size: 12px;
+    }
+
+    /* 3D Tube Scroll Effect - Full Implementation */
+    .tube-section {
+      position: relative;
+      height: 300vh;
+      margin: 0 -20px;
+    }
+
+    .tube__wrapper {
+      width: 100%;
+      height: 100vh;
+      position: sticky;
+      top: 0;
+      perspective: 1000px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .tube__wrapper ul,
+    .tube__wrapper ul li {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .tube__text__wrapper {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      font-family: area-normal, 'Poppins', sans-serif;
+      font-size: clamp(2rem, 8vw, 5rem);
+      text-align: center;
+      font-weight: 600;
+      text-transform: uppercase;
+      transform-style: preserve-3d;
+      transform-origin: center center;
+    }
+
+    .tube__text__item {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform-origin: center center;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      white-space: nowrap;
+    }
+
+    .tube__text__item .exp-role {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(0.8rem, 2vw, 1.5rem);
+      color: rgba(125, 226, 209, 0.7);
+      font-weight: 400;
+      letter-spacing: 0.15em;
+    }
+
+    /* Cylinder Effect for Education - Exact Codrops Implementation */
+    .cylinder-section {
+      position: relative;
+      height: 400vh;
+      margin: 0 -20px;
+    }
+
+    .cylinder__wrapper {
+      width: 100%;
+      height: 100svh;
+      position: sticky;
+      top: 0;
+      perspective: 70vw;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .cylinder__text__wrapper {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      font-family: area-normal, 'Poppins', sans-serif;
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      line-height: clamp(2.5rem, 6vw, 5rem);
+      text-align: center;
+      font-weight: 600;
+      text-transform: uppercase;
+      transform-style: preserve-3d;
+      transform-origin: center center;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .cylinder__text__item {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100%;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+    }
+
+    .cylinder__text__item .edu-role {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(0.8rem, 1.8vw, 1.3rem);
+      color: rgba(125, 226, 209, 0.8);
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    /* Back Button */
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 14px;
+      color: var(--text-gray);
+      text-decoration: none;
+      margin-bottom: 30px;
+      transition: all 0.3s ease;
+    }
+
+    .back-link:hover {
+      color: var(--primary-teal);
+      transform: translateX(-5px);
+    }
+
+    .back-link i {
+      font-size: 12px;
+    }
+
+    /* Responsive */
+    @media (max-width: 968px) {
+      .profile-hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .profile-photo-wrapper {
+        margin: 0 auto;
+      }
+
+      .profile-photo {
+        width: 250px;
+        height: 300px;
+      }
+
+      .profile-contact-grid {
+        justify-content: center;
+      }
+
+      .profile-contact-item {
+        justify-content: center;
+      }
+
+      .profile-social {
+        justify-content: center;
+      }
+
+      .profile-bio {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .conferences-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .profile-contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .profile-photo {
+        width: 200px;
+        height: 240px;
+      }
+
+      /* Cylinder effect mobile adjustments */
+      .cylinder__text__wrapper {
+        font-size: 1.5rem;
+        line-height: 1.5rem;
+      }
+
+      .cylinder__text__item .edu-role {
+        font-size: 0.6rem;
+      }
+    }
+  </style>
+</head>
+<body class="profile-page">
+  <!-- Floating Lines Background -->
+  <canvas id="floating-lines"></canvas>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="logo">
+      <a href="index.html" style="text-decoration: none;">
+        <span class="logo-text">Applexium</span>
+      </a>
+    </div>
+
+    <!-- Mobile Menu Toggle -->
+    <button class="mobile-menu-toggle" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <div class="nav-links">
+      <a href="index.html#products">Products</a>
+      <a href="index.html#capabilities">Services</a>
+      <a href="team.html">Team</a>
+      <a href="contacts.html">Contact</a>
+      <button class="btn-primary">Get a Quote</button>
+    </div>
+  </nav>
+
+  <!-- Profile Hero -->
+  <section class="profile-hero">
+    <div class="profile-hero-content">
+      <div class="profile-photo-wrapper" data-aos="fade-right" data-aos-duration="1000">
+        <div class="profile-photo">
+          <img src="mirceaursu.webp" alt="Mircea Ursu">
+        </div>
+        <span class="profile-status">CEO & Founder</span>
+      </div>
+
+      <div class="profile-info" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+        <a href="team.html" class="back-link">
+          <i class="fas fa-arrow-left"></i>
+          Back to Team
+        </a>
+
+        <h1 class="profile-name">Mircea URSU</h1>
+        <p class="profile-title">Co-Founder & CEO</p>
+
+        <div class="profile-contact-grid">
+          <div class="profile-contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Chisinau, Moldova</span>
+          </div>
+        </div>
+
+        <div class="profile-social">
+          <a href="https://www.linkedin.com/in/mirceaursu/" target="_blank" aria-label="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="https://t.me/observance_of_legality" target="_blank" aria-label="Telegram">
+            <i class="fab fa-telegram-plane"></i>
+          </a>
+          <a href="https://www.facebook.com/mircea.ursu.520" target="_blank" aria-label="Facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="tel:+37378768765" aria-label="Phone">
+            <i class="fas fa-phone-alt"></i>
+          </a>
+          <a href="mailto:mirceaursu@applexium.com" aria-label="Email">
+            <i class="fas fa-envelope"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <div class="profile-content">
+
+    <!-- 3D Tube Scroll Experience Section -->
+    <section class="tube-section">
+      <div class="tube__wrapper">
+        <ul class="tube__text__wrapper">
+          <li class="tube__text__item">Applexium<span class="exp-role">Co-Founder & CEO</span></li>
+          <li class="tube__text__item">Jurista<span class="exp-role">Business Law Advisory</span></li>
+          <li class="tube__text__item">Government<span class="exp-role">State Secretary Advisor</span></li>
+          <li class="tube__text__item">Startup MD<span class="exp-role">Legal Services</span></li>
+          <li class="tube__text__item">Banking<span class="exp-role">Compliance Advisory</span></li>
+          <li class="tube__text__item">Payall<span class="exp-role">AML Services</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Education - Cylinder Effect (Exact Codrops) -->
+    <section class="cylinder-section">
+      <div class="cylinder__wrapper">
+        <ul class="cylinder__text__wrapper">
+          <li class="cylinder__text__item">Doctoral<span class="edu-role">Economics & Management</span></li>
+          <li class="cylinder__text__item">Master's<span class="edu-role">Diplomacy</span></li>
+          <li class="cylinder__text__item">LL.M.<span class="edu-role">Master of Laws</span></li>
+          <li class="cylinder__text__item">LL.B.<span class="edu-role">Bachelor of Laws</span></li>
+        </ul>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <i class="fas fa-atom"></i>
+          <span><span class="brand-dark">app</span><span class="brand-teal">le</span><span class="brand-secondary">xium</span></span>
+        </div>
+        <div class="footer-info">
+          <p>&copy; 2026 Applexium. All Rights Reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- AOS Library -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <!-- GSAP for 3D Tube Effect -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <!-- Custom JavaScript -->
+  <script src="script.js"></script>
+
+  <!-- 3D Tube Animation -->
+  <script>
+    (function() {
+      gsap.registerPlugin(ScrollTrigger);
+
+      class TubeTextAnimation {
+        constructor(section) {
+          this.section = section;
+          this.wrapper = section.querySelector('.tube__wrapper');
+          this.textWrapper = section.querySelector('.tube__text__wrapper');
+          this.items = [...section.querySelectorAll('.tube__text__item')];
+          this.currentRotation = 0;
+
+          this.init();
+          this.setupScrollTrigger();
+
+          window.addEventListener('resize', () => this.init());
+        }
+
+        init() {
+          this.radius = Math.min(window.innerWidth * 0.5, 400);
+          this.anglePerItem = 360 / this.items.length;
+
+          this.items.forEach((item, index) => {
+            const angleDeg = index * this.anglePerItem;
+            const angleRad = (angleDeg * Math.PI) / 180;
+            const x = Math.sin(angleRad) * this.radius;
+            const z = Math.cos(angleRad) * this.radius;
+
+            item.style.transform = `translate(-50%, -50%) translate3d(${x}px, 0px, ${z}px) rotateY(${angleDeg}deg)`;
+            item.dataset.angle = angleDeg;
+          });
+
+          this.updateOpacity();
+        }
+
+        updateOpacity() {
+          this.items.forEach((item) => {
+            const baseAngle = parseFloat(item.dataset.angle);
+            // Calculate effective angle after rotation
+            let effectiveAngle = (baseAngle + this.currentRotation) % 360;
+            if (effectiveAngle < 0) effectiveAngle += 360;
+
+            // Front is at 0 degrees, back is at 180
+            // Only show items within ~60 degrees of front
+            let opacity = 0;
+            if (effectiveAngle <= 45) {
+              opacity = 1 - (effectiveAngle / 45) * 0.7;
+            } else if (effectiveAngle >= 315) {
+              opacity = 1 - ((360 - effectiveAngle) / 45) * 0.7;
+            }
+
+            item.style.opacity = opacity;
+          });
+        }
+
+        setupScrollTrigger() {
+          ScrollTrigger.create({
+            trigger: this.section,
+            start: 'top top',
+            end: 'bottom bottom',
+            scrub: 0.5,
+            onUpdate: (self) => {
+              this.currentRotation = self.progress * 360;
+              this.textWrapper.style.transform = `rotateY(${this.currentRotation}deg)`;
+              this.updateOpacity();
+            }
+          });
+        }
+      }
+
+      // Cylinder Animation Class - Exact Codrops Implementation
+      class CylinderTextAnimation {
+        constructor(section) {
+          this.section = section;
+          this.wrapper = section.querySelector('.cylinder__wrapper');
+          this.textWrapper = section.querySelector('.cylinder__text__wrapper');
+          this.items = [...section.querySelectorAll('.cylinder__text__item')];
+
+          this.init();
+          this.setupScrollTrigger();
+
+          window.addEventListener('resize', () => this.calculatePositions());
+        }
+
+        init() {
+          this.calculatePositions();
+        }
+
+        calculatePositions() {
+          // Exact Codrops formula: offset = 0.4, spacing = 180 / items.length
+          const offset = 0.4;
+          const radius = Math.min(window.innerWidth, window.innerHeight) * offset;
+          const spacing = 180 / this.items.length;
+
+          this.items.forEach((item, index) => {
+            const angle = (index * spacing * Math.PI) / 180;
+            const rotationAngle = index * -spacing;
+
+            const x = 0;
+            const y = Math.sin(angle) * radius;
+            const z = Math.cos(angle) * radius;
+
+            // Exact Codrops transform format
+            item.style.transform = `translate3d(-50%, -50%, 0) translate3d(${x}px, ${y}px, ${z}px) rotateX(${rotationAngle}deg)`;
+          });
+        }
+
+        setupScrollTrigger() {
+          // Exact Codrops animation: rotateX from -80 to 270 degrees
+          gsap.set(this.textWrapper, { rotateX: -80 });
+
+          ScrollTrigger.create({
+            trigger: this.section,
+            start: 'top top',
+            end: 'bottom bottom',
+            scrub: 2,
+            animation: gsap.fromTo(
+              this.textWrapper,
+              { rotateX: -80 },
+              { rotateX: 270, ease: 'none' }
+            )
+          });
+        }
+      }
+
+      document.addEventListener('DOMContentLoaded', () => {
+        // Initialize Tube animations
+        const tubeSections = document.querySelectorAll('.tube-section');
+        tubeSections.forEach(section => {
+          new TubeTextAnimation(section);
+        });
+
+        // Initialize Cylinder animations
+        const cylinderSections = document.querySelectorAll('.cylinder-section');
+        cylinderSections.forEach(section => {
+          new CylinderTextAnimation(section);
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

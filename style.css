@@ -590,6 +590,18 @@ body {
     animation: flow 3s linear infinite;
 }
 
+.product-logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120px;
+    height: auto;
+    z-index: 10;
+    border-radius: 20px;
+    filter: drop-shadow(0 0 20px rgba(125, 226, 209, 0.4));
+}
+
 /* Lock/Security Pattern for Privire */
 .product-image.security {
     background: linear-gradient(180deg, #131515 0%, #000000 100%);
@@ -945,6 +957,7 @@ body {
     align-items: center;
     width: 100%;
     padding: 0 20px;
+    background: var(--dark-bg);
 }
 
 .hero-video .video-text {
@@ -955,8 +968,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: radial-gradient(ellipse at center, rgba(125, 226, 209, 0.05) 0%, transparent 70%);
-    border-radius: 20px;
+    background: none;
 }
 
 .hero-video .video-text video {
@@ -1037,6 +1049,173 @@ body {
 
 .cta-button:active {
     transform: translateY(-1px) scale(1.02);
+}
+
+/* ===========================
+   Team Section
+   =========================== */
+.team-section {
+    min-height: 100vh;
+    padding: 140px 20px 80px;
+    background: var(--dark-bg);
+    display: flex;
+    align-items: center;
+}
+
+.team-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.team-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(36px, 6vw, 56px);
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 20px;
+}
+
+.team-header p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(18px, 2.5vw, 22px);
+    color: var(--text-gray);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.team-cards {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.team-card {
+    background: rgba(125, 226, 209, 0.03);
+    border: 1px solid rgba(125, 226, 209, 0.1);
+    border-radius: 20px;
+    padding: 50px 40px;
+    text-align: center;
+    max-width: 350px;
+    width: 100%;
+    transition: all 0.4s ease;
+}
+
+.team-card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(125, 226, 209, 0.3);
+    background: rgba(125, 226, 209, 0.06);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.team-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary-teal), var(--secondary-teal));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 25px;
+}
+
+.team-avatar i {
+    font-size: 50px;
+    color: var(--dark-bg);
+}
+
+.team-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 10%;
+    border-radius: 50%;
+}
+
+.team-card h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 8px;
+}
+
+.team-role {
+    display: inline-block;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--primary-teal);
+    background: rgba(125, 226, 209, 0.1);
+    padding: 6px 16px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+.team-card p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    color: var(--text-gray);
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.team-social {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.team-social a {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: rgba(125, 226, 209, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-teal);
+    font-size: 18px;
+    transition: all 0.3s ease;
+}
+
+.team-social a:hover {
+    background: var(--primary-teal);
+    color: var(--dark-bg);
+    transform: translateY(-3px);
+}
+
+.team-card-link {
+    text-decoration: none;
+    display: block;
+}
+
+.team-card-link .team-card {
+    cursor: pointer;
+}
+
+.view-profile {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--primary-teal);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.view-profile i {
+    font-size: 12px;
+    transition: transform 0.3s ease;
+}
+
+.team-card-link:hover .view-profile {
+    color: var(--white);
+}
+
+.team-card-link:hover .view-profile i {
+    transform: translateX(5px);
 }
 
 /* ===========================
