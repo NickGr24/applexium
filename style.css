@@ -2088,6 +2088,7 @@ body {
     .hero {
         flex-direction: column;
         text-align: center;
+        padding-top: 120px;
     }
 
     .hero-content {
@@ -2177,11 +2178,11 @@ body {
     }
 
     .hero {
-        padding: 40px 24px;
+        padding: 100px 24px 60px;
     }
 
     .hero h1 {
-        font-size: 44px;
+        font-size: 36px;
     }
 
     .products-section {
