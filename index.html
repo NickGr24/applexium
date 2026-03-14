@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Applexium - We Build Digital Experiences</title>
-  
+  <title>Applexium - Digital Products, IT Services & Startup Consulting</title>
+
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@400;500;600;700&family=Lora:wght@400;500;600;700&family=Poppins:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  
+
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
+
   <!-- AOS Library -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  
+
   <!-- Custom CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
@@ -23,20 +23,23 @@
     <!-- Navigation -->
     <nav class="navbar">
     <div class="logo">
-      <span class="logo-text">Applexium</span>
+      <a href="index.html" style="display: flex; align-items: center; gap: 12px; text-decoration: none;">
+        <img src="logo-icon.svg" alt="Applexium" class="logo-icon">
+        <span class="logo-text">Applexium</span>
+      </a>
     </div>
-    
+
     <!-- Mobile Menu Toggle -->
     <button class="mobile-menu-toggle" aria-label="Toggle menu">
       <span></span>
       <span></span>
       <span></span>
     </button>
-    
+
     <div class="nav-links">
-      <a href="#products">Products</a>
-      <a href="#portfolio">Portfolio</a>
       <a href="#capabilities">Services</a>
+      <a href="#products">Solutions</a>
+      <a href="#portfolio">Portfolio</a>
       <a href="team.html">Team</a>
       <a href="contacts.html">Contact</a>
     </div>
@@ -48,11 +51,11 @@
     <canvas id="floating-lines"></canvas>
 
     <div class="hero-content">
-      <h1>We Build Digital<br>Experiences</h1>
-      <p>Web apps. Mobile apps. Tailored solutions. Scalable technology.</p>
+      <h1>Digital Products, IT Services<br>& Startup Consulting</h1>
+      <p>We help startups and organizations build secure digital products while navigating legal and regulatory challenges.</p>
       <div class="hero-buttons">
-        <button class="btn-hero-primary">Get a Quote</button>
-        <button class="btn-secondary">View Products</button>
+        <a href="#contact" class="btn-hero-primary">Schedule a Consultation</a>
+        <a href="#capabilities" class="btn-secondary">Explore Services</a>
       </div>
     </div>
   </main>
@@ -61,8 +64,8 @@
   <section id="products" class="products-section">
     <div class="container" data-aos="fade-up">
       <div class="header">
-        <h1 data-aos="fade-down" data-aos-duration="800">Explore Our Flagship Products</h1>
-        <p data-aos="fade-up" data-aos-delay="150" data-aos-duration="800">Innovative solutions designed to elevate your business.</p>
+        <h1 data-aos="fade-down" data-aos-duration="800">Our Digital Products</h1>
+        <p data-aos="fade-up" data-aos-delay="150" data-aos-duration="800">Applexium develops its own software platforms designed to support businesses, institutions and communities.</p>
       </div>
 
       <div class="products-grid">
@@ -71,25 +74,28 @@
           <div class="product-image neural">
             <img src="legalia-logo.webp" alt="Legalia Logo" class="product-logo">
           </div>
+          <span class="product-category">Legal Education Platform</span>
           <h2 class="product-title">Legalia</h2>
-          <p class="product-description">Modern legal learning app for Moldova — combining interactive quizzes with structured learning content.</p>
-          <a href="legalia.html"><button class="view-details-btn">View Details</button></a>
+          <p class="product-description">A legal learning platform designed for Moldova, helping users understand legislation through structured courses and interactive quizzes.</p>
+          <a href="legalia.html"><button class="view-details-btn">Explore Product</button></a>
         </div>
 
         <!-- Privy Card -->
         <div class="product-card" data-aos="fade-up" data-aos-delay="400" data-aos-duration="2500" data-aos-easing="ease-in-out-quart">
           <div class="product-image security"></div>
+          <span class="product-category">Cloud Infrastructure Platform</span>
           <h2 class="product-title">Privy</h2>
           <p class="product-description">Scalable and secure cloud infrastructure tailored for enterprise needs.</p>
-          <button class="view-details-btn">View Details</button>
+          <button class="view-details-btn">Explore Product</button>
         </div>
 
         <!-- VoxCivica Card -->
         <div class="product-card" data-aos="fade-left" data-aos-delay="650" data-aos-duration="2500" data-aos-easing="ease-in-out-quart">
           <div class="product-image communication"></div>
+          <span class="product-category">Civic Engagement Platform</span>
           <h2 class="product-title">VoxCivica</h2>
           <p class="product-description">Empower communities with seamless citizen engagement and participation tools.</p>
-          <button class="view-details-btn">View Details</button>
+          <button class="view-details-btn">Explore Product</button>
         </div>
       </div>
     </div>
@@ -100,8 +106,8 @@
     <div class="container">
       <div class="portfolio-header" data-aos="fade-up">
         <span class="portfolio-label">Our Work</span>
-        <h2>Portfolio</h2>
-        <p>A selection of projects we've brought to life</p>
+        <h2>Client Projects & Implementations</h2>
+        <p>Digital platforms and solutions developed by Applexium for organizations, institutions and businesses.</p>
       </div>
 
       <div class="portfolio-grid">
@@ -118,8 +124,7 @@
               <h3>StartIT Planet</h3>
               <p>Educational tech platform for IT learning</p>
               <div class="portfolio-tags">
-                <span>Education</span>
-                <span>Web App</span>
+                <span>Education Platform</span>
               </div>
             </div>
           </div>
@@ -139,8 +144,7 @@
               <h3>ONDIMP</h3>
               <p>Government social services platform</p>
               <div class="portfolio-tags">
-                <span>Government</span>
-                <span>Portal</span>
+                <span>Government Platform</span>
               </div>
             </div>
           </div>
@@ -160,8 +164,7 @@
               <h3>EnergiQ</h3>
               <p>Energy solutions & services platform</p>
               <div class="portfolio-tags">
-                <span>Energy</span>
-                <span>Services</span>
+                <span>Energy Services Platform</span>
               </div>
             </div>
           </div>
@@ -180,43 +183,41 @@
               <h3>Penita Dreptului</h3>
               <p>Legal Education platform</p>
               <div class="portfolio-tags">
-                <span>Legal</span>
-                <span>Services</span>
+                <span>Legal Education Platform</span>
               </div>
             </div>
           </div>
           <div class="portfolio-glow"></div>
         </a>
 
-       
-        <div class="portfolio-card coming-soon" data-aos="fade-up" data-aos-delay="500">
+
+        <a href="https://cmda.md/" target="_blank" rel="noopener noreferrer" class="portfolio-card" data-aos="fade-up" data-aos-delay="500">
           <div class="portfolio-card-inner">
             <div class="portfolio-preview">
-              <img src="cmda.webp" alt="CMDA" class="portfolio-logo coming-soon-logo">
-              <div class="coming-soon-badge">
-                <i class="fas fa-clock"></i>
-                <span>Coming Soon</span>
+              <img src="cmda.webp" alt="CMDA" class="portfolio-logo">
+              <div class="portfolio-overlay">
+                <span class="view-project">View Project <i class="fas fa-arrow-right"></i></span>
               </div>
             </div>
             <div class="portfolio-info">
               <h3>CMDA</h3>
-              <p>cmda.md — Currently in development</p>
+              <p>cmda.md</p>
               <div class="portfolio-tags">
-                <span>In Progress</span>
+                <span>Legal Services Platform</span>
               </div>
             </div>
           </div>
-          <div class="portfolio-glow coming-soon-glow"></div>
-        </div>
+          <div class="portfolio-glow"></div>
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- Core Capabilities Section -->
+  <!-- Services & Expertise Section -->
   <section id="capabilities" class="capabilities-section">
     <div class="container">
       <div class="section-header">
-        <h2>Our Core Capabilities</h2>
+        <h2>Our Services & Expertise</h2>
         <p>From concept to launch, we deliver robust digital solutions that perform.</p>
       </div>
 
@@ -259,16 +260,27 @@
       </div>
     </div>
 
-  <!-- CTA Section -->
+  <!-- Contact Section with Inline Form -->
   <section id="contact" class="cta-section">
-    <!-- Hero Section with Video Text -->
-
-
     <div class="container">
       <div class="cta-content">
         <h2>Ready to Build Your Future?</h2>
-        <p>Let's collaborate to create something extraordinary. Reach out to our experts today to discuss your vision.</p>
-        <a href="contacts.html" class="cta-button">Contact Us</a>
+        <p>Tell us about your project and our team will get back to you shortly.</p>
+        <form class="homepage-contact-form" action="https://formspree.io/f/mkoqzdlo" method="POST">
+          <div class="form-row-inline">
+            <div class="form-group-inline">
+              <input type="text" name="name" placeholder="Name" required>
+            </div>
+            <div class="form-group-inline">
+              <input type="email" name="email" placeholder="Email" required>
+            </div>
+          </div>
+          <div class="form-group-inline">
+            <textarea name="message" rows="4" placeholder="Tell us about your project..." required></textarea>
+          </div>
+          <button type="submit" class="cta-button">Send Request</button>
+          <p class="form-helper-text">Our team will respond within 24 hours.</p>
+        </form>
       </div>
     </div>
   </section>
@@ -278,7 +290,10 @@
     <div class="container">
       <div class="footer-content">
         <div class="footer-brand">
-          <span class="logo-text">Applexium</span>
+          <a href="index.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
+            <img src="logo-icon.svg" alt="Applexium" class="footer-logo-icon">
+            <span class="logo-text">Applexium</span>
+          </a>
         </div>
         <div class="footer-info">
           <p>&copy; 2025 Applexium. All Rights Reserved.</p>
@@ -289,7 +304,7 @@
 
   <!-- AOS Library -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  
+
   <!-- Custom JavaScript -->
   <script src="script.js"></script>
 </body>
