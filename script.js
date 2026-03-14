@@ -41,7 +41,7 @@ if (canvas) {
             }
         }
 
-        ctx.strokeStyle = 'rgba(60, 180, 172, 0.55)';
+        ctx.strokeStyle = 'rgba(135, 82, 250, 0.55)';
         ctx.lineWidth = 4;
         ctx.stroke();
     }
@@ -386,4 +386,4 @@ if (contactForm) {
 // ===========================
 // Console Message
 // ===========================
-console.log('%c🚀 Applexium - Built with Excellence', 'color: #7de2d1; font-size: 16px; font-weight: bold;');
+console.log('%c🚀 Applexium - Built with Excellence', 'color: #8752FA; font-size: 16px; font-weight: bold;');
