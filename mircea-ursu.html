@@ -6,7 +6,7 @@
   <title>Mircea Ursu - CEO | Applexium</title>
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@400;500;600;700&family=Lora:wght@400;500;600;700&family=Poppins:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -21,9 +21,8 @@
   <link rel="stylesheet" href="style.css">
 
   <style>
-    /* Profile Page Specific Styles */
     .profile-page {
-      background: linear-gradient(180deg, #0a0c0c 0%, #0d1815 30%, var(--dark-bg) 100%);
+      background: var(--dark-bg);
       min-height: 100vh;
     }
 
@@ -41,11 +40,11 @@
     .profile-hero::before {
       content: '';
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: radial-gradient(ellipse at 30% 20%, rgba(125, 226, 209, 0.08) 0%, transparent 50%);
+      top: -20%;
+      left: 30%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(89, 30, 243, 0.15) 0%, rgba(135, 82, 250, 0.05) 40%, transparent 70%);
       pointer-events: none;
     }
 
@@ -75,7 +74,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      border: 2px solid rgba(125, 226, 209, 0.2);
+      border: 2px solid rgba(135, 82, 250, 0.2);
       border-radius: 20px;
       pointer-events: none;
       z-index: 2;
@@ -88,28 +87,13 @@
       object-position: center top;
     }
 
-    .profile-photo-placeholder {
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(135deg, var(--primary-teal) 0%, var(--secondary-teal) 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .profile-photo-placeholder i {
-      font-size: 120px;
-      color: var(--dark-bg);
-      opacity: 0.8;
-    }
-
     .profile-status {
       position: absolute;
       bottom: -15px;
       left: 50%;
       transform: translateX(-50%);
-      background: var(--primary-teal);
-      color: var(--dark-bg);
+      background: linear-gradient(135deg, var(--primary-teal), var(--secondary-teal));
+      color: #ffffff;
       padding: 8px 24px;
       border-radius: 30px;
       font-family: 'Poppins', sans-serif;
@@ -117,7 +101,7 @@
       font-size: 14px;
       letter-spacing: 0.5px;
       white-space: nowrap;
-      box-shadow: 0 10px 30px rgba(125, 226, 209, 0.3);
+      box-shadow: 0 10px 30px rgba(135, 82, 250, 0.3);
     }
 
     .profile-info {
@@ -125,7 +109,7 @@
     }
 
     .profile-name {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Poppins', sans-serif;
       font-size: clamp(42px, 5vw, 64px);
       font-weight: 700;
       color: var(--white);
@@ -134,16 +118,16 @@
     }
 
     .profile-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(20px, 2.5vw, 26px);
-      color: var(--primary-teal);
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(18px, 2.5vw, 22px);
+      color: var(--accent-light);
       margin-bottom: 30px;
       font-weight: 500;
     }
 
     .profile-bio {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 20px;
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
       color: var(--text-light);
       line-height: 1.7;
       margin-bottom: 40px;
@@ -167,7 +151,7 @@
       width: 45px;
       height: 45px;
       border-radius: 12px;
-      background: rgba(125, 226, 209, 0.1);
+      background: rgba(135, 82, 250, 0.1);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -177,16 +161,15 @@
     }
 
     .profile-contact-item span {
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Inter', sans-serif;
       font-size: 15px;
       color: var(--text-light);
     }
 
     .profile-contact-item a {
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Inter', sans-serif;
       font-size: 15px;
       color: var(--text-light);
-      text-decoration: none;
       transition: color 0.3s ease;
     }
 
@@ -204,8 +187,8 @@
       width: 50px;
       height: 50px;
       border-radius: 50%;
-      background: rgba(125, 226, 209, 0.1);
-      border: 1px solid rgba(125, 226, 209, 0.2);
+      background: rgba(135, 82, 250, 0.1);
+      border: 1px solid rgba(135, 82, 250, 0.2);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -216,9 +199,9 @@
 
     .profile-social a:hover {
       background: var(--primary-teal);
-      color: var(--dark-bg);
+      color: #ffffff;
       transform: translateY(-5px);
-      box-shadow: 0 15px 30px rgba(125, 226, 209, 0.3);
+      box-shadow: 0 15px 30px rgba(135, 82, 250, 0.3);
     }
 
     /* Main Content */
@@ -233,30 +216,30 @@
       margin-bottom: 80px;
     }
 
-    .section-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(28px, 3vw, 36px);
-      font-weight: 600;
+    .profile-section-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(24px, 3vw, 32px);
+      font-weight: 700;
       color: var(--white);
       margin-bottom: 40px;
       display: flex;
       align-items: center;
-      gap: 20px;
+      gap: 16px;
     }
 
-    .section-title::after {
+    .profile-section-title::after {
       content: '';
       flex: 1;
       height: 1px;
-      background: linear-gradient(90deg, rgba(125, 226, 209, 0.3), transparent);
+      background: linear-gradient(90deg, rgba(135, 82, 250, 0.3), transparent);
     }
 
-    .section-title i {
+    .profile-section-title i {
       color: var(--primary-teal);
-      font-size: 24px;
+      font-size: 22px;
     }
 
-    /* Timeline */
+    /* Experience Timeline */
     .timeline {
       position: relative;
       padding-left: 40px;
@@ -269,7 +252,7 @@
       top: 0;
       bottom: 0;
       width: 2px;
-      background: linear-gradient(180deg, var(--primary-teal) 0%, var(--secondary-teal) 50%, rgba(125, 226, 209, 0.1) 100%);
+      background: linear-gradient(180deg, var(--primary-teal) 0%, var(--secondary-teal) 50%, rgba(135, 82, 250, 0.1) 100%);
     }
 
     .timeline-item {
@@ -290,7 +273,7 @@
       border-radius: 50%;
       background: var(--dark-bg);
       border: 3px solid var(--primary-teal);
-      box-shadow: 0 0 20px rgba(125, 226, 209, 0.3);
+      box-shadow: 0 0 20px rgba(135, 82, 250, 0.3);
     }
 
     .timeline-item.current .timeline-dot {
@@ -299,8 +282,8 @@
     }
 
     @keyframes pulse {
-      0%, 100% { box-shadow: 0 0 20px rgba(125, 226, 209, 0.3); }
-      50% { box-shadow: 0 0 30px rgba(125, 226, 209, 0.6); }
+      0%, 100% { box-shadow: 0 0 20px rgba(135, 82, 250, 0.3); }
+      50% { box-shadow: 0 0 30px rgba(135, 82, 250, 0.6); }
     }
 
     .timeline-date {
@@ -308,7 +291,7 @@
       font-size: 13px;
       font-weight: 600;
       color: var(--primary-teal);
-      background: rgba(125, 226, 209, 0.1);
+      background: rgba(135, 82, 250, 0.1);
       padding: 4px 12px;
       border-radius: 20px;
       display: inline-block;
@@ -324,14 +307,14 @@
     }
 
     .timeline-company {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 18px;
-      color: var(--secondary-teal);
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      color: var(--accent-light);
       margin-bottom: 8px;
     }
 
     .timeline-location {
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Inter', sans-serif;
       font-size: 13px;
       color: var(--text-gray);
       display: flex;
@@ -343,7 +326,7 @@
       font-size: 12px;
     }
 
-    /* 3D Tube Scroll Effect - Full Implementation */
+    /* 3D Tube Scroll Effect */
     .tube-section {
       position: relative;
       height: 300vh;
@@ -398,14 +381,14 @@
     }
 
     .tube__text__item .exp-role {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Inter', sans-serif;
       font-size: clamp(0.8rem, 2vw, 1.5rem);
-      color: rgba(125, 226, 209, 0.7);
+      color: var(--accent-light);
       font-weight: 400;
       letter-spacing: 0.15em;
     }
 
-    /* Cylinder Effect for Education - Exact Codrops Implementation */
+    /* Cylinder Effect for Education */
     .cylinder-section {
       position: relative;
       height: 400vh;
@@ -458,9 +441,9 @@
     }
 
     .cylinder__text__item .edu-role {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Inter', sans-serif;
       font-size: clamp(0.8rem, 1.8vw, 1.3rem);
-      color: rgba(125, 226, 209, 0.8);
+      color: var(--accent-light);
       font-weight: 400;
       letter-spacing: 0.2em;
       text-transform: uppercase;
@@ -474,7 +457,6 @@
       font-family: 'Poppins', sans-serif;
       font-size: 14px;
       color: var(--text-gray);
-      text-decoration: none;
       margin-bottom: 30px;
       transition: all 0.3s ease;
     }
@@ -521,11 +503,7 @@
         margin-right: auto;
       }
 
-      .skills-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .conferences-grid {
+      .education-grid {
         grid-template-columns: 1fr;
       }
     }
@@ -540,7 +518,6 @@
         height: 240px;
       }
 
-      /* Cylinder effect mobile adjustments */
       .cylinder__text__wrapper {
         font-size: 1.5rem;
         line-height: 1.5rem;
@@ -559,7 +536,7 @@
   <!-- Navigation -->
   <nav class="navbar">
     <div class="logo">
-      <a href="index.html" style="display: flex; align-items: center; gap: 12px; text-decoration: none;">
+      <a href="/" style="display: flex; align-items: center; gap: 12px; text-decoration: none;">
         <img src="logo-icon.svg" alt="Applexium" class="logo-icon">
         <span class="logo-text">Applexium</span>
       </a>
@@ -573,31 +550,31 @@
     </button>
 
     <div class="nav-links">
-      <a href="index.html#capabilities">Services</a>
-      <a href="index.html#products">Solutions</a>
-      <a href="index.html#portfolio">Portfolio</a>
-      <a href="team.html">Team</a>
-      <a href="contacts.html">Contact</a>
+      <a href="/#capabilities">Services</a>
+      <a href="/#products">Solutions</a>
+      <a href="/#portfolio">Portfolio</a>
+      <a href="team">Team</a>
+      <a href="contacts">Contact</a>
     </div>
   </nav>
 
   <!-- Profile Hero -->
   <section class="profile-hero">
     <div class="profile-hero-content">
-      <div class="profile-photo-wrapper" data-aos="fade-right" data-aos-duration="1000">
+      <div class="profile-photo-wrapper" data-aos="fade-up" data-aos-duration="1000">
         <div class="profile-photo">
           <img src="mirceaursu.webp" alt="Mircea Ursu">
         </div>
         <span class="profile-status">CEO & Founder</span>
       </div>
 
-      <div class="profile-info" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
-        <a href="team.html" class="back-link">
+      <div class="profile-info" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+        <a href="team" class="back-link">
           <i class="fas fa-arrow-left"></i>
           Back to Team
         </a>
 
-        <h1 class="profile-name">Mircea URSU</h1>
+        <h1 class="profile-name">Mircea Ursu</h1>
         <p class="profile-title">Co-Founder & CEO</p>
 
         <div class="profile-contact-grid">
@@ -645,7 +622,7 @@
       </div>
     </section>
 
-    <!-- Education - Cylinder Effect (Exact Codrops) -->
+    <!-- Education - Cylinder Effect -->
     <section class="cylinder-section">
       <div class="cylinder__wrapper">
         <ul class="cylinder__text__wrapper">
@@ -664,7 +641,7 @@
     <div class="container">
       <div class="footer-content">
         <div class="footer-brand">
-          <a href="index.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
+          <a href="/" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
             <img src="logo-icon.svg" alt="Applexium" class="footer-logo-icon">
             <span class="logo-text">Applexium</span>
           </a>
@@ -725,12 +702,9 @@
         updateOpacity() {
           this.items.forEach((item) => {
             const baseAngle = parseFloat(item.dataset.angle);
-            // Calculate effective angle after rotation
             let effectiveAngle = (baseAngle + this.currentRotation) % 360;
             if (effectiveAngle < 0) effectiveAngle += 360;
 
-            // Front is at 0 degrees, back is at 180
-            // Only show items within ~60 degrees of front
             let opacity = 0;
             if (effectiveAngle <= 45) {
               opacity = 1 - (effectiveAngle / 45) * 0.7;
@@ -757,7 +731,6 @@
         }
       }
 
-      // Cylinder Animation Class - Exact Codrops Implementation
       class CylinderTextAnimation {
         constructor(section) {
           this.section = section;
@@ -776,7 +749,6 @@
         }
 
         calculatePositions() {
-          // Exact Codrops formula: offset = 0.4, spacing = 180 / items.length
           const offset = 0.4;
           const radius = Math.min(window.innerWidth, window.innerHeight) * offset;
           const spacing = 180 / this.items.length;
@@ -789,13 +761,11 @@
             const y = Math.sin(angle) * radius;
             const z = Math.cos(angle) * radius;
 
-            // Exact Codrops transform format
             item.style.transform = `translate3d(-50%, -50%, 0) translate3d(${x}px, ${y}px, ${z}px) rotateX(${rotationAngle}deg)`;
           });
         }
 
         setupScrollTrigger() {
-          // Exact Codrops animation: rotateX from -80 to 270 degrees
           gsap.set(this.textWrapper, { rotateX: -80 });
 
           ScrollTrigger.create({
@@ -813,13 +783,11 @@
       }
 
       document.addEventListener('DOMContentLoaded', () => {
-        // Initialize Tube animations
         const tubeSections = document.querySelectorAll('.tube-section');
         tubeSections.forEach(section => {
           new TubeTextAnimation(section);
         });
 
-        // Initialize Cylinder animations
         const cylinderSections = document.querySelectorAll('.cylinder-section');
         cylinderSections.forEach(section => {
           new CylinderTextAnimation(section);
