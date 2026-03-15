@@ -380,6 +380,31 @@
       white-space: nowrap;
     }
 
+    .tube__text__item .exp-logo {
+      width: clamp(60px, 10vw, 100px);
+      height: clamp(60px, 10vw, 100px);
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      margin-bottom: 8px;
+    }
+
+    .tube__text__item .exp-logo img {
+      max-width: 75%;
+      max-height: 75%;
+      object-fit: contain;
+    }
+
+    .tube__text__item .exp-logo .gov-icon {
+      font-size: clamp(28px, 5vw, 44px);
+      color: var(--accent-light);
+    }
+
     .tube__text__item .exp-role {
       font-family: 'Inter', sans-serif;
       font-size: clamp(0.8rem, 2vw, 1.5rem);
@@ -612,12 +637,12 @@
     <section class="tube-section">
       <div class="tube__wrapper">
         <ul class="tube__text__wrapper">
-          <li class="tube__text__item">Applexium<span class="exp-role">Co-Founder & CEO</span></li>
-          <li class="tube__text__item">Jurista<span class="exp-role">Business Law Advisory</span></li>
-          <li class="tube__text__item">Government<span class="exp-role">State Secretary Advisor</span></li>
-          <li class="tube__text__item">Startup MD<span class="exp-role">Legal Services</span></li>
-          <li class="tube__text__item">Banking<span class="exp-role">Compliance Advisory</span></li>
-          <li class="tube__text__item">Payall<span class="exp-role">AML Services</span></li>
+          <li class="tube__text__item"><div class="exp-logo"><img src="logos/applexium-logo.jpg" alt="Applexium"></div>Applexium<span class="exp-role">Co-Founder & CEO</span></li>
+          <li class="tube__text__item"><div class="exp-logo"><img src="logos/jurista-logo.jpg" alt="Jurista"></div>Jurista<span class="exp-role">Business Law Advisory</span></li>
+          <li class="tube__text__item"><div class="exp-logo"><img src="logos/government-logo.svg" alt="Government"></div>Government<span class="exp-role">State Secretary Advisor</span></li>
+          <li class="tube__text__item"><div class="exp-logo"><img src="logos/startup-md-logo.webp" alt="Startup MD"></div>Startup MD<span class="exp-role">Legal Services</span></li>
+          <li class="tube__text__item"><div class="exp-logo"><img src="logos/victoria-bank-logo.jpg" alt="Banking"></div>Banking<span class="exp-role">Compliance Advisory</span></li>
+          <li class="tube__text__item"><div class="exp-logo"><img src="logos/payall-logo.svg" alt="Payall"></div>Payall<span class="exp-role">AML Services</span></li>
         </ul>
       </div>
     </section>
