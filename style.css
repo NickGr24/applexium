@@ -14,9 +14,6 @@
     --accent-grayblue: #E4E7EE;
 }
 
-html {
-    overflow-x: hidden;
-}
 
 * {
     margin: 0;
