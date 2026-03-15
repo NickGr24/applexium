@@ -400,6 +400,19 @@
       object-fit: contain;
     }
 
+    .tube__text__item .exp-logo.no-bg {
+      background: none;
+      backdrop-filter: none;
+      border: none;
+      width: clamp(80px, 14vw, 140px);
+      height: clamp(80px, 14vw, 140px);
+    }
+
+    .tube__text__item .exp-logo.no-bg img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+
     .tube__text__item .exp-logo .gov-icon {
       font-size: clamp(28px, 5vw, 44px);
       color: var(--accent-light);
@@ -638,10 +651,10 @@
       <div class="tube__wrapper">
         <ul class="tube__text__wrapper">
           <li class="tube__text__item"><div class="exp-logo"><img src="logos/applexium-logo.jpg" alt="Applexium"></div>Applexium<span class="exp-role">Co-Founder & CEO</span></li>
-          <li class="tube__text__item"><div class="exp-logo"><img src="logos/jurista-logo.jpg" alt="Jurista"></div>Jurista<span class="exp-role">Business Law Advisory</span></li>
+          <li class="tube__text__item"><div class="exp-logo no-bg"><img src="logos/jurista-logo.jpg" alt="Jurista"></div>Jurista<span class="exp-role">Business Law Advisory</span></li>
           <li class="tube__text__item"><div class="exp-logo"><img src="logos/government-logo.svg" alt="Government"></div>Government<span class="exp-role">State Secretary Advisor</span></li>
           <li class="tube__text__item"><div class="exp-logo"><img src="logos/startup-md-logo.webp" alt="Startup MD"></div>Startup MD<span class="exp-role">Legal Services</span></li>
-          <li class="tube__text__item"><div class="exp-logo"><img src="logos/maib-bank-logo.svg" alt="Banking"></div>Banking<span class="exp-role">Compliance Advisory</span></li>
+          <li class="tube__text__item"><div class="exp-logo no-bg"><img src="logos/maib-bank-logo.svg" alt="Banking"></div>Banking<span class="exp-role">Compliance Advisory</span></li>
           <li class="tube__text__item"><div class="exp-logo"><img src="logos/payall-logo.svg" alt="Payall"></div>Payall<span class="exp-role">AML Services</span></li>
         </ul>
       </div>
