@@ -899,6 +899,7 @@ body {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 28px;
+    align-items: stretch;
 }
 
 .portfolio-card {
@@ -906,7 +907,7 @@ body {
     border-radius: 16px;
     overflow: hidden;
     text-decoration: none;
-    display: block;
+    display: flex;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -918,6 +919,9 @@ body {
     position: relative;
     z-index: 2;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
 }
 
 .portfolio-card:hover .portfolio-card-inner {
@@ -1073,6 +1077,9 @@ body {
 
 .portfolio-info {
     padding: 24px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .portfolio-info h3 {
