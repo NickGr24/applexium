@@ -1328,6 +1328,63 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
+/* Services Tabs */
+.services-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.services-tab {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 32px;
+    background: rgba(135, 82, 250, 0.06);
+    border: 1px solid rgba(135, 82, 250, 0.15);
+    border-radius: 12px;
+    color: rgba(255, 255, 255, 0.6);
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.services-tab:hover {
+    background: rgba(135, 82, 250, 0.1);
+    border-color: rgba(135, 82, 250, 0.3);
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.services-tab.active {
+    background: linear-gradient(135deg, rgba(135, 82, 250, 0.2), rgba(89, 30, 243, 0.15));
+    border-color: rgba(135, 82, 250, 0.5);
+    color: #ffffff;
+    box-shadow: 0 4px 20px rgba(135, 82, 250, 0.2);
+}
+
+.services-tab i {
+    font-size: 16px;
+}
+
+/* Services panel visibility */
+.services-panel {
+    display: none;
+}
+
+.services-panel.active {
+    display: grid;
+}
+
+/* Compliance icon variant */
+.capability-icon.compliance-icon {
+    background: linear-gradient(135deg, var(--primary-teal), #1A93BD);
+}
+
 .capabilities-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -2167,6 +2224,15 @@ body {
 
     .capabilities-section {
         padding: 60px 20px;
+    }
+
+    .services-tabs {
+        gap: 8px;
+    }
+
+    .services-tab {
+        padding: 12px 20px;
+        font-size: 13px;
     }
 
     .capabilities-grid {

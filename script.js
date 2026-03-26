@@ -384,6 +384,22 @@ if (contactForm) {
 }
 
 // ===========================
+// Services Tabs
+// ===========================
+document.querySelectorAll('.services-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+        // Deactivate all tabs and panels
+        document.querySelectorAll('.services-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.services-panel').forEach(p => p.classList.remove('active'));
+
+        // Activate clicked tab and corresponding panel
+        tab.classList.add('active');
+        const panel = document.getElementById(tab.dataset.tab);
+        if (panel) panel.classList.add('active');
+    });
+});
+
+// ===========================
 // Console Message
 // ===========================
 console.log('%c🚀 Applexium - Built with Excellence', 'color: #8752FA; font-size: 16px; font-weight: bold;');
