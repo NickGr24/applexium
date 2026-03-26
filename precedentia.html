@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Precedentia - AI Legal Search Engine | Applexium</title>
+  <meta name="description" content="Precedentia is an AI-powered legal search engine for Moldova's case law. Search the Supreme Court, Constitutional Court, and ECHR decisions with keyword, semantic, and AI assistant capabilities.">
+  <meta name="keywords" content="Precedentia, legal search, Moldova case law, jurisprudence, CSJ, Constitutional Court, ECHR, AI legal assistant, Applexium, semantic search">
+  <meta name="author" content="Applexium">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://applexium.com/precedentia">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Precedentia - AI Legal Search Engine | Applexium">
+  <meta property="og:description" content="An AI-powered legal search engine for Moldova's case law — covering the Supreme Court, Constitutional Court, and ECHR.">
+  <meta property="og:url" content="https://applexium.com/precedentia">
+  <meta property="og:site_name" content="Applexium">
+  <meta property="og:image" content="https://applexium.com/favicon-512x512.png">
+
+  <link rel="icon" type="image/svg+xml" href="logo-icon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- AOS Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <!-- Shared CSS (navbar/footer) -->
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* ============================================
+       PRECEDENTIA PAGE — EMERALD BRAND IDENTITY
+       ============================================ */
+
+    :root {
+      --pr-brand: #09E1AC;
+      --pr-brand-light: #E0FFE9;
+      --pr-brand-dim: #07a87f;
+      --pr-accent: #1C1899;
+      --pr-accent-light: #3d39cc;
+      --pr-surface: #040d08;
+      --pr-surface-50: #081a10;
+      --pr-surface-100: #0c1f14;
+      --pr-surface-200: #122a1c;
+      --pr-surface-300: #1a3525;
+      --pr-white: #FFFFFF;
+    }
+
+    .precedentia-page {
+      background: var(--pr-surface);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ===== HERO ===== */
+    .pr-hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      padding: 140px 24px 100px;
+      overflow: hidden;
+    }
+
+    .pr-hero::before {
+      content: '';
+      position: absolute;
+      top: -30%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 900px;
+      height: 900px;
+      background: radial-gradient(circle, rgba(9, 225, 172, 0.2) 0%, rgba(28, 24, 153, 0.08) 40%, transparent 70%);
+      pointer-events: none;
+      animation: prHeroPulse 8s ease-in-out infinite alternate;
+    }
+
+    @keyframes prHeroPulse {
+      0% { transform: translateX(-50%) scale(1); opacity: 0.8; }
+      100% { transform: translateX(-50%) scale(1.15); opacity: 1; }
+    }
+
+    .pr-hero-lines {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .pr-hero-lines svg {
+      position: absolute;
+      width: 120%;
+      height: 120%;
+      top: -10%;
+      left: -10%;
+      opacity: 0.12;
+    }
+
+    .pr-hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 860px;
+    }
+
+    .pr-hero-logo {
+      display: block;
+      margin: 0 auto 40px;
+      height: 80px;
+      color: var(--pr-brand);
+      opacity: 0;
+      animation: prFadeUp 0.8s ease 0.35s forwards;
+    }
+
+    .pr-hero h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(36px, 6vw, 72px);
+      font-weight: 800;
+      color: var(--pr-white);
+      line-height: 1.1;
+      margin-bottom: 24px;
+      letter-spacing: -0.02em;
+      opacity: 0;
+      animation: prFadeUp 0.8s ease 0.5s forwards;
+    }
+
+    .pr-hero h1 .gradient-text {
+      background: linear-gradient(135deg, var(--pr-brand), var(--pr-brand-light), var(--pr-brand-dim));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .pr-hero p {
+      font-family: 'Inter', sans-serif;
+      font-size: clamp(16px, 2vw, 20px);
+      color: rgba(224, 255, 233, 0.6);
+      line-height: 1.7;
+      max-width: 600px;
+      margin: 0 auto 48px;
+      opacity: 0;
+      animation: prFadeUp 0.8s ease 0.65s forwards;
+    }
+
+    .pr-hero-actions {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: prFadeUp 0.8s ease 0.8s forwards;
+    }
+
+    .pr-btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 36px;
+      background: linear-gradient(135deg, var(--pr-brand-dim), var(--pr-brand));
+      color: var(--pr-surface);
+      font-family: 'Poppins', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      border-radius: 14px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 32px rgba(9, 225, 172, 0.3);
+    }
+
+    .pr-btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(9, 225, 172, 0.45);
+    }
+
+    .pr-btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 36px;
+      background: rgba(9, 225, 172, 0.06);
+      color: var(--pr-brand-light);
+      font-family: 'Poppins', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      border-radius: 14px;
+      text-decoration: none;
+      border: 1px solid rgba(9, 225, 172, 0.2);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .pr-btn-secondary:hover {
+      background: rgba(9, 225, 172, 0.12);
+      border-color: var(--pr-brand-dim);
+      transform: translateY(-2px);
+    }
+
+    @keyframes prFadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ===== SOURCE BADGES ===== */
+    .pr-source-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 3px 10px;
+      border-radius: 4px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      font-family: 'JetBrains Mono', monospace;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    /* ===== STATS BAR ===== */
+    .pr-stats {
+      position: relative;
+      z-index: 2;
+      padding: 60px 24px;
+      background: linear-gradient(180deg, transparent 0%, rgba(9, 225, 172, 0.04) 50%, transparent 100%);
+    }
+
+    .pr-stats-grid {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    .pr-stat {
+      text-align: center;
+      padding: 32px 20px;
+      background: rgba(9, 225, 172, 0.04);
+      border: 1px solid rgba(9, 225, 172, 0.1);
+      border-radius: 20px;
+      transition: all 0.4s ease;
+    }
+
+    .pr-stat:hover {
+      background: rgba(9, 225, 172, 0.08);
+      border-color: rgba(9, 225, 172, 0.2);
+      transform: translateY(-4px);
+    }
+
+    .pr-stat-number {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--pr-brand-light), var(--pr-brand));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .pr-stat-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      color: rgba(224, 255, 233, 0.45);
+      font-weight: 500;
+    }
+
+    /* ===== ABOUT / CONCEPT ===== */
+    .pr-about {
+      padding: 120px 24px;
+      position: relative;
+    }
+
+    .pr-about-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .pr-about-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .pr-about-icon-inner {
+      width: 280px;
+      height: 280px;
+      background: linear-gradient(135deg, var(--pr-brand-dim), var(--pr-brand), var(--pr-brand-light));
+      border-radius: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      box-shadow: 0 40px 80px rgba(9, 225, 172, 0.2);
+    }
+
+    .pr-about-icon-inner svg {
+      height: 140px;
+      width: auto;
+      color: var(--pr-surface);
+    }
+
+    .pr-about-text h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 700;
+      color: var(--pr-white);
+      margin-bottom: 24px;
+      line-height: 1.2;
+    }
+
+    .pr-about-text p {
+      font-family: 'Inter', sans-serif;
+      font-size: 17px;
+      color: rgba(224, 255, 233, 0.55);
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+
+    /* ===== FEATURES ===== */
+    .pr-features {
+      padding: 100px 24px;
+      position: relative;
+    }
+
+    .pr-features::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(ellipse at 30% 50%, rgba(9, 225, 172, 0.06) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .pr-section-header {
+      text-align: center;
+      margin-bottom: 64px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .pr-section-header h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 700;
+      color: var(--pr-white);
+      margin-bottom: 16px;
+    }
+
+    .pr-section-header p {
+      font-family: 'Inter', sans-serif;
+      font-size: 17px;
+      color: rgba(224, 255, 233, 0.45);
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .pr-features-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .pr-feature-card {
+      background: rgba(9, 225, 172, 0.04);
+      border: 1px solid rgba(9, 225, 172, 0.08);
+      border-radius: 20px;
+      padding: 32px 24px;
+      text-align: center;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pr-feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--pr-brand-dim), var(--pr-brand-light));
+      transform: scaleX(0);
+      transition: transform 0.4s ease;
+    }
+
+    .pr-feature-card:hover {
+      background: rgba(9, 225, 172, 0.08);
+      border-color: rgba(9, 225, 172, 0.2);
+      transform: translateY(-6px);
+    }
+
+    .pr-feature-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .pr-feature-icon {
+      width: 60px;
+      height: 60px;
+      margin: 0 auto 20px;
+      background: linear-gradient(135deg, var(--pr-brand-dim), var(--pr-brand));
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      color: var(--pr-surface);
+      transition: all 0.4s ease;
+    }
+
+    .pr-feature-card:hover .pr-feature-icon {
+      transform: scale(1.1) rotate(-5deg);
+      box-shadow: 0 8px 24px rgba(9, 225, 172, 0.3);
+    }
+
+    .pr-feature-card h3 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--pr-white);
+      margin-bottom: 8px;
+    }
+
+    .pr-feature-card p {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      color: rgba(224, 255, 233, 0.4);
+      line-height: 1.6;
+    }
+
+    /* ===== SOURCES SECTION ===== */
+    .pr-sources {
+      padding: 100px 24px;
+      position: relative;
+    }
+
+    .pr-sources-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .pr-source-card {
+      background: var(--pr-surface-50);
+      border: 1px solid var(--pr-surface-300);
+      border-radius: 20px;
+      padding: 32px 24px;
+      transition: all 0.4s ease;
+    }
+
+    .pr-source-card:hover {
+      border-color: rgba(9, 225, 172, 0.2);
+      transform: translateY(-4px);
+    }
+
+    .pr-source-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+
+    .pr-source-card h3 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--pr-white);
+      margin-bottom: 8px;
+    }
+
+    .pr-source-card p {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      color: rgba(224, 255, 233, 0.4);
+      line-height: 1.6;
+    }
+
+    .pr-source-url {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      color: rgba(224, 255, 233, 0.3);
+    }
+
+    /* ===== SEARCH DEMO ===== */
+    .pr-demo {
+      padding: 100px 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pr-demo-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .pr-demo-visual {
+      position: relative;
+      background: linear-gradient(135deg, var(--pr-surface-100), var(--pr-surface-200));
+      border: 1px solid var(--pr-surface-300);
+      border-radius: 24px;
+      padding: 48px 40px;
+      overflow: hidden;
+    }
+
+    .pr-demo-visual::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -30%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(9, 225, 172, 0.08) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .pr-demo-searchbar {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+
+    .pr-demo-input {
+      flex: 1;
+      background: var(--pr-surface);
+      border: 1px solid var(--pr-surface-300);
+      border-radius: 12px;
+      padding: 16px 20px 16px 48px;
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      color: rgba(224, 255, 233, 0.7);
+      position: relative;
+    }
+
+    .pr-demo-input-icon {
+      position: absolute;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: rgba(224, 255, 233, 0.3);
+      z-index: 3;
+    }
+
+    .pr-demo-modes {
+      display: flex;
+      background: var(--pr-surface);
+      border: 1px solid var(--pr-surface-300);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .pr-demo-mode {
+      padding: 16px 20px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      color: rgba(224, 255, 233, 0.4);
+      white-space: nowrap;
+      border-right: 1px solid var(--pr-surface-300);
+    }
+
+    .pr-demo-mode.active {
+      color: var(--pr-brand-light);
+      background: rgba(9, 225, 172, 0.08);
+    }
+
+    .pr-demo-mode:last-child {
+      border-right: none;
+    }
+
+    .pr-demo-results {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .pr-demo-result {
+      background: var(--pr-surface);
+      border: 1px solid var(--pr-surface-300);
+      border-radius: 12px;
+      padding: 20px;
+      transition: all 0.2s ease;
+    }
+
+    .pr-demo-result:hover {
+      border-color: var(--pr-surface-200);
+      background: var(--pr-surface-50);
+    }
+
+    .pr-demo-result-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .pr-demo-result h4 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--pr-brand-light);
+    }
+
+    .pr-demo-result p {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      color: rgba(224, 255, 233, 0.4);
+      line-height: 1.6;
+    }
+
+    .pr-demo-result-meta {
+      display: flex;
+      gap: 16px;
+      margin-top: 10px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      color: rgba(224, 255, 233, 0.3);
+    }
+
+    /* ===== CTA ===== */
+    .pr-cta {
+      padding: 120px 24px;
+      text-align: center;
+      position: relative;
+    }
+
+    .pr-cta::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 800px;
+      height: 400px;
+      background: radial-gradient(ellipse, rgba(9, 225, 172, 0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .pr-cta-inner {
+      max-width: 700px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .pr-cta h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 800;
+      color: var(--pr-white);
+      margin-bottom: 20px;
+      line-height: 1.15;
+    }
+
+    .pr-cta p {
+      font-family: 'Inter', sans-serif;
+      font-size: 18px;
+      color: rgba(224, 255, 233, 0.45);
+      margin-bottom: 40px;
+      line-height: 1.7;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      .pr-features-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .pr-sources-grid {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+      }
+      .pr-about-inner {
+        grid-template-columns: 1fr;
+        gap: 48px;
+        text-align: center;
+      }
+      .pr-stats-grid {
+        grid-template-columns: 1fr;
+        max-width: 340px;
+      }
+      .pr-demo-searchbar {
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .pr-features-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+        margin: 0 auto;
+      }
+      .pr-about-icon-inner {
+        width: 200px;
+        height: 200px;
+        border-radius: 44px;
+      }
+      .pr-about-icon-inner svg {
+        height: 100px;
+      }
+      .pr-demo-visual {
+        padding: 32px 20px;
+      }
+      .pr-demo-modes {
+        flex-direction: column;
+      }
+      .pr-demo-mode {
+        border-right: none;
+        border-bottom: 1px solid var(--pr-surface-300);
+      }
+    }
+  </style>
+</head>
+<body class="precedentia-page">
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="logo">
+      <a href="/" style="display: flex; align-items: center; gap: 12px; text-decoration: none;">
+        <img src="logo-icon.svg" alt="Applexium" class="logo-icon">
+        <span class="logo-text">Applexium</span>
+      </a>
+    </div>
+
+    <button class="mobile-menu-toggle" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <div class="nav-links">
+      <a href="/#capabilities">Services</a>
+      <a href="/#products">Solutions</a>
+      <a href="/#portfolio">Portfolio</a>
+      <a href="team">Team</a>
+      <a href="contacts">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="pr-hero">
+    <div class="pr-hero-lines">
+      <svg viewBox="0 0 1440 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 450C100 350 300 550 500 400C700 250 900 500 1100 350C1300 200 1500 400 1600 350" stroke="url(#pr1)" stroke-width="3" fill="none"/>
+        <path d="M-100 550C150 450 350 650 550 500C750 350 950 600 1150 450C1350 300 1500 500 1600 450" stroke="url(#pr2)" stroke-width="2" fill="none"/>
+        <path d="M-100 350C200 250 400 450 600 300C800 150 1000 400 1200 250C1400 100 1550 300 1600 250" stroke="url(#pr3)" stroke-width="2" fill="none"/>
+        <defs>
+          <linearGradient id="pr1" x1="0" y1="0" x2="1440" y2="0" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#040d08"/>
+            <stop offset="0.4" stop-color="#09E1AC"/>
+            <stop offset="0.7" stop-color="#E0FFE9"/>
+            <stop offset="1" stop-color="#1C1899"/>
+          </linearGradient>
+          <linearGradient id="pr2" x1="0" y1="0" x2="1440" y2="0" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#E0FFE9"/>
+            <stop offset="0.5" stop-color="#07a87f"/>
+            <stop offset="1" stop-color="#040d08"/>
+          </linearGradient>
+          <linearGradient id="pr3" x1="0" y1="0" x2="1440" y2="0" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#1C1899" stop-opacity="0.3"/>
+            <stop offset="0.5" stop-color="#09E1AC" stop-opacity="0.2"/>
+            <stop offset="1" stop-color="#E0FFE9" stop-opacity="0.1"/>
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
+
+    <div class="pr-hero-content">
+      <svg class="pr-hero-logo" viewBox="-2 -2 280 326" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M135.144 1.23372C99.9962 7.42968 71.2697 22.5254 46.1479 47.9852C10.6619 83.9218 -5.6728 134.053 1.76236 184.071C5.8179 211.897 18.2095 240.623 34.5443 260.676L38.8253 265.858L39.5011 205.137C40.1771 139.573 40.0645 141.713 46.9364 120.759C59.5537 82.0065 89.5193 54.6317 132.328 42.9157C142.692 39.9867 145.17 39.7614 163.308 39.7614C181.557 39.7614 183.81 39.9867 193.161 42.9157C210.509 48.2105 231.463 59.9265 242.729 70.7413L246.221 74.0083L260.19 59.8138L274.272 45.732L267.174 39.0855C249.375 22.5254 223.127 9.23214 195.977 2.81086C183.472 -0.00548387 147.874 -1.01936 135.144 1.23372Z" fill="currentColor"/>
+        <path d="M140.214 82.9075C117.57 89.3288 98.8695 104.875 88.956 125.265C80.9575 141.713 81.07 140.248 81.2953 225.19L81.6335 301.006L91.9977 306.188C97.7431 309.004 106.417 312.721 111.149 314.299L119.936 317.228L120.274 273.856L120.499 230.597L124.78 232.737C148.55 244.791 179.079 243.777 202.511 230.146C230.224 213.811 246.559 178.551 240.701 147.571C237.321 129.659 230.111 116.028 217.269 103.185C210.397 96.3134 206.566 93.497 198.117 89.3288C192.259 86.3998 184.036 83.3582 179.642 82.457C168.828 80.2039 148.775 80.4292 140.214 82.9075ZM178.178 123.801C186.289 127.518 194.175 135.404 198.005 143.628C200.708 149.261 201.047 151.401 201.047 161.315C201.047 171.454 200.709 173.143 197.892 178.551C193.611 186.662 185.951 194.097 178.178 197.702C172.658 200.293 170.292 200.744 161.055 200.744C151.479 200.744 149.677 200.406 143.819 197.477C135.82 193.421 128.047 185.31 124.104 176.748C121.513 171.341 121.062 168.75 121.062 160.751C121.062 152.753 121.513 150.162 123.992 144.98C129.174 133.827 138.411 125.491 149.339 121.998C157.562 119.407 170.179 120.196 178.178 123.801Z" fill="currentColor"/>
+        <path d="M238.335 254.367C220.085 270.025 196.315 279.714 170.968 281.967L162.181 282.755V322.184L173.785 321.508C208.707 319.368 243.179 304.497 270.329 279.714L275.06 275.433L261.204 261.464C253.544 253.803 247.01 247.607 246.672 247.607C246.334 247.607 242.616 250.649 238.335 254.367Z" fill="currentColor"/>
+      </svg>
+      <h1>Intelligent Search in <span class="gradient-text">Moldova's Case Law</span></h1>
+      <p>All court decisions in one place. Keyword search, AI-powered semantic search, and a legal AI assistant — covering CSJ, Constitutional Court, and ECHR.</p>
+      <div class="pr-hero-actions">
+        <a href="#" class="pr-btn-primary"><i class="fas fa-search"></i> Try Precedentia</a>
+        <a href="#features" class="pr-btn-secondary"><i class="fas fa-play-circle"></i> Learn More</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="pr-stats">
+    <div class="pr-stats-grid" data-aos="fade-up">
+      <div class="pr-stat">
+        <div class="pr-stat-number">3</div>
+        <div class="pr-stat-label">Court Sources</div>
+      </div>
+      <div class="pr-stat">
+        <div class="pr-stat-number">50K+</div>
+        <div class="pr-stat-label">Decisions Indexed</div>
+      </div>
+      <div class="pr-stat">
+        <div class="pr-stat-number">3</div>
+        <div class="pr-stat-label">Search Modes</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About / Concept -->
+  <section class="pr-about">
+    <div class="pr-about-inner">
+      <div class="pr-about-icon" data-aos="fade-right">
+        <div class="pr-about-icon-inner">
+          <svg viewBox="-2 -2 280 326" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M135.144 1.23372C99.9962 7.42968 71.2697 22.5254 46.1479 47.9852C10.6619 83.9218 -5.6728 134.053 1.76236 184.071C5.8179 211.897 18.2095 240.623 34.5443 260.676L38.8253 265.858L39.5011 205.137C40.1771 139.573 40.0645 141.713 46.9364 120.759C59.5537 82.0065 89.5193 54.6317 132.328 42.9157C142.692 39.9867 145.17 39.7614 163.308 39.7614C181.557 39.7614 183.81 39.9867 193.161 42.9157C210.509 48.2105 231.463 59.9265 242.729 70.7413L246.221 74.0083L260.19 59.8138L274.272 45.732L267.174 39.0855C249.375 22.5254 223.127 9.23214 195.977 2.81086C183.472 -0.00548387 147.874 -1.01936 135.144 1.23372Z" fill="currentColor"/>
+            <path d="M140.214 82.9075C117.57 89.3288 98.8695 104.875 88.956 125.265C80.9575 141.713 81.07 140.248 81.2953 225.19L81.6335 301.006L91.9977 306.188C97.7431 309.004 106.417 312.721 111.149 314.299L119.936 317.228L120.274 273.856L120.499 230.597L124.78 232.737C148.55 244.791 179.079 243.777 202.511 230.146C230.224 213.811 246.559 178.551 240.701 147.571C237.321 129.659 230.111 116.028 217.269 103.185C210.397 96.3134 206.566 93.497 198.117 89.3288C192.259 86.3998 184.036 83.3582 179.642 82.457C168.828 80.2039 148.775 80.4292 140.214 82.9075ZM178.178 123.801C186.289 127.518 194.175 135.404 198.005 143.628C200.708 149.261 201.047 151.401 201.047 161.315C201.047 171.454 200.709 173.143 197.892 178.551C193.611 186.662 185.951 194.097 178.178 197.702C172.658 200.293 170.292 200.744 161.055 200.744C151.479 200.744 149.677 200.406 143.819 197.477C135.82 193.421 128.047 185.31 124.104 176.748C121.513 171.341 121.062 168.75 121.062 160.751C121.062 152.753 121.513 150.162 123.992 144.98C129.174 133.827 138.411 125.491 149.339 121.998C157.562 119.407 170.179 120.196 178.178 123.801Z" fill="currentColor"/>
+            <path d="M238.335 254.367C220.085 270.025 196.315 279.714 170.968 281.967L162.181 282.755V322.184L173.785 321.508C208.707 319.368 243.179 304.497 270.329 279.714L275.06 275.433L261.204 261.464C253.544 253.803 247.01 247.607 246.672 247.607C246.334 247.607 242.616 250.649 238.335 254.367Z" fill="currentColor"/>
+          </svg>
+        </div>
+      </div>
+      <div class="pr-about-text" data-aos="fade-left">
+        <h2>Concept & Mission</h2>
+        <p>Precedentia is a specialized legal search platform for the Republic of Moldova. It brings together jurisprudence from three essential sources into a single, intelligent interface.</p>
+        <p>The platform offers instant keyword search, AI-powered semantic search that understands context and legal reasoning, and an AI assistant that answers legal questions with exact citations from existing case law.</p>
+        <p>All databases are automatically updated from official sources, ensuring practitioners always have access to the latest decisions.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section id="features" class="pr-features">
+    <div class="pr-section-header" data-aos="fade-up">
+      <h2>Platform Features</h2>
+      <p>Three search modes for every legal research need</p>
+    </div>
+
+    <div class="pr-features-grid">
+      <div class="pr-feature-card" data-aos="fade-up" data-aos-delay="0">
+        <div class="pr-feature-icon"><i class="fas fa-bolt"></i></div>
+        <h3>Keyword Search</h3>
+        <p>Instant full-text search across all databases with advanced filters by source, date, court chamber, and document type</p>
+      </div>
+      <div class="pr-feature-card" data-aos="fade-up" data-aos-delay="80">
+        <div class="pr-feature-icon"><i class="fas fa-brain"></i></div>
+        <h3>Semantic Search</h3>
+        <p>Describe your legal situation in natural language. The AI finds relevant cases by understanding context, not just keywords</p>
+      </div>
+      <div class="pr-feature-card" data-aos="fade-up" data-aos-delay="160">
+        <div class="pr-feature-icon"><i class="fas fa-robot"></i></div>
+        <h3>AI Legal Assistant</h3>
+        <p>Ask legal questions and receive answers grounded in existing jurisprudence, with exact citations and case references</p>
+      </div>
+      <div class="pr-feature-card" data-aos="fade-up" data-aos-delay="240">
+        <div class="pr-feature-icon"><i class="fas fa-filter"></i></div>
+        <h3>Advanced Filters</h3>
+        <p>Filter by court source, date range, CSJ chamber (civil, criminal, plenum), and Constitutional Court document type</p>
+      </div>
+      <div class="pr-feature-card" data-aos="fade-up" data-aos-delay="320">
+        <div class="pr-feature-icon"><i class="fas fa-sync-alt"></i></div>
+        <h3>Auto-Updated</h3>
+        <p>Databases are scraped and updated automatically from official court sources — always up to date</p>
+      </div>
+      <div class="pr-feature-card" data-aos="fade-up" data-aos-delay="400">
+        <div class="pr-feature-icon"><i class="fas fa-user-shield"></i></div>
+        <h3>Tiered Access</h3>
+        <p>Free basic access with premium tiers for semantic search and AI assistant — built for law students and practitioners</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sources -->
+  <section class="pr-sources">
+    <div class="pr-section-header" data-aos="fade-up">
+      <h2>Data Sources</h2>
+      <p>Automatically updated from official institutions</p>
+    </div>
+
+    <div class="pr-sources-grid">
+      <div class="pr-source-card" data-aos="fade-up" data-aos-delay="0">
+        <div class="pr-source-card-header">
+          <span class="pr-source-badge" style="background: #062e23; color: #09E1AC;">ECHR</span>
+          <span class="pr-source-url">HUDOC API</span>
+        </div>
+        <h3>European Court of Human Rights</h3>
+        <p>Judgments, decisions, and communications regarding fundamental rights involving the Republic of Moldova.</p>
+      </div>
+      <div class="pr-source-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="pr-source-card-header">
+          <span class="pr-source-badge" style="background: #0d0b4d; color: #6e6aff;">CSJ</span>
+          <span class="pr-source-url">jurisprudenta.csj.md</span>
+        </div>
+        <h3>Supreme Court of Justice</h3>
+        <p>Civil and criminal chamber decisions, plenum rulings — the highest court of ordinary jurisdiction in Moldova.</p>
+      </div>
+      <div class="pr-source-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="pr-source-card-header">
+          <span class="pr-source-badge" style="background: #0a2e1a; color: #E0FFE9;">CC</span>
+          <span class="pr-source-url">constcourt.md</span>
+        </div>
+        <h3>Constitutional Court</h3>
+        <p>Rulings, decisions, advisory opinions, referrals, and ECtHR summaries from Moldova's Constitutional Court.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Search Demo -->
+  <section class="pr-demo">
+    <div class="pr-demo-inner" data-aos="fade-up">
+      <div class="pr-section-header">
+        <h2>How It Works</h2>
+        <p>Search Moldova's jurisprudence in seconds</p>
+      </div>
+
+      <div class="pr-demo-visual">
+        <div class="pr-demo-searchbar">
+          <div style="position: relative; flex: 1;">
+            <i class="fas fa-magnifying-glass pr-demo-input-icon"></i>
+            <div class="pr-demo-input">dreptul la viață privată în contextul supravegherii digitale...</div>
+          </div>
+          <div class="pr-demo-modes">
+            <div class="pr-demo-mode">Keywords</div>
+            <div class="pr-demo-mode active">Semantic</div>
+          </div>
+        </div>
+
+        <div class="pr-demo-results">
+          <div class="pr-demo-result">
+            <div class="pr-demo-result-header">
+              <span class="pr-source-badge" style="background: #062e23; color: #09E1AC;">ECHR</span>
+              <h4>Sandu and Others v. Moldova</h4>
+            </div>
+            <p>The Court found a violation of Article 8 regarding the surveillance measures applied without adequate judicial oversight...</p>
+            <div class="pr-demo-result-meta">
+              <span>Application no. 21034/05</span>
+              <span>17 July 2018</span>
+              <span>Similarity: 94.2%</span>
+            </div>
+          </div>
+          <div class="pr-demo-result">
+            <div class="pr-demo-result-header">
+              <span class="pr-source-badge" style="background: #0d0b4d; color: #6e6aff;">CSJ</span>
+              <h4>Decision no. 2ra-1147/21</h4>
+            </div>
+            <p>Regarding the unlawful interception of communications and the right to privacy under Article 28 of the Constitution...</p>
+            <div class="pr-demo-result-meta">
+              <span>Civil Chamber</span>
+              <span>12 March 2021</span>
+              <span>Similarity: 89.7%</span>
+            </div>
+          </div>
+          <div class="pr-demo-result">
+            <div class="pr-demo-result-header">
+              <span class="pr-source-badge" style="background: #0a2e1a; color: #E0FFE9;">CC</span>
+              <h4>Decision no. 14 of 10.05.2022</h4>
+            </div>
+            <p>On the constitutionality of provisions regarding personal data processing in the context of national security operations...</p>
+            <div class="pr-demo-result-meta">
+              <span>Constitutional Court</span>
+              <span>10 May 2022</span>
+              <span>Similarity: 86.1%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="pr-cta">
+    <div class="pr-cta-inner" data-aos="fade-up">
+      <h2>Start Researching Smarter</h2>
+      <p>Access Moldova's complete jurisprudence with AI-powered search. Built for law students, attorneys, and legal professionals.</p>
+      <div class="pr-hero-actions">
+        <a href="#" class="pr-btn-primary"><i class="fas fa-search"></i> Try Precedentia</a>
+        <a href="contacts" class="pr-btn-secondary"><i class="fas fa-envelope"></i> Contact Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <a href="/" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
+            <img src="logo-icon.svg" alt="Applexium" class="footer-logo-icon">
+            <span class="logo-text">Applexium</span>
+          </a>
+        </div>
+        <div class="footer-info">
+          <p>&copy; 2026 Applexium. All Rights Reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- AOS Library -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <!-- Custom JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>

@@ -730,37 +730,32 @@ body {
     transform: none !important;
 }
 
-/* Communication Pattern for VoxCivica */
-.product-image.communication {
-    background: linear-gradient(135deg, #09001B 0%, #000000 100%);
+/* Precedentia Legal Search Card */
+.product-image.precedentia {
+    background: linear-gradient(135deg, #040d08 0%, #081a10 50%, #0c1f14 100%);
     position: relative;
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.product-image.communication::before {
+.product-image.precedentia::before {
     content: '';
     position: absolute;
-    width: 120px;
-    height: 120px;
+    width: 200px;
+    height: 200px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: radial-gradient(circle, rgba(89, 30, 243, 0.5) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(9, 225, 172, 0.2) 0%, transparent 70%);
     border-radius: 50%;
 }
 
-.product-image.communication::after {
-    content: '\f086';
-    font-family: 'Font Awesome 6 Free';
-    font-weight: 900;
-    position: absolute;
-    font-size: 56px;
-    color: var(--primary-teal);
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 0.8;
-    filter: drop-shadow(0 0 20px rgba(135, 82, 250, 0.6));
+.product-image.precedentia img {
+    position: relative;
+    z-index: 2;
+    filter: none;
 }
 
 @keyframes flow {
