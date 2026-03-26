@@ -1372,11 +1372,11 @@ body {
 }
 
 /* Services panel visibility */
-.services-panel {
+.capabilities-grid.services-panel {
     display: none;
 }
 
-.services-panel.active {
+.capabilities-grid.services-panel.active {
     display: grid;
 }
 
