@@ -981,6 +981,10 @@ body {
     width: auto;
     height: auto;
     object-fit: contain;
+    background: rgba(255, 255, 255, 0.85);
+    padding: 12px 18px;
+    border-radius: 14px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.04);
     filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.1));
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
@@ -989,6 +993,8 @@ body {
 
 .portfolio-card:hover .portfolio-logo {
     transform: scale(1.1);
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.06);
     filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.15));
 }
 
