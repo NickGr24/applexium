@@ -58,7 +58,8 @@ body {
    =========================== */
 .hero-wrapper {
     position: relative;
-    overflow: hidden;
+    overflow-x: clip;
+    overflow-y: visible;
     background: #070015;
     min-height: 100vh;
 }
