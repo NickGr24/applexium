@@ -1009,6 +1009,14 @@ body {
     filter: grayscale(0.1) drop-shadow(0 6px 20px rgba(135, 82, 250, 0.3));
 }
 
+.portfolio-logo.logo-dark-bg {
+    background: rgba(30, 20, 60, 0.9);
+}
+
+.portfolio-card:hover .portfolio-logo.logo-dark-bg {
+    background: rgba(30, 20, 60, 0.95);
+}
+
 .portfolio-logo.logo-rounded {
     border-radius: 16px;
 }
