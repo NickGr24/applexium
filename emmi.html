@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Emmi - AI Voice Assistant | Applexium</title>
+  <meta name="description" content="Emmi is a bilingual AI voice assistant that handles phone calls for institutions — providing instant, accurate information about admissions, services, and more. 24/7 availability in Romanian and Russian.">
+  <meta name="keywords" content="Emmi, AI voice assistant, voice agent, phone assistant, admissions, bilingual AI, Romanian, Russian, Applexium, Moldova, call center AI">
+  <meta name="author" content="Applexium">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://applexium.com/emmi">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Emmi - AI Voice Assistant | Applexium">
+  <meta property="og:description" content="A bilingual AI voice assistant that handles institutional phone calls — instant, accurate answers about admissions and services, 24/7.">
+  <meta property="og:url" content="https://applexium.com/emmi">
+  <meta property="og:site_name" content="Applexium">
+  <meta property="og:image" content="https://applexium.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <link rel="icon" href="favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="logo-icon.svg">
+  <link rel="icon" type="image/png" sizes="192x192" href="favicon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- AOS Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <!-- Shared CSS (navbar/footer) -->
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* ============================================
+       EMMI PAGE — TEAL / CYAN AI BRAND IDENTITY
+       ============================================ */
+
+    :root {
+      --em-vivid: #0891B2;
+      --em-soft: #06B6D4;
+      --em-light: #67E8F9;
+      --em-accent: #A5F3FC;
+      --em-dark: #09001B;
+      --em-deeper: #071116;
+      --em-white: #FFFFFF;
+    }
+
+    .emmi-page {
+      background: var(--em-dark);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ===== HERO ===== */
+    .em-hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      padding: 140px 24px 100px;
+      overflow: hidden;
+    }
+
+    .em-hero::before {
+      content: '';
+      position: absolute;
+      top: -30%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 900px;
+      height: 900px;
+      background: radial-gradient(circle, rgba(8, 145, 178, 0.25) 0%, rgba(6, 182, 212, 0.1) 40%, transparent 70%);
+      pointer-events: none;
+      animation: emHeroPulse 8s ease-in-out infinite alternate;
+    }
+
+    @keyframes emHeroPulse {
+      0% { transform: translateX(-50%) scale(1); opacity: 0.8; }
+      100% { transform: translateX(-50%) scale(1.15); opacity: 1; }
+    }
+
+    /* Flowing gradient lines */
+    .em-hero-lines {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .em-hero-lines svg {
+      position: absolute;
+      width: 120%;
+      height: 120%;
+      top: -10%;
+      left: -10%;
+      opacity: 0.12;
+    }
+
+    .em-hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 860px;
+    }
+
+    .em-hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(6, 182, 212, 0.15);
+      border: 1px solid rgba(6, 182, 212, 0.3);
+      border-radius: 40px;
+      padding: 8px 20px;
+      margin-bottom: 32px;
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--em-light);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      opacity: 0;
+      animation: emFadeUp 0.8s ease 0.2s forwards;
+    }
+
+    .em-hero-logo {
+      display: block;
+      margin: 0 auto 40px;
+      height: 80px;
+      opacity: 0;
+      animation: emFadeUp 0.8s ease 0.35s forwards;
+    }
+
+    .em-hero h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(36px, 6vw, 72px);
+      font-weight: 800;
+      color: var(--em-white);
+      line-height: 1.1;
+      margin-bottom: 24px;
+      letter-spacing: -0.02em;
+      opacity: 0;
+      animation: emFadeUp 0.8s ease 0.5s forwards;
+    }
+
+    .em-hero h1 .em-gradient-text {
+      background: linear-gradient(135deg, var(--em-vivid), var(--em-light), var(--em-soft));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .em-hero p {
+      font-family: 'Inter', sans-serif;
+      font-size: clamp(16px, 2vw, 20px);
+      color: rgba(255, 255, 255, 0.6);
+      line-height: 1.7;
+      max-width: 620px;
+      margin: 0 auto 48px;
+      opacity: 0;
+      animation: emFadeUp 0.8s ease 0.65s forwards;
+    }
+
+    .em-hero-actions {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: emFadeUp 0.8s ease 0.8s forwards;
+    }
+
+    .em-btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 36px;
+      background: linear-gradient(135deg, var(--em-vivid), var(--em-soft));
+      color: white;
+      font-family: 'Poppins', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      border-radius: 14px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 32px rgba(8, 145, 178, 0.4);
+    }
+
+    .em-btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(8, 145, 178, 0.55);
+    }
+
+    .em-btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 36px;
+      background: rgba(255, 255, 255, 0.06);
+      color: white;
+      font-family: 'Poppins', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      border-radius: 14px;
+      text-decoration: none;
+      border: 1px solid rgba(6, 182, 212, 0.3);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .em-btn-secondary:hover {
+      background: rgba(6, 182, 212, 0.15);
+      border-color: var(--em-soft);
+      transform: translateY(-2px);
+    }
+
+    @keyframes emFadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ===== STATS BAR ===== */
+    .em-stats {
+      position: relative;
+      z-index: 2;
+      padding: 60px 24px;
+      background: linear-gradient(180deg, transparent 0%, rgba(8, 145, 178, 0.06) 50%, transparent 100%);
+    }
+
+    .em-stats-grid {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .em-stat {
+      text-align: center;
+      padding: 32px 20px;
+      background: rgba(6, 182, 212, 0.06);
+      border: 1px solid rgba(6, 182, 212, 0.12);
+      border-radius: 20px;
+      transition: all 0.4s ease;
+    }
+
+    .em-stat:hover {
+      background: rgba(6, 182, 212, 0.12);
+      border-color: rgba(6, 182, 212, 0.25);
+      transform: translateY(-4px);
+    }
+
+    .em-stat-number {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--em-light), var(--em-vivid));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .em-stat-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.5);
+      font-weight: 500;
+    }
+
+    /* ===== ABOUT / CONCEPT ===== */
+    .em-about {
+      padding: 120px 24px;
+      position: relative;
+    }
+
+    .em-about-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .em-about-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .em-about-icon-inner {
+      width: 280px;
+      height: 280px;
+      background: linear-gradient(135deg, var(--em-vivid), var(--em-soft), var(--em-light));
+      border-radius: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      box-shadow: 0 40px 80px rgba(8, 145, 178, 0.3);
+    }
+
+    .em-about-icon-inner i {
+      font-size: 120px;
+      color: white;
+    }
+
+    .em-about-text h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 700;
+      color: var(--em-white);
+      margin-bottom: 24px;
+      line-height: 1.2;
+    }
+
+    .em-about-text p {
+      font-family: 'Inter', sans-serif;
+      font-size: 17px;
+      color: rgba(255, 255, 255, 0.6);
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+
+    /* ===== HOW IT WORKS ===== */
+    .em-how {
+      padding: 100px 24px;
+      position: relative;
+    }
+
+    .em-how::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(ellipse at 70% 50%, rgba(8, 145, 178, 0.08) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .em-section-header {
+      text-align: center;
+      margin-bottom: 64px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .em-section-header h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 700;
+      color: var(--em-white);
+      margin-bottom: 16px;
+    }
+
+    .em-section-header p {
+      font-family: 'Inter', sans-serif;
+      font-size: 17px;
+      color: rgba(255, 255, 255, 0.5);
+      max-width: 550px;
+      margin: 0 auto;
+    }
+
+    .em-steps-grid {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .em-step-card {
+      background: rgba(6, 182, 212, 0.06);
+      border: 1px solid rgba(6, 182, 212, 0.12);
+      border-radius: 20px;
+      padding: 40px 28px;
+      text-align: center;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .em-step-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--em-vivid), var(--em-light));
+      transform: scaleX(0);
+      transition: transform 0.4s ease;
+    }
+
+    .em-step-card:hover {
+      background: rgba(6, 182, 212, 0.12);
+      border-color: rgba(6, 182, 212, 0.3);
+      transform: translateY(-6px);
+    }
+
+    .em-step-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .em-step-number {
+      font-family: 'Poppins', sans-serif;
+      font-size: 48px;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--em-vivid), var(--em-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+
+    .em-step-card h3 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--em-white);
+      margin-bottom: 12px;
+    }
+
+    .em-step-card p {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.45);
+      line-height: 1.7;
+    }
+
+    /* ===== FEATURES ===== */
+    .em-features {
+      padding: 100px 24px;
+      position: relative;
+    }
+
+    .em-features::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(ellipse at 30% 50%, rgba(8, 145, 178, 0.08) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .em-features-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .em-feature-card {
+      background: rgba(6, 182, 212, 0.06);
+      border: 1px solid rgba(6, 182, 212, 0.12);
+      border-radius: 20px;
+      padding: 32px 24px;
+      text-align: center;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .em-feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--em-vivid), var(--em-light));
+      transform: scaleX(0);
+      transition: transform 0.4s ease;
+    }
+
+    .em-feature-card:hover {
+      background: rgba(6, 182, 212, 0.12);
+      border-color: rgba(6, 182, 212, 0.3);
+      transform: translateY(-6px);
+    }
+
+    .em-feature-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .em-feature-icon {
+      width: 60px;
+      height: 60px;
+      margin: 0 auto 20px;
+      background: linear-gradient(135deg, var(--em-vivid), var(--em-soft));
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      color: white;
+      transition: all 0.4s ease;
+    }
+
+    .em-feature-card:hover .em-feature-icon {
+      transform: scale(1.1) rotate(-5deg);
+      box-shadow: 0 8px 24px rgba(8, 145, 178, 0.4);
+    }
+
+    .em-feature-card h3 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--em-white);
+      margin-bottom: 8px;
+    }
+
+    .em-feature-card p {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.45);
+      line-height: 1.6;
+    }
+
+    /* ===== TECH STACK ===== */
+    .em-tech {
+      padding: 100px 24px;
+      position: relative;
+    }
+
+    .em-tech-grid {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .em-tech-card {
+      background: rgba(6, 182, 212, 0.06);
+      border: 1px solid rgba(6, 182, 212, 0.12);
+      border-radius: 20px;
+      padding: 32px 24px;
+      text-align: center;
+      transition: all 0.4s ease;
+    }
+
+    .em-tech-card:hover {
+      background: rgba(6, 182, 212, 0.12);
+      border-color: rgba(6, 182, 212, 0.25);
+      transform: translateY(-4px);
+    }
+
+    .em-tech-card i {
+      font-size: 36px;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, var(--em-light), var(--em-vivid));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .em-tech-card h3 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--em-white);
+      margin-bottom: 8px;
+    }
+
+    .em-tech-card p {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.45);
+      line-height: 1.6;
+    }
+
+    /* ===== USE CASES ===== */
+    .em-usecases {
+      padding: 100px 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .em-usecases-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .em-usecases-visual {
+      position: relative;
+      background: linear-gradient(135deg, var(--em-vivid), var(--em-soft), var(--em-light));
+      border-radius: 32px;
+      padding: 60px 40px;
+      overflow: hidden;
+    }
+
+    .em-usecases-visual::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -30%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(165, 243, 252, 0.4) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .em-usecases-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+    }
+
+    .em-usecases-content h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(28px, 4vw, 48px);
+      font-weight: 800;
+      color: white;
+      margin-bottom: 16px;
+      line-height: 1.15;
+    }
+
+    .em-usecases-content > p {
+      font-family: 'Inter', sans-serif;
+      font-size: 18px;
+      color: rgba(255, 255, 255, 0.85);
+      margin-bottom: 40px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .em-usecase-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .em-usecase-card {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 28px 20px;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .em-usecase-card:hover {
+      background: rgba(255, 255, 255, 0.22);
+      transform: translateY(-4px);
+    }
+
+    .em-usecase-card i {
+      font-size: 32px;
+      color: white;
+      margin-bottom: 12px;
+    }
+
+    .em-usecase-card h3 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      color: white;
+      margin-bottom: 6px;
+    }
+
+    .em-usecase-card p {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.5;
+    }
+
+    /* ===== CTA ===== */
+    .em-cta {
+      padding: 120px 24px;
+      text-align: center;
+      position: relative;
+    }
+
+    .em-cta::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 800px;
+      height: 400px;
+      background: radial-gradient(ellipse, rgba(8, 145, 178, 0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .em-cta-inner {
+      max-width: 700px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .em-cta h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 800;
+      color: var(--em-white);
+      margin-bottom: 20px;
+      line-height: 1.15;
+    }
+
+    .em-cta p {
+      font-family: 'Inter', sans-serif;
+      font-size: 18px;
+      color: rgba(255, 255, 255, 0.55);
+      margin-bottom: 40px;
+      line-height: 1.7;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      .em-features-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .em-about-inner {
+        grid-template-columns: 1fr;
+        gap: 48px;
+        text-align: center;
+      }
+      .em-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .em-steps-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+      }
+      .em-tech-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .em-usecase-cards {
+        grid-template-columns: 1fr;
+        max-width: 340px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .em-features-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+        margin: 0 auto;
+      }
+      .em-about-icon-inner {
+        width: 200px;
+        height: 200px;
+        border-radius: 44px;
+      }
+      .em-about-icon-inner i {
+        font-size: 80px;
+      }
+      .em-stats-grid {
+        grid-template-columns: 1fr;
+        max-width: 340px;
+      }
+      .em-tech-grid {
+        grid-template-columns: 1fr;
+        max-width: 340px;
+      }
+      .em-usecases-visual {
+        padding: 40px 20px;
+        border-radius: 24px;
+      }
+    }
+  </style>
+</head>
+<body class="emmi-page">
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="logo">
+      <a href="/" style="display: flex; align-items: center; gap: 12px; text-decoration: none;">
+        <img src="logo-icon.svg" alt="Applexium" class="logo-icon">
+        <span class="logo-text">Applexium</span>
+      </a>
+    </div>
+
+    <button class="mobile-menu-toggle" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <div class="nav-links">
+      <a href="/#capabilities">Services</a>
+      <a href="/#products">Solutions</a>
+      <a href="/#portfolio">Portfolio</a>
+      <a href="team">Team</a>
+      <a href="contacts">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="em-hero">
+    <div class="em-hero-lines">
+      <svg viewBox="0 0 1440 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 450C100 350 300 550 500 400C700 250 900 500 1100 350C1300 200 1500 400 1600 350" stroke="url(#em1)" stroke-width="3" fill="none"/>
+        <path d="M-100 550C150 450 350 650 550 500C750 350 950 600 1150 450C1350 300 1500 500 1600 450" stroke="url(#em2)" stroke-width="2" fill="none"/>
+        <path d="M-100 350C200 250 400 450 600 300C800 150 1000 400 1200 250C1400 100 1550 300 1600 250" stroke="url(#em3)" stroke-width="2" fill="none"/>
+        <defs>
+          <linearGradient id="em1" x1="0" y1="0" x2="1440" y2="0" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#09001B"/>
+            <stop offset="0.4" stop-color="#0891B2"/>
+            <stop offset="0.7" stop-color="#67E8F9"/>
+            <stop offset="1" stop-color="#A5F3FC"/>
+          </linearGradient>
+          <linearGradient id="em2" x1="0" y1="0" x2="1440" y2="0" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#67E8F9"/>
+            <stop offset="0.5" stop-color="#06B6D4"/>
+            <stop offset="1" stop-color="#09001B"/>
+          </linearGradient>
+          <linearGradient id="em3" x1="0" y1="0" x2="1440" y2="0" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#A5F3FC" stop-opacity="0.3"/>
+            <stop offset="0.5" stop-color="#67E8F9" stop-opacity="0.2"/>
+            <stop offset="1" stop-color="#0891B2" stop-opacity="0.1"/>
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
+
+    <div class="em-hero-content">
+      <span class="em-hero-badge"><i class="fas fa-microphone-alt"></i> AI Voice Agent</span>
+      <img src="emmi.png" alt="Emmi" class="em-hero-logo">
+      <h1>Your AI-Powered <span class="em-gradient-text">Phone Assistant</span></h1>
+      <p>Emmi is a bilingual voice AI agent that answers institutional phone calls in Romanian and Russian — providing accurate, instant information about admissions, services, and more.</p>
+      <div class="em-hero-actions">
+        <a href="contacts" class="em-btn-primary"><i class="fas fa-phone-alt"></i> Request a Demo</a>
+        <a href="#features" class="em-btn-secondary"><i class="fas fa-info-circle"></i> Learn More</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="em-stats" data-aos="fade-up">
+    <div class="em-stats-grid">
+      <div class="em-stat">
+        <div class="em-stat-number">24/7</div>
+        <div class="em-stat-label">Availability</div>
+      </div>
+      <div class="em-stat">
+        <div class="em-stat-number">2</div>
+        <div class="em-stat-label">Languages</div>
+      </div>
+      <div class="em-stat">
+        <div class="em-stat-number">&lt;1s</div>
+        <div class="em-stat-label">Response Time</div>
+      </div>
+      <div class="em-stat">
+        <div class="em-stat-number">100%</div>
+        <div class="em-stat-label">Call Coverage</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About / Concept -->
+  <section class="em-about">
+    <div class="em-about-inner">
+      <div class="em-about-icon" data-aos="fade-right">
+        <div class="em-about-icon-inner">
+          <i class="fas fa-headset"></i>
+        </div>
+      </div>
+      <div class="em-about-text" data-aos="fade-left">
+        <h2>What is Emmi?</h2>
+        <p>Emmi is an intelligent voice assistant designed for institutions and organizations that handle high volumes of repetitive phone inquiries. It speaks naturally in both Romanian and Russian, providing consistent, accurate answers every time.</p>
+        <p>Powered by advanced speech recognition and AI reasoning, Emmi understands caller intent, delivers knowledge-base-driven responses, and automatically extracts structured data from every conversation for analytics and follow-up.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="em-how">
+    <div class="em-section-header" data-aos="fade-up">
+      <h2>How It Works</h2>
+      <p>From incoming call to structured insights — fully automated</p>
+    </div>
+
+    <div class="em-steps-grid">
+      <div class="em-step-card" data-aos="fade-up" data-aos-delay="0">
+        <div class="em-step-number">01</div>
+        <h3>Caller Dials In</h3>
+        <p>Emmi picks up the call instantly, greets the caller in their language, and begins a natural conversation.</p>
+      </div>
+      <div class="em-step-card" data-aos="fade-up" data-aos-delay="120">
+        <div class="em-step-number">02</div>
+        <h3>AI Understands & Responds</h3>
+        <p>Real-time speech recognition transcribes the question. The AI reasons over the knowledge base and delivers an accurate spoken answer.</p>
+      </div>
+      <div class="em-step-card" data-aos="fade-up" data-aos-delay="240">
+        <div class="em-step-number">03</div>
+        <h3>Data Is Extracted</h3>
+        <p>After the call, Emmi automatically extracts caller details, topics discussed, and callback requests — ready for your team's review.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section id="features" class="em-features">
+    <div class="em-section-header" data-aos="fade-up">
+      <h2>Key Capabilities</h2>
+      <p>Everything you need to automate institutional phone support</p>
+    </div>
+
+    <div class="em-features-grid">
+      <div class="em-feature-card" data-aos="fade-up" data-aos-delay="0">
+        <div class="em-feature-icon"><i class="fas fa-language"></i></div>
+        <h3>Bilingual Support</h3>
+        <p>Fluent conversations in Romanian and Russian with natural pronunciation</p>
+      </div>
+      <div class="em-feature-card" data-aos="fade-up" data-aos-delay="80">
+        <div class="em-feature-icon"><i class="fas fa-brain"></i></div>
+        <h3>AI Reasoning</h3>
+        <p>Powered by Claude AI for accurate, context-aware responses</p>
+      </div>
+      <div class="em-feature-card" data-aos="fade-up" data-aos-delay="160">
+        <div class="em-feature-icon"><i class="fas fa-microphone"></i></div>
+        <h3>Real-Time STT</h3>
+        <p>Deepgram Nova-3 speech recognition with sub-second latency</p>
+      </div>
+      <div class="em-feature-card" data-aos="fade-up" data-aos-delay="240">
+        <div class="em-feature-icon"><i class="fas fa-volume-up"></i></div>
+        <h3>Natural Voice</h3>
+        <p>Human-like text-to-speech with emotion and tone customization</p>
+      </div>
+      <div class="em-feature-card" data-aos="fade-up" data-aos-delay="320">
+        <div class="em-feature-icon"><i class="fas fa-database"></i></div>
+        <h3>Knowledge Base</h3>
+        <p>Custom content per language — admissions, fees, deadlines, requirements</p>
+      </div>
+      <div class="em-feature-card" data-aos="fade-up" data-aos-delay="400">
+        <div class="em-feature-icon"><i class="fas fa-chart-line"></i></div>
+        <h3>Call Analytics</h3>
+        <p>Automatic extraction of caller data, topics, and callback requests</p>
+      </div>
+      <div class="em-feature-card" data-aos="fade-up" data-aos-delay="480">
+        <div class="em-feature-icon"><i class="fas fa-file-excel"></i></div>
+        <h3>Admin Dashboard</h3>
+        <p>Filter, search, and export call records with full transcripts</p>
+      </div>
+      <div class="em-feature-card" data-aos="fade-up" data-aos-delay="560">
+        <div class="em-feature-icon"><i class="fas fa-phone-volume"></i></div>
+        <h3>Telephony Integration</h3>
+        <p>Works with Twilio cloud calling or on-premise SIP/PBX systems</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tech Stack -->
+  <section class="em-tech">
+    <div class="em-section-header" data-aos="fade-up">
+      <h2>Technology Stack</h2>
+      <p>Built on cutting-edge AI and voice infrastructure</p>
+    </div>
+
+    <div class="em-tech-grid">
+      <div class="em-tech-card" data-aos="fade-up" data-aos-delay="0">
+        <i class="fas fa-robot"></i>
+        <h3>Claude AI</h3>
+        <p>Advanced reasoning for natural conversation and data extraction</p>
+      </div>
+      <div class="em-tech-card" data-aos="fade-up" data-aos-delay="80">
+        <i class="fas fa-ear-listen"></i>
+        <h3>Deepgram Nova-3</h3>
+        <p>Real-time multilingual speech recognition with voice activity detection</p>
+      </div>
+      <div class="em-tech-card" data-aos="fade-up" data-aos-delay="160">
+        <i class="fas fa-waveform-lines"></i>
+        <h3>Cartesia TTS</h3>
+        <p>Natural voice synthesis with emotion, speed, and tone control</p>
+      </div>
+      <div class="em-tech-card" data-aos="fade-up" data-aos-delay="240">
+        <i class="fas fa-server"></i>
+        <h3>FastAPI</h3>
+        <p>High-performance async Python backend for real-time processing</p>
+      </div>
+      <div class="em-tech-card" data-aos="fade-up" data-aos-delay="320">
+        <i class="fas fa-database"></i>
+        <h3>PostgreSQL</h3>
+        <p>Reliable storage for call records, transcripts, and analytics</p>
+      </div>
+      <div class="em-tech-card" data-aos="fade-up" data-aos-delay="400">
+        <i class="fas fa-phone"></i>
+        <h3>Twilio & SIP</h3>
+        <p>Flexible telephony — cloud-based or on-premise PBX integration</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Use Cases -->
+  <section class="em-usecases">
+    <div class="em-usecases-inner" data-aos="fade-up">
+      <div class="em-usecases-visual">
+        <div class="em-usecases-content">
+          <h2>Built for Institutions<br>That Never Stop</h2>
+          <p>Emmi adapts to any organization that handles repetitive phone inquiries</p>
+
+          <div class="em-usecase-cards">
+            <div class="em-usecase-card">
+              <i class="fas fa-graduation-cap"></i>
+              <h3>Universities</h3>
+              <p>Admissions, enrollment, program details</p>
+            </div>
+            <div class="em-usecase-card">
+              <i class="fas fa-landmark"></i>
+              <h3>Government</h3>
+              <p>Citizen inquiries, permits, licensing</p>
+            </div>
+            <div class="em-usecase-card">
+              <i class="fas fa-hospital"></i>
+              <h3>Healthcare</h3>
+              <p>Appointments, services, patient intake</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="em-cta">
+    <div class="em-cta-inner" data-aos="fade-up">
+      <h2>Ready to Automate Your Calls?</h2>
+      <p>Let Emmi handle your phone inquiries while your team focuses on what matters. Contact us for a personalized demo.</p>
+      <div class="em-hero-actions">
+        <a href="contacts" class="em-btn-primary"><i class="fas fa-envelope"></i> Contact Us</a>
+        <a href="/" class="em-btn-secondary"><i class="fas fa-arrow-left"></i> Back to Home</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <a href="/" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
+            <img src="logo-icon.svg" alt="Applexium" class="footer-logo-icon">
+            <span class="logo-text">Applexium</span>
+          </a>
+        </div>
+        <div class="footer-info">
+          <p>&copy; 2026 Applexium. All Rights Reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- AOS Library -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <!-- Custom JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
