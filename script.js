@@ -5,12 +5,12 @@ const canvas = document.getElementById('floating-lines');
 if (canvas) {
     const ctx = canvas.getContext('2d');
     let time = 0;
-    const hero = document.querySelector('.hero');
+    const heroWrapper = document.querySelector('.hero-wrapper');
 
     function resize() {
-        // Full viewport width, hero section height
+        // Full viewport width and wrapper height
         canvas.width = window.innerWidth;
-        canvas.height = hero ? hero.offsetHeight : window.innerHeight;
+        canvas.height = heroWrapper ? heroWrapper.offsetHeight : window.innerHeight;
     }
 
     resize();
