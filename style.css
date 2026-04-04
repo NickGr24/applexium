@@ -2040,12 +2040,11 @@ body {
     gap: 8px;
 }
 
-.footer-legal a::before {
-    content: '';
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: rgba(135, 82, 250, 0.25);
+.footer-legal a i {
+    font-size: 13px;
+    width: 18px;
+    text-align: center;
+    color: rgba(135, 82, 250, 0.35);
     flex-shrink: 0;
     transition: all 0.3s ease;
 }
@@ -2057,9 +2056,8 @@ body {
     transform: translateY(-1px);
 }
 
-.footer-legal a:hover::before {
-    background: var(--accent-light);
-    box-shadow: 0 0 8px rgba(205, 131, 255, 0.4);
+.footer-legal a:hover i {
+    color: var(--accent-light);
 }
 
 .footer-legal-sep {
