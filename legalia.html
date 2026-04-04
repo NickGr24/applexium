@@ -61,43 +61,23 @@
       overflow-x: hidden;
     }
 
-    /* Fluid gradient blobs on all sections */
-    .legalia-page section {
-      position: relative;
-      overflow: hidden;
-    }
-
-    .legalia-page section::before,
-    .legalia-page section::after {
+    /* Gradient mesh background — body-level, behind everything */
+    .legalia-page::before {
       content: '';
-      position: absolute;
-      inset: -60%;
+      position: fixed;
+      top: -30%;
+      left: -30%;
+      width: 160%;
+      height: 160%;
+      background:
+        radial-gradient(ellipse 900px 700px at 10% 15%, rgba(89, 30, 243, 0.35), transparent 70%),
+        radial-gradient(ellipse 700px 800px at 85% 45%, rgba(135, 82, 250, 0.25), transparent 70%),
+        radial-gradient(ellipse 800px 600px at 45% 90%, rgba(205, 131, 255, 0.2), transparent 70%);
+      filter: blur(100px);
+      animation: lgFluid1 25s ease-in-out infinite alternate;
       pointer-events: none;
-      z-index: 0;
+      z-index: -1;
     }
-
-    .legalia-page section::before {
-      background:
-        radial-gradient(ellipse 500px 400px at 20% 30%, rgba(89, 30, 243, 0.2), transparent),
-        radial-gradient(ellipse 400px 500px at 75% 65%, rgba(205, 131, 255, 0.12), transparent),
-        radial-gradient(ellipse 600px 350px at 50% 80%, rgba(135, 82, 250, 0.1), transparent);
-      filter: blur(60px);
-      animation: lgFluid1 20s ease-in-out infinite alternate;
-    }
-
-    .legalia-page section::after {
-      background:
-        radial-gradient(ellipse 350px 450px at 65% 20%, rgba(89, 30, 243, 0.15), transparent),
-        radial-gradient(ellipse 500px 300px at 30% 70%, rgba(205, 131, 255, 0.1), transparent);
-      filter: blur(80px);
-      animation: lgFluid2 25s ease-in-out infinite alternate;
-    }
-
-    .legalia-page section:nth-child(even)::before { animation-delay: -7s; }
-    .legalia-page section:nth-child(even)::after { animation-delay: -12s; }
-    .legalia-page section:nth-child(3n)::before { animation-delay: -14s; }
-
-    .legalia-page section > * { position: relative; z-index: 1; }
 
     /* ===== HERO ===== */
     .lg-hero {
@@ -110,14 +90,6 @@
       overflow: hidden;
     }
 
-    /* Hero gets stronger intensity */
-    .lg-hero::before {
-      inset: -50%;
-      background:
-        radial-gradient(ellipse 600px 500px at 20% 30%, rgba(89, 30, 243, 0.3), transparent),
-        radial-gradient(ellipse 500px 600px at 75% 60%, rgba(205, 131, 255, 0.22), transparent),
-        radial-gradient(ellipse 700px 400px at 50% 80%, rgba(135, 82, 250, 0.18), transparent) !important;
-    }
 
     @keyframes lgFluid1 {
       0% { transform: translate(0, 0) rotate(0deg) scale(1); }
