@@ -61,6 +61,43 @@
       overflow-x: hidden;
     }
 
+    .emmi-page section {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .emmi-page section::before,
+    .emmi-page section::after {
+      content: '';
+      position: absolute;
+      inset: -60%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .emmi-page section::before {
+      background:
+        radial-gradient(ellipse 500px 400px at 25% 35%, rgba(8, 145, 178, 0.2), transparent),
+        radial-gradient(ellipse 400px 500px at 70% 60%, rgba(103, 232, 249, 0.12), transparent),
+        radial-gradient(ellipse 600px 350px at 45% 75%, rgba(6, 182, 212, 0.1), transparent);
+      filter: blur(60px);
+      animation: emFluid1 20s ease-in-out infinite alternate;
+    }
+
+    .emmi-page section::after {
+      background:
+        radial-gradient(ellipse 350px 450px at 60% 25%, rgba(8, 145, 178, 0.15), transparent),
+        radial-gradient(ellipse 500px 300px at 35% 65%, rgba(103, 232, 249, 0.1), transparent);
+      filter: blur(80px);
+      animation: emFluid2 25s ease-in-out infinite alternate;
+    }
+
+    .emmi-page section:nth-child(even)::before { animation-delay: -7s; }
+    .emmi-page section:nth-child(even)::after { animation-delay: -12s; }
+    .emmi-page section:nth-child(3n)::before { animation-delay: -14s; }
+
+    .emmi-page section > * { position: relative; z-index: 1; }
+
     /* ===== HERO ===== */
     .em-hero {
       min-height: 100vh;
@@ -73,29 +110,11 @@
     }
 
     .em-hero::before {
-      content: '';
-      position: absolute;
       inset: -50%;
       background:
         radial-gradient(ellipse 600px 500px at 25% 35%, rgba(8, 145, 178, 0.3), transparent),
-        radial-gradient(ellipse 500px 600px at 70% 55%, rgba(103, 232, 249, 0.2), transparent),
-        radial-gradient(ellipse 700px 400px at 45% 75%, rgba(6, 182, 212, 0.15), transparent);
-      filter: blur(60px);
-      animation: emFluid1 20s ease-in-out infinite alternate;
-      pointer-events: none;
-    }
-
-    .em-hero::after {
-      content: '';
-      position: absolute;
-      inset: -40%;
-      background:
-        radial-gradient(ellipse 400px 500px at 65% 25%, rgba(8, 145, 178, 0.25), transparent),
-        radial-gradient(ellipse 600px 350px at 35% 65%, rgba(103, 232, 249, 0.18), transparent),
-        radial-gradient(circle 300px at 55% 45%, rgba(165, 243, 252, 0.1), transparent);
-      filter: blur(80px);
-      animation: emFluid2 25s ease-in-out infinite alternate;
-      pointer-events: none;
+        radial-gradient(ellipse 500px 600px at 70% 55%, rgba(103, 232, 249, 0.22), transparent),
+        radial-gradient(ellipse 700px 400px at 45% 75%, rgba(6, 182, 212, 0.18), transparent) !important;
     }
 
     @keyframes emFluid1 {

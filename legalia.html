@@ -61,6 +61,44 @@
       overflow-x: hidden;
     }
 
+    /* Fluid gradient blobs on all sections */
+    .legalia-page section {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .legalia-page section::before,
+    .legalia-page section::after {
+      content: '';
+      position: absolute;
+      inset: -60%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .legalia-page section::before {
+      background:
+        radial-gradient(ellipse 500px 400px at 20% 30%, rgba(89, 30, 243, 0.2), transparent),
+        radial-gradient(ellipse 400px 500px at 75% 65%, rgba(205, 131, 255, 0.12), transparent),
+        radial-gradient(ellipse 600px 350px at 50% 80%, rgba(135, 82, 250, 0.1), transparent);
+      filter: blur(60px);
+      animation: lgFluid1 20s ease-in-out infinite alternate;
+    }
+
+    .legalia-page section::after {
+      background:
+        radial-gradient(ellipse 350px 450px at 65% 20%, rgba(89, 30, 243, 0.15), transparent),
+        radial-gradient(ellipse 500px 300px at 30% 70%, rgba(205, 131, 255, 0.1), transparent);
+      filter: blur(80px);
+      animation: lgFluid2 25s ease-in-out infinite alternate;
+    }
+
+    .legalia-page section:nth-child(even)::before { animation-delay: -7s; }
+    .legalia-page section:nth-child(even)::after { animation-delay: -12s; }
+    .legalia-page section:nth-child(3n)::before { animation-delay: -14s; }
+
+    .legalia-page section > * { position: relative; z-index: 1; }
+
     /* ===== HERO ===== */
     .lg-hero {
       min-height: 100vh;
@@ -72,30 +110,13 @@
       overflow: hidden;
     }
 
+    /* Hero gets stronger intensity */
     .lg-hero::before {
-      content: '';
-      position: absolute;
       inset: -50%;
       background:
         radial-gradient(ellipse 600px 500px at 20% 30%, rgba(89, 30, 243, 0.3), transparent),
-        radial-gradient(ellipse 500px 600px at 75% 60%, rgba(205, 131, 255, 0.2), transparent),
-        radial-gradient(ellipse 700px 400px at 50% 80%, rgba(135, 82, 250, 0.15), transparent);
-      filter: blur(60px);
-      animation: lgFluid1 20s ease-in-out infinite alternate;
-      pointer-events: none;
-    }
-
-    .lg-hero::after {
-      content: '';
-      position: absolute;
-      inset: -40%;
-      background:
-        radial-gradient(ellipse 400px 500px at 70% 20%, rgba(89, 30, 243, 0.25), transparent),
-        radial-gradient(ellipse 600px 350px at 30% 70%, rgba(205, 131, 255, 0.18), transparent),
-        radial-gradient(circle 300px at 50% 40%, rgba(135, 82, 250, 0.12), transparent);
-      filter: blur(80px);
-      animation: lgFluid2 25s ease-in-out infinite alternate;
-      pointer-events: none;
+        radial-gradient(ellipse 500px 600px at 75% 60%, rgba(205, 131, 255, 0.22), transparent),
+        radial-gradient(ellipse 700px 400px at 50% 80%, rgba(135, 82, 250, 0.18), transparent) !important;
     }
 
     @keyframes lgFluid1 {

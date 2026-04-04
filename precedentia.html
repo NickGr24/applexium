@@ -65,6 +65,43 @@
       overflow-x: hidden;
     }
 
+    .precedentia-page section {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .precedentia-page section::before,
+    .precedentia-page section::after {
+      content: '';
+      position: absolute;
+      inset: -60%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .precedentia-page section::before {
+      background:
+        radial-gradient(ellipse 500px 400px at 30% 30%, rgba(9, 225, 172, 0.18), transparent),
+        radial-gradient(ellipse 400px 500px at 70% 65%, rgba(224, 255, 233, 0.1), transparent),
+        radial-gradient(ellipse 600px 350px at 50% 80%, rgba(7, 168, 127, 0.12), transparent);
+      filter: blur(60px);
+      animation: prFluid1 20s ease-in-out infinite alternate;
+    }
+
+    .precedentia-page section::after {
+      background:
+        radial-gradient(ellipse 350px 450px at 65% 20%, rgba(9, 225, 172, 0.12), transparent),
+        radial-gradient(ellipse 500px 300px at 25% 70%, rgba(224, 255, 233, 0.08), transparent);
+      filter: blur(80px);
+      animation: prFluid2 25s ease-in-out infinite alternate;
+    }
+
+    .precedentia-page section:nth-child(even)::before { animation-delay: -7s; }
+    .precedentia-page section:nth-child(even)::after { animation-delay: -12s; }
+    .precedentia-page section:nth-child(3n)::before { animation-delay: -14s; }
+
+    .precedentia-page section > * { position: relative; z-index: 1; }
+
     /* ===== HERO ===== */
     .pr-hero {
       min-height: 100vh;
@@ -77,29 +114,11 @@
     }
 
     .pr-hero::before {
-      content: '';
-      position: absolute;
       inset: -50%;
       background:
         radial-gradient(ellipse 600px 500px at 30% 30%, rgba(9, 225, 172, 0.28), transparent),
         radial-gradient(ellipse 500px 600px at 70% 60%, rgba(224, 255, 233, 0.15), transparent),
-        radial-gradient(ellipse 700px 400px at 50% 80%, rgba(7, 168, 127, 0.2), transparent);
-      filter: blur(60px);
-      animation: prFluid1 20s ease-in-out infinite alternate;
-      pointer-events: none;
-    }
-
-    .pr-hero::after {
-      content: '';
-      position: absolute;
-      inset: -40%;
-      background:
-        radial-gradient(ellipse 400px 500px at 65% 20%, rgba(9, 225, 172, 0.22), transparent),
-        radial-gradient(ellipse 600px 350px at 25% 70%, rgba(224, 255, 233, 0.12), transparent),
-        radial-gradient(circle 300px at 50% 45%, rgba(7, 168, 127, 0.1), transparent);
-      filter: blur(80px);
-      animation: prFluid2 25s ease-in-out infinite alternate;
-      pointer-events: none;
+        radial-gradient(ellipse 700px 400px at 50% 80%, rgba(7, 168, 127, 0.2), transparent) !important;
     }
 
     @keyframes prFluid1 {
