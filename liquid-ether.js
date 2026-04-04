@@ -1073,7 +1073,7 @@ function initLiquidEther(selector, userOpts) {
   // Position canvas as background
   var _canvas = _container.querySelector("canvas");
   if (_canvas) {
-    _canvas.style.position = "fixed";
+    _canvas.style.position = "absolute";
     _canvas.style.top = "0";
     _canvas.style.left = "0";
     _canvas.style.zIndex = "0";
