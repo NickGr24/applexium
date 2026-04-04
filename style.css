@@ -585,8 +585,7 @@ body > div {
    =========================== */
 .products-section {
     padding: 80px 40px;
-    background: #09001B;
-    transition: background 0.5s ease;
+    background: transparent;
     overflow: hidden;
 }
 
@@ -877,7 +876,7 @@ body > div {
    =========================== */
 .portfolio-section {
     padding: 100px 40px;
-    background: #070015;
+    background: transparent;
     position: relative;
     overflow: hidden;
 }
@@ -1360,8 +1359,7 @@ body > div {
    =========================== */
 .capabilities-section {
     padding: 100px 20px;
-    background-color: var(--dark-bg);
-    transition: background-color 0.5s ease;
+    background-color: transparent;
 }
 
 .section-header {
@@ -1998,7 +1996,7 @@ body > div {
    =========================== */
 .footer {
     padding: 60px 20px 40px;
-    background: var(--dark-bg);
+    background: transparent;
     border-top: 1px solid rgba(135, 82, 250, 0.1);
     transition: background-color 0.5s ease;
     margin-top: 0;
@@ -2927,7 +2925,7 @@ html {
    =========================== */
 .contact-section {
     padding: 100px 20px;
-    background: var(--background-dark);
+    background: transparent;
     position: relative;
     overflow: hidden;
 }
