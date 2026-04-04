@@ -2299,17 +2299,56 @@ body {
 .legal-info-box {
     background: rgba(135, 82, 250, 0.04);
     border: 1px solid rgba(135, 82, 250, 0.08);
-    border-radius: 12px;
-    padding: 20px 24px;
-    margin-bottom: 20px;
+    border-left: 3px solid rgba(135, 82, 250, 0.2);
+    border-radius: 0 12px 12px 0;
+    padding: 22px 28px;
+    margin-bottom: 24px;
 }
 
 .legal-info-box p {
     margin-bottom: 6px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 13.5px;
+    line-height: 1.75;
+    color: rgba(224, 224, 224, 0.7);
+}
+
+.legal-info-box p:first-child {
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--text-light);
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(135, 82, 250, 0.06);
 }
 
 .legal-info-box p:last-child {
     margin-bottom: 0;
+}
+
+.legal-info-box .ib-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: rgba(135, 82, 250, 0.45);
+    margin-bottom: 2px;
+}
+
+.legal-info-box .ib-value {
+    color: var(--text-light);
+    font-weight: 500;
+}
+
+.legal-info-box .ib-highlight {
+    color: var(--accent-light);
+    font-weight: 500;
+}
+
+.legal-info-box .ib-sep {
+    height: 1px;
+    background: rgba(135, 82, 250, 0.06);
+    margin: 10px 0;
 }
 
 .legal-section strong {
