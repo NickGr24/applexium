@@ -304,7 +304,6 @@
 
       </div>
 
-      <a href="docs/01. Applexium_Termeni_si_Conditii_v1.0.docx" class="legal-download-link" download>
         <i class="fas fa-download"></i> Download DOCX
       </a>
 
@@ -363,6 +362,21 @@
         navLinks.classList.toggle('active');
       });
     }
+  
+    // Scroll-triggered section reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+    document.querySelectorAll('.legal-section, .legal-info-box').forEach((el, i) => {
+      el.style.transitionDelay = (i * 0.04) + 's';
+      observer.observe(el);
+    });
+
   </script>
 </body>
 </html>
