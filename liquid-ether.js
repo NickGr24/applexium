@@ -1014,7 +1014,7 @@ function initLiquidEther(selector, opts) {
     }
 
     container.style.position = container.style.position || 'relative';
-    container.style.overflow = container.style.overflow || 'hidden';
+    // Don't set overflow:hidden on body — it blocks page scroll
 
     const webgl = new WebGLManager({
       $wrapper: container,
