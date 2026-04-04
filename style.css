@@ -72,7 +72,7 @@ body::before {
     filter: blur(100px);
     animation: meshFloat1 25s ease-in-out infinite alternate;
     pointer-events: none;
-    z-index: 0;
+    z-index: -2;
 }
 
 body::after {
@@ -84,7 +84,7 @@ body::after {
     background-repeat: repeat;
     background-size: 200px 200px;
     pointer-events: none;
-    z-index: 0;
+    z-index: -1;
     opacity: 1;
     mix-blend-mode: overlay;
 }
@@ -98,15 +98,6 @@ body::after {
     100% { transform: translate(3%, -4%) rotate(1.5deg) scale(1.01); }
 }
 
-/* Ensure all main content sits above the background */
-body > nav,
-body > .hero-wrapper,
-body > section,
-body > footer,
-body > div {
-    position: relative;
-    z-index: 1;
-}
 
 /* ===========================
    Hero Wrapper
@@ -115,7 +106,7 @@ body > div {
     position: relative;
     overflow-x: clip;
     overflow-y: visible;
-    background: #070015;
+    background: transparent;
     min-height: 100vh;
 }
 
@@ -478,7 +469,7 @@ body > div {
     align-items: center;
     justify-content: center;
     padding: 60px 20px;
-    background: #070015;
+    background: transparent;
     position: relative;
     overflow: hidden;
     z-index: 5;
@@ -1537,7 +1528,7 @@ body > div {
     align-items: center;
     justify-content: center;
     padding: 20px 20px 80px;
-    background: var(--dark-bg);
+    background: transparent;
     position: relative;
     overflow: hidden;
     transition: background 0.5s ease;
@@ -1656,7 +1647,7 @@ body > div {
     align-items: center;
     width: 100%;
     padding: 40px 20px 0;
-    background: var(--dark-bg);
+    background: transparent;
     z-index: 1;
 }
 
