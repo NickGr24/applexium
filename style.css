@@ -567,72 +567,60 @@ body {
     gap: 28px;
 }
 
-.product-card {
-    background: rgba(89, 30, 243, 0.1);
-    border: 1px solid rgba(89, 30, 243, 0.3);
-    border-radius: 12px;
-    padding: 20px;
-    transition: all 0.3s ease;
+/* StarBorder glow wrapper — adapted from ReactBits BorderGlow */
+.star-border-container {
     position: relative;
+    border-radius: 14px;
+    padding: 1px;
     overflow: hidden;
-    transform-style: preserve-3d;
-    perspective: 1000px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.product-card::before {
-    content: '';
+.star-border-container:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(89, 30, 243, 0.25);
+}
+
+.border-gradient-bottom {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(
-        600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-        rgba(135, 82, 250, 0.15),
-        transparent 40%
-    );
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    pointer-events: none;
-    z-index: 1;
+    width: 300%;
+    height: 50%;
+    bottom: -11%;
+    right: -250%;
+    background: radial-gradient(circle, rgba(135, 82, 250, 0.7), transparent 10%);
+    animation: starBorderMove 6s linear infinite;
+    opacity: 0.5;
+    transition: opacity 0.4s ease;
 }
 
-.product-card::after {
-    content: '';
+.border-gradient-top {
     position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(
-        115deg,
-        transparent 20%,
-        rgba(135, 82, 250, 0.3) 40%,
-        rgba(135, 82, 250, 0.5) 50%,
-        rgba(135, 82, 250, 0.3) 60%,
-        transparent 80%
-    );
-    transform: translateX(-100%) translateY(-100%) rotate(45deg);
-    transition: transform 0.6s ease;
-    pointer-events: none;
-    z-index: 2;
+    width: 300%;
+    height: 50%;
+    top: -10%;
+    left: -250%;
+    background: radial-gradient(circle, rgba(205, 131, 255, 0.7), transparent 10%);
+    animation: starBorderMove 6s linear infinite;
+    opacity: 0.5;
+    transition: opacity 0.4s ease;
 }
 
-.product-card:hover::before {
+.star-border-container:hover .border-gradient-bottom,
+.star-border-container:hover .border-gradient-top {
     opacity: 1;
 }
 
-.product-card:hover::after {
-    transform: translateX(100%) translateY(100%) rotate(45deg);
+@keyframes starBorderMove {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(33.33%); }
 }
 
-.product-card:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow:
-        0 20px 40px rgba(89, 30, 243, 0.3),
-        0 0 0 1px rgba(135, 82, 250, 0.3),
-        inset 0 0 0 1px rgba(135, 82, 250, 0.1);
-    border-color: rgba(135, 82, 250, 0.6);
+.product-card {
+    background: rgba(89, 30, 243, 0.1);
+    border-radius: 13px;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
 }
 
 .product-card > * {
@@ -2833,8 +2821,8 @@ html {
     pointer-events: auto;
 }
 
-[data-aos].product-card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease !important;
+[data-aos].star-border-container {
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
 }
 
 /* Явно определяем начальное состояние для анимаций */
@@ -2874,10 +2862,9 @@ html {
 }
 
 /* Плавное появление для product cards */
-.product-card[data-aos] {
+.star-border-container[data-aos] {
     will-change: transform, opacity;
     backface-visibility: hidden;
-    perspective: 1000px;
 }
 
 /* ===========================
