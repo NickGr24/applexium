@@ -963,15 +963,17 @@
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <!-- Custom JavaScript -->
   <script src="script.js"></script>
-  <!-- LiquidChrome Background -->
-  <script src="liquid-chrome.js"></script>
+  <!-- LiquidEther Background -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="liquid-ether.js"></script>
   <script>
-    initLiquidChrome('.pr-hero', {
-      baseColor: [0.01, 0.14, 0.1],
-      speed: 0.15,
-      amplitude: 0.3,
-      frequencyX: 2.5,
-      frequencyY: 2.5
+    initLiquidEther('.pr-hero', {
+      colors: ['#09E1AC', '#E0FFE9', '#07a87f'],
+      mouseForce: 38,
+      cursorSize: 25,
+      resolution: 0.4,
+      iterationsPoisson: 58,
+      isViscous: false
     });
   </script>
 </body>

@@ -1087,15 +1087,17 @@
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <!-- Custom JavaScript -->
   <script src="script.js"></script>
-  <!-- LiquidChrome Background -->
-  <script src="liquid-chrome.js"></script>
+  <!-- LiquidEther Background -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="liquid-ether.js"></script>
   <script>
-    initLiquidChrome('.em-hero', {
-      baseColor: [0.01, 0.1, 0.14],
-      speed: 0.15,
-      amplitude: 0.3,
-      frequencyX: 2.5,
-      frequencyY: 2.5
+    initLiquidEther('.em-hero', {
+      colors: ['#0891B2', '#67E8F9', '#06B6D4'],
+      mouseForce: 38,
+      cursorSize: 25,
+      resolution: 0.4,
+      iterationsPoisson: 58,
+      isViscous: false
     });
   </script>
 </body>
