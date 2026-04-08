@@ -41,7 +41,7 @@ if (canvas) {
             }
         }
 
-        ctx.strokeStyle = 'rgba(135, 82, 250, 0.55)';
+        ctx.strokeStyle = 'rgba(17, 106, 248, 0.55)';
         ctx.lineWidth = 4;
         ctx.stroke();
     }
@@ -402,4 +402,4 @@ document.querySelectorAll('.services-tab').forEach(tab => {
 // ===========================
 // Console Message
 // ===========================
-console.log('%c🚀 Applexium - Built with Excellence', 'color: #8752FA; font-size: 16px; font-weight: bold;');
+console.log('%c🚀 Applexium - Built with Excellence', 'color: #245EFE; font-size: 16px; font-weight: bold;');

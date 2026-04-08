@@ -6,7 +6,7 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #0a1628 0%, #1a2f4a 100%);
+    background: linear-gradient(135deg, #071116 0%, #0a1a2f 100%);
     color: #fff;
     min-height: 100vh;
 }
@@ -16,7 +16,7 @@ nav {
     justify-content: space-between;
     align-items: center;
     padding: 20px 60px;
-    background: rgba(10, 22, 40, 0.8);
+    background: rgba(7, 17, 22, 0.8);
     backdrop-filter: blur(10px);
 }
 
@@ -31,7 +31,7 @@ nav {
 .logo-icon {
     width: 35px;
     height: 35px;
-    background: linear-gradient(135deg, #4dd9cb 0%, #2a9d8f 100%);
+    background: linear-gradient(135deg, #1FCDFF 0%, #1C1890 100%);
     border-radius: 8px;
     display: flex;
     align-items: center;
@@ -53,11 +53,11 @@ nav {
 
 .nav-links a:hover,
 .nav-links a.active {
-    color: #4dd9cb;
+    color: #1FCDFF;
 }
 
 .cta-button {
-    background: linear-gradient(135deg, #4dd9cb 0%, #2a9d8f 100%);
+    background: linear-gradient(135deg, #1FCDFF 0%, #1C1890 100%);
     color: #fff;
     padding: 12px 28px;
     border-radius: 25px;
@@ -68,7 +68,7 @@ nav {
 
 .cta-button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 5px 20px rgba(77, 217, 203, 0.4);
+    box-shadow: 0 5px 20px rgba(31, 205, 255, 0.4);
 }
 
 .hero {
@@ -79,7 +79,7 @@ nav {
 .hero h1 {
     font-size: 48px;
     margin-bottom: 20px;
-    background: linear-gradient(135deg, #fff 0%, #4dd9cb 100%);
+    background: linear-gradient(135deg, #fff 0%, #1FCDFF 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -107,14 +107,14 @@ nav {
     border-radius: 20px;
     padding: 30px;
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(77, 217, 203, 0.2);
+    border: 1px solid rgba(31, 205, 255, 0.2);
     transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
 }
 
 .product-card:hover {
     transform: translateY(-10px);
-    border-color: rgba(77, 217, 203, 0.5);
-    box-shadow: 0 10px 40px rgba(77, 217, 203, 0.2);
+    border-color: rgba(31, 205, 255, 0.5);
+    box-shadow: 0 10px 40px rgba(31, 205, 255, 0.2);
 }
 
 .product-image {
@@ -131,21 +131,21 @@ nav {
 }
 
 .product-image.ai {
-    background: radial-gradient(circle, rgba(77, 217, 203, 0.2) 0%, rgba(10, 22, 40, 0.8) 70%);
+    background: radial-gradient(circle, rgba(31, 205, 255, 0.2) 0%, rgba(7, 17, 22, 0.8) 70%);
 }
 
 .product-image.suite {
-    background: linear-gradient(135deg, rgba(42, 157, 143, 0.2) 0%, rgba(10, 22, 40, 0.8) 100%);
+    background: linear-gradient(135deg, rgba(28, 24, 144, 0.2) 0%, rgba(7, 17, 22, 0.8) 100%);
 }
 
 .product-image.auth {
-    background: radial-gradient(circle, rgba(77, 217, 203, 0.15) 0%, rgba(10, 22, 40, 0.9) 70%);
+    background: radial-gradient(circle, rgba(31, 205, 255, 0.15) 0%, rgba(7, 17, 22, 0.9) 70%);
 }
 
 .product-card h3 {
     font-size: 24px;
     margin-bottom: 15px;
-    color: #4dd9cb;
+    color: #1FCDFF;
 }
 
 .product-card p {
@@ -164,7 +164,7 @@ nav {
 .icon {
     width: 35px;
     height: 35px;
-    background: rgba(10, 22, 40, 0.8);
+    background: rgba(7, 17, 22, 0.8);
     border-radius: 8px;
     display: flex;
     align-items: center;
@@ -175,7 +175,7 @@ nav {
 }
 
 .icon:hover {
-    background: rgba(10, 22, 40, 0.95);
+    background: rgba(7, 17, 22, 0.95);
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
     transform: translateY(-2px);
 }
@@ -183,7 +183,7 @@ nav {
 .learn-more {
     width: 100%;
     padding: 14px;
-    background: linear-gradient(135deg, #4dd9cb 0%, #2a9d8f 100%);
+    background: linear-gradient(135deg, #1FCDFF 0%, #1C1890 100%);
     border: none;
     border-radius: 10px;
     color: #fff;
@@ -195,13 +195,13 @@ nav {
 
 .learn-more:hover {
     transform: translateY(-2px);
-    box-shadow: 0 5px 20px rgba(77, 217, 203, 0.4);
+    box-shadow: 0 5px 20px rgba(31, 205, 255, 0.4);
 }
 
 footer {
     text-align: center;
     padding: 40px 20px;
-    background: rgba(10, 22, 40, 0.8);
+    background: rgba(7, 17, 22, 0.8);
     margin-top: 40px;
 }
 
@@ -219,7 +219,7 @@ footer {
 }
 
 .footer-links a:hover {
-    color: #4dd9cb;
+    color: #1FCDFF;
 }
 
 .copyright {

@@ -29,7 +29,7 @@
   <link rel="manifest" href="site.webmanifest">
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Questrial&display=swap" rel="stylesheet">
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -67,7 +67,7 @@
       left: 30%;
       width: 600px;
       height: 600px;
-      background: radial-gradient(circle, rgba(89, 30, 243, 0.15) 0%, rgba(135, 82, 250, 0.05) 40%, transparent 70%);
+      background: radial-gradient(circle, rgba(28, 24, 144, 0.15) 0%, rgba(31, 205, 255, 0.05) 40%, transparent 70%);
       pointer-events: none;
     }
 
@@ -97,7 +97,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      border: 2px solid rgba(135, 82, 250, 0.2);
+      border: 2px solid rgba(31, 205, 255, 0.2);
       border-radius: 20px;
       pointer-events: none;
       z-index: 2;
@@ -119,12 +119,12 @@
       color: #ffffff;
       padding: 8px 24px;
       border-radius: 30px;
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Nunito', sans-serif;
       font-weight: 600;
       font-size: 14px;
       letter-spacing: 0.5px;
       white-space: nowrap;
-      box-shadow: 0 10px 30px rgba(135, 82, 250, 0.3);
+      box-shadow: 0 10px 30px rgba(31, 205, 255, 0.3);
     }
 
     .profile-info {
@@ -132,7 +132,7 @@
     }
 
     .profile-name {
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Nunito', sans-serif;
       font-size: clamp(42px, 5vw, 64px);
       font-weight: 700;
       color: var(--white);
@@ -141,7 +141,7 @@
     }
 
     .profile-title {
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Nunito', sans-serif;
       font-size: clamp(18px, 2.5vw, 22px);
       color: var(--accent-light);
       margin-bottom: 30px;
@@ -149,7 +149,7 @@
     }
 
     .profile-bio {
-      font-family: 'Inter', sans-serif;
+      font-family: 'Questrial', 'Century Gothic', sans-serif;
       font-size: 16px;
       color: var(--text-light);
       line-height: 1.7;
@@ -174,7 +174,7 @@
       width: 45px;
       height: 45px;
       border-radius: 12px;
-      background: rgba(135, 82, 250, 0.1);
+      background: rgba(31, 205, 255, 0.1);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -184,13 +184,13 @@
     }
 
     .profile-contact-item span {
-      font-family: 'Inter', sans-serif;
+      font-family: 'Questrial', 'Century Gothic', sans-serif;
       font-size: 15px;
       color: var(--text-light);
     }
 
     .profile-contact-item a {
-      font-family: 'Inter', sans-serif;
+      font-family: 'Questrial', 'Century Gothic', sans-serif;
       font-size: 15px;
       color: var(--text-light);
       transition: color 0.3s ease;
@@ -210,8 +210,8 @@
       width: 50px;
       height: 50px;
       border-radius: 50%;
-      background: rgba(135, 82, 250, 0.1);
-      border: 1px solid rgba(135, 82, 250, 0.2);
+      background: rgba(31, 205, 255, 0.1);
+      border: 1px solid rgba(31, 205, 255, 0.2);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -224,7 +224,7 @@
       background: var(--primary-teal);
       color: #ffffff;
       transform: translateY(-5px);
-      box-shadow: 0 15px 30px rgba(135, 82, 250, 0.3);
+      box-shadow: 0 15px 30px rgba(31, 205, 255, 0.3);
     }
 
     /* Main Content */
@@ -240,7 +240,7 @@
     }
 
     .profile-section-title {
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Nunito', sans-serif;
       font-size: clamp(24px, 3vw, 32px);
       font-weight: 700;
       color: var(--white);
@@ -254,7 +254,7 @@
       content: '';
       flex: 1;
       height: 1px;
-      background: linear-gradient(90deg, rgba(135, 82, 250, 0.3), transparent);
+      background: linear-gradient(90deg, rgba(31, 205, 255, 0.3), transparent);
     }
 
     .profile-section-title i {
@@ -275,7 +275,7 @@
       top: 0;
       bottom: 0;
       width: 2px;
-      background: linear-gradient(180deg, var(--primary-teal) 0%, var(--secondary-teal) 50%, rgba(135, 82, 250, 0.1) 100%);
+      background: linear-gradient(180deg, var(--primary-teal) 0%, var(--secondary-teal) 50%, rgba(31, 205, 255, 0.1) 100%);
     }
 
     .timeline-item {
@@ -296,7 +296,7 @@
       border-radius: 50%;
       background: var(--dark-bg);
       border: 3px solid var(--primary-teal);
-      box-shadow: 0 0 20px rgba(135, 82, 250, 0.3);
+      box-shadow: 0 0 20px rgba(31, 205, 255, 0.3);
     }
 
     .timeline-item.current .timeline-dot {
@@ -305,16 +305,16 @@
     }
 
     @keyframes pulse {
-      0%, 100% { box-shadow: 0 0 20px rgba(135, 82, 250, 0.3); }
-      50% { box-shadow: 0 0 30px rgba(135, 82, 250, 0.6); }
+      0%, 100% { box-shadow: 0 0 20px rgba(31, 205, 255, 0.3); }
+      50% { box-shadow: 0 0 30px rgba(31, 205, 255, 0.6); }
     }
 
     .timeline-date {
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Nunito', sans-serif;
       font-size: 13px;
       font-weight: 600;
       color: var(--primary-teal);
-      background: rgba(135, 82, 250, 0.1);
+      background: rgba(31, 205, 255, 0.1);
       padding: 4px 12px;
       border-radius: 20px;
       display: inline-block;
@@ -322,7 +322,7 @@
     }
 
     .timeline-title {
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Nunito', sans-serif;
       font-size: 20px;
       font-weight: 600;
       color: var(--white);
@@ -330,14 +330,14 @@
     }
 
     .timeline-company {
-      font-family: 'Inter', sans-serif;
+      font-family: 'Questrial', 'Century Gothic', sans-serif;
       font-size: 16px;
       color: var(--accent-light);
       margin-bottom: 8px;
     }
 
     .timeline-location {
-      font-family: 'Inter', sans-serif;
+      font-family: 'Questrial', 'Century Gothic', sans-serif;
       font-size: 13px;
       color: var(--text-gray);
       display: flex;
@@ -379,7 +379,7 @@
       width: 100%;
       height: 100%;
       position: relative;
-      font-family: area-normal, 'Poppins', sans-serif;
+      font-family: area-normal, 'Nunito', sans-serif;
       font-size: clamp(2rem, 8vw, 5rem);
       text-align: center;
       font-weight: 600;
@@ -442,7 +442,7 @@
     }
 
     .tube__text__item .exp-role {
-      font-family: 'Inter', sans-serif;
+      font-family: 'Questrial', 'Century Gothic', sans-serif;
       font-size: clamp(0.8rem, 2vw, 1.5rem);
       color: var(--accent-light);
       font-weight: 400;
@@ -473,7 +473,7 @@
       position: absolute;
       width: 100%;
       height: 100%;
-      font-family: area-normal, 'Poppins', sans-serif;
+      font-family: area-normal, 'Nunito', sans-serif;
       font-size: clamp(2.5rem, 6vw, 5rem);
       line-height: clamp(2.5rem, 6vw, 5rem);
       text-align: center;
@@ -502,7 +502,7 @@
     }
 
     .cylinder__text__item .edu-role {
-      font-family: 'Inter', sans-serif;
+      font-family: 'Questrial', 'Century Gothic', sans-serif;
       font-size: clamp(0.8rem, 1.8vw, 1.3rem);
       color: var(--accent-light);
       font-weight: 400;
@@ -515,7 +515,7 @@
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Nunito', sans-serif;
       font-size: 14px;
       color: var(--text-gray);
       margin-bottom: 30px;

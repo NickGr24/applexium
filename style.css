@@ -2,16 +2,20 @@
    CSS Variables & Reset
    =========================== */
 :root {
-    --primary-teal: #8752FA;
-    --dark-bg: #09001B;
-    --secondary-teal: #591EF3;
+    --primary-teal: #1C1890;
+    --dark-bg: #071116;
+    --secondary-teal: #1C1890;
     --white: #ffffff;
     --black: #000000;
     --text-light: #e0e0e0;
-    --text-gray: #a0a0a0;
-    --hero-teal: #591EF3;
-    --accent-light: #CD83FF;
-    --accent-grayblue: #E4E7EE;
+    --text-gray: #4A4A62;
+    --hero-teal: #1C1890;
+    --accent-light: #1FCDFF;
+    --accent-grayblue: #F9F9FB;
+    --neon-blue: #245EFE;
+    --gradient-80: #052699;
+    --gradient-60: #116AF8;
+    --gradient-35: #20BCED;
 }
 
 
@@ -48,7 +52,7 @@ textarea:focus-visible {
 body {
     min-height: 100vh;
     background: var(--dark-bg);
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-family: 'Questrial', 'Century Gothic', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     color: #ffffff;
     overflow-x: hidden;
     position: relative;
@@ -65,10 +69,10 @@ body::before {
     width: 160%;
     height: 160%;
     background:
-        radial-gradient(ellipse 900px 700px at 10% 15%, rgba(89, 30, 243, 0.45), transparent 70%),
-        radial-gradient(ellipse 700px 800px at 85% 45%, rgba(135, 82, 250, 0.3), transparent 70%),
-        radial-gradient(ellipse 800px 600px at 45% 90%, rgba(205, 131, 255, 0.25), transparent 70%),
-        radial-gradient(ellipse 600px 500px at 65% 20%, rgba(89, 30, 243, 0.2), transparent 70%);
+        radial-gradient(ellipse 900px 700px at 10% 15%, rgba(28, 24, 144, 0.45), transparent 70%),
+        radial-gradient(ellipse 700px 800px at 85% 45%, rgba(17, 106, 248, 0.3), transparent 70%),
+        radial-gradient(ellipse 800px 600px at 45% 90%, rgba(31, 205, 255, 0.25), transparent 70%),
+        radial-gradient(ellipse 600px 500px at 65% 20%, rgba(28, 24, 144, 0.2), transparent 70%);
     filter: blur(100px);
     animation: meshFloat1 25s ease-in-out infinite alternate;
     pointer-events: none;
@@ -117,7 +121,7 @@ body::after {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(9, 0, 27, 0.3);
+    background: rgba(7, 17, 22, 0.3);
     z-index: 1;
     pointer-events: none;
     opacity: 0;
@@ -164,16 +168,16 @@ body::after {
     justify-content: space-between;
     align-items: center;
     padding: 1.5rem 4rem;
-    background: rgba(9, 0, 27, 0.8);
+    background: rgba(7, 17, 22, 0.8);
     backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(135, 82, 250, 0.1);
+    border-bottom: 1px solid rgba(17, 106, 248, 0.1);
     border-radius: 0;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .navbar.scrolled {
     padding: 0.875rem 4rem;
-    background: rgba(9, 0, 27, 0.95);
+    background: rgba(7, 17, 22, 0.95);
     border-radius: 0 0 24px 24px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
@@ -197,7 +201,7 @@ body::after {
 }
 
 .logo-text {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Nunito', sans-serif;
     font-size: 1.35rem;
     font-weight: 700;
     letter-spacing: 0.08em;
@@ -218,7 +222,7 @@ body::after {
     width: 44px;
     height: 44px;
     background: transparent;
-    border: 1px solid rgba(135, 82, 250, 0.2);
+    border: 1px solid rgba(17, 106, 248, 0.2);
     border-radius: 12px;
     cursor: pointer;
     z-index: 1002;
@@ -227,8 +231,8 @@ body::after {
 }
 
 .mobile-menu-toggle:hover {
-    border-color: rgba(135, 82, 250, 0.4);
-    background: rgba(135, 82, 250, 0.05);
+    border-color: rgba(17, 106, 248, 0.4);
+    background: rgba(17, 106, 248, 0.05);
 }
 
 .mobile-menu-toggle:focus {
@@ -279,7 +283,7 @@ body::after {
 .nav-links a {
     color: rgba(255, 255, 255, 0.7);
     text-decoration: none;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Questrial', 'Century Gothic', sans-serif;
     font-size: 0.9rem;
     font-weight: 400;
     letter-spacing: 0.05em;
@@ -303,7 +307,7 @@ body::after {
     left: 0;
     width: 0;
     height: 2px;
-    background: #591EF3;
+    background: #1C1890;
     transition: width 0.3s ease;
 }
 
@@ -322,12 +326,12 @@ body::after {
     align-items: center;
     justify-content: center;
     gap: 0.75rem;
-    background: #591EF3;
+    background: #1C1890;
     color: #ffffff;
     border: none;
     padding: 0.875rem 1.75rem;
     border-radius: 9999px;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Questrial', 'Century Gothic', sans-serif;
     font-size: 0.9rem;
     font-weight: 500;
     letter-spacing: 0.02em;
@@ -346,9 +350,9 @@ body::after {
 }
 
 .btn-primary:hover {
-    background: #8752FA;
+    background: #245EFE;
     transform: translateY(-2px);
-    box-shadow: 0 4px 20px rgba(89, 30, 243, 0.4);
+    box-shadow: 0 4px 20px rgba(28, 24, 144, 0.4);
 }
 
 /* ===========================
@@ -378,7 +382,7 @@ body::after {
 }
 
 .hero h1 {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Nunito', sans-serif;
     font-size: clamp(38px, 5.5vw, 68px);
     font-weight: 800;
     line-height: 1.15;
@@ -389,7 +393,7 @@ body::after {
 }
 
 .hero p {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Questrial', 'Century Gothic', sans-serif;
     font-size: 20px;
     color: rgba(255, 255, 255, 0.78);
     line-height: 1.7;
@@ -409,12 +413,12 @@ body::after {
 
 .btn-hero-primary {
     display: inline-block;
-    background: #591EF3;
+    background: #1C1890;
     color: #ffffff;
     border: none;
     padding: 16px 32px;
     border-radius: 24px;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Questrial', 'Century Gothic', sans-serif;
     font-size: 16px;
     font-weight: 600;
     letter-spacing: 0.3px;
@@ -429,7 +433,7 @@ body::after {
 }
 
 .btn-hero-primary:hover {
-    background: #8752FA;
+    background: #245EFE;
     transform: translateY(-2px);
 }
 
@@ -440,7 +444,7 @@ body::after {
     border: 1px solid rgba(255, 255, 255, 0.25);
     padding: 16px 32px;
     border-radius: 24px;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Questrial', 'Century Gothic', sans-serif;
     font-size: 16px;
     font-weight: 600;
     letter-spacing: 0.3px;
@@ -456,8 +460,8 @@ body::after {
 
 .btn-secondary:hover {
     background: rgba(255, 255, 255, 0.1);
-    border-color: #591EF3;
-    color: #591EF3;
+    border-color: #1C1890;
+    color: #1C1890;
 }
 
 /* ===========================
@@ -482,7 +486,7 @@ body::after {
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(circle at 50% 50%, rgba(135, 82, 250, 0.1) 0%, transparent 50%);
+    background: radial-gradient(circle at 50% 50%, rgba(17, 106, 248, 0.1) 0%, transparent 50%);
     pointer-events: none;
 }
 
@@ -502,7 +506,7 @@ body::after {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: radial-gradient(ellipse at center, rgba(135, 82, 250, 0.05) 0%, transparent 70%);
+    background: radial-gradient(ellipse at center, rgba(17, 106, 248, 0.05) 0%, transparent 70%);
     border-radius: 20px;
 }
 
@@ -530,7 +534,7 @@ body::after {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, #591EF3 0%, #8752FA 40%, #CD83FF 70%, #591EF3 100%);
+    background: linear-gradient(135deg, #1C1890 0%, #245EFE 40%, #1FCDFF 70%, #1C1890 100%);
     mix-blend-mode: color;
     pointer-events: none;
     mask-image: url('applexium.svg');
@@ -596,14 +600,14 @@ body::after {
     font-weight: 600;
     margin-bottom: 8px;
     letter-spacing: -0.5px;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family: 'Questrial', 'Century Gothic', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 .products-section .header p {
     color: #a0aec0;
     font-size: 1rem;
     font-weight: 400;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family: 'Questrial', 'Century Gothic', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 .products-grid {
@@ -623,7 +627,7 @@ body::after {
 
 .star-border-container:hover {
     transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 20px 40px rgba(89, 30, 243, 0.25);
+    box-shadow: 0 20px 40px rgba(28, 24, 144, 0.25);
 }
 
 .border-gradient-bottom {
@@ -632,7 +636,7 @@ body::after {
     height: 50%;
     bottom: -11%;
     right: -250%;
-    background: radial-gradient(circle, rgba(135, 82, 250, 0.7), transparent 10%);
+    background: radial-gradient(circle, rgba(17, 106, 248, 0.7), transparent 10%);
     animation: starBorderMove 6s linear infinite;
     opacity: 0.5;
     transition: opacity 0.4s ease;
@@ -644,7 +648,7 @@ body::after {
     height: 50%;
     top: -10%;
     left: -250%;
-    background: radial-gradient(circle, rgba(205, 131, 255, 0.7), transparent 10%);
+    background: radial-gradient(circle, rgba(31, 205, 255, 0.7), transparent 10%);
     animation: starBorderMove 6s linear infinite;
     opacity: 0.5;
     transition: opacity 0.4s ease;
@@ -661,7 +665,7 @@ body::after {
 }
 
 .product-card {
-    background: rgba(89, 30, 243, 0.1);
+    background: rgba(28, 24, 144, 0.1);
     border-radius: 13px;
     padding: 20px;
     position: relative;
@@ -695,9 +699,9 @@ body::after {
     width: 100%;
     height: 100%;
     background-image:
-        radial-gradient(circle at 30% 40%, rgba(89, 30, 243, 0.4) 0%, transparent 40%),
-        radial-gradient(circle at 70% 60%, rgba(135, 82, 250, 0.3) 0%, transparent 40%),
-        radial-gradient(circle at 50% 80%, rgba(89, 30, 243, 0.3) 0%, transparent 30%);
+        radial-gradient(circle at 30% 40%, rgba(28, 24, 144, 0.4) 0%, transparent 40%),
+        radial-gradient(circle at 70% 60%, rgba(17, 106, 248, 0.3) 0%, transparent 40%),
+        radial-gradient(circle at 50% 80%, rgba(28, 24, 144, 0.3) 0%, transparent 30%);
 }
 
 .product-image.neural::after {
@@ -708,8 +712,8 @@ body::after {
     top: -50%;
     left: -50%;
     background-image:
-        linear-gradient(90deg, transparent 48%, rgba(135, 82, 250, 0.5) 49%, rgba(135, 82, 250, 0.5) 51%, transparent 52%),
-        linear-gradient(180deg, transparent 48%, rgba(89, 30, 243, 0.4) 49%, rgba(89, 30, 243, 0.4) 51%, transparent 52%);
+        linear-gradient(90deg, transparent 48%, rgba(17, 106, 248, 0.5) 49%, rgba(17, 106, 248, 0.5) 51%, transparent 52%),
+        linear-gradient(180deg, transparent 48%, rgba(28, 24, 144, 0.4) 49%, rgba(28, 24, 144, 0.4) 51%, transparent 52%);
     background-size: 60px 60px;
     opacity: 0.5;
     animation: flow 3s linear infinite;
@@ -724,18 +728,18 @@ body::after {
     height: auto;
     z-index: 10;
     border-radius: 20px;
-    filter: drop-shadow(0 0 20px rgba(135, 82, 250, 0.4));
+    filter: drop-shadow(0 0 20px rgba(17, 106, 248, 0.4));
 }
 
 .product-logo-inverted {
-    filter: invert(1) drop-shadow(0 0 20px rgba(135, 82, 250, 0.4));
+    filter: invert(1) drop-shadow(0 0 20px rgba(17, 106, 248, 0.4));
     border-radius: 0;
     width: 140px;
 }
 
 /* Emmi AI Assistant Card */
 .product-image.emmi {
-    background: linear-gradient(135deg, #0a1628 0%, #0d2847 50%, #1a4a7a 100%);
+    background: linear-gradient(135deg, #071116 0%, #052699 50%, #116AF8 100%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -810,7 +814,7 @@ body::after {
 
 .product-category {
     display: inline-block;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Questrial', 'Century Gothic', sans-serif;
     font-size: 11px;
     font-weight: 600;
     text-transform: uppercase;
@@ -824,7 +828,7 @@ body::after {
     font-size: 1.375rem;
     font-weight: 600;
     margin-bottom: 10px;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family: 'Questrial', 'Century Gothic', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 .product-description {
@@ -833,11 +837,11 @@ body::after {
     line-height: 1.55;
     margin-bottom: 22px;
     min-height: 44px;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family: 'Questrial', 'Century Gothic', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 .view-details-btn {
-    background: #591EF3;
+    background: #1C1890;
     color: #ffffff;
     border: none;
     padding: 11px 24px;
@@ -847,7 +851,7 @@ body::after {
     cursor: pointer;
     transition: all 0.2s ease;
     display: inline-block;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family: 'Questrial', 'Century Gothic', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     outline: none;
 }
 
@@ -856,10 +860,10 @@ body::after {
 }
 
 .view-details-btn:hover {
-    background: #8752FA;
+    background: #245EFE;
     color: #ffffff;
     transform: translateY(-2px);
-    box-shadow: 0 4px 16px rgba(89, 30, 243, 0.4);
+    box-shadow: 0 4px 16px rgba(28, 24, 144, 0.4);
 }
 
 /* ===========================
@@ -880,8 +884,8 @@ body::after {
     right: 0;
     bottom: 0;
     background:
-        radial-gradient(ellipse at 20% 30%, rgba(135, 82, 250, 0.06) 0%, transparent 50%),
-        radial-gradient(ellipse at 80% 70%, rgba(89, 30, 243, 0.04) 0%, transparent 50%);
+        radial-gradient(ellipse at 20% 30%, rgba(17, 106, 248, 0.06) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 70%, rgba(28, 24, 144, 0.04) 0%, transparent 50%);
     pointer-events: none;
 }
 
@@ -899,21 +903,21 @@ body::after {
 
 .portfolio-label {
     display: inline-block;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Questrial', 'Century Gothic', sans-serif;
     font-size: 12px;
     font-weight: 600;
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--primary-teal);
-    background: rgba(135, 82, 250, 0.1);
+    background: rgba(17, 106, 248, 0.1);
     padding: 8px 20px;
     border-radius: 30px;
     margin-bottom: 20px;
-    border: 1px solid rgba(135, 82, 250, 0.2);
+    border: 1px solid rgba(17, 106, 248, 0.2);
 }
 
 .portfolio-header h2 {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Nunito', sans-serif;
     font-size: clamp(32px, 4.5vw, 48px);
     font-weight: 700;
     color: #ffffff;
@@ -922,7 +926,7 @@ body::after {
 }
 
 .portfolio-header p {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Questrial', 'Century Gothic', sans-serif;
     font-size: 18px;
     color: rgba(255, 255, 255, 0.6);
     max-width: 500px;
@@ -946,8 +950,8 @@ body::after {
 }
 
 .portfolio-card-inner {
-    background: rgba(89, 30, 243, 0.08);
-    border: 1px solid rgba(135, 82, 250, 0.15);
+    background: rgba(28, 24, 144, 0.08);
+    border: 1px solid rgba(17, 106, 248, 0.15);
     border-radius: 16px;
     overflow: hidden;
     position: relative;
@@ -959,9 +963,9 @@ body::after {
 }
 
 .portfolio-card:hover .portfolio-card-inner {
-    border-color: rgba(135, 82, 250, 0.5);
+    border-color: rgba(17, 106, 248, 0.5);
     transform: translateY(-8px);
-    box-shadow: 0 25px 50px rgba(135, 82, 250, 0.2);
+    box-shadow: 0 25px 50px rgba(17, 106, 248, 0.2);
 }
 
 .portfolio-glow {
@@ -971,7 +975,7 @@ body::after {
     width: 120%;
     height: 120%;
     transform: translate(-50%, -50%);
-    background: radial-gradient(circle, rgba(135, 82, 250, 0.15) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(17, 106, 248, 0.15) 0%, transparent 70%);
     opacity: 0;
     transition: opacity 0.5s ease;
     z-index: 1;
@@ -1000,7 +1004,7 @@ body::after {
     right: 0;
     bottom: 0;
     background:
-        linear-gradient(135deg, transparent 40%, rgba(135, 82, 250, 0.1) 100%);
+        linear-gradient(135deg, transparent 40%, rgba(17, 106, 248, 0.1) 100%);
     opacity: 0;
     transition: opacity 0.4s ease;
 }
@@ -1034,13 +1038,13 @@ body::after {
 
 .portfolio-logo.coming-soon-logo {
     opacity: 0.6;
-    filter: grayscale(0.2) drop-shadow(0 4px 15px rgba(135, 82, 250, 0.2));
+    filter: grayscale(0.2) drop-shadow(0 4px 15px rgba(17, 106, 248, 0.2));
 }
 
 .portfolio-card.coming-soon:hover .portfolio-logo.coming-soon-logo {
     opacity: 0.8;
     transform: scale(1.05);
-    filter: grayscale(0.1) drop-shadow(0 6px 20px rgba(135, 82, 250, 0.3));
+    filter: grayscale(0.1) drop-shadow(0 6px 20px rgba(17, 106, 248, 0.3));
 }
 
 .portfolio-logo.logo-dark-bg {
@@ -1058,8 +1062,8 @@ body::after {
 .portfolio-icon {
     width: 90px;
     height: 90px;
-    background: linear-gradient(135deg, rgba(135, 82, 250, 0.15), rgba(89, 30, 243, 0.25));
-    border: 1px solid rgba(135, 82, 250, 0.3);
+    background: linear-gradient(135deg, rgba(17, 106, 248, 0.15), rgba(28, 24, 144, 0.25));
+    border: 1px solid rgba(17, 106, 248, 0.3);
     border-radius: 24px;
     display: flex;
     align-items: center;
@@ -1079,7 +1083,7 @@ body::after {
     transform: scale(1.1) rotate(-5deg);
     background: linear-gradient(135deg, var(--primary-teal), var(--secondary-teal));
     border-color: transparent;
-    box-shadow: 0 15px 40px rgba(135, 82, 250, 0.4);
+    box-shadow: 0 15px 40px rgba(17, 106, 248, 0.4);
 }
 
 .portfolio-card:hover .portfolio-icon i {
@@ -1093,7 +1097,7 @@ body::after {
     left: 0;
     right: 0;
     padding: 20px;
-    background: linear-gradient(to top, rgba(9, 0, 27, 0.9) 0%, rgba(9, 0, 27, 0.4) 60%, transparent 100%);
+    background: linear-gradient(to top, rgba(7, 17, 22, 0.9) 0%, rgba(7, 17, 22, 0.4) 60%, transparent 100%);
     transform: translateY(100%);
     transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 3;
@@ -1107,7 +1111,7 @@ body::after {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Questrial', 'Century Gothic', sans-serif;
     font-size: 14px;
     font-weight: 600;
     color: var(--primary-teal);
@@ -1131,7 +1135,7 @@ body::after {
 }
 
 .portfolio-info h3 {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Questrial', 'Century Gothic', sans-serif;
     font-size: 20px;
     font-weight: 600;
     color: #ffffff;
@@ -1144,7 +1148,7 @@ body::after {
 }
 
 .portfolio-info p {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Questrial', 'Century Gothic', sans-serif;
     font-size: 14px;
     color: rgba(255, 255, 255, 0.6);
     line-height: 1.6;
@@ -1158,7 +1162,7 @@ body::after {
 }
 
 .portfolio-tags span {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Questrial', 'Century Gothic', sans-serif;
     font-size: 12px;
     font-weight: 500;
     color: rgba(255, 255, 255, 0.5);
@@ -1170,7 +1174,7 @@ body::after {
 }
 
 .portfolio-card:hover .portfolio-tags span {
-    color: rgba(135, 82, 250, 0.8);
+    color: rgba(17, 106, 248, 0.8);
     background: none;
     border-color: transparent;
 }
@@ -1181,14 +1185,14 @@ body::after {
 }
 
 .portfolio-card.coming-soon .portfolio-card-inner {
-    background: rgba(89, 30, 243, 0.04);
-    border-color: rgba(135, 82, 250, 0.1);
+    background: rgba(28, 24, 144, 0.04);
+    border-color: rgba(17, 106, 248, 0.1);
 }
 
 .portfolio-card.coming-soon:hover .portfolio-card-inner {
     transform: translateY(-4px);
-    box-shadow: 0 15px 30px rgba(135, 82, 250, 0.1);
-    border-color: rgba(135, 82, 250, 0.25);
+    box-shadow: 0 15px 30px rgba(17, 106, 248, 0.1);
+    border-color: rgba(17, 106, 248, 0.25);
 }
 
 .portfolio-card.coming-soon .portfolio-preview {
@@ -1197,22 +1201,22 @@ body::after {
 
 .portfolio-card.coming-soon .portfolio-icon {
     opacity: 0.5;
-    background: rgba(135, 82, 250, 0.08);
-    border-color: rgba(135, 82, 250, 0.15);
+    background: rgba(17, 106, 248, 0.08);
+    border-color: rgba(17, 106, 248, 0.15);
 }
 
 .portfolio-card.coming-soon .portfolio-icon i {
-    color: rgba(135, 82, 250, 0.5);
+    color: rgba(17, 106, 248, 0.5);
 }
 
 .portfolio-card.coming-soon:hover .portfolio-icon {
     opacity: 0.7;
     transform: scale(1.05);
-    background: rgba(135, 82, 250, 0.12);
+    background: rgba(17, 106, 248, 0.12);
 }
 
 .portfolio-card.coming-soon:hover .portfolio-icon i {
-    color: rgba(135, 82, 250, 0.7);
+    color: rgba(17, 106, 248, 0.7);
 }
 
 .coming-soon-badge {
@@ -1223,8 +1227,8 @@ body::after {
     display: flex;
     align-items: center;
     gap: 8px;
-    background: rgba(9, 0, 27, 0.9);
-    border: 1px solid rgba(135, 82, 250, 0.3);
+    background: rgba(7, 17, 22, 0.9);
+    border: 1px solid rgba(17, 106, 248, 0.3);
     padding: 10px 20px;
     border-radius: 30px;
     z-index: 5;
@@ -1238,7 +1242,7 @@ body::after {
 }
 
 .coming-soon-badge span {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Questrial', 'Century Gothic', sans-serif;
     font-size: 12px;
     font-weight: 600;
     text-transform: uppercase;
@@ -1256,7 +1260,7 @@ body::after {
 }
 
 .portfolio-glow.coming-soon-glow {
-    background: radial-gradient(circle, rgba(135, 82, 250, 0.08) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(17, 106, 248, 0.08) 0%, transparent 70%);
 }
 
 .portfolio-card.coming-soon:hover .portfolio-glow.coming-soon-glow {
@@ -1276,9 +1280,9 @@ body::after {
 }
 
 .portfolio-card.coming-soon .portfolio-tags span {
-    color: rgba(135, 82, 250, 0.5);
-    background: rgba(135, 82, 250, 0.05);
-    border-color: rgba(135, 82, 250, 0.1);
+    color: rgba(17, 106, 248, 0.5);
+    background: rgba(17, 106, 248, 0.05);
+    border-color: rgba(17, 106, 248, 0.1);
 }
 
 /* Portfolio Responsive */
@@ -1364,7 +1368,7 @@ body::after {
     font-weight: 700;
     margin-bottom: 16px;
     color: var(--white);
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Nunito', sans-serif;
 }
 
 .section-header p {
@@ -1372,7 +1376,7 @@ body::after {
     color: var(--text-gray);
     max-width: 600px;
     margin: 0 auto;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Nunito', sans-serif;
 }
 
 /* Services Tabs */
@@ -1390,11 +1394,11 @@ body::after {
     align-items: center;
     gap: 10px;
     padding: 14px 32px;
-    background: rgba(135, 82, 250, 0.06);
-    border: 1px solid rgba(135, 82, 250, 0.15);
+    background: rgba(17, 106, 248, 0.06);
+    border: 1px solid rgba(17, 106, 248, 0.15);
     border-radius: 12px;
     color: rgba(255, 255, 255, 0.6);
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Nunito', sans-serif;
     font-size: 15px;
     font-weight: 600;
     cursor: pointer;
@@ -1402,16 +1406,16 @@ body::after {
 }
 
 .services-tab:hover {
-    background: rgba(135, 82, 250, 0.1);
-    border-color: rgba(135, 82, 250, 0.3);
+    background: rgba(17, 106, 248, 0.1);
+    border-color: rgba(17, 106, 248, 0.3);
     color: rgba(255, 255, 255, 0.85);
 }
 
 .services-tab.active {
-    background: linear-gradient(135deg, rgba(135, 82, 250, 0.2), rgba(89, 30, 243, 0.15));
-    border-color: rgba(135, 82, 250, 0.5);
+    background: linear-gradient(135deg, rgba(17, 106, 248, 0.2), rgba(28, 24, 144, 0.15));
+    border-color: rgba(17, 106, 248, 0.5);
     color: #ffffff;
-    box-shadow: 0 4px 20px rgba(135, 82, 250, 0.2);
+    box-shadow: 0 4px 20px rgba(17, 106, 248, 0.2);
 }
 
 .services-tab i {
@@ -1429,7 +1433,7 @@ body::after {
 
 /* Compliance icon variant */
 .capability-icon.compliance-icon {
-    background: linear-gradient(135deg, var(--primary-teal), #1A93BD);
+    background: linear-gradient(135deg, var(--primary-teal), #1FCDFF);
 }
 
 .capabilities-grid {
@@ -1440,8 +1444,8 @@ body::after {
 }
 
 .capability-card {
-    background: rgba(135, 82, 250, 0.05);
-    border: 1px solid rgba(135, 82, 250, 0.1);
+    background: rgba(17, 106, 248, 0.05);
+    border: 1px solid rgba(17, 106, 248, 0.1);
     border-radius: 16px;
     padding: 50px 40px;
     text-align: center;
@@ -1465,9 +1469,9 @@ body::after {
 
 .capability-card:hover {
     transform: translateY(-10px);
-    border-color: rgba(135, 82, 250, 0.3);
-    background: rgba(135, 82, 250, 0.08);
-    box-shadow: 0 20px 60px rgba(135, 82, 250, 0.15);
+    border-color: rgba(17, 106, 248, 0.3);
+    background: rgba(17, 106, 248, 0.08);
+    box-shadow: 0 20px 60px rgba(17, 106, 248, 0.15);
 }
 
 .capability-card:hover::before {
@@ -1508,14 +1512,14 @@ body::after {
     font-weight: 700;
     margin-bottom: 16px;
     color: var(--white);
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Nunito', sans-serif;
 }
 
 .capability-card p {
     font-size: 16px;
     color: var(--text-gray);
     line-height: 1.7;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Nunito', sans-serif;
 }
 
 /* ===========================
@@ -1541,7 +1545,7 @@ body::after {
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(circle at 50% 50%, rgba(135, 82, 250, 0.1) 0%, transparent 50%);
+    background: radial-gradient(circle at 50% 50%, rgba(17, 106, 248, 0.1) 0%, transparent 50%);
     pointer-events: none;
 }
 
@@ -1566,12 +1570,12 @@ body::after {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: radial-gradient(ellipse at center, rgba(135, 82, 250, 0.05) 0%, transparent 70%);
+    background: radial-gradient(ellipse at center, rgba(17, 106, 248, 0.05) 0%, transparent 70%);
     border-radius: 20px;
 }
 
 .cta-section .video-text h1 {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Nunito', sans-serif;
     font-weight: 800;
     font-size: clamp(80px, 15vw, 220px);
     text-transform: none;
@@ -1636,7 +1640,7 @@ body::after {
     width: 100%;
     height: auto;
     margin-bottom: 40px;
-    filter: drop-shadow(0 4px 20px rgba(135, 82, 250, 0.3));
+    filter: drop-shadow(0 4px 20px rgba(17, 106, 248, 0.3));
 }
 
 .hero-video {
@@ -1682,8 +1686,8 @@ body::after {
     font-weight: 800;
     margin-bottom: 28px;
     color: var(--white);
-    font-family: 'Poppins', sans-serif;
-    text-shadow: 0 2px 20px rgba(135, 82, 250, 0.3);
+    font-family: 'Nunito', sans-serif;
+    text-shadow: 0 2px 20px rgba(17, 106, 248, 0.3);
     line-height: 1.2;
 }
 
@@ -1692,7 +1696,7 @@ body::after {
     color: var(--text-light);
     margin-bottom: 40px;
     line-height: 1.8;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Nunito', sans-serif;
 }
 
 /* Homepage Contact Form */
@@ -1718,10 +1722,10 @@ body::after {
     width: 100%;
     padding: 14px 18px;
     background: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(135, 82, 250, 0.2);
+    border: 1px solid rgba(17, 106, 248, 0.2);
     border-radius: 12px;
     color: #ffffff;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Questrial', 'Century Gothic', sans-serif;
     font-size: 15px;
     transition: all 0.3s ease;
     outline: none;
@@ -1735,8 +1739,8 @@ body::after {
 .homepage-contact-form input:focus,
 .homepage-contact-form textarea:focus {
     border-color: var(--primary-teal);
-    background: rgba(135, 82, 250, 0.08);
-    box-shadow: 0 0 0 3px rgba(135, 82, 250, 0.1);
+    background: rgba(17, 106, 248, 0.08);
+    box-shadow: 0 0 0 3px rgba(17, 106, 248, 0.1);
 }
 
 .homepage-contact-form textarea {
@@ -1753,7 +1757,7 @@ body::after {
 }
 
 .form-helper-text {
-    font-family: 'Inter', sans-serif !important;
+    font-family: 'Questrial', 'Century Gothic', sans-serif !important;
     font-size: 13px !important;
     color: rgba(255, 255, 255, 0.4) !important;
     margin-top: 16px !important;
@@ -1779,8 +1783,8 @@ body::after {
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(135, 82, 250, 0.4);
-    font-family: 'Poppins', sans-serif;
+    box-shadow: 0 10px 30px rgba(17, 106, 248, 0.4);
+    font-family: 'Nunito', sans-serif;
     outline: none;
     border: none;
     cursor: pointer;
@@ -1803,7 +1807,7 @@ body::after {
 
 .cta-button:hover {
     transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 15px 40px rgba(135, 82, 250, 0.5);
+    box-shadow: 0 15px 40px rgba(17, 106, 248, 0.5);
 }
 
 .cta-button:hover::before {
@@ -1832,7 +1836,7 @@ body::after {
 }
 
 .team-header h1 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Nunito', serif;
     font-size: clamp(36px, 6vw, 56px);
     font-weight: 700;
     color: var(--white);
@@ -1840,7 +1844,7 @@ body::after {
 }
 
 .team-header p {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Questrial', 'Century Gothic', sans-serif;
     font-size: clamp(18px, 2.5vw, 22px);
     color: var(--text-gray);
     max-width: 600px;
@@ -1855,8 +1859,8 @@ body::after {
 }
 
 .team-card {
-    background: rgba(135, 82, 250, 0.03);
-    border: 1px solid rgba(135, 82, 250, 0.1);
+    background: rgba(17, 106, 248, 0.03);
+    border: 1px solid rgba(17, 106, 248, 0.1);
     border-radius: 20px;
     padding: 50px 40px;
     text-align: center;
@@ -1867,8 +1871,8 @@ body::after {
 
 .team-card:hover {
     transform: translateY(-10px);
-    border-color: rgba(135, 82, 250, 0.3);
-    background: rgba(135, 82, 250, 0.06);
+    border-color: rgba(17, 106, 248, 0.3);
+    background: rgba(17, 106, 248, 0.06);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
@@ -1897,7 +1901,7 @@ body::after {
 }
 
 .team-card h3 {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Nunito', sans-serif;
     font-size: 24px;
     font-weight: 600;
     color: var(--white);
@@ -1906,18 +1910,18 @@ body::after {
 
 .team-role {
     display: inline-block;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Nunito', sans-serif;
     font-size: 14px;
     font-weight: 600;
     color: var(--primary-teal);
-    background: rgba(135, 82, 250, 0.1);
+    background: rgba(17, 106, 248, 0.1);
     padding: 6px 16px;
     border-radius: 20px;
     margin-bottom: 20px;
 }
 
 .team-card p {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Questrial', 'Century Gothic', sans-serif;
     font-size: 18px;
     color: var(--text-gray);
     line-height: 1.6;
@@ -1934,7 +1938,7 @@ body::after {
     width: 45px;
     height: 45px;
     border-radius: 50%;
-    background: rgba(135, 82, 250, 0.1);
+    background: rgba(17, 106, 248, 0.1);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1959,7 +1963,7 @@ body::after {
 }
 
 .view-profile {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Nunito', sans-serif;
     font-size: 14px;
     font-weight: 500;
     color: var(--primary-teal);
@@ -1988,7 +1992,7 @@ body::after {
 .footer {
     padding: 60px 20px 40px;
     background: transparent;
-    border-top: 1px solid rgba(135, 82, 250, 0.1);
+    border-top: 1px solid rgba(17, 106, 248, 0.1);
     transition: background-color 0.5s ease;
     margin-top: 0;
 }
@@ -2013,7 +2017,7 @@ body::after {
 }
 
 .footer-brand .logo-text {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Nunito', sans-serif;
     font-size: 1.35rem;
     font-weight: 700;
     letter-spacing: 0.08em;
@@ -2023,7 +2027,7 @@ body::after {
 .footer-info p {
     color: var(--text-gray);
     font-size: 14px;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Nunito', sans-serif;
 }
 
 .footer-social {
@@ -2036,7 +2040,7 @@ body::after {
     text-decoration: none;
     font-size: 14px;
     transition: color 0.3s ease;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Nunito', sans-serif;
 }
 
 .footer-social a:hover {
@@ -2049,14 +2053,14 @@ body::after {
 .footer-legal {
     margin-top: 28px;
     padding-top: 24px;
-    border-top: 1px solid rgba(135, 82, 250, 0.06);
+    border-top: 1px solid rgba(17, 106, 248, 0.06);
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 12px 24px;
 }
 
 .footer-legal a {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Nunito', sans-serif;
     font-size: 12.5px;
     color: var(--text-gray);
     text-decoration: none;
@@ -2064,8 +2068,8 @@ body::after {
     letter-spacing: 0.01em;
     padding: 10px 14px;
     border-radius: 8px;
-    border: 1px solid rgba(135, 82, 250, 0.04);
-    background: rgba(135, 82, 250, 0.02);
+    border: 1px solid rgba(17, 106, 248, 0.04);
+    background: rgba(17, 106, 248, 0.02);
     transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     display: flex;
     align-items: center;
@@ -2076,15 +2080,15 @@ body::after {
     font-size: 13px;
     width: 18px;
     text-align: center;
-    color: rgba(135, 82, 250, 0.35);
+    color: rgba(17, 106, 248, 0.35);
     flex-shrink: 0;
     transition: all 0.3s ease;
 }
 
 .footer-legal a:hover {
     color: #fff;
-    border-color: rgba(135, 82, 250, 0.15);
-    background: rgba(135, 82, 250, 0.06);
+    border-color: rgba(17, 106, 248, 0.15);
+    background: rgba(17, 106, 248, 0.06);
     transform: translateY(-1px);
 }
 
@@ -2132,7 +2136,7 @@ body::after {
     transform: translateX(-50%);
     width: 700px;
     height: 700px;
-    background: radial-gradient(circle, rgba(135, 82, 250, 0.12) 0%, rgba(89, 30, 243, 0.05) 40%, transparent 70%);
+    background: radial-gradient(circle, rgba(17, 106, 248, 0.12) 0%, rgba(28, 24, 144, 0.05) 40%, transparent 70%);
     pointer-events: none;
 }
 
@@ -2140,8 +2144,8 @@ body::after {
     width: 56px;
     height: 56px;
     border-radius: 14px;
-    background: rgba(135, 82, 250, 0.1);
-    border: 1px solid rgba(135, 82, 250, 0.15);
+    background: rgba(17, 106, 248, 0.1);
+    border: 1px solid rgba(17, 106, 248, 0.15);
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -2152,7 +2156,7 @@ body::after {
 }
 
 .legal-hero h1 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Nunito', serif;
     font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 700;
     color: #fff;
@@ -2162,16 +2166,16 @@ body::after {
 }
 
 .legal-hero .legal-subtitle {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Nunito', sans-serif;
     font-size: 15px;
     color: var(--text-gray);
     position: relative;
 }
 
 .legal-hero .legal-version {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Nunito', sans-serif;
     font-size: 12px;
-    color: rgba(135, 82, 250, 0.5);
+    color: rgba(17, 106, 248, 0.5);
     margin-top: 16px;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -2184,15 +2188,15 @@ body::after {
     justify-content: center;
     gap: 4px;
     margin: 0 auto 48px;
-    background: rgba(135, 82, 250, 0.06);
-    border: 1px solid rgba(135, 82, 250, 0.1);
+    background: rgba(17, 106, 248, 0.06);
+    border: 1px solid rgba(17, 106, 248, 0.1);
     border-radius: 10px;
     padding: 4px;
     width: fit-content;
 }
 
 .legal-lang-btn {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Nunito', sans-serif;
     font-size: 13px;
     font-weight: 500;
     padding: 8px 20px;
@@ -2206,9 +2210,9 @@ body::after {
 }
 
 .legal-lang-btn.active {
-    background: rgba(135, 82, 250, 0.15);
+    background: rgba(17, 106, 248, 0.15);
     color: #fff;
-    box-shadow: 0 2px 8px rgba(135, 82, 250, 0.15);
+    box-shadow: 0 2px 8px rgba(17, 106, 248, 0.15);
 }
 
 .legal-lang-btn:hover:not(.active) {
@@ -2262,27 +2266,27 @@ body::after {
 }
 
 .legal-section-num {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Nunito', serif;
     font-size: 11px;
     font-weight: 700;
-    color: rgba(135, 82, 250, 0.4);
+    color: rgba(17, 106, 248, 0.4);
     letter-spacing: 0.15em;
     text-transform: uppercase;
     margin-bottom: 8px;
 }
 
 .legal-section h2 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Nunito', serif;
     font-size: clamp(1.25rem, 2.5vw, 1.6rem);
     font-weight: 600;
     color: #fff;
     margin-bottom: 20px;
     padding-bottom: 16px;
-    border-bottom: 1px solid rgba(135, 82, 250, 0.08);
+    border-bottom: 1px solid rgba(17, 106, 248, 0.08);
 }
 
 .legal-section h3 {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Nunito', sans-serif;
     font-size: 15px;
     font-weight: 600;
     color: var(--text-light);
@@ -2290,7 +2294,7 @@ body::after {
 }
 
 .legal-section p {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Nunito', sans-serif;
     font-size: 14.5px;
     line-height: 1.85;
     color: rgba(224, 224, 224, 0.8);
@@ -2303,7 +2307,7 @@ body::after {
 }
 
 .legal-section li {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Nunito', sans-serif;
     font-size: 14.5px;
     line-height: 1.85;
     color: rgba(224, 224, 224, 0.8);
@@ -2312,13 +2316,13 @@ body::after {
 }
 
 .legal-section ul li::marker {
-    color: rgba(135, 82, 250, 0.4);
+    color: rgba(17, 106, 248, 0.4);
 }
 
 .legal-section a {
     color: var(--accent-light);
     text-decoration: none;
-    border-bottom: 1px solid rgba(205, 131, 255, 0.2);
+    border-bottom: 1px solid rgba(31, 205, 255, 0.2);
     transition: border-color 0.25s ease;
 }
 
@@ -2327,9 +2331,9 @@ body::after {
 }
 
 .legal-info-box {
-    background: rgba(135, 82, 250, 0.04);
-    border: 1px solid rgba(135, 82, 250, 0.08);
-    border-left: 3px solid rgba(135, 82, 250, 0.2);
+    background: rgba(17, 106, 248, 0.04);
+    border: 1px solid rgba(17, 106, 248, 0.08);
+    border-left: 3px solid rgba(17, 106, 248, 0.2);
     border-radius: 0 12px 12px 0;
     padding: 22px 28px;
     margin-bottom: 24px;
@@ -2337,7 +2341,7 @@ body::after {
 
 .legal-info-box p {
     margin-bottom: 6px;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Nunito', sans-serif;
     font-size: 13.5px;
     line-height: 1.75;
     color: rgba(224, 224, 224, 0.7);
@@ -2349,7 +2353,7 @@ body::after {
     color: var(--text-light);
     margin-bottom: 12px;
     padding-bottom: 10px;
-    border-bottom: 1px solid rgba(135, 82, 250, 0.06);
+    border-bottom: 1px solid rgba(17, 106, 248, 0.06);
 }
 
 .legal-info-box p:last-child {
@@ -2361,7 +2365,7 @@ body::after {
     font-weight: 600;
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    color: rgba(135, 82, 250, 0.45);
+    color: rgba(17, 106, 248, 0.45);
     margin-bottom: 2px;
 }
 
@@ -2377,7 +2381,7 @@ body::after {
 
 .legal-info-box .ib-sep {
     height: 1px;
-    background: rgba(135, 82, 250, 0.06);
+    background: rgba(17, 106, 248, 0.06);
     margin: 10px 0;
 }
 
@@ -2390,17 +2394,17 @@ body::after {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 20px;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Nunito', sans-serif;
     font-size: 13px;
 }
 
 .legal-table th {
-    background: rgba(135, 82, 250, 0.1);
+    background: rgba(17, 106, 248, 0.1);
     color: #fff;
     font-weight: 600;
     padding: 12px 16px;
     text-align: left;
-    border-bottom: 2px solid rgba(135, 82, 250, 0.15);
+    border-bottom: 2px solid rgba(17, 106, 248, 0.15);
     font-size: 12px;
     letter-spacing: 0.03em;
     text-transform: uppercase;
@@ -2409,13 +2413,13 @@ body::after {
 .legal-table td {
     padding: 11px 16px;
     color: rgba(224, 224, 224, 0.8);
-    border-bottom: 1px solid rgba(135, 82, 250, 0.05);
+    border-bottom: 1px solid rgba(17, 106, 248, 0.05);
     line-height: 1.6;
     vertical-align: top;
 }
 
 .legal-table tr:hover td {
-    background: rgba(135, 82, 250, 0.03);
+    background: rgba(17, 106, 248, 0.03);
 }
 
 .legal-table td:first-child {
@@ -2435,8 +2439,8 @@ body::after {
 .legal-copyright {
     text-align: center;
     padding: 32px 0 0;
-    border-top: 1px solid rgba(135, 82, 250, 0.06);
-    font-family: 'Poppins', sans-serif;
+    border-top: 1px solid rgba(17, 106, 248, 0.06);
+    font-family: 'Nunito', sans-serif;
     font-size: 12px;
     color: var(--text-gray);
     opacity: 0.6;
@@ -2523,7 +2527,7 @@ body::after {
         background: linear-gradient(
             160deg,
             rgba(10, 18, 16, 0.98) 0%,
-            rgba(9, 0, 27, 0.99) 50%,
+            rgba(7, 17, 22, 0.99) 50%,
             rgba(8, 14, 12, 0.98) 100%
         );
         backdrop-filter: blur(30px);
@@ -2546,8 +2550,8 @@ body::after {
         right: 0;
         bottom: 0;
         background:
-            radial-gradient(ellipse at 20% 20%, rgba(135, 82, 250, 0.08) 0%, transparent 50%),
-            radial-gradient(ellipse at 80% 80%, rgba(89, 30, 243, 0.06) 0%, transparent 50%);
+            radial-gradient(ellipse at 20% 20%, rgba(17, 106, 248, 0.08) 0%, transparent 50%),
+            radial-gradient(ellipse at 80% 80%, rgba(28, 24, 144, 0.06) 0%, transparent 50%);
         pointer-events: none;
     }
 
@@ -2557,7 +2561,7 @@ body::after {
     }
 
     .nav-links a {
-        font-family: 'Cormorant Garamond', serif;
+        font-family: 'Questrial', 'Century Gothic', sans-serif;
         font-size: 2rem;
         font-weight: 500;
         letter-spacing: 0.08em;
@@ -2928,7 +2932,7 @@ html {
 }
 
 .contact-header h1 {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Nunito', sans-serif;
     font-size: 48px;
     font-weight: 700;
     color: var(--text-light);
@@ -2951,8 +2955,8 @@ html {
 }
 
 .contact-card {
-    background: rgba(89, 30, 243, 0.08);
-    border: 1px solid rgba(135, 82, 250, 0.2);
+    background: rgba(28, 24, 144, 0.08);
+    border: 1px solid rgba(17, 106, 248, 0.2);
     border-radius: 16px;
     padding: 30px 24px;
     text-align: center;
@@ -2968,15 +2972,15 @@ html {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, rgba(135, 82, 250, 0.1) 0%, transparent 100%);
+    background: linear-gradient(135deg, rgba(17, 106, 248, 0.1) 0%, transparent 100%);
     opacity: 0;
     transition: opacity 0.3s ease;
 }
 
 .contact-card:hover {
-    border-color: rgba(135, 82, 250, 0.4);
+    border-color: rgba(17, 106, 248, 0.4);
     transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(135, 82, 250, 0.2);
+    box-shadow: 0 10px 30px rgba(17, 106, 248, 0.2);
 }
 
 .contact-card:hover::before {
@@ -2986,7 +2990,7 @@ html {
 .contact-icon {
     width: 56px;
     height: 56px;
-    background: rgba(135, 82, 250, 0.15);
+    background: rgba(17, 106, 248, 0.15);
     border-radius: 12px;
     display: flex;
     align-items: center;
@@ -3002,7 +3006,7 @@ html {
 }
 
 .contact-card h3 {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Nunito', sans-serif;
     font-size: 18px;
     font-weight: 600;
     color: var(--text-light);
@@ -3029,14 +3033,14 @@ html {
 
 /* Contact Form */
 .contact-form-wrapper {
-    background: rgba(89, 30, 243, 0.08);
-    border: 1px solid rgba(135, 82, 250, 0.2);
+    background: rgba(28, 24, 144, 0.08);
+    border: 1px solid rgba(17, 106, 248, 0.2);
     border-radius: 20px;
     padding: 40px;
 }
 
 .contact-form-wrapper h2 {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Nunito', sans-serif;
     font-size: 28px;
     font-weight: 600;
     color: var(--text-light);
@@ -3071,12 +3075,12 @@ html {
 .form-group textarea {
     width: 100%;
     background: rgba(20, 40, 45, 0.6);
-    border: 1px solid rgba(135, 82, 250, 0.2);
+    border: 1px solid rgba(17, 106, 248, 0.2);
     border-radius: 8px;
     padding: 14px 16px;
     font-size: 15px;
     color: var(--text-light);
-    font-family: 'Inter', sans-serif;
+    font-family: 'Questrial', 'Century Gothic', sans-serif;
     transition: all 0.3s ease;
 }
 
@@ -3090,7 +3094,7 @@ html {
     outline: none;
     border-color: var(--primary-teal);
     background: rgba(20, 40, 45, 0.8);
-    box-shadow: 0 0 0 3px rgba(135, 82, 250, 0.1);
+    box-shadow: 0 0 0 3px rgba(17, 106, 248, 0.1);
 }
 
 .form-group textarea {
@@ -3107,7 +3111,7 @@ html {
     padding: 16px 32px;
     font-size: 16px;
     font-weight: 600;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Nunito', sans-serif;
     cursor: pointer;
     transition: all 0.3s ease;
     position: relative;
@@ -3135,7 +3139,7 @@ html {
 .submit-btn:hover {
     background: var(--secondary-teal);
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(135, 82, 250, 0.3);
+    box-shadow: 0 8px 20px rgba(17, 106, 248, 0.3);
 }
 
 .submit-btn:hover::before {
@@ -3184,13 +3188,13 @@ html {
     width: 280px;
     height: 200px;
     background:
-        linear-gradient(90deg, rgba(135, 82, 250, 0.3) 1px, transparent 1px) 0 0,
-        linear-gradient(0deg, rgba(135, 82, 250, 0.3) 1px, transparent 1px) 0 0;
+        linear-gradient(90deg, rgba(17, 106, 248, 0.3) 1px, transparent 1px) 0 0,
+        linear-gradient(0deg, rgba(17, 106, 248, 0.3) 1px, transparent 1px) 0 0;
     background-size: 40px 40px;
     transform: perspective(600px) rotateX(60deg);
     border-radius: 12px;
     box-shadow:
-        0 10px 40px rgba(89, 30, 243, 0.2),
+        0 10px 40px rgba(28, 24, 144, 0.2),
         inset 0 0 0 1px rgba(255, 255, 255, 0.5);
 }
 
@@ -3206,7 +3210,7 @@ html {
     align-items: center;
     justify-content: center;
     box-shadow:
-        0 15px 30px rgba(89, 30, 243, 0.4),
+        0 15px 30px rgba(28, 24, 144, 0.4),
         0 0 0 4px rgba(255, 255, 255, 0.8);
     animation: pinBounce 2s ease-in-out infinite;
 }
@@ -3281,7 +3285,7 @@ html {
     align-items: center;
     justify-content: center;
     padding: 140px 20px 80px;
-    background: #070015;
+    background: #071116;
     position: relative;
     overflow: hidden;
 }
@@ -3293,7 +3297,7 @@ html {
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(circle at 30% 50%, rgba(135, 82, 250, 0.08) 0%, transparent 50%);
+    background: radial-gradient(circle at 30% 50%, rgba(17, 106, 248, 0.08) 0%, transparent 50%);
     pointer-events: none;
 }
 
@@ -3311,12 +3315,12 @@ html {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: rgba(135, 82, 250, 0.15);
-    border: 1px solid rgba(135, 82, 250, 0.3);
+    background: rgba(17, 106, 248, 0.15);
+    border: 1px solid rgba(17, 106, 248, 0.3);
     padding: 8px 20px;
     border-radius: 30px;
     margin-bottom: 24px;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Questrial', 'Century Gothic', sans-serif;
     font-size: 14px;
     color: var(--primary-teal);
     font-weight: 500;
@@ -3327,7 +3331,7 @@ html {
 }
 
 .legalia-hero h1 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Nunito', serif;
     font-size: clamp(56px, 8vw, 80px);
     font-weight: 700;
     color: #ffffff;
@@ -3336,7 +3340,7 @@ html {
 }
 
 .hero-subtitle {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Questrial', 'Century Gothic', sans-serif;
     font-size: clamp(20px, 3vw, 26px);
     color: var(--primary-teal);
     margin-bottom: 20px;
@@ -3344,7 +3348,7 @@ html {
 }
 
 .hero-description {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Questrial', 'Century Gothic', sans-serif;
     font-size: clamp(16px, 2vw, 18px);
     color: rgba(255, 255, 255, 0.7);
     line-height: 1.8;
@@ -3369,7 +3373,7 @@ html {
 }
 
 .about-content h2 {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Nunito', sans-serif;
     font-size: clamp(32px, 5vw, 44px);
     font-weight: 700;
     color: #ffffff;
@@ -3377,7 +3381,7 @@ html {
 }
 
 .about-content p {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Questrial', 'Century Gothic', sans-serif;
     font-size: 18px;
     line-height: 1.8;
     color: rgba(255, 255, 255, 0.7);
@@ -3412,13 +3416,13 @@ html {
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 8px 24px rgba(135, 82, 250, 0.3);
+    box-shadow: 0 8px 24px rgba(17, 106, 248, 0.3);
     transition: all 0.3s ease;
 }
 
 .cycle-icon:hover {
     transform: scale(1.1) rotate(10deg);
-    box-shadow: 0 12px 32px rgba(135, 82, 250, 0.5);
+    box-shadow: 0 12px 32px rgba(17, 106, 248, 0.5);
 }
 
 .cycle-icon i {
@@ -3427,7 +3431,7 @@ html {
 }
 
 .cycle-item span {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Questrial', 'Century Gothic', sans-serif;
     font-size: 16px;
     font-weight: 600;
     color: #ffffff;
@@ -3442,11 +3446,11 @@ html {
 /* Audience Section */
 .audience-section {
     padding: 100px 20px;
-    background: #070015;
+    background: #071116;
 }
 
 .audience-section h2 {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Nunito', sans-serif;
     font-size: clamp(36px, 5vw, 48px);
     font-weight: 700;
     color: #ffffff;
@@ -3463,8 +3467,8 @@ html {
 }
 
 .audience-card {
-    background: rgba(89, 30, 243, 0.08);
-    border: 1px solid rgba(135, 82, 250, 0.2);
+    background: rgba(28, 24, 144, 0.08);
+    border: 1px solid rgba(17, 106, 248, 0.2);
     border-radius: 20px;
     padding: 40px 30px;
     text-align: center;
@@ -3480,15 +3484,15 @@ html {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, rgba(135, 82, 250, 0.1) 0%, transparent 100%);
+    background: linear-gradient(135deg, rgba(17, 106, 248, 0.1) 0%, transparent 100%);
     opacity: 0;
     transition: opacity 0.4s ease;
 }
 
 .audience-card:hover {
     transform: translateY(-10px);
-    border-color: rgba(135, 82, 250, 0.5);
-    box-shadow: 0 20px 40px rgba(135, 82, 250, 0.2);
+    border-color: rgba(17, 106, 248, 0.5);
+    box-shadow: 0 20px 40px rgba(17, 106, 248, 0.2);
 }
 
 .audience-card:hover::before {
@@ -3498,7 +3502,7 @@ html {
 .audience-icon {
     width: 90px;
     height: 90px;
-    background: rgba(135, 82, 250, 0.15);
+    background: rgba(17, 106, 248, 0.15);
     border-radius: 20px;
     display: flex;
     align-items: center;
@@ -3525,7 +3529,7 @@ html {
 }
 
 .audience-card h3 {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Nunito', sans-serif;
     font-size: 24px;
     font-weight: 600;
     color: #ffffff;
@@ -3535,7 +3539,7 @@ html {
 }
 
 .audience-card p {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Questrial', 'Century Gothic', sans-serif;
     font-size: 16px;
     line-height: 1.7;
     color: rgba(255, 255, 255, 0.7);
@@ -3555,7 +3559,7 @@ html {
 }
 
 .section-header h2 {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Nunito', sans-serif;
     font-size: clamp(36px, 5vw, 48px);
     font-weight: 700;
     color: #ffffff;
@@ -3563,7 +3567,7 @@ html {
 }
 
 .section-header p {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Questrial', 'Century Gothic', sans-serif;
     font-size: 18px;
     color: rgba(255, 255, 255, 0.6);
 }
@@ -3577,8 +3581,8 @@ html {
 }
 
 .feature-card {
-    background: rgba(89, 30, 243, 0.08);
-    border: 1px solid rgba(135, 82, 250, 0.2);
+    background: rgba(28, 24, 144, 0.08);
+    border: 1px solid rgba(17, 106, 248, 0.2);
     border-radius: 16px;
     padding: 35px 28px;
     transition: all 0.4s ease;
@@ -3596,9 +3600,9 @@ html {
     background: linear-gradient(
         115deg,
         transparent 20%,
-        rgba(135, 82, 250, 0.2) 40%,
-        rgba(135, 82, 250, 0.4) 50%,
-        rgba(135, 82, 250, 0.2) 60%,
+        rgba(17, 106, 248, 0.2) 40%,
+        rgba(17, 106, 248, 0.4) 50%,
+        rgba(17, 106, 248, 0.2) 60%,
         transparent 80%
     );
     transform: translateX(-100%) translateY(-100%) rotate(45deg);
@@ -3612,14 +3616,14 @@ html {
 
 .feature-card:hover {
     transform: translateY(-8px);
-    border-color: rgba(135, 82, 250, 0.5);
-    box-shadow: 0 15px 35px rgba(135, 82, 250, 0.2);
+    border-color: rgba(17, 106, 248, 0.5);
+    box-shadow: 0 15px 35px rgba(17, 106, 248, 0.2);
 }
 
 .feature-icon {
     width: 70px;
     height: 70px;
-    background: linear-gradient(135deg, rgba(135, 82, 250, 0.2), rgba(89, 30, 243, 0.3));
+    background: linear-gradient(135deg, rgba(17, 106, 248, 0.2), rgba(28, 24, 144, 0.3));
     border-radius: 16px;
     display: flex;
     align-items: center;
@@ -3644,7 +3648,7 @@ html {
 }
 
 .feature-card h3 {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Nunito', sans-serif;
     font-size: 22px;
     font-weight: 600;
     color: #ffffff;
@@ -3652,7 +3656,7 @@ html {
 }
 
 .feature-card p {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Questrial', 'Century Gothic', sans-serif;
     font-size: 15px;
     line-height: 1.7;
     color: rgba(255, 255, 255, 0.7);
@@ -3661,11 +3665,11 @@ html {
 /* Benefits Section */
 .benefits-section {
     padding: 100px 20px;
-    background: #070015;
+    background: #071116;
 }
 
 .benefits-section h2 {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Nunito', sans-serif;
     font-size: clamp(36px, 5vw, 48px);
     font-weight: 700;
     color: #ffffff;
@@ -3682,8 +3686,8 @@ html {
 }
 
 .benefit-card {
-    background: linear-gradient(135deg, rgba(89, 30, 243, 0.1) 0%, rgba(135, 82, 250, 0.05) 100%);
-    border: 1px solid rgba(135, 82, 250, 0.2);
+    background: linear-gradient(135deg, rgba(28, 24, 144, 0.1) 0%, rgba(17, 106, 248, 0.05) 100%);
+    border: 1px solid rgba(17, 106, 248, 0.2);
     border-radius: 20px;
     padding: 40px 30px;
     position: relative;
@@ -3709,21 +3713,21 @@ html {
 
 .benefit-card:hover {
     transform: translateY(-10px);
-    border-color: rgba(135, 82, 250, 0.5);
-    box-shadow: 0 20px 45px rgba(135, 82, 250, 0.25);
+    border-color: rgba(17, 106, 248, 0.5);
+    box-shadow: 0 20px 45px rgba(17, 106, 248, 0.25);
 }
 
 .benefit-number {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Nunito', serif;
     font-size: 56px;
     font-weight: 700;
-    color: rgba(135, 82, 250, 0.2);
+    color: rgba(17, 106, 248, 0.2);
     line-height: 1;
     margin-bottom: 16px;
 }
 
 .benefit-card h3 {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Nunito', sans-serif;
     font-size: 24px;
     font-weight: 600;
     color: #ffffff;
@@ -3731,7 +3735,7 @@ html {
 }
 
 .benefit-card p {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Questrial', 'Century Gothic', sans-serif;
     font-size: 16px;
     line-height: 1.7;
     color: rgba(255, 255, 255, 0.7);
@@ -3743,12 +3747,12 @@ html {
     bottom: 20px;
     right: 20px;
     font-size: 40px;
-    color: rgba(135, 82, 250, 0.1);
+    color: rgba(17, 106, 248, 0.1);
     transition: all 0.4s ease;
 }
 
 .benefit-card:hover .benefit-icon {
-    color: rgba(135, 82, 250, 0.3);
+    color: rgba(17, 106, 248, 0.3);
     transform: scale(1.2) rotate(10deg);
 }
 
@@ -3768,7 +3772,7 @@ html {
 }
 
 .core-features-content h2 {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Nunito', sans-serif;
     font-size: clamp(36px, 5vw, 48px);
     font-weight: 700;
     color: #ffffff;
@@ -3785,7 +3789,7 @@ html {
     align-items: center;
     gap: 16px;
     margin-bottom: 24px;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Questrial', 'Century Gothic', sans-serif;
     font-size: 18px;
     color: rgba(255, 255, 255, 0.8);
     transition: all 0.3s ease;
@@ -3805,8 +3809,8 @@ html {
 .phone-mockup {
     width: 320px;
     height: 640px;
-    background: linear-gradient(135deg, rgba(135, 82, 250, 0.1), rgba(89, 30, 243, 0.2));
-    border: 12px solid rgba(135, 82, 250, 0.3);
+    background: linear-gradient(135deg, rgba(17, 106, 248, 0.1), rgba(28, 24, 144, 0.2));
+    border: 12px solid rgba(17, 106, 248, 0.3);
     border-radius: 40px;
     padding: 20px;
     box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
@@ -3817,13 +3821,13 @@ html {
 
 .phone-mockup:hover {
     transform: scale(1.05) rotate(-2deg);
-    box-shadow: 0 40px 80px rgba(135, 82, 250, 0.3);
+    box-shadow: 0 40px 80px rgba(17, 106, 248, 0.3);
 }
 
 .phone-screen {
     width: 100%;
     height: 100%;
-    background: #09001B;
+    background: #071116;
     border-radius: 28px;
     padding: 20px;
     overflow: hidden;
@@ -3858,7 +3862,7 @@ html {
 .mockup-progress {
     width: 80px;
     height: 8px;
-    background: rgba(135, 82, 250, 0.3);
+    background: rgba(17, 106, 248, 0.3);
     border-radius: 4px;
 }
 
@@ -3870,8 +3874,8 @@ html {
 
 .mockup-card {
     height: 100px;
-    background: linear-gradient(135deg, rgba(89, 30, 243, 0.2), rgba(135, 82, 250, 0.1));
-    border: 1px solid rgba(135, 82, 250, 0.2);
+    background: linear-gradient(135deg, rgba(28, 24, 144, 0.2), rgba(17, 106, 248, 0.1));
+    border: 1px solid rgba(17, 106, 248, 0.2);
     border-radius: 16px;
     animation: cardPulse 2s ease-in-out infinite;
 }
@@ -3898,7 +3902,7 @@ html {
 /* Mission Section */
 .mission-section {
     padding: 120px 20px;
-    background: #070015;
+    background: #071116;
     position: relative;
 }
 
@@ -3909,7 +3913,7 @@ html {
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(circle at 50% 50%, rgba(135, 82, 250, 0.1) 0%, transparent 60%);
+    background: radial-gradient(circle at 50% 50%, rgba(17, 106, 248, 0.1) 0%, transparent 60%);
     pointer-events: none;
 }
 
@@ -3930,7 +3934,7 @@ html {
     align-items: center;
     justify-content: center;
     margin: 0 auto 32px;
-    box-shadow: 0 20px 50px rgba(135, 82, 250, 0.4);
+    box-shadow: 0 20px 50px rgba(17, 106, 248, 0.4);
     animation: float 3s ease-in-out infinite;
 }
 
@@ -3949,7 +3953,7 @@ html {
 }
 
 .mission-content h2 {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Nunito', sans-serif;
     font-size: clamp(36px, 5vw, 48px);
     font-weight: 700;
     color: #ffffff;
@@ -3957,7 +3961,7 @@ html {
 }
 
 .mission-content p {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Questrial', 'Century Gothic', sans-serif;
     font-size: clamp(18px, 2.5vw, 22px);
     line-height: 1.8;
     color: rgba(255, 255, 255, 0.8);
