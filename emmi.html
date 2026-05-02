@@ -1590,8 +1590,10 @@
   <!-- Custom JavaScript -->
   <script src="script.js"></script>
 
-  <!-- Emmi Live Demo Widget — agent: emmi-demo on the Applexium organisation -->
-  <script src="https://app.emmi-agent.com/widget.js"
+  <!-- Emmi Live Demo Widget — agent: emmi-demo on the Applexium organisation
+       The ?v=… query is a cache-buster: bump it whenever the widget loader
+       script changes so phones don't keep a stale copy. -->
+  <script src="https://app.emmi-agent.com/widget.js?v=2026050202"
           data-agent-id="06da5340-328a-4a41-a307-f52c3ce6c5de"
           defer></script>
 
