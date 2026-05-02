@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Emmi - AI Voice Assistant | Applexium</title>
-  <meta name="description" content="Emmi is a bilingual AI voice assistant that handles phone calls for institutions — providing instant, accurate information about admissions, services, and more. 24/7 availability in Romanian and Russian.">
-  <meta name="keywords" content="Emmi, AI voice assistant, voice agent, phone assistant, admissions, bilingual AI, Romanian, Russian, Applexium, Moldova, call center AI">
+  <title>Emmi — Multi-Channel Conversational AI | Applexium</title>
+  <meta name="description" content="Emmi is a multi-channel conversational AI for businesses — answers phone calls, web chat, and WhatsApp messages 24/7 in Romanian and Russian, grounded in your own documents.">
+  <meta name="keywords" content="Emmi, conversational AI, voice agent, web chat AI, WhatsApp AI, RAG, bilingual AI, Romanian, Russian, multi-channel customer support automation, Applexium, Moldova, call center AI">
   <meta name="author" content="Applexium">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://applexium.com/emmi">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Emmi - AI Voice Assistant | Applexium">
-  <meta property="og:description" content="A bilingual AI voice assistant that handles institutional phone calls — instant, accurate answers about admissions and services, 24/7.">
+  <meta property="og:title" content="Emmi — Multi-Channel Conversational AI | Applexium">
+  <meta property="og:description" content="One AI agent for phone, web chat, and WhatsApp. Bilingual (RO/RU), grounded in your own knowledge base, available 24/7.">
   <meta property="og:url" content="https://applexium.com/emmi">
   <meta property="og:site_name" content="Applexium">
   <meta property="og:image" content="https://applexium.com/og-image.png">
@@ -258,11 +258,11 @@
     }
 
     .em-stats-grid {
-      max-width: 800px;
+      max-width: 1000px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
     }
 
     .em-stat {
@@ -395,11 +395,11 @@
     }
 
     .em-steps-grid {
-      max-width: 1000px;
+      max-width: 1180px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 28px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
       position: relative;
       z-index: 2;
     }
@@ -674,8 +674,8 @@
     .em-usecase-cards {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      max-width: 800px;
+      gap: 18px;
+      max-width: 1000px;
       margin: 0 auto;
     }
 
@@ -757,6 +757,299 @@
       line-height: 1.7;
     }
 
+    /* ===== CHANNELS ===== */
+    .em-channels {
+      padding: 100px 24px;
+      position: relative;
+    }
+
+    .em-channels::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(ellipse at 50% 50%, rgba(103, 232, 249, 0.05) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .em-channels-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .em-channel-card {
+      background: rgba(6, 182, 212, 0.06);
+      border: 1px solid rgba(6, 182, 212, 0.15);
+      border-radius: 24px;
+      padding: 40px 32px;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .em-channel-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--em-vivid), var(--em-light));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.5s ease;
+    }
+
+    .em-channel-card:hover {
+      background: rgba(6, 182, 212, 0.12);
+      border-color: rgba(6, 182, 212, 0.32);
+      transform: translateY(-6px);
+    }
+
+    .em-channel-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .em-channel-icon {
+      width: 72px;
+      height: 72px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, var(--em-vivid), var(--em-soft));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      color: white;
+      margin-bottom: 24px;
+      box-shadow: 0 12px 28px rgba(8, 145, 178, 0.3);
+      transition: transform 0.4s ease;
+    }
+
+    .em-channel-card:hover .em-channel-icon {
+      transform: scale(1.06) rotate(-4deg);
+    }
+
+    .em-channel-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+
+    .em-channel-card h3 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--em-white);
+      margin: 0;
+    }
+
+    .em-coming-soon {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 12px;
+      background: rgba(165, 243, 252, 0.15);
+      border: 1px solid rgba(165, 243, 252, 0.3);
+      color: var(--em-light);
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      border-radius: 12px;
+    }
+
+    .em-channel-pitch {
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      color: rgba(255, 255, 255, 0.7);
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    .em-channel-bullets {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .em-channel-bullets li {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.55);
+      line-height: 1.5;
+      padding-left: 24px;
+      position: relative;
+    }
+
+    .em-channel-bullets li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--em-soft);
+      box-shadow: 0 0 8px rgba(6, 182, 212, 0.5);
+    }
+
+    /* ===== TRUST STRIP ===== */
+    .em-trust {
+      padding: 60px 24px 40px;
+      position: relative;
+    }
+
+    .em-trust-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .em-trust h3 {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(18px, 2.4vw, 22px);
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+
+    .em-trust p {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.4);
+      max-width: 640px;
+      margin: 0 auto 28px;
+      line-height: 1.6;
+    }
+
+    .em-trust-strip {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: clamp(20px, 4vw, 48px);
+      flex-wrap: wrap;
+      opacity: 0.45;
+    }
+
+    .em-trust-strip i {
+      font-size: 32px;
+      color: rgba(165, 243, 252, 0.7);
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .em-trust-strip i:hover {
+      color: var(--em-light);
+      transform: translateY(-2px);
+    }
+
+    /* ===== FAQ ===== */
+    .em-faq {
+      padding: 100px 24px;
+      position: relative;
+    }
+
+    .em-faq::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(ellipse at 70% 50%, rgba(8, 145, 178, 0.08) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .em-faq-list {
+      max-width: 820px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .em-faq-item {
+      background: rgba(6, 182, 212, 0.06);
+      border: 1px solid rgba(6, 182, 212, 0.14);
+      border-radius: 18px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .em-faq-item[open] {
+      background: rgba(6, 182, 212, 0.1);
+      border-color: rgba(6, 182, 212, 0.3);
+    }
+
+    .em-faq-item summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 22px 28px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--em-white);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      transition: color 0.2s ease;
+    }
+
+    .em-faq-item summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .em-faq-item summary:hover {
+      color: var(--em-light);
+    }
+
+    .em-faq-item summary::after {
+      content: '+';
+      font-family: 'Poppins', sans-serif;
+      font-size: 26px;
+      font-weight: 400;
+      color: var(--em-soft);
+      line-height: 1;
+      transition: transform 0.3s ease, color 0.3s ease;
+      flex-shrink: 0;
+    }
+
+    .em-faq-item[open] summary::after {
+      transform: rotate(45deg);
+      color: var(--em-light);
+    }
+
+    .em-faq-content {
+      padding: 0 28px 24px;
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+      color: rgba(255, 255, 255, 0.6);
+      animation: emFaqOpen 0.35s ease;
+    }
+
+    @keyframes emFaqOpen {
+      from { opacity: 0; transform: translateY(-6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     /* ===== RESPONSIVE ===== */
     @media (max-width: 900px) {
       .em-features-grid {
@@ -771,15 +1064,19 @@
         grid-template-columns: repeat(2, 1fr);
       }
       .em-steps-grid {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 700px;
+      }
+      .em-channels-grid {
         grid-template-columns: 1fr;
-        max-width: 400px;
+        max-width: 480px;
       }
       .em-tech-grid {
         grid-template-columns: repeat(2, 1fr);
       }
       .em-usecase-cards {
-        grid-template-columns: 1fr;
-        max-width: 340px;
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 600px;
       }
     }
 
@@ -801,13 +1098,32 @@
         grid-template-columns: 1fr;
         max-width: 340px;
       }
+      .em-steps-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+      }
+      .em-channel-card {
+        padding: 32px 24px;
+      }
       .em-tech-grid {
+        grid-template-columns: 1fr;
+        max-width: 340px;
+      }
+      .em-usecase-cards {
         grid-template-columns: 1fr;
         max-width: 340px;
       }
       .em-usecases-visual {
         padding: 40px 20px;
         border-radius: 24px;
+      }
+      .em-faq-item summary {
+        font-size: 15px;
+        padding: 20px 22px;
+      }
+      .em-faq-content {
+        padding: 0 22px 20px;
+        font-size: 14px;
       }
     }
   </style>
@@ -868,11 +1184,11 @@
 
     <div class="em-hero-content">
       <img src="emmi.png" alt="Emmi" class="em-hero-logo">
-      <h1>Your AI-Powered <span class="em-gradient-text">Phone Assistant</span></h1>
-      <p>Emmi is a bilingual voice AI agent that answers institutional phone calls in Romanian and Russian — providing accurate, instant information about admissions, services, and more.</p>
+      <h1>One AI Agent. <span class="em-gradient-text">Phone, Chat, and WhatsApp.</span></h1>
+      <p>Emmi is a bilingual conversational AI that answers your phone calls, replies in your website chat, and handles WhatsApp messages — 24/7, in Romanian and Russian, with knowledge grounded in your own documents.</p>
       <div class="em-hero-actions">
-        <a href="contacts" class="em-btn-primary"><i class="fas fa-phone-alt"></i> Request a Demo</a>
-        <a href="#features" class="em-btn-secondary"><i class="fas fa-info-circle"></i> Learn More</a>
+        <a href="contacts" class="em-btn-primary"><i class="fas fa-paper-plane"></i> Request a Demo</a>
+        <a href="#channels" data-emmi-trigger="open" class="em-btn-secondary"><i class="fas fa-comment-dots"></i> Try Emmi Live</a>
       </div>
     </div>
   </section>
@@ -881,16 +1197,20 @@
   <section class="em-stats" data-aos="fade-up">
     <div class="em-stats-grid">
       <div class="em-stat">
+        <div class="em-stat-number">&lt;500ms</div>
+        <div class="em-stat-label">Speech Recognition</div>
+      </div>
+      <div class="em-stat">
+        <div class="em-stat-number">&lt;350ms</div>
+        <div class="em-stat-label">Voice Response TTFB</div>
+      </div>
+      <div class="em-stat">
         <div class="em-stat-number">24/7</div>
-        <div class="em-stat-label">Availability</div>
+        <div class="em-stat-label">Phone · Chat · WhatsApp</div>
       </div>
       <div class="em-stat">
-        <div class="em-stat-number">&lt;1s</div>
-        <div class="em-stat-label">Response Time</div>
-      </div>
-      <div class="em-stat">
-        <div class="em-stat-number">100%</div>
-        <div class="em-stat-label">Call Coverage</div>
+        <div class="em-stat-number">RO · RU</div>
+        <div class="em-stat-label">Native Cyrillic &amp; Diacritics</div>
       </div>
     </div>
   </section>
@@ -904,9 +1224,62 @@
         </div>
       </div>
       <div class="em-about-text" data-aos="fade-left">
-        <h2>What is Emmi?</h2>
-        <p>Emmi is an intelligent voice assistant designed for institutions and organizations that handle high volumes of repetitive phone inquiries. It speaks naturally in both Romanian and Russian, providing consistent, accurate answers every time.</p>
-        <p>Powered by advanced speech recognition and AI reasoning, Emmi understands caller intent, delivers knowledge-base-driven responses, and automatically extracts structured data from every conversation for analytics and follow-up.</p>
+        <h2>Three Channels, One Brain.</h2>
+        <p>Emmi is a single conversational AI that picks up the phone, replies in your website chat, and handles your WhatsApp inbox — using the same knowledge base, the same persona, and the same bilingual fluency across all of them.</p>
+        <p>That means no more missed calls outside business hours, no more inboxes overflowing on Monday morning, and no more inconsistent answers between channels. Your team focuses on the conversations that genuinely need a human; Emmi handles the rest.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Channels -->
+  <section id="channels" class="em-channels">
+    <div class="em-section-header" data-aos="fade-up">
+      <h2>Built for Every Way Your Customers Reach Out</h2>
+      <p>One agent, three channels — same knowledge, same persona, same quality</p>
+    </div>
+
+    <div class="em-channels-grid">
+      <div class="em-channel-card" data-aos="fade-up" data-aos-delay="0">
+        <div class="em-channel-icon"><i class="fas fa-phone-volume"></i></div>
+        <div class="em-channel-header">
+          <h3>Voice (Phone)</h3>
+        </div>
+        <p class="em-channel-pitch">Emmi answers your calls instantly, in the caller's language, with sub-second response times.</p>
+        <ul class="em-channel-bullets">
+          <li>Twilio cloud numbers or bring-your-own SIP / PBX</li>
+          <li>Concise 1–2 sentence responses, optimized for phone latency</li>
+          <li>Custom pronunciation rules for acronyms, phone numbers, and proper names</li>
+          <li>Structured callback collection when a human follow-up is needed</li>
+        </ul>
+      </div>
+
+      <div class="em-channel-card" data-aos="fade-up" data-aos-delay="120">
+        <div class="em-channel-icon"><i class="fas fa-comments"></i></div>
+        <div class="em-channel-header">
+          <h3>Web Widget</h3>
+        </div>
+        <p class="em-channel-pitch">One line of code embeds Emmi on your site — fully on-brand, isolated from your CSS.</p>
+        <ul class="em-channel-bullets">
+          <li>Shadow-DOM isolation — zero CSS or JS conflicts with your site</li>
+          <li>White-label theming: accent color, position, persona per deployment</li>
+          <li>Token streaming over SSE — answers appear as they're generated</li>
+          <li>Origin-locked allowlist for security and compliance</li>
+        </ul>
+      </div>
+
+      <div class="em-channel-card" data-aos="fade-up" data-aos-delay="240">
+        <div class="em-channel-icon"><i class="fa-brands fa-whatsapp"></i></div>
+        <div class="em-channel-header">
+          <h3>WhatsApp</h3>
+          <span class="em-coming-soon">Coming Q3</span>
+        </div>
+        <p class="em-channel-pitch">Reach customers where they already are — Emmi replies in WhatsApp using the same knowledge base.</p>
+        <ul class="em-channel-bullets">
+          <li>WhatsApp Business API integration</li>
+          <li>Bilingual replies, auto-detected per message (RO / RU)</li>
+          <li>Same knowledge base as voice and web — answers stay consistent</li>
+          <li>Unified analytics and conversation history across channels</li>
+        </ul>
       </div>
     </div>
   </section>
@@ -915,24 +1288,45 @@
   <section class="em-how">
     <div class="em-section-header" data-aos="fade-up">
       <h2>How It Works</h2>
-      <p>From incoming call to structured insights — fully automated</p>
+      <p>From the first message to structured insights — fully automated, across every channel</p>
     </div>
 
     <div class="em-steps-grid">
       <div class="em-step-card" data-aos="fade-up" data-aos-delay="0">
         <div class="em-step-number">01</div>
-        <h3>Caller Dials In</h3>
-        <p>Emmi picks up the call instantly, greets the caller in their language, and begins a natural conversation.</p>
+        <h3>Customer Reaches Out</h3>
+        <p>They call your number, open the chat widget on your site, or message you on WhatsApp. Emmi greets them in their language.</p>
       </div>
-      <div class="em-step-card" data-aos="fade-up" data-aos-delay="120">
+      <div class="em-step-card" data-aos="fade-up" data-aos-delay="100">
         <div class="em-step-number">02</div>
-        <h3>AI Understands & Responds</h3>
-        <p>Real-time speech recognition transcribes the question. The AI reasons over the knowledge base and delivers an accurate spoken answer.</p>
+        <h3>AI Understands</h3>
+        <p>Real-time speech recognition (voice) or direct text — language is auto-detected per turn, with native Cyrillic and Romanian diacritic accuracy.</p>
       </div>
-      <div class="em-step-card" data-aos="fade-up" data-aos-delay="240">
+      <div class="em-step-card" data-aos="fade-up" data-aos-delay="200">
         <div class="em-step-number">03</div>
-        <h3>Data Is Extracted</h3>
-        <p>After the call, Emmi automatically extracts caller details, topics discussed, and callback requests — ready for your team's review.</p>
+        <h3>Knowledge-Grounded Reply</h3>
+        <p>Emmi retrieves the most relevant chunks from your documents and answers using Claude — with prompt caching for ~10× cost efficiency.</p>
+      </div>
+      <div class="em-step-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="em-step-number">04</div>
+        <h3>Data Is Captured</h3>
+        <p>Caller details, topics, callback requests, transcripts and token usage — all logged to your dashboard automatically, ready for review or export.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trusted by Sector -->
+  <section class="em-trust" data-aos="fade-up">
+    <div class="em-trust-inner">
+      <h3>Used in production by public-sector and legal institutions in Eastern Europe.</h3>
+      <p>Deployed for government bureaus, legal-services organizations, and educational institutions handling thousands of bilingual inquiries each month.</p>
+      <div class="em-trust-strip" aria-hidden="true">
+        <i class="fas fa-graduation-cap" title="Education"></i>
+        <i class="fas fa-balance-scale" title="Legal"></i>
+        <i class="fas fa-landmark" title="Government"></i>
+        <i class="fas fa-hospital" title="Healthcare"></i>
+        <i class="fas fa-building-columns" title="Financial Services"></i>
+        <i class="fas fa-headset" title="Customer Support"></i>
       </div>
     </div>
   </section>
@@ -941,49 +1335,69 @@
   <section id="features" class="em-features">
     <div class="em-section-header" data-aos="fade-up">
       <h2>Key Capabilities</h2>
-      <p>Everything you need to automate institutional phone support</p>
+      <p>Production-grade conversational AI, built for regulated industries</p>
     </div>
 
     <div class="em-features-grid">
       <div class="em-feature-card" data-aos="fade-up" data-aos-delay="0">
         <div class="em-feature-icon"><i class="fas fa-language"></i></div>
-        <h3>Bilingual Support</h3>
-        <p>Fluent conversations in Romanian and Russian with natural pronunciation</p>
+        <h3>Bilingual RO / RU</h3>
+        <p>Native Cyrillic and Romanian diacritics — no transliteration tricks</p>
       </div>
-      <div class="em-feature-card" data-aos="fade-up" data-aos-delay="80">
+      <div class="em-feature-card" data-aos="fade-up" data-aos-delay="60">
         <div class="em-feature-icon"><i class="fas fa-brain"></i></div>
-        <h3>AI Reasoning</h3>
-        <p>Powered by Claude AI for accurate, context-aware responses</p>
+        <h3>Claude Haiku 4.5</h3>
+        <p>Anthropic reasoning with prompt caching for ~10× cost savings on hot context</p>
       </div>
-      <div class="em-feature-card" data-aos="fade-up" data-aos-delay="160">
+      <div class="em-feature-card" data-aos="fade-up" data-aos-delay="120">
         <div class="em-feature-icon"><i class="fas fa-microphone"></i></div>
-        <h3>Real-Time STT</h3>
-        <p>Deepgram Nova-3 speech recognition with sub-second latency</p>
+        <h3>Sub-500ms STT</h3>
+        <p>Groq Whisper-large-v3-turbo on custom silicon — fastest STT in production</p>
+      </div>
+      <div class="em-feature-card" data-aos="fade-up" data-aos-delay="180">
+        <div class="em-feature-icon"><i class="fas fa-volume-up"></i></div>
+        <h3>Streaming TTS</h3>
+        <p>ElevenLabs multilingual voice with fine-tuned stability for chunked synthesis</p>
       </div>
       <div class="em-feature-card" data-aos="fade-up" data-aos-delay="240">
-        <div class="em-feature-icon"><i class="fas fa-volume-up"></i></div>
-        <h3>Natural Voice</h3>
-        <p>Human-like text-to-speech with emotion and tone customization</p>
+        <div class="em-feature-icon"><i class="fas fa-book-open"></i></div>
+        <h3>Knowledge Base (RAG)</h3>
+        <p>Upload Markdown, PDF, or URLs — pgvector + HNSW retrieval grounds every reply</p>
       </div>
-      <div class="em-feature-card" data-aos="fade-up" data-aos-delay="320">
-        <div class="em-feature-icon"><i class="fas fa-database"></i></div>
-        <h3>Knowledge Base</h3>
-        <p>Custom content per language — admissions, fees, deadlines, requirements</p>
+      <div class="em-feature-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="em-feature-icon"><i class="fas fa-palette"></i></div>
+        <h3>White-Label Widget</h3>
+        <p>Custom accent color, position, persona, and voice per deployment</p>
       </div>
-      <div class="em-feature-card" data-aos="fade-up" data-aos-delay="400">
-        <div class="em-feature-icon"><i class="fas fa-chart-line"></i></div>
-        <h3>Call Analytics</h3>
-        <p>Automatic extraction of caller data, topics, and callback requests</p>
+      <div class="em-feature-card" data-aos="fade-up" data-aos-delay="360">
+        <div class="em-feature-icon"><i class="fas fa-spell-check"></i></div>
+        <h3>Custom Pronunciation</h3>
+        <p>Acronyms, phone numbers, foreign names spelled correctly every time</p>
+      </div>
+      <div class="em-feature-card" data-aos="fade-up" data-aos-delay="420">
+        <div class="em-feature-icon"><i class="fas fa-tags"></i></div>
+        <h3>Per-Language Keyterms</h3>
+        <p>Boost STT recognition of your domain vocabulary in Romanian and Russian</p>
       </div>
       <div class="em-feature-card" data-aos="fade-up" data-aos-delay="480">
+        <div class="em-feature-icon"><i class="fas fa-chart-line"></i></div>
+        <h3>Real-Time Analytics</h3>
+        <p>Topics, callbacks, duration, costs and per-call drill-down — out of the box</p>
+      </div>
+      <div class="em-feature-card" data-aos="fade-up" data-aos-delay="540">
         <div class="em-feature-icon"><i class="fas fa-file-excel"></i></div>
         <h3>Admin Dashboard</h3>
-        <p>Filter, search, and export call records with full transcripts</p>
+        <p>Full transcript search and CSV export for every conversation</p>
       </div>
-      <div class="em-feature-card" data-aos="fade-up" data-aos-delay="560">
-        <div class="em-feature-icon"><i class="fas fa-phone-volume"></i></div>
-        <h3>Telephony Integration</h3>
-        <p>Works with Twilio cloud calling or on-premise SIP/PBX systems</p>
+      <div class="em-feature-card" data-aos="fade-up" data-aos-delay="600">
+        <div class="em-feature-icon"><i class="fas fa-shield-halved"></i></div>
+        <h3>Multi-Tenant Security</h3>
+        <p>Postgres Row-Level Security — organisation isolation enforced at the database layer</p>
+      </div>
+      <div class="em-feature-card" data-aos="fade-up" data-aos-delay="660">
+        <div class="em-feature-icon"><i class="fas fa-user-shield"></i></div>
+        <h3>GDPR-Ready</h3>
+        <p>Built-in export, deletion, configurable retention, and consent recording</p>
       </div>
     </div>
   </section>
@@ -992,39 +1406,39 @@
   <section class="em-tech">
     <div class="em-section-header" data-aos="fade-up">
       <h2>Technology Stack</h2>
-      <p>Built on cutting-edge AI and voice infrastructure</p>
+      <p>Hand-picked components — every one optimised for bilingual real-time conversation</p>
     </div>
 
     <div class="em-tech-grid">
       <div class="em-tech-card" data-aos="fade-up" data-aos-delay="0">
         <i class="fas fa-robot"></i>
-        <h3>Claude AI</h3>
-        <p>Advanced reasoning for natural conversation and data extraction</p>
+        <h3>Claude Haiku 4.5</h3>
+        <p>Anthropic reasoning with 5-minute prompt caching for ~10× lower token costs on hot context</p>
       </div>
       <div class="em-tech-card" data-aos="fade-up" data-aos-delay="80">
-        <i class="fas fa-ear-listen"></i>
-        <h3>Deepgram Nova-3</h3>
-        <p>Real-time multilingual speech recognition with voice activity detection</p>
+        <i class="fas fa-bolt"></i>
+        <h3>Groq Whisper</h3>
+        <p>Whisper-large-v3-turbo running on Groq's custom silicon — sub-500 ms speech recognition</p>
       </div>
       <div class="em-tech-card" data-aos="fade-up" data-aos-delay="160">
-        <i class="fas fa-waveform-lines"></i>
-        <h3>Cartesia TTS</h3>
-        <p>Natural voice synthesis with emotion, speed, and tone control</p>
+        <i class="fas fa-wave-square"></i>
+        <h3>ElevenLabs</h3>
+        <p>Streaming multilingual TTS, fine-tuned stability and similarity for chunked synthesis</p>
       </div>
       <div class="em-tech-card" data-aos="fade-up" data-aos-delay="240">
-        <i class="fas fa-server"></i>
-        <h3>FastAPI</h3>
-        <p>High-performance async Python backend for real-time processing</p>
+        <i class="fas fa-network-wired"></i>
+        <h3>LiveKit Agents</h3>
+        <p>Real-time WebRTC orchestration with built-in SIP module for telephony bridging</p>
       </div>
       <div class="em-tech-card" data-aos="fade-up" data-aos-delay="320">
-        <i class="fas fa-database"></i>
-        <h3>PostgreSQL</h3>
-        <p>Reliable storage for call records, transcripts, and analytics</p>
+        <i class="fas fa-vector-square"></i>
+        <h3>pgvector + HNSW</h3>
+        <p>In-Postgres vector retrieval for RAG, with OpenAI text-embedding-3-small</p>
       </div>
       <div class="em-tech-card" data-aos="fade-up" data-aos-delay="400">
-        <i class="fas fa-phone"></i>
-        <h3>Twilio & SIP</h3>
-        <p>Flexible telephony — cloud-based or on-premise PBX integration</p>
+        <i class="fas fa-server"></i>
+        <h3>FastAPI · Redis · ARQ</h3>
+        <p>Async Python backend with post-call worker queue for analytics and billing events</p>
       </div>
     </div>
   </section>
@@ -1034,24 +1448,39 @@
     <div class="em-usecases-inner" data-aos="fade-up">
       <div class="em-usecases-visual">
         <div class="em-usecases-content">
-          <h2>Built for Institutions<br>That Never Stop</h2>
-          <p>Emmi adapts to any organization that handles repetitive phone inquiries</p>
+          <h2>Built for Organisations<br>That Never Stop</h2>
+          <p>Emmi adapts to any team that handles repetitive bilingual inquiries — across phone, web and WhatsApp</p>
 
           <div class="em-usecase-cards">
             <div class="em-usecase-card">
-              <i class="fas fa-graduation-cap"></i>
-              <h3>Universities</h3>
-              <p>Admissions, enrollment, program details</p>
+              <i class="fas fa-balance-scale"></i>
+              <h3>Legal Consultations</h3>
+              <p>Intake, eligibility, scheduling — in your clients' language</p>
             </div>
             <div class="em-usecase-card">
-              <i class="fas fa-landmark"></i>
-              <h3>Government</h3>
-              <p>Citizen inquiries, permits, licensing</p>
+              <i class="fas fa-graduation-cap"></i>
+              <h3>Education</h3>
+              <p>Admissions, programs, deadlines, fees — answered 24/7</p>
             </div>
             <div class="em-usecase-card">
               <i class="fas fa-hospital"></i>
               <h3>Healthcare</h3>
-              <p>Appointments, services, patient intake</p>
+              <p>Appointments, services, patient intake without queues</p>
+            </div>
+            <div class="em-usecase-card">
+              <i class="fas fa-landmark"></i>
+              <h3>Government</h3>
+              <p>Citizen inquiries, permits, licensing, programme eligibility</p>
+            </div>
+            <div class="em-usecase-card">
+              <i class="fas fa-building-columns"></i>
+              <h3>Financial Services</h3>
+              <p>Product information, application status, compliance-aware replies</p>
+            </div>
+            <div class="em-usecase-card">
+              <i class="fas fa-headset"></i>
+              <h3>Customer Support</h3>
+              <p>Tier-1 support across phone, chat and WhatsApp — one knowledge base</p>
             </div>
           </div>
         </div>
@@ -1059,14 +1488,73 @@
     </div>
   </section>
 
+  <!-- FAQ -->
+  <section id="faq" class="em-faq">
+    <div class="em-section-header" data-aos="fade-up">
+      <h2>Frequently Asked Questions</h2>
+      <p>What teams ask before deploying Emmi — answered up front</p>
+    </div>
+
+    <div class="em-faq-list">
+      <details class="em-faq-item" data-aos="fade-up" data-aos-delay="0">
+        <summary>How long does integration take?</summary>
+        <div class="em-faq-content">
+          <p>For voice: provision a Twilio number and upload a knowledge file — you're live in hours, not weeks. For the web widget: paste a single <code>&lt;script&gt;</code> tag onto your site. Most clients have a working agent on the same day they sign off.</p>
+        </div>
+      </details>
+
+      <details class="em-faq-item" data-aos="fade-up" data-aos-delay="60">
+        <summary>What happens if Emmi doesn't know an answer?</summary>
+        <div class="em-faq-content">
+          <p>Emmi never invents information. If a question is outside its knowledge base, it collects a structured callback request — caller name, phone, language, topic — and hands it to your team for the next business day. Live transfer-to-human is on the roadmap.</p>
+        </div>
+      </details>
+
+      <details class="em-faq-item" data-aos="fade-up" data-aos-delay="120">
+        <summary>Is my customer data secure?</summary>
+        <div class="em-faq-content">
+          <p>Yes. Multi-tenant isolation is enforced at the database layer via Postgres Row-Level Security — an application-code bug cannot leak data across organisations. All traffic is TLS-encrypted, all storage is encrypted at rest, and our infrastructure is hosted in the EU.</p>
+        </div>
+      </details>
+
+      <details class="em-faq-item" data-aos="fade-up" data-aos-delay="180">
+        <summary>Can I match Emmi to my brand?</summary>
+        <div class="em-faq-content">
+          <p>Yes — accent colour, widget position, agent persona name, voice, system prompt, and pronunciation rules are all configurable per deployment. The widget runs in Shadow DOM, so it never conflicts with your site's CSS.</p>
+        </div>
+      </details>
+
+      <details class="em-faq-item" data-aos="fade-up" data-aos-delay="240">
+        <summary>What languages are supported?</summary>
+        <div class="em-faq-content">
+          <p>Romanian and Russian are production-ready, with full Cyrillic and Romanian diacritic accuracy at the speech-recognition layer. Other languages are available on request — talk to us about your specific requirements.</p>
+        </div>
+      </details>
+
+      <details class="em-faq-item" data-aos="fade-up" data-aos-delay="300">
+        <summary>Is Emmi GDPR-compliant?</summary>
+        <div class="em-faq-content">
+          <p>Yes. Built-in endpoints for data export and deletion, configurable retention policies, opt-in consent recording in the greeting, and a Data Processing Agreement template are all part of the standard package.</p>
+        </div>
+      </details>
+
+      <details class="em-faq-item" data-aos="fade-up" data-aos-delay="360">
+        <summary>What does it cost?</summary>
+        <div class="em-faq-content">
+          <p>Usage-metered pricing — per-minute for voice, per-token for chat — with volume tiers and monthly commitments for higher usage. Contact us with your expected call volume and we'll send a tailored quote.</p>
+        </div>
+      </details>
+    </div>
+  </section>
+
   <!-- CTA -->
   <section class="em-cta">
     <div class="em-cta-inner" data-aos="fade-up">
-      <h2>Ready to Automate Your Calls?</h2>
-      <p>Let Emmi handle your phone inquiries while your team focuses on what matters. Contact us for a personalized demo.</p>
+      <h2>Stop missing conversations. Start automating them.</h2>
+      <p>Talk to our team about deploying Emmi for your organisation — or open the widget on this page and chat with Emmi yourself.</p>
       <div class="em-hero-actions">
-        <a href="contacts" class="em-btn-primary"><i class="fas fa-envelope"></i> Contact Us</a>
-        <a href="/" class="em-btn-secondary"><i class="fas fa-arrow-left"></i> Back to Home</a>
+        <a href="contacts" class="em-btn-primary"><i class="fas fa-paper-plane"></i> Request a Demo</a>
+        <a href="#" data-emmi-trigger="open" class="em-btn-secondary"><i class="fas fa-comment-dots"></i> Open the Live Widget</a>
       </div>
     </div>
   </section>
@@ -1101,5 +1589,55 @@
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <!-- Custom JavaScript -->
   <script src="script.js"></script>
+
+  <!-- Emmi Live Demo Widget — agent: emmi-demo on the Applexium organisation -->
+  <script src="https://app.emmi-agent.com/widget.js"
+          data-agent-id="06da5340-328a-4a41-a307-f52c3ce6c5de"
+          defer></script>
+
+  <!-- "Try Emmi Live" / "Open the Live Widget" CTA handler -->
+  <script>
+    (function() {
+      var triggers = document.querySelectorAll('[data-emmi-trigger="open"]');
+      if (!triggers.length) return;
+
+      function findWidgetRoot() {
+        return document.getElementById('voiceagent-widget-root');
+      }
+
+      function pulseWidget(root) {
+        root.style.transition = 'transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease';
+        root.style.transform = 'scale(1.18)';
+        root.style.filter = 'drop-shadow(0 0 24px rgba(103, 232, 249, 0.9))';
+        setTimeout(function() {
+          root.style.transform = 'scale(1)';
+          setTimeout(function() {
+            root.style.filter = '';
+          }, 600);
+        }, 600);
+      }
+
+      triggers.forEach(function(btn) {
+        btn.addEventListener('click', function(e) {
+          var root = findWidgetRoot();
+          if (root) {
+            // Widget is loaded — pull the user's attention to the FAB
+            e.preventDefault();
+            root.scrollIntoView({ behavior: 'smooth', block: 'end' });
+            pulseWidget(root);
+            return;
+          }
+          // No widget — fall back to whatever href makes sense
+          var href = btn.getAttribute('href');
+          if (href && href !== '#' && href.charAt(0) === '#') {
+            // In-page anchor exists — let the browser follow it
+            return;
+          }
+          e.preventDefault();
+          window.location.href = 'contacts';
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
