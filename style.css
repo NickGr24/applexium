@@ -1846,7 +1846,7 @@ body::after {
 .team-header p {
     font-family: 'Questrial', 'Century Gothic', sans-serif;
     font-size: clamp(18px, 2.5vw, 22px);
-    color: var(--text-gray);
+    color: var(--text-light);
     max-width: 600px;
     margin: 0 auto;
 }
@@ -1912,9 +1912,10 @@ body::after {
     display: inline-block;
     font-family: 'Nunito', sans-serif;
     font-size: 14px;
-    font-weight: 600;
-    color: var(--primary-teal);
-    background: rgba(17, 106, 248, 0.1);
+    font-weight: 700;
+    color: var(--accent-light);
+    background: rgba(31, 205, 255, 0.12);
+    border: 1px solid rgba(31, 205, 255, 0.3);
     padding: 6px 16px;
     border-radius: 20px;
     margin-bottom: 20px;
@@ -1923,7 +1924,7 @@ body::after {
 .team-card p {
     font-family: 'Questrial', 'Century Gothic', sans-serif;
     font-size: 18px;
-    color: var(--text-gray);
+    color: var(--text-light);
     line-height: 1.6;
     margin-bottom: 25px;
 }
@@ -1938,17 +1939,17 @@ body::after {
     width: 45px;
     height: 45px;
     border-radius: 50%;
-    background: rgba(17, 106, 248, 0.1);
+    background: rgba(31, 205, 255, 0.12);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--primary-teal);
+    color: var(--accent-light);
     font-size: 18px;
     transition: all 0.3s ease;
 }
 
 .team-social a:hover {
-    background: var(--primary-teal);
+    background: var(--accent-light);
     color: var(--dark-bg);
     transform: translateY(-3px);
 }
@@ -1965,8 +1966,8 @@ body::after {
 .view-profile {
     font-family: 'Nunito', sans-serif;
     font-size: 14px;
-    font-weight: 500;
-    color: var(--primary-teal);
+    font-weight: 600;
+    color: var(--accent-light);
     display: inline-flex;
     align-items: center;
     gap: 8px;

@@ -43,6 +43,7 @@
   <style>
     /* ============================================
        LEGALIA PAGE — VIOLET BRAND IDENTITY 2026
+       Full redesign: real app footage + live data
        ============================================ */
 
     :root {
@@ -53,6 +54,9 @@
       --lg-dark: #09001B;
       --lg-deeper: #071116;
       --lg-white: #FFFFFF;
+      --lg-card: rgba(255, 255, 255, 0.04);
+      --lg-card-border: rgba(205, 131, 255, 0.16);
+      --lg-text-soft: rgba(255, 255, 255, 0.62);
     }
 
     .legalia-page {
@@ -70,26 +74,14 @@
       width: 160%;
       height: 160%;
       background:
-        radial-gradient(ellipse 900px 700px at 10% 15%, rgba(89, 30, 243, 0.35), transparent 70%),
-        radial-gradient(ellipse 700px 800px at 85% 45%, rgba(135, 82, 250, 0.25), transparent 70%),
-        radial-gradient(ellipse 800px 600px at 45% 90%, rgba(205, 131, 255, 0.2), transparent 70%);
+        radial-gradient(ellipse 900px 700px at 10% 12%, rgba(89, 30, 243, 0.35), transparent 70%),
+        radial-gradient(ellipse 700px 800px at 88% 38%, rgba(135, 82, 250, 0.22), transparent 70%),
+        radial-gradient(ellipse 800px 600px at 45% 92%, rgba(205, 131, 255, 0.18), transparent 70%);
       filter: blur(100px);
       animation: lgFluid1 25s ease-in-out infinite alternate;
       pointer-events: none;
       z-index: -1;
     }
-
-    /* ===== HERO ===== */
-    .lg-hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      padding: 140px 24px 100px;
-      overflow: hidden;
-    }
-
 
     @keyframes lgFluid1 {
       0% { transform: translate(0, 0) rotate(0deg) scale(1); }
@@ -98,610 +90,463 @@
       100% { transform: translate(3%, -3%) rotate(1deg) scale(1.02); }
     }
 
-    @keyframes lgFluid2 {
-      0% { transform: translate(0, 0) rotate(0deg) scale(1); }
-      25% { transform: translate(-6%, 5%) rotate(-3deg) scale(1.04); }
-      50% { transform: translate(4%, -4%) rotate(2deg) scale(0.96); }
-      75% { transform: translate(-3%, 7%) rotate(-1deg) scale(1.03); }
-      100% { transform: translate(5%, -6%) rotate(3deg) scale(1); }
-    }
-
-    /* Flowing gradient lines — SVG curves */
-    .lg-hero-lines {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      overflow: hidden;
-    }
-
-    .lg-hero-lines svg {
-      position: absolute;
-      width: 120%;
-      height: 120%;
-      top: -10%;
-      left: -10%;
-      opacity: 0.12;
-    }
-
-    .lg-hero-content {
-      position: relative;
-      z-index: 2;
-      text-align: center;
-      max-width: 860px;
-    }
-
-    .lg-hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(135, 82, 250, 0.15);
-      border: 1px solid rgba(135, 82, 250, 0.3);
-      border-radius: 40px;
-      padding: 8px 20px;
-      margin-bottom: 32px;
-      font-family: 'Inter', sans-serif;
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--lg-light);
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      opacity: 0;
-      animation: fadeUp 0.8s ease 0.2s forwards;
-    }
-
-    .lg-hero-logo {
-      display: block;
-      margin: 0 auto 40px;
-      height: 80px;
-      filter: brightness(0) invert(1);
-      opacity: 0;
-      animation: fadeUp 0.8s ease 0.35s forwards;
-    }
-
-    .lg-hero h1 {
-      font-family: 'Poppins', sans-serif;
-      font-size: clamp(36px, 6vw, 72px);
-      font-weight: 800;
-      color: var(--lg-white);
-      line-height: 1.1;
-      margin-bottom: 24px;
-      letter-spacing: -0.02em;
-      opacity: 0;
-      animation: fadeUp 0.8s ease 0.5s forwards;
-    }
-
-    .lg-hero h1 .gradient-text {
-      background: linear-gradient(135deg, var(--lg-vivid), var(--lg-light), var(--lg-soft));
+    .legalia-page .gradient-text {
+      background: linear-gradient(120deg, var(--lg-light) 0%, var(--lg-soft) 45%, var(--lg-vivid) 100%);
       -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
       background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
-    .lg-hero p {
-      font-family: 'Inter', sans-serif;
-      font-size: clamp(16px, 2vw, 20px);
-      color: rgba(255, 255, 255, 0.6);
-      line-height: 1.7;
-      max-width: 600px;
-      margin: 0 auto 48px;
-      opacity: 0;
-      animation: fadeUp 0.8s ease 0.65s forwards;
-    }
+    /* ===== SHARED PRIMITIVES ===== */
+    .lg-wrap { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
 
-    .lg-hero-actions {
-      display: flex;
-      gap: 16px;
-      justify-content: center;
-      flex-wrap: wrap;
-      opacity: 0;
-      animation: fadeUp 0.8s ease 0.8s forwards;
-    }
-
-    .lg-btn-primary {
+    .lg-btn-primary, .lg-btn-secondary {
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      padding: 16px 36px;
-      background: linear-gradient(135deg, var(--lg-vivid), var(--lg-soft));
-      color: white;
       font-family: 'Poppins', sans-serif;
-      font-size: 16px;
       font-weight: 600;
-      border-radius: 14px;
+      font-size: 16px;
+      padding: 15px 30px;
+      border-radius: 999px;
       text-decoration: none;
+      transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
+      cursor: pointer;
       border: none;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: 0 8px 32px rgba(89, 30, 243, 0.4);
     }
-
-    .lg-btn-primary:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 40px rgba(89, 30, 243, 0.55);
+    .lg-btn-primary {
+      background: linear-gradient(135deg, var(--lg-vivid), var(--lg-soft));
+      color: #fff;
+      box-shadow: 0 10px 30px rgba(89, 30, 243, 0.4);
     }
-
+    .lg-btn-primary:hover { transform: translateY(-3px); box-shadow: 0 16px 40px rgba(89, 30, 243, 0.55); }
     .lg-btn-secondary {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 16px 36px;
-      background: rgba(255, 255, 255, 0.06);
-      color: white;
-      font-family: 'Poppins', sans-serif;
-      font-size: 16px;
+      background: rgba(255, 255, 255, 0.05);
+      color: #fff;
+      border: 1px solid rgba(205, 131, 255, 0.3);
+      backdrop-filter: blur(8px);
+    }
+    .lg-btn-secondary:hover { transform: translateY(-3px); border-color: var(--lg-light); background: rgba(205, 131, 255, 0.1); }
+
+    .lg-section-header { text-align: center; max-width: 720px; margin: 0 auto 56px; }
+    .lg-eyebrow {
+      display: inline-block;
+      font-family: 'Inter', sans-serif;
       font-weight: 600;
-      border-radius: 14px;
-      text-decoration: none;
-      border: 1px solid rgba(135, 82, 250, 0.3);
-      cursor: pointer;
-      transition: all 0.3s ease;
+      font-size: 13px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--lg-light);
+      padding: 7px 16px;
+      border: 1px solid rgba(205, 131, 255, 0.3);
+      border-radius: 999px;
+      margin-bottom: 18px;
+      background: rgba(205, 131, 255, 0.06);
     }
-
-    .lg-btn-secondary:hover {
-      background: rgba(135, 82, 250, 0.15);
-      border-color: var(--lg-soft);
-      transform: translateY(-2px);
-    }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* ===== STATS BAR ===== */
-    .lg-stats {
-      position: relative;
-      z-index: 2;
-      padding: 60px 24px;
-      background: linear-gradient(180deg, transparent 0%, rgba(89, 30, 243, 0.06) 50%, transparent 100%);
-    }
-
-    .lg-stats-grid {
-      max-width: 900px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 32px;
-    }
-
-    .lg-stat {
-      text-align: center;
-      padding: 32px 20px;
-      background: rgba(135, 82, 250, 0.06);
-      border: 1px solid rgba(135, 82, 250, 0.12);
-      border-radius: 20px;
-      transition: all 0.4s ease;
-    }
-
-    .lg-stat:hover {
-      background: rgba(135, 82, 250, 0.12);
-      border-color: rgba(135, 82, 250, 0.25);
-      transform: translateY(-4px);
-    }
-
-    .lg-stat-number {
-      font-family: 'Poppins', sans-serif;
-      font-size: clamp(36px, 5vw, 56px);
-      font-weight: 800;
-      background: linear-gradient(135deg, var(--lg-light), var(--lg-vivid));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      line-height: 1;
-      margin-bottom: 8px;
-    }
-
-    .lg-stat-label {
-      font-family: 'Inter', sans-serif;
-      font-size: 14px;
-      color: rgba(255, 255, 255, 0.5);
-      font-weight: 500;
-    }
-
-    /* ===== ABOUT / CONCEPT ===== */
-    .lg-about {
-      padding: 120px 24px;
-      position: relative;
-    }
-
-    .lg-about-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: center;
-    }
-
-    .lg-about-icon {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .lg-about-icon-inner {
-      width: 280px;
-      height: 280px;
-      background: linear-gradient(135deg, var(--lg-vivid), var(--lg-soft), var(--lg-light));
-      border-radius: 64px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      box-shadow: 0 40px 80px rgba(89, 30, 243, 0.3);
-    }
-
-    .lg-about-icon-inner img {
-      height: 160px;
-      filter: brightness(0) invert(1);
-    }
-
-    .lg-about-text h2 {
-      font-family: 'Poppins', sans-serif;
-      font-size: clamp(28px, 4vw, 42px);
-      font-weight: 700;
-      color: var(--lg-white);
-      margin-bottom: 24px;
-      line-height: 1.2;
-    }
-
-    .lg-about-text p {
-      font-family: 'Inter', sans-serif;
-      font-size: 17px;
-      color: rgba(255, 255, 255, 0.6);
-      line-height: 1.8;
-      margin-bottom: 16px;
-    }
-
-    /* ===== FEATURES ===== */
-    .lg-features {
-      padding: 100px 24px;
-      position: relative;
-    }
-
-    .lg-features::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: radial-gradient(ellipse at 30% 50%, rgba(89, 30, 243, 0.08) 0%, transparent 60%);
-      pointer-events: none;
-    }
-
-    .lg-section-header {
-      text-align: center;
-      margin-bottom: 64px;
-      position: relative;
-      z-index: 2;
-    }
-
     .lg-section-header h2 {
       font-family: 'Poppins', sans-serif;
-      font-size: clamp(28px, 4vw, 44px);
-      font-weight: 700;
-      color: var(--lg-white);
+      font-weight: 800;
+      font-size: clamp(30px, 4.5vw, 46px);
+      line-height: 1.12;
+      color: #fff;
       margin-bottom: 16px;
     }
-
     .lg-section-header p {
       font-family: 'Inter', sans-serif;
       font-size: 17px;
-      color: rgba(255, 255, 255, 0.5);
-      max-width: 500px;
-      margin: 0 auto;
+      line-height: 1.7;
+      color: var(--lg-text-soft);
     }
 
-    .lg-features-grid {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
+    /* ===== DEVICE FRAME (real app footage) ===== */
+    .lg-device {
       position: relative;
-      z-index: 2;
+      width: 100%;
+      max-width: 300px;
+      aspect-ratio: 588 / 1040;
+      margin: 0 auto;
+      background: linear-gradient(160deg, #1a0f33, #0a0418);
+      border-radius: 42px;
+      padding: 11px;
+      box-shadow:
+        0 2px 0 rgba(255, 255, 255, 0.08) inset,
+        0 30px 70px rgba(0, 0, 0, 0.55),
+        0 0 0 2px rgba(205, 131, 255, 0.14),
+        0 0 60px rgba(89, 30, 243, 0.28);
     }
-
-    .lg-feature-card {
-      background: rgba(135, 82, 250, 0.06);
-      border: 1px solid rgba(135, 82, 250, 0.12);
-      border-radius: 20px;
-      padding: 32px 24px;
-      text-align: center;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .lg-feature-card::before {
+    .lg-device::after {
+      /* subtle screen sheen */
       content: '';
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--lg-vivid), var(--lg-light));
-      transform: scaleX(0);
-      transition: transform 0.4s ease;
-    }
-
-    .lg-feature-card:hover {
-      background: rgba(135, 82, 250, 0.12);
-      border-color: rgba(135, 82, 250, 0.3);
-      transform: translateY(-6px);
-    }
-
-    .lg-feature-card:hover::before {
-      transform: scaleX(1);
-    }
-
-    .lg-feature-icon {
-      width: 60px;
-      height: 60px;
-      margin: 0 auto 20px;
-      background: linear-gradient(135deg, var(--lg-vivid), var(--lg-soft));
-      border-radius: 16px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 24px;
-      color: white;
-      transition: all 0.4s ease;
-    }
-
-    .lg-feature-card:hover .lg-feature-icon {
-      transform: scale(1.1) rotate(-5deg);
-      box-shadow: 0 8px 24px rgba(89, 30, 243, 0.4);
-    }
-
-    .lg-feature-card h3 {
-      font-family: 'Poppins', sans-serif;
-      font-size: 16px;
-      font-weight: 600;
-      color: var(--lg-white);
-      margin-bottom: 8px;
-    }
-
-    .lg-feature-card p {
-      font-family: 'Inter', sans-serif;
-      font-size: 13px;
-      color: rgba(255, 255, 255, 0.45);
-      line-height: 1.6;
-    }
-
-    /* ===== APP MOCKUP ===== */
-    .lg-mockup {
-      padding: 100px 24px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .lg-mockup-inner {
-      max-width: 1000px;
-      margin: 0 auto;
-      position: relative;
-      z-index: 2;
-    }
-
-    .lg-mockup-visual {
-      position: relative;
-      background: linear-gradient(135deg, var(--lg-vivid), var(--lg-soft), var(--lg-light));
+      inset: 11px;
       border-radius: 32px;
-      padding: 60px 40px;
-      text-align: center;
-      overflow: hidden;
-    }
-
-    .lg-mockup-visual::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      right: -30%;
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(circle, rgba(205, 131, 255, 0.4) 0%, transparent 60%);
+      background: linear-gradient(125deg, rgba(255, 255, 255, 0.10), transparent 38%);
       pointer-events: none;
+      z-index: 3;
     }
-
-    .lg-mockup-content {
+    .lg-device-screen {
       position: relative;
-      z-index: 2;
-    }
-
-    .lg-mockup-content h2 {
-      font-family: 'Poppins', sans-serif;
-      font-size: clamp(28px, 4vw, 48px);
-      font-weight: 800;
-      color: white;
-      margin-bottom: 16px;
-      line-height: 1.15;
-    }
-
-    .lg-mockup-content p {
-      font-family: 'Inter', sans-serif;
-      font-size: 18px;
-      color: rgba(255, 255, 255, 0.85);
-      margin-bottom: 40px;
-      max-width: 500px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .lg-phone-frame {
-      width: 280px;
-      height: 560px;
-      background: var(--lg-dark);
-      border-radius: 36px;
-      margin: 0 auto;
-      padding: 12px;
-      box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5);
-      position: relative;
-    }
-
-    .lg-phone-screen {
       width: 100%;
       height: 100%;
-      background: linear-gradient(180deg, var(--lg-vivid) 0%, var(--lg-soft) 40%, var(--lg-light) 100%);
-      border-radius: 26px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 16px;
+      border-radius: 32px;
+      overflow: hidden;
+      background: #ece9f6;
+    }
+    .lg-device-screen img,
+    .lg-device-screen video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+
+    /* ===== HERO ===== */
+    .lg-hero {
       position: relative;
+      padding: 150px 24px 90px;
       overflow: hidden;
     }
-
-    .lg-phone-screen::before {
-      content: '';
+    .lg-hero-lines {
       position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 120px;
-      height: 28px;
-      background: var(--lg-dark);
-      border-radius: 0 0 16px 16px;
-    }
-
-    .lg-phone-logo {
-      height: 80px;
-      filter: brightness(0) invert(1);
-      margin-top: 20px;
-    }
-
-    .lg-phone-text {
-      font-family: 'Poppins', sans-serif;
-      font-size: 18px;
-      font-weight: 700;
-      color: white;
-      letter-spacing: 0.05em;
-    }
-
-    .lg-phone-cards {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      width: 85%;
-      margin-top: 20px;
-    }
-
-    .lg-phone-card {
-      background: rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(10px);
-      border-radius: 14px;
-      padding: 14px 16px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .lg-phone-card-icon {
-      width: 36px;
-      height: 36px;
-      background: rgba(255, 255, 255, 0.2);
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 16px;
-      color: white;
-      flex-shrink: 0;
-    }
-
-    .lg-phone-card-text {
-      font-family: 'Inter', sans-serif;
-      font-size: 12px;
-      color: rgba(255, 255, 255, 0.9);
-      font-weight: 500;
-      text-align: left;
-    }
-
-    /* ===== CTA ===== */
-    .lg-cta {
-      padding: 120px 24px;
-      text-align: center;
-      position: relative;
-    }
-
-    .lg-cta::before {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 800px;
-      height: 400px;
-      background: radial-gradient(ellipse, rgba(89, 30, 243, 0.15) 0%, transparent 70%);
+      inset: 0;
       pointer-events: none;
+      overflow: hidden;
+      opacity: 0.8;
     }
+    .lg-hero-lines svg { width: 100%; height: 100%; min-width: 1440px; }
 
-    .lg-cta-inner {
-      max-width: 700px;
-      margin: 0 auto;
+    .lg-hero-grid {
       position: relative;
       z-index: 2;
+      max-width: 1180px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      align-items: center;
+      gap: 60px;
     }
-
-    .lg-cta h2 {
+    .lg-hero-logo { height: 42px; width: auto; margin-bottom: 28px; filter: brightness(0) invert(1); }
+    .lg-hero-copy h1 {
       font-family: 'Poppins', sans-serif;
-      font-size: clamp(32px, 5vw, 52px);
       font-weight: 800;
-      color: var(--lg-white);
-      margin-bottom: 20px;
-      line-height: 1.15;
+      font-size: clamp(38px, 5.4vw, 62px);
+      line-height: 1.06;
+      color: #fff;
+      margin-bottom: 22px;
     }
-
-    .lg-cta p {
+    .lg-hero-copy p {
       font-family: 'Inter', sans-serif;
       font-size: 18px;
-      color: rgba(255, 255, 255, 0.55);
-      margin-bottom: 40px;
       line-height: 1.7;
+      color: var(--lg-text-soft);
+      max-width: 520px;
+      margin-bottom: 34px;
     }
+    .lg-hero-actions { display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 30px; }
+    .lg-hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 22px;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      color: var(--lg-text-soft);
+    }
+    .lg-hero-badges span { display: inline-flex; align-items: center; gap: 8px; }
+    .lg-hero-badges i { color: var(--lg-light); }
+
+    .lg-hero-device { position: relative; }
+    .lg-hero-device .lg-device { max-width: 290px; }
+    .lg-hero-glow {
+      position: absolute;
+      inset: -12% -8%;
+      background: radial-gradient(circle at 50% 45%, rgba(135, 82, 250, 0.4), transparent 65%);
+      filter: blur(50px);
+      z-index: -1;
+    }
+
+    /* ===== STATS BAND ===== */
+    .lg-stats { padding: 40px 24px 30px; }
+    .lg-stats-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      background: linear-gradient(135deg, rgba(89, 30, 243, 0.14), rgba(135, 82, 250, 0.06));
+      border: 1px solid var(--lg-card-border);
+      border-radius: 28px;
+      padding: 44px 40px;
+      backdrop-filter: blur(10px);
+    }
+    .lg-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      text-align: center;
+    }
+    .lg-stat-num {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 800;
+      font-size: clamp(34px, 4.4vw, 52px);
+      line-height: 1;
+      background: linear-gradient(120deg, #fff, var(--lg-light));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .lg-stat-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      letter-spacing: 0.04em;
+      color: var(--lg-text-soft);
+      margin-top: 10px;
+    }
+    .lg-stats-foot {
+      text-align: center;
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      color: var(--lg-text-soft);
+      margin-top: 30px;
+      padding-top: 26px;
+      border-top: 1px solid rgba(205, 131, 255, 0.12);
+    }
+    .lg-stats-foot strong { color: #fff; font-weight: 700; }
+
+    /* ===== PROGRAMS ===== */
+    .lg-programs { padding: 90px 24px; }
+    .lg-programs-grid {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+    .lg-program-card {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      background: var(--lg-card);
+      border: 1px solid var(--lg-card-border);
+      border-radius: 22px;
+      padding: 28px;
+      transition: transform .3s ease, border-color .3s ease, background .3s ease;
+    }
+    .lg-program-card:hover { transform: translateY(-5px); border-color: var(--lg-light); background: rgba(135, 82, 250, 0.08); }
+    .lg-program-ico {
+      flex: 0 0 auto;
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      font-size: 24px;
+      color: #fff;
+      background: linear-gradient(135deg, var(--lg-vivid), var(--lg-soft));
+    }
+    .lg-program-card h3 {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      font-size: 20px;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+    .lg-program-card p {
+      font-family: 'Inter', sans-serif;
+      font-size: 14.5px;
+      line-height: 1.6;
+      color: var(--lg-text-soft);
+      margin-bottom: 12px;
+    }
+    .lg-program-tag {
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 13px;
+      color: var(--lg-light);
+      background: rgba(205, 131, 255, 0.1);
+      border: 1px solid rgba(205, 131, 255, 0.25);
+      padding: 4px 12px;
+      border-radius: 999px;
+    }
+
+    /* ===== SHOWCASE ROWS ===== */
+    .lg-showcase { padding: 60px 24px; }
+    .lg-showcase-row {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 70px;
+    }
+    .lg-showcase-row.reverse .lg-showcase-media { order: 2; }
+    .lg-showcase-num {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 800;
+      font-size: 15px;
+      color: var(--lg-light);
+      letter-spacing: 0.12em;
+      margin-bottom: 14px;
+      display: block;
+    }
+    .lg-showcase-text h2 {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 800;
+      font-size: clamp(26px, 3.4vw, 38px);
+      line-height: 1.15;
+      color: #fff;
+      margin-bottom: 18px;
+    }
+    .lg-showcase-text p {
+      font-family: 'Inter', sans-serif;
+      font-size: 17px;
+      line-height: 1.75;
+      color: var(--lg-text-soft);
+      margin-bottom: 20px;
+    }
+    .lg-showcase-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+    .lg-showcase-list li {
+      font-family: 'Inter', sans-serif;
+      font-size: 15.5px;
+      color: rgba(255, 255, 255, 0.78);
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      line-height: 1.5;
+    }
+    .lg-showcase-list i { color: var(--lg-light); margin-top: 3px; flex: 0 0 auto; }
+    .lg-pill {
+      display: inline-block;
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      color: #fff;
+      background: linear-gradient(135deg, var(--lg-vivid), var(--lg-soft));
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-left: 10px;
+      vertical-align: middle;
+    }
+
+    /* ===== MEDIA / MULTIMEDIA SECTION ===== */
+    .lg-media { padding: 80px 24px; }
+    .lg-media-stats {
+      max-width: 900px;
+      margin: 44px auto 0;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+    .lg-media-card {
+      text-align: center;
+      background: var(--lg-card);
+      border: 1px solid var(--lg-card-border);
+      border-radius: 22px;
+      padding: 34px 20px;
+      transition: transform .3s ease, border-color .3s ease;
+    }
+    .lg-media-card:hover { transform: translateY(-5px); border-color: var(--lg-light); }
+    .lg-media-card i {
+      font-size: 30px;
+      color: var(--lg-light);
+      margin-bottom: 16px;
+    }
+    .lg-media-card .lg-stat-num { font-size: clamp(30px, 4vw, 42px); }
+    .lg-media-card h3 {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: 17px;
+      color: #fff;
+      margin: 8px 0 6px;
+    }
+    .lg-media-card p { font-family: 'Inter', sans-serif; font-size: 14px; color: var(--lg-text-soft); line-height: 1.55; }
+
+    /* ===== FEATURE GRID ===== */
+    .lg-features { padding: 90px 24px; }
+    .lg-features-grid {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+    .lg-feature-card {
+      background: var(--lg-card);
+      border: 1px solid var(--lg-card-border);
+      border-radius: 20px;
+      padding: 30px 26px;
+      transition: transform .3s ease, border-color .3s ease, background .3s ease;
+    }
+    .lg-feature-card:hover { transform: translateY(-5px); border-color: var(--lg-light); background: rgba(135, 82, 250, 0.07); }
+    .lg-feature-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      font-size: 20px;
+      color: var(--lg-light);
+      background: rgba(205, 131, 255, 0.12);
+      margin-bottom: 18px;
+    }
+    .lg-feature-card h3 {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: 18px;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    .lg-feature-card p { font-family: 'Inter', sans-serif; font-size: 14.5px; line-height: 1.6; color: var(--lg-text-soft); }
+
+    /* ===== CTA ===== */
+    .lg-cta { padding: 60px 24px 110px; }
+    .lg-cta-inner {
+      max-width: 880px;
+      margin: 0 auto;
+      text-align: center;
+      background: linear-gradient(135deg, rgba(89, 30, 243, 0.22), rgba(135, 82, 250, 0.08));
+      border: 1px solid var(--lg-card-border);
+      border-radius: 32px;
+      padding: 64px 40px;
+      backdrop-filter: blur(10px);
+    }
+    .lg-cta-inner h2 {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 800;
+      font-size: clamp(30px, 5vw, 48px);
+      color: #fff;
+      margin-bottom: 18px;
+      line-height: 1.12;
+    }
+    .lg-cta-inner p {
+      font-family: 'Inter', sans-serif;
+      font-size: 17px;
+      line-height: 1.7;
+      color: var(--lg-text-soft);
+      margin-bottom: 36px;
+    }
+    .lg-cta-inner .lg-hero-actions { justify-content: center; margin-bottom: 0; }
 
     /* ===== RESPONSIVE ===== */
-    @media (max-width: 900px) {
-      .lg-features-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      .lg-about-inner {
-        grid-template-columns: 1fr;
-        gap: 48px;
-        text-align: center;
-      }
-      .lg-stats-grid {
-        grid-template-columns: 1fr;
-        max-width: 340px;
-      }
+    @media (max-width: 960px) {
+      .lg-hero-grid { grid-template-columns: 1fr; gap: 50px; text-align: center; }
+      .lg-hero-copy p { margin-left: auto; margin-right: auto; }
+      .lg-hero-actions, .lg-hero-badges { justify-content: center; }
+      .lg-showcase-row { grid-template-columns: 1fr; gap: 36px; }
+      .lg-showcase-row.reverse .lg-showcase-media { order: 0; }
+      .lg-showcase-text { text-align: center; }
+      .lg-showcase-list { display: inline-grid; text-align: left; }
+      .lg-features-grid { grid-template-columns: repeat(2, 1fr); }
+      .lg-programs-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      .lg-stats-grid { grid-template-columns: repeat(2, 1fr); gap: 30px 16px; }
+      .lg-media-stats { grid-template-columns: 1fr; max-width: 320px; }
+      .lg-features-grid { grid-template-columns: 1fr; max-width: 380px; }
+      .lg-stats-inner { padding: 34px 22px; }
+      .lg-program-card { flex-direction: column; }
     }
 
-    @media (max-width: 600px) {
-      .lg-features-grid {
-        grid-template-columns: 1fr;
-        max-width: 400px;
-        margin: 0 auto;
-      }
-      .lg-about-icon-inner {
-        width: 200px;
-        height: 200px;
-        border-radius: 44px;
-      }
-      .lg-about-icon-inner img {
-        height: 100px;
-      }
-      .lg-mockup-visual {
-        padding: 40px 20px;
-        border-radius: 24px;
-      }
-      .lg-phone-frame {
-        width: 240px;
-        height: 480px;
-      }
+    @media (prefers-reduced-motion: reduce) {
+      .legalia-page::before { animation: none; }
     }
   </style>
 </head>
@@ -759,113 +604,333 @@
       </svg>
     </div>
 
-    <div class="lg-hero-content">
-      <img src="legalia-logo-horizontal.png" alt="Legalia" class="lg-hero-logo">
-      <h1>Learn Law <span class="gradient-text">Simply, Quickly & Efficiently</span></h1>
-      <p>A learning application dedicated to law students, designed to facilitate understanding of legal logic through structured exercises, explanatory quizzes, and clear feedback.</p>
-      <div class="lg-hero-actions">
-        <a href="#" class="lg-btn-primary"><i class="fas fa-download"></i> Download App</a>
-        <a href="#features" class="lg-btn-secondary"><i class="fas fa-play-circle"></i> Learn More</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- About / Concept -->
-  <section class="lg-about">
-    <div class="lg-about-inner">
-      <div class="lg-about-icon" data-aos="fade-right">
-        <div class="lg-about-icon-inner">
-          <img src="legalia-icon.png" alt="Legalia Symbol">
+    <div class="lg-hero-grid">
+      <div class="lg-hero-copy" data-aos="fade-right">
+        <img src="legalia-logo-horizontal.png" alt="Legalia" class="lg-hero-logo">
+        <h1>Master Law the <span class="gradient-text">Way You Learn Best</span></h1>
+        <p>Legalia turns the entire law curriculum into a guided journey — interactive quizzes, video lessons, podcasts and mind maps for every topic, with instant feedback that explains the <em>why</em> behind each answer.</p>
+        <div class="lg-hero-actions">
+          <a href="#" class="lg-btn-primary"><i class="fas fa-download"></i> Download App</a>
+          <a href="#how" class="lg-btn-secondary"><i class="fas fa-play-circle"></i> See It in Action</a>
+        </div>
+        <div class="lg-hero-badges">
+          <span><i class="fas fa-layer-group"></i> 521 study topics</span>
+          <span><i class="fas fa-circle-question"></i> 6,900+ questions</span>
+          <span><i class="fas fa-mobile-screen-button"></i> iOS &amp; Android</span>
         </div>
       </div>
-      <div class="lg-about-text" data-aos="fade-left">
-        <h2>Concept & Meaning</h2>
-        <p>Legalia is a learning application dedicated to law students, designed to facilitate understanding of legal logic, not just memorizing information.</p>
-        <p>Through structured exercises, explanatory quizzes, and clear feedback, the application helps students correlate concepts, distinguish legal nuances, and consolidate their critical thinking.</p>
-      </div>
-    </div>
-  </section>
 
-  <!-- Features -->
-  <section id="features" class="lg-features">
-    <div class="lg-section-header" data-aos="fade-up">
-      <h2>Platform Features</h2>
-      <p>Everything you need to master legal education</p>
-    </div>
-
-    <div class="lg-features-grid">
-      <div class="lg-feature-card" data-aos="fade-up" data-aos-delay="0">
-        <div class="lg-feature-icon"><i class="fas fa-bell"></i></div>
-        <h3>Smart Reminders</h3>
-        <p>Stay on track with personalized study notifications</p>
-      </div>
-      <div class="lg-feature-card" data-aos="fade-up" data-aos-delay="80">
-        <div class="lg-feature-icon"><i class="fas fa-user"></i></div>
-        <h3>Personal Profile</h3>
-        <p>Track your progress and learning achievements</p>
-      </div>
-      <div class="lg-feature-card" data-aos="fade-up" data-aos-delay="160">
-        <div class="lg-feature-icon"><i class="fas fa-gavel"></i></div>
-        <h3>Legal Quizzes</h3>
-        <p>Interactive tests on civil, criminal, and constitutional law</p>
-      </div>
-      <div class="lg-feature-card" data-aos="fade-up" data-aos-delay="240">
-        <div class="lg-feature-icon"><i class="fas fa-comments"></i></div>
-        <h3>Community Chat</h3>
-        <p>Connect with fellow law students and share knowledge</p>
-      </div>
-      <div class="lg-feature-card" data-aos="fade-up" data-aos-delay="320">
-        <div class="lg-feature-icon"><i class="fas fa-layer-group"></i></div>
-        <h3>Structured Courses</h3>
-        <p>Organized learning paths for every legal domain</p>
-      </div>
-      <div class="lg-feature-card" data-aos="fade-up" data-aos-delay="400">
-        <div class="lg-feature-icon"><i class="fas fa-chart-bar"></i></div>
-        <h3>Analytics</h3>
-        <p>Detailed insights into your learning performance</p>
-      </div>
-      <div class="lg-feature-card" data-aos="fade-up" data-aos-delay="480">
-        <div class="lg-feature-icon"><i class="fas fa-trophy"></i></div>
-        <h3>Achievements</h3>
-        <p>Earn badges and compete on the leaderboard</p>
-      </div>
-      <div class="lg-feature-card" data-aos="fade-up" data-aos-delay="560">
-        <div class="lg-feature-icon"><i class="fas fa-balance-scale"></i></div>
-        <h3>Case Studies</h3>
-        <p>Real-world legal scenarios for practical understanding</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- App Mockup -->
-  <section class="lg-mockup">
-    <div class="lg-mockup-inner" data-aos="fade-up">
-      <div class="lg-mockup-visual">
-        <div class="lg-mockup-content">
-          <h2>Your Legal Career<br>Starts Here</h2>
-          <p>Join the generation that learns law digitally</p>
-
-          <div class="lg-phone-frame">
-            <div class="lg-phone-screen">
-              <img src="legalia-icon.png" alt="Legalia" class="lg-phone-logo">
-              <span class="lg-phone-text">Legalia</span>
-              <div class="lg-phone-cards">
-                <div class="lg-phone-card">
-                  <div class="lg-phone-card-icon"><i class="fas fa-gavel"></i></div>
-                  <span class="lg-phone-card-text">Drept Civil</span>
-                </div>
-                <div class="lg-phone-card">
-                  <div class="lg-phone-card-icon"><i class="fas fa-shield-alt"></i></div>
-                  <span class="lg-phone-card-text">Drept Penal</span>
-                </div>
-                <div class="lg-phone-card">
-                  <div class="lg-phone-card-icon"><i class="fas fa-landmark"></i></div>
-                  <span class="lg-phone-card-text">Drept Constitutional</span>
-                </div>
-              </div>
-            </div>
+      <div class="lg-hero-device" data-aos="fade-left">
+        <div class="lg-hero-glow"></div>
+        <div class="lg-device">
+          <div class="lg-device-screen">
+            <video autoplay muted loop playsinline poster="legalia-app/demo-poster.jpg" aria-label="Legalia app walkthrough">
+              <source src="legalia-app/demo.mp4" type="video/mp4">
+            </video>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats band -->
+  <section class="lg-stats">
+    <div class="lg-stats-inner" data-aos="fade-up">
+      <div class="lg-stats-grid">
+        <div>
+          <div class="lg-stat-num" data-count="4">4</div>
+          <div class="lg-stat-label">Learning Programs</div>
+        </div>
+        <div>
+          <div class="lg-stat-num" data-count="52">52</div>
+          <div class="lg-stat-label">Legal Disciplines</div>
+        </div>
+        <div>
+          <div class="lg-stat-num" data-count="521">521</div>
+          <div class="lg-stat-label">Study Topics</div>
+        </div>
+        <div>
+          <div class="lg-stat-num" data-count="6972">6,972</div>
+          <div class="lg-stat-label">Quiz Questions</div>
+        </div>
+      </div>
+      <p class="lg-stats-foot">
+        Plus <strong>1,600+</strong> rapid-fire questions, <strong>25,535</strong> answer options, and a podcast, video lesson &amp; mind map behind nearly every topic.
+      </p>
+    </div>
+  </section>
+
+  <!-- Programs -->
+  <section class="lg-programs">
+    <div class="lg-section-header" data-aos="fade-up">
+      <span class="lg-eyebrow">Four ways to study</span>
+      <h2>One app, four full learning tracks</h2>
+      <p>Whether you are sitting an entrance exam, preparing for the bar, following the university curriculum, or specialising in business law — Legalia has a dedicated program for it.</p>
+    </div>
+
+    <div class="lg-programs-grid">
+      <div class="lg-program-card" data-aos="fade-up" data-aos-delay="0">
+        <div class="lg-program-ico"><i class="fas fa-scale-balanced"></i></div>
+        <div>
+          <h3>National Institute of Justice prep</h3>
+          <p>Targeted preparation for the INJ entrance exam — the path to becoming a judge or prosecutor.</p>
+          <span class="lg-program-tag">7 disciplines</span>
+        </div>
+      </div>
+      <div class="lg-program-card" data-aos="fade-up" data-aos-delay="80">
+        <div class="lg-program-ico"><i class="fas fa-user-tie"></i></div>
+        <div>
+          <h3>Bar &amp; legal practice</h3>
+          <p>Focused tracks for future attorneys — criminalistics, intellectual property, notarial and customs law.</p>
+          <span class="lg-program-tag">4 disciplines</span>
+        </div>
+      </div>
+      <div class="lg-program-card" data-aos="fade-up" data-aos-delay="160">
+        <div class="lg-program-ico"><i class="fas fa-graduation-cap"></i></div>
+        <div>
+          <h3>University curriculum</h3>
+          <p>The full law degree, year by year — from legal theory and civil law to procedure and human rights.</p>
+          <span class="lg-program-tag">23 disciplines</span>
+        </div>
+      </div>
+      <div class="lg-program-card" data-aos="fade-up" data-aos-delay="240">
+        <div class="lg-program-ico"><i class="fas fa-briefcase"></i></div>
+        <div>
+          <h3>Business &amp; corporate law</h3>
+          <p>Modern, market-ready topics: corporate structuring, FinTech, ESG, AI in business and international taxation.</p>
+          <span class="lg-program-tag">18 disciplines</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Showcase: Roadmap -->
+  <section class="lg-showcase" id="how">
+    <div class="lg-showcase-row" data-aos="fade-up">
+      <div class="lg-showcase-media">
+        <div class="lg-device">
+          <div class="lg-device-screen">
+            <img src="legalia-app/roadmap-disciplines.jpg" alt="Discipline roadmap in Legalia" width="588" height="1040" loading="lazy">
+          </div>
+        </div>
+      </div>
+      <div class="lg-showcase-text">
+        <span class="lg-showcase-num">01 — GUIDED PATH</span>
+        <h2>A roadmap for every discipline</h2>
+        <p>No more wondering what to study next. Each discipline unfolds as a step-by-step path — complete a level to unlock the next, with your progress visible at a glance.</p>
+        <ul class="lg-showcase-list">
+          <li><i class="fas fa-check-circle"></i> Duolingo-style level progression keeps you moving forward</li>
+          <li><i class="fas fa-check-circle"></i> Clear per-topic progress bars across all 52 disciplines</li>
+          <li><i class="fas fa-check-circle"></i> Pick up exactly where you left off</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Showcase: Multimedia per topic -->
+  <section class="lg-showcase">
+    <div class="lg-showcase-row reverse" data-aos="fade-up">
+      <div class="lg-showcase-media">
+        <div class="lg-device">
+          <div class="lg-device-screen">
+            <img src="legalia-app/study-options.jpg" alt="Video, podcast and quiz options for a topic" width="588" height="1040" loading="lazy">
+          </div>
+        </div>
+      </div>
+      <div class="lg-showcase-text">
+        <span class="lg-showcase-num">02 — FULL COURSE PER TOPIC</span>
+        <h2>Watch, listen, map — then test yourself</h2>
+        <p>Every topic is a complete mini-course. Prefer to watch? There's a video lesson. On the move? Press play on the podcast. Need the big picture? Open the mind map. Then take the quiz to lock it in.</p>
+        <ul class="lg-showcase-list">
+          <li><i class="fas fa-video"></i> A narrated video lesson for nearly every topic</li>
+          <li><i class="fas fa-headphones"></i> Audio podcasts to learn hands-free</li>
+          <li><i class="fas fa-diagram-project"></i> Visual mind maps that connect the concepts</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Media stats -->
+  <section class="lg-media">
+    <div class="lg-section-header" data-aos="fade-up">
+      <span class="lg-eyebrow">Multimedia library</span>
+      <h2>It's not just quizzes — it's a whole course</h2>
+      <p>Nearly all of the 521 topics ship with their own podcast, video lesson and mind map. That's a multimedia legal library most platforms simply don't have.</p>
+    </div>
+    <div class="lg-media-stats">
+      <div class="lg-media-card" data-aos="fade-up" data-aos-delay="0">
+        <i class="fas fa-headphones-simple"></i>
+        <div class="lg-stat-num" data-count="478">478</div>
+        <h3>Podcasts</h3>
+        <p>Listen to a topic explained, anywhere</p>
+      </div>
+      <div class="lg-media-card" data-aos="fade-up" data-aos-delay="80">
+        <i class="fas fa-clapperboard"></i>
+        <div class="lg-stat-num" data-count="477">477</div>
+        <h3>Video lessons</h3>
+        <p>Watch the concepts come to life</p>
+      </div>
+      <div class="lg-media-card" data-aos="fade-up" data-aos-delay="160">
+        <i class="fas fa-diagram-project"></i>
+        <div class="lg-stat-num" data-count="470">470</div>
+        <h3>Mind maps</h3>
+        <p>See how everything connects</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Showcase: Quizzes that teach -->
+  <section class="lg-showcase">
+    <div class="lg-showcase-row" data-aos="fade-up">
+      <div class="lg-showcase-media">
+        <div class="lg-device">
+          <div class="lg-device-screen">
+            <img src="legalia-app/quiz-feedback.jpg" alt="Quiz answer with explanation" width="588" height="1040" loading="lazy">
+          </div>
+        </div>
+      </div>
+      <div class="lg-showcase-text">
+        <span class="lg-showcase-num">03 — LEARN BY DOING</span>
+        <h2>Quizzes that explain, not just grade</h2>
+        <p>Stuck on a question? Tap for a hint. Got it wrong? Legalia shows you the correct answer <em>and</em> the reasoning — often citing the exact article — so you understand the law instead of memorising it.</p>
+        <ul class="lg-showcase-list">
+          <li><i class="fas fa-lightbulb"></i> On-demand hints for tricky questions</li>
+          <li><i class="fas fa-circle-check"></i> Per-answer explanations grounded in the legislation</li>
+          <li><i class="fas fa-list-check"></i> 6,972 curated questions with 25,535 answer options</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Showcase: Gamification -->
+  <section class="lg-showcase">
+    <div class="lg-showcase-row reverse" data-aos="fade-up">
+      <div class="lg-showcase-media">
+        <div class="lg-device">
+          <div class="lg-device-screen">
+            <img src="legalia-app/quiz-result.jpg" alt="Quiz result with XP and streak" width="588" height="1040" loading="lazy">
+          </div>
+        </div>
+      </div>
+      <div class="lg-showcase-text">
+        <span class="lg-showcase-num">04 — STAY MOTIVATED</span>
+        <h2>Earn XP. Build streaks. Keep going.</h2>
+        <p>Every completed quiz rewards XP, tracks your time and feeds your daily streak. Small wins add up — and unlock achievements that keep you coming back.</p>
+        <ul class="lg-showcase-list">
+          <li><i class="fas fa-bolt"></i> XP for every quiz and milestone</li>
+          <li><i class="fas fa-fire"></i> Daily streaks that build a study habit</li>
+          <li><i class="fas fa-medal"></i> Achievements to unlock as you progress</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Showcase: Leaderboard -->
+  <section class="lg-showcase">
+    <div class="lg-showcase-row" data-aos="fade-up">
+      <div class="lg-showcase-media">
+        <div class="lg-device">
+          <div class="lg-device-screen">
+            <img src="legalia-app/leaderboard.jpg" alt="Legalia leaderboard" width="588" height="1040" loading="lazy">
+          </div>
+        </div>
+      </div>
+      <div class="lg-showcase-text">
+        <span class="lg-showcase-num">05 — FRIENDLY COMPETITION</span>
+        <h2>Climb the leaderboard</h2>
+        <p>Learning is more fun together. See how you rank against everyone, just your friends, or other universities — and let a little rivalry push you further.</p>
+        <ul class="lg-showcase-list">
+          <li><i class="fas fa-globe"></i> Global, friends-only and university rankings</li>
+          <li><i class="fas fa-trophy"></i> A live podium for the top performers</li>
+          <li><i class="fas fa-building-columns"></i> Represent your university on the board</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Showcase: Friends & Duels -->
+  <section class="lg-showcase">
+    <div class="lg-showcase-row reverse" data-aos="fade-up">
+      <div class="lg-showcase-media">
+        <div class="lg-device">
+          <div class="lg-device-screen">
+            <img src="legalia-app/duel.jpg" alt="Challenge a friend to a duel" width="588" height="1040" loading="lazy">
+          </div>
+        </div>
+      </div>
+      <div class="lg-showcase-text">
+        <span class="lg-showcase-num">06 — SOCIAL LEARNING</span>
+        <h2>Add friends &amp; challenge them to a duel<span class="lg-pill">NEW</span></h2>
+        <p>Send friend requests, build your study circle, then go head-to-head in a real-time quiz duel. Nothing sharpens your knowledge like beating a classmate to the right answer.</p>
+        <ul class="lg-showcase-list">
+          <li><i class="fas fa-user-plus"></i> Friend requests with accept &amp; decline</li>
+          <li><i class="fas fa-bolt"></i> 1-on-1 quiz duels against your friends</li>
+          <li><i class="fas fa-users"></i> A friends-only leaderboard to settle the score</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Showcase: Analytics -->
+  <section class="lg-showcase">
+    <div class="lg-showcase-row" data-aos="fade-up">
+      <div class="lg-showcase-media">
+        <div class="lg-device">
+          <div class="lg-device-screen">
+            <img src="legalia-app/progress.jpg" alt="Progress and statistics" width="588" height="1040" loading="lazy">
+          </div>
+        </div>
+      </div>
+      <div class="lg-showcase-text">
+        <span class="lg-showcase-num">07 — KNOW YOUR PROGRESS</span>
+        <h2>See exactly where you stand</h2>
+        <p>Detailed statistics turn study into insight: track your accuracy, daily activity, completed quizzes and your strongest disciplines — so you always know what to revise next.</p>
+        <ul class="lg-showcase-list">
+          <li><i class="fas fa-chart-line"></i> Accuracy, XP and streaks over time</li>
+          <li><i class="fas fa-calendar-check"></i> Daily activity charts</li>
+          <li><i class="fas fa-ranking-star"></i> Per-discipline performance breakdown</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Feature grid (the rest) -->
+  <section class="lg-features">
+    <div class="lg-section-header" data-aos="fade-up">
+      <span class="lg-eyebrow">And more</span>
+      <h2>Everything else you'd expect</h2>
+      <p>Thoughtful details that make studying with Legalia feel effortless.</p>
+    </div>
+    <div class="lg-features-grid">
+      <div class="lg-feature-card" data-aos="fade-up" data-aos-delay="0">
+        <div class="lg-feature-icon"><i class="fas fa-file-signature"></i></div>
+        <h3>Exam mode</h3>
+        <p>Timed, full-length exam simulations to test yourself under real conditions.</p>
+      </div>
+      <div class="lg-feature-card" data-aos="fade-up" data-aos-delay="80">
+        <div class="lg-feature-icon"><i class="fas fa-shuffle"></i></div>
+        <h3>Random quiz</h3>
+        <p>1,600+ rapid-fire questions drawn from across every discipline for quick practice.</p>
+      </div>
+      <div class="lg-feature-card" data-aos="fade-up" data-aos-delay="160">
+        <div class="lg-feature-icon"><i class="fas fa-bell"></i></div>
+        <h3>Smart reminders</h3>
+        <p>Optional study notifications that keep your streak — and your habit — alive.</p>
+      </div>
+      <div class="lg-feature-card" data-aos="fade-up" data-aos-delay="0">
+        <div class="lg-feature-icon"><i class="fas fa-circle-half-stroke"></i></div>
+        <h3>Light &amp; dark theme</h3>
+        <p>A clean, calm interface that adapts to however you like to read.</p>
+      </div>
+      <div class="lg-feature-card" data-aos="fade-up" data-aos-delay="80">
+        <div class="lg-feature-icon"><i class="fas fa-language"></i></div>
+        <h3>Multilingual</h3>
+        <p>Built for the Moldovan market with full Romanian-language content.</p>
+      </div>
+      <div class="lg-feature-card" data-aos="fade-up" data-aos-delay="160">
+        <div class="lg-feature-icon"><i class="fas fa-mobile-screen-button"></i></div>
+        <h3>Native iOS &amp; Android</h3>
+        <p>A fast, native app experience with sound effects and haptic feedback.</p>
       </div>
     </div>
   </section>
@@ -873,8 +938,8 @@
   <!-- CTA -->
   <section class="lg-cta">
     <div class="lg-cta-inner" data-aos="fade-up">
-      <h2>Ready to Start Learning?</h2>
-      <p>Download Legalia and take the first step in your legal career. Structured courses, interactive quizzes, and a community of future lawyers.</p>
+      <h2>Ready to learn law the smart way?</h2>
+      <p>Download Legalia and turn 521 topics, thousands of questions and a full multimedia library into a study habit you'll actually enjoy.</p>
       <div class="lg-hero-actions">
         <a href="#" class="lg-btn-primary"><i class="fab fa-app-store-ios"></i> App Store</a>
         <a href="#" class="lg-btn-primary" style="background: linear-gradient(135deg, #8752FA, #591EF3);"><i class="fab fa-google-play"></i> Google Play</a>
@@ -912,5 +977,37 @@
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <!-- Custom JavaScript -->
   <script src="script.js"></script>
+
+  <!-- Count-up for stat numbers -->
+  <script>
+    (function () {
+      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var nums = document.querySelectorAll('.lg-stat-num[data-count]');
+      function format(n) { return n.toLocaleString('en-US'); }
+      function animate(el) {
+        var target = parseInt(el.getAttribute('data-count'), 10) || 0;
+        if (reduce) { el.textContent = format(target); return; }
+        var dur = 1400, start = null;
+        function step(ts) {
+          if (!start) start = ts;
+          var p = Math.min((ts - start) / dur, 1);
+          var eased = 1 - Math.pow(1 - p, 3);
+          el.textContent = format(Math.round(target * eased));
+          if (p < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      }
+      if (!('IntersectionObserver' in window)) {
+        nums.forEach(function (el) { el.textContent = format(parseInt(el.getAttribute('data-count'), 10) || 0); });
+        return;
+      }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { animate(e.target); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.5 });
+      nums.forEach(function (el) { io.observe(el); });
+    })();
+  </script>
 </body>
 </html>

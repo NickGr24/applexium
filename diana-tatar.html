@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diana Tatar - CMO | Applexium</title>
+  <meta name="description" content="Diana Tatar — Chief Marketing Officer at Applexium. Graphic designer and AI content creator with 6 years of experience, 10+ brands and 200+ clients across branding, social media, editorial, and AI content.">
+  <meta name="keywords" content="Diana Tatar, CMO, chief marketing officer, marketing Moldova, branding, visual identity, AI content creator, Applexium, Chisinau">
+  <meta name="author" content="Applexium">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://applexium.com/diana-tatar">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="Diana Tatar - CMO | Applexium">
+  <meta property="og:description" content="Chief Marketing Officer at Applexium — graphic designer and AI content creator. 6 years, 10+ brands, 200+ clients.">
+  <meta property="og:url" content="https://applexium.com/diana-tatar">
+  <meta property="og:site_name" content="Applexium">
+  <meta property="og:image" content="https://applexium.com/dianatatar.webp">
+  <meta property="profile:first_name" content="Diana">
+  <meta property="profile:last_name" content="Tatar">
+
+  <link rel="icon" href="favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="logo-icon.svg">
+  <link rel="icon" type="image/png" sizes="192x192" href="favicon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Questrial&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- AOS Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .profile-page { background: var(--dark-bg); min-height: 100vh; }
+    .profile-page a { text-decoration: none; }
+
+    /* ===== Hero ===== */
+    .profile-hero { padding: 160px 20px 70px; position: relative; overflow: hidden; }
+    .profile-hero::before {
+      content: '';
+      position: absolute;
+      top: -20%;
+      left: 30%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(36, 94, 254, 0.18) 0%, rgba(31, 205, 255, 0.06) 40%, transparent 70%);
+      pointer-events: none;
+    }
+    .profile-hero-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+    .profile-photo-wrapper { position: relative; }
+    .profile-photo {
+      width: 300px;
+      height: 360px;
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+    }
+    .profile-photo::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border: 2px solid rgba(31, 205, 255, 0.2);
+      border-radius: 20px;
+      pointer-events: none;
+      z-index: 2;
+    }
+    .profile-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+    .profile-status {
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(135deg, var(--neon-blue), var(--accent-light));
+      color: #ffffff;
+      padding: 8px 24px;
+      border-radius: 30px;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 600;
+      font-size: 14px;
+      letter-spacing: 0.5px;
+      white-space: nowrap;
+      box-shadow: 0 10px 30px rgba(31, 205, 255, 0.3);
+    }
+    .profile-info { padding-top: 20px; }
+    .profile-name {
+      font-family: 'Nunito', sans-serif;
+      font-size: clamp(42px, 5vw, 64px);
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 8px;
+      line-height: 1.1;
+    }
+    .profile-title {
+      font-family: 'Nunito', sans-serif;
+      font-size: clamp(18px, 2.5vw, 22px);
+      color: var(--accent-light);
+      margin-bottom: 28px;
+      font-weight: 500;
+    }
+    .profile-bio {
+      font-family: 'Questrial', 'Century Gothic', sans-serif;
+      font-size: 16px;
+      color: var(--text-light);
+      line-height: 1.7;
+      margin-bottom: 32px;
+      max-width: 600px;
+    }
+    .profile-contact-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      max-width: 560px;
+    }
+    .profile-contact-item { display: flex; align-items: center; gap: 15px; }
+    .profile-contact-item i {
+      width: 45px;
+      height: 45px;
+      border-radius: 12px;
+      background: rgba(31, 205, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent-light);
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+    .profile-contact-item span,
+    .profile-contact-item a {
+      font-family: 'Questrial', 'Century Gothic', sans-serif;
+      font-size: 15px;
+      color: var(--text-light);
+      transition: color 0.3s ease;
+    }
+    .profile-contact-item a:hover { color: var(--accent-light); }
+
+    /* ===== Stats band ===== */
+    .dt-stats {
+      max-width: 1160px;
+      margin: 0 auto 20px;
+      padding: 0 20px;
+    }
+    .dt-stats-inner {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      background: linear-gradient(135deg, rgba(36, 94, 254, 0.12), rgba(31, 205, 255, 0.05));
+      border: 1px solid rgba(31, 205, 255, 0.14);
+      border-radius: 22px;
+      padding: 34px 30px;
+      text-align: center;
+    }
+    .dt-stat-num {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: clamp(30px, 4vw, 44px);
+      line-height: 1;
+      background: linear-gradient(120deg, #fff, var(--accent-light));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .dt-stat-label {
+      font-family: 'Questrial', 'Century Gothic', sans-serif;
+      font-size: 14px;
+      color: var(--text-light);
+      margin-top: 8px;
+    }
+
+    /* ===== Main content ===== */
+    .profile-content { max-width: 1200px; margin: 0 auto; padding: 50px 20px 90px; }
+    .profile-section { margin-bottom: 80px; }
+    .profile-section-title {
+      font-family: 'Nunito', sans-serif;
+      font-size: clamp(24px, 3vw, 32px);
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 40px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .profile-section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(31, 205, 255, 0.3), transparent);
+    }
+    .profile-section-title i { color: var(--accent-light); font-size: 22px; }
+
+    /* ===== Services ===== */
+    .dt-services {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+    .dt-service-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(31, 205, 255, 0.12);
+      border-radius: 20px;
+      padding: 30px 26px;
+      transition: transform 0.35s ease, border-color 0.35s ease, background 0.35s ease;
+    }
+    .dt-service-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(31, 205, 255, 0.4);
+      background: rgba(255, 255, 255, 0.05);
+    }
+    .dt-service-ico {
+      width: 50px;
+      height: 50px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      font-size: 20px;
+      color: var(--accent-light);
+      background: rgba(31, 205, 255, 0.1);
+      margin-bottom: 18px;
+    }
+    .dt-service-card h3 {
+      font-family: 'Nunito', sans-serif;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+    .dt-service-card p {
+      font-family: 'Questrial', 'Century Gothic', sans-serif;
+      font-size: 14.5px;
+      line-height: 1.6;
+      color: var(--text-light);
+    }
+
+    /* ===== Selected work ===== */
+    .dt-work { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
+    .dt-work-card {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(31, 205, 255, 0.12);
+      border-radius: 20px;
+      padding: 26px 28px;
+      transition: transform 0.35s ease, border-color 0.35s ease, background 0.35s ease;
+    }
+    .dt-work-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(31, 205, 255, 0.4);
+      background: rgba(255, 255, 255, 0.05);
+    }
+    .dt-work-num {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 22px;
+      color: var(--accent-light);
+      flex-shrink: 0;
+      width: 42px;
+    }
+    .dt-work-body { flex: 1; }
+    .dt-work-body h3 {
+      font-family: 'Nunito', sans-serif;
+      font-size: 19px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+    .dt-work-cat {
+      font-family: 'Questrial', 'Century Gothic', sans-serif;
+      font-size: 13px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--text-gray);
+    }
+    .dt-work-card i.dt-arrow {
+      color: var(--accent-light);
+      font-size: 15px;
+      transition: transform 0.3s ease;
+    }
+    .dt-work-card:hover i.dt-arrow { transform: translateX(5px); }
+
+    /* ===== Brands ===== */
+    .dt-brands { display: flex; flex-wrap: wrap; gap: 12px; }
+    .dt-brand {
+      font-family: 'Nunito', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--white);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(31, 205, 255, 0.16);
+      padding: 11px 20px;
+      border-radius: 14px;
+      transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+    }
+    .dt-brand:hover {
+      transform: translateY(-3px);
+      border-color: rgba(31, 205, 255, 0.45);
+      background: rgba(31, 205, 255, 0.08);
+    }
+
+    /* ===== Back link ===== */
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Nunito', sans-serif;
+      font-size: 14px;
+      color: var(--text-light);
+      margin-bottom: 30px;
+      transition: all 0.3s ease;
+    }
+    .back-link:hover { color: var(--accent-light); transform: translateX(-5px); }
+    .back-link i { font-size: 12px; }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 968px) {
+      .profile-hero-content { grid-template-columns: 1fr; text-align: center; }
+      .profile-photo-wrapper { margin: 0 auto; }
+      .profile-photo { width: 250px; height: 300px; }
+      .profile-bio { margin-left: auto; margin-right: auto; }
+      .profile-contact-grid { margin-left: auto; margin-right: auto; justify-content: center; }
+      .profile-contact-item { justify-content: center; }
+      .dt-services { grid-template-columns: repeat(2, 1fr); }
+      .dt-work { grid-template-columns: 1fr; }
+      .dt-brands { justify-content: center; }
+      .profile-section-title { justify-content: center; }
+    }
+    @media (max-width: 640px) {
+      .profile-contact-grid { grid-template-columns: 1fr; }
+      .profile-photo { width: 200px; height: 240px; }
+      .dt-stats-inner { grid-template-columns: 1fr; gap: 26px; }
+      .dt-services { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body class="profile-page">
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="logo">
+      <a href="/" style="display: flex; align-items: center; gap: 12px; text-decoration: none;">
+        <img src="logo-icon.svg" alt="Applexium" class="logo-icon">
+        <span class="logo-text">Applexium</span>
+      </a>
+    </div>
+
+    <!-- Mobile Menu Toggle -->
+    <button class="mobile-menu-toggle" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <div class="nav-links">
+      <a href="/#capabilities">Services</a>
+      <a href="/#products">Solutions</a>
+      <a href="/#portfolio">Portfolio</a>
+      <a href="team">Team</a>
+      <a href="contacts">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Profile Hero -->
+  <section class="profile-hero">
+    <div class="profile-hero-content">
+      <div class="profile-photo-wrapper" data-aos="fade-up" data-aos-duration="1000">
+        <div class="profile-photo">
+          <img src="dianatatar.webp" alt="Diana Tatar">
+        </div>
+        <span class="profile-status">CMO</span>
+      </div>
+
+      <div class="profile-info" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+        <a href="team" class="back-link">
+          <i class="fas fa-arrow-left"></i>
+          Back to Team
+        </a>
+
+        <h1 class="profile-name">Diana Tatar</h1>
+        <p class="profile-title">Chief Marketing Officer</p>
+
+        <p class="profile-bio">
+          Diana leads marketing and brand at Applexium. A graphic designer and AI content creator,
+          she has spent 6 years building visual identities and campaigns — 10+ brands developed and 200+ clients
+          across branding, social media, editorial, and AI-generated content. She also mentors the next
+          generation of creators at <strong>Vector Academy</strong>.
+        </p>
+
+        <div class="profile-contact-grid">
+          <div class="profile-contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Chișinău, Moldova</span>
+          </div>
+          <div class="profile-contact-item">
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:designerdianatatar30@gmail.com">designerdianatatar30@gmail.com</a>
+          </div>
+          <div class="profile-contact-item">
+            <i class="fas fa-globe"></i>
+            <a href="https://dianatatar.com" target="_blank" rel="noopener">dianatatar.com</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats band -->
+  <section class="dt-stats">
+    <div class="dt-stats-inner" data-aos="fade-up">
+      <div>
+        <div class="dt-stat-num">6+</div>
+        <div class="dt-stat-label">Years of experience</div>
+      </div>
+      <div>
+        <div class="dt-stat-num">10+</div>
+        <div class="dt-stat-label">Brands developed</div>
+      </div>
+      <div>
+        <div class="dt-stat-num">200+</div>
+        <div class="dt-stat-label">Clients</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <div class="profile-content">
+
+    <!-- Expertise -->
+    <section class="profile-section" data-aos="fade-up">
+      <h2 class="profile-section-title"><i class="fas fa-pen-ruler"></i> What I do</h2>
+      <div class="dt-services">
+        <div class="dt-service-card">
+          <div class="dt-service-ico"><i class="fas fa-palette"></i></div>
+          <h3>Branding &amp; Visual Identity</h3>
+          <p>Visual systems with meaning, direction and authenticity — not just how a brand looks, but how it feels.</p>
+        </div>
+        <div class="dt-service-card">
+          <div class="dt-service-ico"><i class="fas fa-share-nodes"></i></div>
+          <h3>Social Media</h3>
+          <p>Turning social pages into coherent visual spaces where every element builds a clear, memorable image.</p>
+        </div>
+        <div class="dt-service-card">
+          <div class="dt-service-ico"><i class="fas fa-newspaper"></i></div>
+          <h3>Editorial &amp; Print</h3>
+          <p>Clean, well-structured editorial and print layouts where text and visuals work together.</p>
+        </div>
+        <div class="dt-service-card">
+          <div class="dt-service-ico"><i class="fas fa-lightbulb"></i></div>
+          <h3>Visual Concepts &amp; Campaigns</h3>
+          <p>From idea and creative direction to moodboards and clear implementation guides for campaigns.</p>
+        </div>
+        <div class="dt-service-card">
+          <div class="dt-service-ico"><i class="fas fa-wand-magic-sparkles"></i></div>
+          <h3>AI Content Generation</h3>
+          <p>Static and video visual content created with AI — from creative concepts to campaign-ready assets.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Selected work -->
+    <section class="profile-section" data-aos="fade-up">
+      <h2 class="profile-section-title"><i class="fas fa-folder-open"></i> Selected Work</h2>
+      <div class="dt-work">
+        <a class="dt-work-card" href="https://dianatatar.com/proiect.html?slug=decoratii" target="_blank" rel="noopener">
+          <span class="dt-work-num">01</span>
+          <div class="dt-work-body">
+            <h3>Decorații.md</h3>
+            <span class="dt-work-cat">Urban decor · Rebranding</span>
+          </div>
+          <i class="fas fa-arrow-up-right-from-square dt-arrow"></i>
+        </a>
+        <a class="dt-work-card" href="https://dianatatar.com/proiect.html?slug=oo-nutrition" target="_blank" rel="noopener">
+          <span class="dt-work-num">02</span>
+          <div class="dt-work-body">
+            <h3>OO.Nutrition</h3>
+            <span class="dt-work-cat">Product concept · Brand presentation</span>
+          </div>
+          <i class="fas fa-arrow-up-right-from-square dt-arrow"></i>
+        </a>
+        <a class="dt-work-card" href="https://dianatatar.com/proiect.html?slug=centrul-sportiv" target="_blank" rel="noopener">
+          <span class="dt-work-num">03</span>
+          <div class="dt-work-body">
+            <h3>Centrul Sportiv Național</h3>
+            <span class="dt-work-cat">Brand book · Flyers · Magazines</span>
+          </div>
+          <i class="fas fa-arrow-up-right-from-square dt-arrow"></i>
+        </a>
+        <a class="dt-work-card" href="https://dianatatar.com/proiect.html?slug=campanie-vizuala" target="_blank" rel="noopener">
+          <span class="dt-work-num">04</span>
+          <div class="dt-work-body">
+            <h3>BloomIn &amp; Fine Digital</h3>
+            <span class="dt-work-cat">Creative direction · Social + Print</span>
+          </div>
+          <i class="fas fa-arrow-up-right-from-square dt-arrow"></i>
+        </a>
+        <a class="dt-work-card" href="https://dianatatar.com/proiect.html?slug=vector-academy-ai" target="_blank" rel="noopener">
+          <span class="dt-work-num">05</span>
+          <div class="dt-work-body">
+            <h3>Vector Academy — AI content</h3>
+            <span class="dt-work-cat">Video · Static · Moodboards</span>
+          </div>
+          <i class="fas fa-arrow-up-right-from-square dt-arrow"></i>
+        </a>
+      </div>
+    </section>
+
+    <!-- Brands -->
+    <section class="profile-section" data-aos="fade-up">
+      <h2 class="profile-section-title"><i class="fas fa-handshake"></i> Worked with</h2>
+      <div class="dt-brands">
+        <span class="dt-brand">Vector Academy</span>
+        <span class="dt-brand">Fine Digital</span>
+        <span class="dt-brand">BloomIn Agency</span>
+        <span class="dt-brand">Moldcell</span>
+        <span class="dt-brand">Microlab</span>
+        <span class="dt-brand">BEST Chișinău</span>
+        <span class="dt-brand">Tech Women MD</span>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <a href="/" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
+            <img src="logo-icon.svg" alt="Applexium" class="footer-logo-icon">
+            <span class="logo-text">Applexium</span>
+          </a>
+        </div>
+        <div class="footer-info">
+          <p>&copy; 2026 Applexium. All Rights Reserved.</p>
+        </div>
+      </div>
+
+      <div class="footer-legal">
+        <a href="terms-and-conditions"><i class="fas fa-file-contract"></i> Terms & Conditions</a>
+        <a href="privacy-policy"><i class="fas fa-shield-halved"></i> Privacy Policy</a>
+        <a href="cookie-policy"><i class="fas fa-cookie-bite"></i> Cookie Policy</a>
+        <a href="ai-ethics"><i class="fas fa-brain"></i> AI Ethics Statement</a>
+        <a href="accessibility"><i class="fas fa-universal-access"></i> Accessibility Statement</a>
+        <a href="esg"><i class="fas fa-leaf"></i> ESG Statement</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- AOS Library -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <!-- Custom JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
