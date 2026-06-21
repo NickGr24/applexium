@@ -1,24 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ro">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Emmi — Multi-Channel Conversational AI | Applexium</title>
-  <meta name="description" content="Emmi is a multi-channel conversational AI for businesses — answers phone calls, web chat, and WhatsApp messages 24/7 in Romanian and Russian, grounded in your own documents.">
-  <meta name="keywords" content="Emmi, conversational AI, voice agent, web chat AI, WhatsApp AI, RAG, bilingual AI, Romanian, Russian, multi-channel customer support automation, Applexium, Moldova, call center AI">
+  <!-- Set language before paint (from ?lang= or localStorage) to avoid a flash -->
+  <script>(function(){try{var l=new URLSearchParams(location.search).get('lang')||localStorage.getItem('applexium-lang');document.documentElement.setAttribute('data-lang',l==='en'?'en':'ro');if(l==='en'){document.documentElement.lang='en';}}catch(e){document.documentElement.setAttribute('data-lang','ro');}})();</script>
+
+  <title data-en="Emmi — Multi-Channel Conversational AI | Applexium">Emmi — AI conversațional multi-canal | Applexium</title>
+  <meta name="description" content="Emmi este un AI conversațional multi-canal pentru afaceri — răspunde la apeluri telefonice, chat web și mesaje WhatsApp 24/7 în română și rusă, bazat pe propriile tale documente.">
+  <meta name="keywords" content="Emmi, AI conversațional, agent vocal, chat web AI, WhatsApp AI, RAG, AI bilingv, română, rusă, automatizare suport clienți multi-canal, Applexium, Moldova, AI pentru call center">
   <meta name="author" content="Applexium">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://applexium.com/emmi">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Emmi — Multi-Channel Conversational AI | Applexium">
-  <meta property="og:description" content="One AI agent for phone, web chat, and WhatsApp. Bilingual (RO/RU), grounded in your own knowledge base, available 24/7.">
+  <meta property="og:title" content="Emmi — AI conversațional multi-canal | Applexium">
+  <meta property="og:description" content="Un singur agent AI pentru telefon, chat web și WhatsApp. Bilingv (RO/RU), bazat pe propria ta bază de cunoștințe, disponibil 24/7.">
   <meta property="og:url" content="https://applexium.com/emmi">
   <meta property="og:site_name" content="Applexium">
   <meta property="og:image" content="https://applexium.com/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="ro_RO">
+  <meta property="og:locale:alternate" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Emmi — AI conversațional multi-canal | Applexium">
+  <meta name="twitter:description" content="Un singur agent AI pentru telefon, chat web și WhatsApp. Bilingv (RO/RU), bazat pe propria ta bază de cunoștințe, disponibil 24/7.">
+  <meta name="twitter:image" content="https://applexium.com/og-image.png">
 
   <link rel="icon" href="favicon.ico" sizes="48x48">
   <link rel="icon" type="image/svg+xml" href="logo-icon.svg">
@@ -39,6 +50,25 @@
 
   <!-- Shared CSS (navbar/footer) -->
   <link rel="stylesheet" href="style.css">
+
+  <!-- Structured data: SoftwareApplication (Emmi) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Emmi",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web, Telephony, WhatsApp",
+    "description": "Emmi este un AI conversațional multi-canal care răspunde la apeluri telefonice, chat web și mesaje WhatsApp în română și rusă, bazat pe propriile tale documente, disponibil 24/7.",
+    "url": "https://applexium.com/emmi",
+    "inLanguage": ["ro", "ru"],
+    "publisher": {
+      "@type": "Organization",
+      "name": "Applexium",
+      "url": "https://applexium.com/"
+    }
+  }
+  </script>
 
   <style>
     /* ============================================
@@ -1139,18 +1169,25 @@
       </a>
     </div>
 
-    <button class="mobile-menu-toggle" aria-label="Toggle menu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-
     <div class="nav-links">
-      <a href="/#capabilities">Services</a>
-      <a href="/#products">Solutions</a>
-      <a href="/#portfolio">Portfolio</a>
-      <a href="team">Team</a>
-      <a href="contacts">Contact</a>
+      <a href="/#capabilities" data-en="Services">Servicii</a>
+      <a href="/#products" data-en="Solutions">Soluții</a>
+      <a href="/#portfolio" data-en="Portfolio">Portofoliu</a>
+      <a href="team" data-en="Team">Echipă</a>
+      <a href="contacts" data-en="Contact">Contact</a>
+    </div>
+
+    <div class="nav-actions">
+      <div class="lang-switch" role="group" aria-label="Schimbă limba" data-en-aria-label="Change language">
+        <button type="button" class="lang-btn" data-lang-switch="ro" aria-pressed="true">RO</button>
+        <button type="button" class="lang-btn" data-lang-switch="en" aria-pressed="false">EN</button>
+      </div>
+      <!-- Mobile Menu Toggle -->
+      <button class="mobile-menu-toggle" aria-label="Comută meniul" data-en-aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
   </nav>
 
@@ -1184,11 +1221,11 @@
 
     <div class="em-hero-content">
       <img src="emmi.png" alt="Emmi" class="em-hero-logo">
-      <h1>One AI Agent. <span class="em-gradient-text">Phone, Chat, and WhatsApp.</span></h1>
-      <p>Emmi is a bilingual conversational AI that answers your phone calls, replies in your website chat, and handles WhatsApp messages — 24/7, in Romanian and Russian, with knowledge grounded in your own documents.</p>
+      <h1 data-en="One AI Agent. <span class=&quot;em-gradient-text&quot;>Phone, Chat, and WhatsApp.</span>">Un singur agent AI. <span class="em-gradient-text">Telefon, chat și WhatsApp.</span></h1>
+      <p data-en="Emmi is a bilingual conversational AI that answers your phone calls, replies in your website chat, and handles WhatsApp messages — 24/7, in Romanian and Russian, with knowledge grounded in your own documents.">Emmi este un AI conversațional bilingv care răspunde la apelurile tale telefonice, răspunde în chatul site-ului tău și gestionează mesajele de pe WhatsApp — 24/7, în română și rusă, cu cunoștințe bazate pe propriile tale documente.</p>
       <div class="em-hero-actions">
-        <a href="contacts" class="em-btn-primary"><i class="fas fa-paper-plane"></i> Request a Demo</a>
-        <a href="#channels" data-emmi-trigger="open" class="em-btn-secondary"><i class="fas fa-comment-dots"></i> Try Emmi Live</a>
+        <a href="contacts" class="em-btn-primary"><i class="fas fa-paper-plane"></i> <span data-en="Request a Demo">Solicită o demonstrație</span></a>
+        <a href="#channels" data-emmi-trigger="open" class="em-btn-secondary"><i class="fas fa-comment-dots"></i> <span data-en="Try Emmi Live">Încearcă Emmi live</span></a>
       </div>
     </div>
   </section>
@@ -1198,19 +1235,19 @@
     <div class="em-stats-grid">
       <div class="em-stat">
         <div class="em-stat-number">&lt;500ms</div>
-        <div class="em-stat-label">Speech Recognition</div>
+        <div class="em-stat-label" data-en="Speech Recognition">Recunoaștere vocală</div>
       </div>
       <div class="em-stat">
         <div class="em-stat-number">&lt;350ms</div>
-        <div class="em-stat-label">Voice Response TTFB</div>
+        <div class="em-stat-label" data-en="Voice Response TTFB">TTFB răspuns vocal</div>
       </div>
       <div class="em-stat">
         <div class="em-stat-number">24/7</div>
-        <div class="em-stat-label">Phone · Chat · WhatsApp</div>
+        <div class="em-stat-label" data-en="Phone · Chat · WhatsApp">Telefon · Chat · WhatsApp</div>
       </div>
       <div class="em-stat">
         <div class="em-stat-number">RO · RU</div>
-        <div class="em-stat-label">Native Cyrillic &amp; Diacritics</div>
+        <div class="em-stat-label" data-en="Native Cyrillic &amp; Diacritics">Chirilice și diacritice native</div>
       </div>
     </div>
   </section>
@@ -1224,9 +1261,9 @@
         </div>
       </div>
       <div class="em-about-text" data-aos="fade-left">
-        <h2>Three Channels, One Brain.</h2>
-        <p>Emmi is a single conversational AI that picks up the phone, replies in your website chat, and handles your WhatsApp inbox — using the same knowledge base, the same persona, and the same bilingual fluency across all of them.</p>
-        <p>That means no more missed calls outside business hours, no more inboxes overflowing on Monday morning, and no more inconsistent answers between channels. Your team focuses on the conversations that genuinely need a human; Emmi handles the rest.</p>
+        <h2 data-en="Three Channels, One Brain.">Trei canale, un singur creier.</h2>
+        <p data-en="Emmi is a single conversational AI that picks up the phone, replies in your website chat, and handles your WhatsApp inbox — using the same knowledge base, the same persona, and the same bilingual fluency across all of them.">Emmi este un singur AI conversațional care răspunde la telefon, scrie în chatul site-ului tău și gestionează mesajele de pe WhatsApp — folosind aceeași bază de cunoștințe, aceeași personalitate și aceeași fluență bilingvă pe toate canalele.</p>
+        <p data-en="That means no more missed calls outside business hours, no more inboxes overflowing on Monday morning, and no more inconsistent answers between channels. Your team focuses on the conversations that genuinely need a human; Emmi handles the rest.">Asta înseamnă fără apeluri ratate în afara programului, fără mesaje aglomerate luni dimineață și fără răspunsuri inconsecvente între canale. Echipa ta se concentrează pe conversațiile care chiar au nevoie de un om; Emmi se ocupă de restul.</p>
       </div>
     </div>
   </section>
@@ -1234,36 +1271,36 @@
   <!-- Channels -->
   <section id="channels" class="em-channels">
     <div class="em-section-header" data-aos="fade-up">
-      <h2>Built for Every Way Your Customers Reach Out</h2>
-      <p>One agent, three channels — same knowledge, same persona, same quality</p>
+      <h2 data-en="Built for Every Way Your Customers Reach Out">Construit pentru fiecare mod în care te contactează clienții</h2>
+      <p data-en="One agent, three channels — same knowledge, same persona, same quality">Un singur agent, trei canale — aceleași cunoștințe, aceeași personalitate, aceeași calitate</p>
     </div>
 
     <div class="em-channels-grid">
       <div class="em-channel-card" data-aos="fade-up" data-aos-delay="0">
         <div class="em-channel-icon"><i class="fas fa-phone-volume"></i></div>
         <div class="em-channel-header">
-          <h3>Voice (Phone)</h3>
+          <h3 data-en="Voice (Phone)">Voce (telefon)</h3>
         </div>
-        <p class="em-channel-pitch">Emmi answers your calls instantly, in the caller's language, with sub-second response times.</p>
+        <p class="em-channel-pitch" data-en="Emmi answers your calls instantly, in the caller's language, with sub-second response times.">Emmi răspunde la apelurile tale instant, în limba apelantului, cu timpi de răspuns sub o secundă.</p>
         <ul class="em-channel-bullets">
-          <li>Twilio cloud numbers or bring-your-own SIP / PBX</li>
-          <li>Concise 1–2 sentence responses, optimized for phone latency</li>
-          <li>Custom pronunciation rules for acronyms, phone numbers, and proper names</li>
-          <li>Structured callback collection when a human follow-up is needed</li>
+          <li data-en="Twilio cloud numbers or bring-your-own SIP / PBX">Numere cloud Twilio sau propriul tău SIP / PBX</li>
+          <li data-en="Concise 1–2 sentence responses, optimized for phone latency">Răspunsuri concise de 1–2 propoziții, optimizate pentru latența telefonică</li>
+          <li data-en="Custom pronunciation rules for acronyms, phone numbers, and proper names">Reguli de pronunție personalizate pentru acronime, numere de telefon și nume proprii</li>
+          <li data-en="Structured callback collection when a human follow-up is needed">Colectare structurată a solicitărilor de apel când e nevoie de un om</li>
         </ul>
       </div>
 
       <div class="em-channel-card" data-aos="fade-up" data-aos-delay="120">
         <div class="em-channel-icon"><i class="fas fa-comments"></i></div>
         <div class="em-channel-header">
-          <h3>Web Widget</h3>
+          <h3 data-en="Web Widget">Widget web</h3>
         </div>
-        <p class="em-channel-pitch">One line of code embeds Emmi on your site — fully on-brand, isolated from your CSS.</p>
+        <p class="em-channel-pitch" data-en="One line of code embeds Emmi on your site — fully on-brand, isolated from your CSS.">O singură linie de cod integrează Emmi pe site-ul tău — complet în identitatea ta vizuală, izolat de CSS-ul tău.</p>
         <ul class="em-channel-bullets">
-          <li>Shadow-DOM isolation — zero CSS or JS conflicts with your site</li>
-          <li>White-label theming: accent color, position, persona per deployment</li>
-          <li>Token streaming over SSE — answers appear as they're generated</li>
-          <li>Origin-locked allowlist for security and compliance</li>
+          <li data-en="Shadow-DOM isolation — zero CSS or JS conflicts with your site">Izolare Shadow-DOM — zero conflicte CSS sau JS cu site-ul tău</li>
+          <li data-en="White-label theming: accent color, position, persona per deployment">Personalizare white-label: culoare de accent, poziție și personalitate per implementare</li>
+          <li data-en="Token streaming over SSE — answers appear as they're generated">Streaming de tokeni prin SSE — răspunsurile apar pe măsură ce sunt generate</li>
+          <li data-en="Origin-locked allowlist for security and compliance">Listă de domenii permise pentru securitate și conformitate</li>
         </ul>
       </div>
 
@@ -1271,14 +1308,14 @@
         <div class="em-channel-icon"><i class="fa-brands fa-whatsapp"></i></div>
         <div class="em-channel-header">
           <h3>WhatsApp</h3>
-          <span class="em-coming-soon">Coming Q3</span>
+          <span class="em-coming-soon" data-en="Coming Q3">În curând (T3)</span>
         </div>
-        <p class="em-channel-pitch">Reach customers where they already are — Emmi replies in WhatsApp using the same knowledge base.</p>
+        <p class="em-channel-pitch" data-en="Reach customers where they already are — Emmi replies in WhatsApp using the same knowledge base.">Ajunge la clienți acolo unde sunt deja — Emmi răspunde pe WhatsApp folosind aceeași bază de cunoștințe.</p>
         <ul class="em-channel-bullets">
-          <li>WhatsApp Business API integration</li>
-          <li>Bilingual replies, auto-detected per message (RO / RU)</li>
-          <li>Same knowledge base as voice and web — answers stay consistent</li>
-          <li>Unified analytics and conversation history across channels</li>
+          <li data-en="WhatsApp Business API integration">Integrare cu WhatsApp Business API</li>
+          <li data-en="Bilingual replies, auto-detected per message (RO / RU)">Răspunsuri bilingve, detectate automat per mesaj (RO / RU)</li>
+          <li data-en="Same knowledge base as voice and web — answers stay consistent">Aceeași bază de cunoștințe ca la voce și web — răspunsurile rămân consecvente</li>
+          <li data-en="Unified analytics and conversation history across channels">Analize unificate și istoric al conversațiilor pe toate canalele</li>
         </ul>
       </div>
     </div>
@@ -1287,30 +1324,30 @@
   <!-- How It Works -->
   <section class="em-how">
     <div class="em-section-header" data-aos="fade-up">
-      <h2>How It Works</h2>
-      <p>From the first message to structured insights — fully automated, across every channel</p>
+      <h2 data-en="How It Works">Cum funcționează</h2>
+      <p data-en="From the first message to structured insights — fully automated, across every channel">De la primul mesaj până la informații structurate — complet automatizat, pe fiecare canal</p>
     </div>
 
     <div class="em-steps-grid">
       <div class="em-step-card" data-aos="fade-up" data-aos-delay="0">
         <div class="em-step-number">01</div>
-        <h3>Customer Reaches Out</h3>
-        <p>They call your number, open the chat widget on your site, or message you on WhatsApp. Emmi greets them in their language.</p>
+        <h3 data-en="Customer Reaches Out">Clientul ia legătura</h3>
+        <p data-en="They call your number, open the chat widget on your site, or message you on WhatsApp. Emmi greets them in their language.">Sună la numărul tău, deschide widgetul de chat de pe site-ul tău sau îți scrie pe WhatsApp. Emmi îi întâmpină în limba lor.</p>
       </div>
       <div class="em-step-card" data-aos="fade-up" data-aos-delay="100">
         <div class="em-step-number">02</div>
-        <h3>AI Understands</h3>
-        <p>Real-time speech recognition (voice) or direct text — language is auto-detected per turn, with native Cyrillic and Romanian diacritic accuracy.</p>
+        <h3 data-en="AI Understands">AI înțelege</h3>
+        <p data-en="Real-time speech recognition (voice) or direct text — language is auto-detected per turn, with native Cyrillic and Romanian diacritic accuracy.">Recunoaștere vocală în timp real (voce) sau text direct — limba este detectată automat la fiecare interacțiune, cu acuratețe nativă pentru chirilice și diacritice românești.</p>
       </div>
       <div class="em-step-card" data-aos="fade-up" data-aos-delay="200">
         <div class="em-step-number">03</div>
-        <h3>Knowledge-Grounded Reply</h3>
-        <p>Emmi retrieves the most relevant chunks from your documents and answers using Claude — with prompt caching for ~10× cost efficiency.</p>
+        <h3 data-en="Knowledge-Grounded Reply">Răspuns bazat pe cunoștințe</h3>
+        <p data-en="Emmi retrieves the most relevant chunks from your documents and answers using Claude — with prompt caching for ~10× cost efficiency.">Emmi extrage cele mai relevante fragmente din documentele tale și răspunde folosind Claude — cu prompt caching pentru o eficiență de cost de ~10×.</p>
       </div>
       <div class="em-step-card" data-aos="fade-up" data-aos-delay="300">
         <div class="em-step-number">04</div>
-        <h3>Data Is Captured</h3>
-        <p>Caller details, topics, callback requests, transcripts and token usage — all logged to your dashboard automatically, ready for review or export.</p>
+        <h3 data-en="Data Is Captured">Datele sunt capturate</h3>
+        <p data-en="Caller details, topics, callback requests, transcripts and token usage — all logged to your dashboard automatically, ready for review or export.">Detaliile apelantului, subiectele, solicitările de apel, transcrierile și consumul de tokeni — toate înregistrate automat în panoul tău, gata de analiză sau export.</p>
       </div>
     </div>
   </section>
@@ -1318,15 +1355,15 @@
   <!-- Trusted by Sector -->
   <section class="em-trust" data-aos="fade-up">
     <div class="em-trust-inner">
-      <h3>Used in production by public-sector and legal institutions in Eastern Europe.</h3>
-      <p>Deployed for government bureaus, legal-services organizations, and educational institutions handling thousands of bilingual inquiries each month.</p>
+      <h3 data-en="Used in production by public-sector and legal institutions in Eastern Europe.">Folosit în producție de instituții din sectorul public și juridic din Europa de Est.</h3>
+      <p data-en="Deployed for government bureaus, legal-services organizations, and educational institutions handling thousands of bilingual inquiries each month.">Implementat pentru birouri guvernamentale, organizații de servicii juridice și instituții educaționale care gestionează mii de solicitări bilingve în fiecare lună.</p>
       <div class="em-trust-strip" aria-hidden="true">
-        <i class="fas fa-graduation-cap" title="Education"></i>
-        <i class="fas fa-balance-scale" title="Legal"></i>
-        <i class="fas fa-landmark" title="Government"></i>
-        <i class="fas fa-hospital" title="Healthcare"></i>
-        <i class="fas fa-building-columns" title="Financial Services"></i>
-        <i class="fas fa-headset" title="Customer Support"></i>
+        <i class="fas fa-graduation-cap" title="Educație"></i>
+        <i class="fas fa-balance-scale" title="Juridic"></i>
+        <i class="fas fa-landmark" title="Guvern"></i>
+        <i class="fas fa-hospital" title="Sănătate"></i>
+        <i class="fas fa-building-columns" title="Servicii financiare"></i>
+        <i class="fas fa-headset" title="Suport clienți"></i>
       </div>
     </div>
   </section>
@@ -1334,70 +1371,70 @@
   <!-- Features -->
   <section id="features" class="em-features">
     <div class="em-section-header" data-aos="fade-up">
-      <h2>Key Capabilities</h2>
-      <p>Production-grade conversational AI, built for regulated industries</p>
+      <h2 data-en="Key Capabilities">Capabilități cheie</h2>
+      <p data-en="Production-grade conversational AI, built for regulated industries">AI conversațional de nivel de producție, construit pentru industrii reglementate</p>
     </div>
 
     <div class="em-features-grid">
       <div class="em-feature-card" data-aos="fade-up" data-aos-delay="0">
         <div class="em-feature-icon"><i class="fas fa-language"></i></div>
-        <h3>Bilingual RO / RU</h3>
-        <p>Native Cyrillic and Romanian diacritics — no transliteration tricks</p>
+        <h3 data-en="Bilingual RO / RU">Bilingv RO / RU</h3>
+        <p data-en="Native Cyrillic and Romanian diacritics — no transliteration tricks">Chirilice native și diacritice românești — fără trucuri de transliterare</p>
       </div>
       <div class="em-feature-card" data-aos="fade-up" data-aos-delay="60">
         <div class="em-feature-icon"><i class="fas fa-brain"></i></div>
         <h3>Claude Haiku 4.5</h3>
-        <p>Anthropic reasoning with prompt caching for ~10× cost savings on hot context</p>
+        <p data-en="Anthropic reasoning with prompt caching for ~10× cost savings on hot context">Raționament Anthropic cu prompt caching pentru economii de ~10× la contextul activ</p>
       </div>
       <div class="em-feature-card" data-aos="fade-up" data-aos-delay="120">
         <div class="em-feature-icon"><i class="fas fa-microphone"></i></div>
-        <h3>Sub-500ms STT</h3>
-        <p>Groq Whisper-large-v3-turbo on custom silicon — fastest STT in production</p>
+        <h3 data-en="Sub-500ms STT">STT sub 500 ms</h3>
+        <p data-en="Groq Whisper-large-v3-turbo on custom silicon — fastest STT in production">Groq Whisper-large-v3-turbo pe siliciu dedicat — cel mai rapid STT în producție</p>
       </div>
       <div class="em-feature-card" data-aos="fade-up" data-aos-delay="180">
         <div class="em-feature-icon"><i class="fas fa-volume-up"></i></div>
-        <h3>Streaming TTS</h3>
-        <p>ElevenLabs multilingual voice with fine-tuned stability for chunked synthesis</p>
+        <h3 data-en="Streaming TTS">TTS în streaming</h3>
+        <p data-en="ElevenLabs multilingual voice with fine-tuned stability for chunked synthesis">Voce multilingvă ElevenLabs cu stabilitate ajustată fin pentru sinteză pe fragmente</p>
       </div>
       <div class="em-feature-card" data-aos="fade-up" data-aos-delay="240">
         <div class="em-feature-icon"><i class="fas fa-book-open"></i></div>
-        <h3>Knowledge Base (RAG)</h3>
-        <p>Upload Markdown, PDF, or URLs — pgvector + HNSW retrieval grounds every reply</p>
+        <h3 data-en="Knowledge Base (RAG)">Bază de cunoștințe (RAG)</h3>
+        <p data-en="Upload Markdown, PDF, or URLs — pgvector + HNSW retrieval grounds every reply">Încarcă Markdown, PDF sau URL-uri — extragerea pgvector + HNSW fundamentează fiecare răspuns</p>
       </div>
       <div class="em-feature-card" data-aos="fade-up" data-aos-delay="300">
         <div class="em-feature-icon"><i class="fas fa-palette"></i></div>
-        <h3>White-Label Widget</h3>
-        <p>Custom accent color, position, persona, and voice per deployment</p>
+        <h3 data-en="White-Label Widget">Widget white-label</h3>
+        <p data-en="Custom accent color, position, persona, and voice per deployment">Culoare de accent, poziție, personalitate și voce personalizate per implementare</p>
       </div>
       <div class="em-feature-card" data-aos="fade-up" data-aos-delay="360">
         <div class="em-feature-icon"><i class="fas fa-spell-check"></i></div>
-        <h3>Custom Pronunciation</h3>
-        <p>Acronyms, phone numbers, foreign names spelled correctly every time</p>
+        <h3 data-en="Custom Pronunciation">Pronunție personalizată</h3>
+        <p data-en="Acronyms, phone numbers, foreign names spelled correctly every time">Acronime, numere de telefon și nume străine pronunțate corect de fiecare dată</p>
       </div>
       <div class="em-feature-card" data-aos="fade-up" data-aos-delay="420">
         <div class="em-feature-icon"><i class="fas fa-tags"></i></div>
-        <h3>Per-Language Keyterms</h3>
-        <p>Boost STT recognition of your domain vocabulary in Romanian and Russian</p>
+        <h3 data-en="Per-Language Keyterms">Termeni cheie per limbă</h3>
+        <p data-en="Boost STT recognition of your domain vocabulary in Romanian and Russian">Îmbunătățește recunoașterea STT a vocabularului tău de domeniu în română și rusă</p>
       </div>
       <div class="em-feature-card" data-aos="fade-up" data-aos-delay="480">
         <div class="em-feature-icon"><i class="fas fa-chart-line"></i></div>
-        <h3>Real-Time Analytics</h3>
-        <p>Topics, callbacks, duration, costs and per-call drill-down — out of the box</p>
+        <h3 data-en="Real-Time Analytics">Analize în timp real</h3>
+        <p data-en="Topics, callbacks, duration, costs and per-call drill-down — out of the box">Subiecte, apeluri de revenire, durată, costuri și detalii per apel — disponibile imediat</p>
       </div>
       <div class="em-feature-card" data-aos="fade-up" data-aos-delay="540">
         <div class="em-feature-icon"><i class="fas fa-file-excel"></i></div>
-        <h3>Admin Dashboard</h3>
-        <p>Full transcript search and CSV export for every conversation</p>
+        <h3 data-en="Admin Dashboard">Panou de administrare</h3>
+        <p data-en="Full transcript search and CSV export for every conversation">Căutare completă în transcrieri și export CSV pentru fiecare conversație</p>
       </div>
       <div class="em-feature-card" data-aos="fade-up" data-aos-delay="600">
         <div class="em-feature-icon"><i class="fas fa-shield-halved"></i></div>
-        <h3>Multi-Tenant Security</h3>
-        <p>Postgres Row-Level Security — organisation isolation enforced at the database layer</p>
+        <h3 data-en="Multi-Tenant Security">Securitate multi-tenant</h3>
+        <p data-en="Postgres Row-Level Security — organisation isolation enforced at the database layer">Securitate la nivel de rând în Postgres — izolarea organizațiilor aplicată la nivel de bază de date</p>
       </div>
       <div class="em-feature-card" data-aos="fade-up" data-aos-delay="660">
         <div class="em-feature-icon"><i class="fas fa-user-shield"></i></div>
-        <h3>GDPR-Ready</h3>
-        <p>Built-in export, deletion, configurable retention, and consent recording</p>
+        <h3 data-en="GDPR-Ready">Pregătit pentru GDPR</h3>
+        <p data-en="Built-in export, deletion, configurable retention, and consent recording">Export și ștergere integrate, retenție configurabilă și înregistrarea consimțământului</p>
       </div>
     </div>
   </section>
@@ -1405,40 +1442,40 @@
   <!-- Tech Stack -->
   <section class="em-tech">
     <div class="em-section-header" data-aos="fade-up">
-      <h2>Technology Stack</h2>
-      <p>Hand-picked components — every one optimised for bilingual real-time conversation</p>
+      <h2 data-en="Technology Stack">Stiva tehnologică</h2>
+      <p data-en="Hand-picked components — every one optimised for bilingual real-time conversation">Componente alese cu grijă — fiecare optimizată pentru conversații bilingve în timp real</p>
     </div>
 
     <div class="em-tech-grid">
       <div class="em-tech-card" data-aos="fade-up" data-aos-delay="0">
         <i class="fas fa-robot"></i>
         <h3>Claude Haiku 4.5</h3>
-        <p>Anthropic reasoning with 5-minute prompt caching for ~10× lower token costs on hot context</p>
+        <p data-en="Anthropic reasoning with 5-minute prompt caching for ~10× lower token costs on hot context">Raționament Anthropic cu prompt caching de 5 minute pentru costuri de tokeni cu ~10× mai mici la contextul activ</p>
       </div>
       <div class="em-tech-card" data-aos="fade-up" data-aos-delay="80">
         <i class="fas fa-bolt"></i>
         <h3>Groq Whisper</h3>
-        <p>Whisper-large-v3-turbo running on Groq's custom silicon — sub-500 ms speech recognition</p>
+        <p data-en="Whisper-large-v3-turbo running on Groq's custom silicon — sub-500 ms speech recognition">Whisper-large-v3-turbo rulând pe siliciul dedicat Groq — recunoaștere vocală sub 500 ms</p>
       </div>
       <div class="em-tech-card" data-aos="fade-up" data-aos-delay="160">
         <i class="fas fa-wave-square"></i>
         <h3>ElevenLabs</h3>
-        <p>Streaming multilingual TTS, fine-tuned stability and similarity for chunked synthesis</p>
+        <p data-en="Streaming multilingual TTS, fine-tuned stability and similarity for chunked synthesis">TTS multilingv în streaming, cu stabilitate și similaritate ajustate fin pentru sinteză pe fragmente</p>
       </div>
       <div class="em-tech-card" data-aos="fade-up" data-aos-delay="240">
         <i class="fas fa-network-wired"></i>
         <h3>LiveKit Agents</h3>
-        <p>Real-time WebRTC orchestration with built-in SIP module for telephony bridging</p>
+        <p data-en="Real-time WebRTC orchestration with built-in SIP module for telephony bridging">Orchestrare WebRTC în timp real cu modul SIP integrat pentru conectarea la telefonie</p>
       </div>
       <div class="em-tech-card" data-aos="fade-up" data-aos-delay="320">
         <i class="fas fa-vector-square"></i>
         <h3>pgvector + HNSW</h3>
-        <p>In-Postgres vector retrieval for RAG, with OpenAI text-embedding-3-small</p>
+        <p data-en="In-Postgres vector retrieval for RAG, with OpenAI text-embedding-3-small">Extragere vectorială direct în Postgres pentru RAG, cu OpenAI text-embedding-3-small</p>
       </div>
       <div class="em-tech-card" data-aos="fade-up" data-aos-delay="400">
         <i class="fas fa-server"></i>
         <h3>FastAPI · Redis · ARQ</h3>
-        <p>Async Python backend with post-call worker queue for analytics and billing events</p>
+        <p data-en="Async Python backend with post-call worker queue for analytics and billing events">Backend Python asincron cu coadă de procesare post-apel pentru evenimente de analiză și facturare</p>
       </div>
     </div>
   </section>
@@ -1448,39 +1485,39 @@
     <div class="em-usecases-inner" data-aos="fade-up">
       <div class="em-usecases-visual">
         <div class="em-usecases-content">
-          <h2>Built for Organisations<br>That Never Stop</h2>
-          <p>Emmi adapts to any team that handles repetitive bilingual inquiries — across phone, web and WhatsApp</p>
+          <h2 data-en="Built for Organisations<br>That Never Stop">Construit pentru organizații<br>care nu se opresc niciodată</h2>
+          <p data-en="Emmi adapts to any team that handles repetitive bilingual inquiries — across phone, web and WhatsApp">Emmi se adaptează oricărei echipe care gestionează solicitări bilingve repetitive — pe telefon, web și WhatsApp</p>
 
           <div class="em-usecase-cards">
             <div class="em-usecase-card">
               <i class="fas fa-balance-scale"></i>
-              <h3>Legal Consultations</h3>
-              <p>Intake, eligibility, scheduling — in your clients' language</p>
+              <h3 data-en="Legal Consultations">Consultații juridice</h3>
+              <p data-en="Intake, eligibility, scheduling — in your clients' language">Preluare, eligibilitate, programare — în limba clienților tăi</p>
             </div>
             <div class="em-usecase-card">
               <i class="fas fa-graduation-cap"></i>
-              <h3>Education</h3>
-              <p>Admissions, programs, deadlines, fees — answered 24/7</p>
+              <h3 data-en="Education">Educație</h3>
+              <p data-en="Admissions, programs, deadlines, fees — answered 24/7">Admiteri, programe, termene, taxe — răspunsuri 24/7</p>
             </div>
             <div class="em-usecase-card">
               <i class="fas fa-hospital"></i>
-              <h3>Healthcare</h3>
-              <p>Appointments, services, patient intake without queues</p>
+              <h3 data-en="Healthcare">Sănătate</h3>
+              <p data-en="Appointments, services, patient intake without queues">Programări, servicii, preluarea pacienților fără cozi</p>
             </div>
             <div class="em-usecase-card">
               <i class="fas fa-landmark"></i>
-              <h3>Government</h3>
-              <p>Citizen inquiries, permits, licensing, programme eligibility</p>
+              <h3 data-en="Government">Guvern</h3>
+              <p data-en="Citizen inquiries, permits, licensing, programme eligibility">Solicitări ale cetățenilor, permise, autorizări, eligibilitate la programe</p>
             </div>
             <div class="em-usecase-card">
               <i class="fas fa-building-columns"></i>
-              <h3>Financial Services</h3>
-              <p>Product information, application status, compliance-aware replies</p>
+              <h3 data-en="Financial Services">Servicii financiare</h3>
+              <p data-en="Product information, application status, compliance-aware replies">Informații despre produse, statutul cererilor, răspunsuri conforme cu reglementările</p>
             </div>
             <div class="em-usecase-card">
               <i class="fas fa-headset"></i>
-              <h3>Customer Support</h3>
-              <p>Tier-1 support across phone, chat and WhatsApp — one knowledge base</p>
+              <h3 data-en="Customer Support">Suport clienți</h3>
+              <p data-en="Tier-1 support across phone, chat and WhatsApp — one knowledge base">Suport de nivel 1 pe telefon, chat și WhatsApp — o singură bază de cunoștințe</p>
             </div>
           </div>
         </div>
@@ -1491,57 +1528,57 @@
   <!-- FAQ -->
   <section id="faq" class="em-faq">
     <div class="em-section-header" data-aos="fade-up">
-      <h2>Frequently Asked Questions</h2>
-      <p>What teams ask before deploying Emmi — answered up front</p>
+      <h2 data-en="Frequently Asked Questions">Întrebări frecvente</h2>
+      <p data-en="What teams ask before deploying Emmi — answered up front">Ce întreabă echipele înainte de a implementa Emmi — răspunsuri directe</p>
     </div>
 
     <div class="em-faq-list">
       <details class="em-faq-item" data-aos="fade-up" data-aos-delay="0">
-        <summary>How long does integration take?</summary>
+        <summary data-en="How long does integration take?">Cât durează integrarea?</summary>
         <div class="em-faq-content">
-          <p>For voice: provision a Twilio number and upload a knowledge file — you're live in hours, not weeks. For the web widget: paste a single <code>&lt;script&gt;</code> tag onto your site. Most clients have a working agent on the same day they sign off.</p>
+          <p data-en="For voice: provision a Twilio number and upload a knowledge file — you're live in hours, not weeks. For the web widget: paste a single <code>&lt;script&gt;</code> tag onto your site. Most clients have a working agent on the same day they sign off.">Pentru voce: configurezi un număr Twilio și încarci un fișier de cunoștințe — ești operațional în câteva ore, nu săptămâni. Pentru widgetul web: lipești o singură etichetă <code>&lt;script&gt;</code> pe site-ul tău. Majoritatea clienților au un agent funcțional chiar în ziua în care aprobă.</p>
         </div>
       </details>
 
       <details class="em-faq-item" data-aos="fade-up" data-aos-delay="60">
-        <summary>What happens if Emmi doesn't know an answer?</summary>
+        <summary data-en="What happens if Emmi doesn't know an answer?">Ce se întâmplă dacă Emmi nu știe un răspuns?</summary>
         <div class="em-faq-content">
-          <p>Emmi never invents information. If a question is outside its knowledge base, it collects a structured callback request — caller name, phone, language, topic — and hands it to your team for the next business day. Live transfer-to-human is on the roadmap.</p>
+          <p data-en="Emmi never invents information. If a question is outside its knowledge base, it collects a structured callback request — caller name, phone, language, topic — and hands it to your team for the next business day. Live transfer-to-human is on the roadmap.">Emmi nu inventează niciodată informații. Dacă o întrebare este în afara bazei sale de cunoștințe, colectează o solicitare structurată de apel — nume, telefon, limbă, subiect — și o transmite echipei tale pentru următoarea zi lucrătoare. Transferul live către un om este pe foaia de parcurs.</p>
         </div>
       </details>
 
       <details class="em-faq-item" data-aos="fade-up" data-aos-delay="120">
-        <summary>Is my customer data secure?</summary>
+        <summary data-en="Is my customer data secure?">Datele clienților mei sunt în siguranță?</summary>
         <div class="em-faq-content">
-          <p>Yes. Multi-tenant isolation is enforced at the database layer via Postgres Row-Level Security — an application-code bug cannot leak data across organisations. All traffic is TLS-encrypted, all storage is encrypted at rest, and our infrastructure is hosted in the EU.</p>
+          <p data-en="Yes. Multi-tenant isolation is enforced at the database layer via Postgres Row-Level Security — an application-code bug cannot leak data across organisations. All traffic is TLS-encrypted, all storage is encrypted at rest, and our infrastructure is hosted in the EU.">Da. Izolarea multi-tenant este aplicată la nivelul bazei de date prin Postgres Row-Level Security — o eroare în codul aplicației nu poate scurge date între organizații. Tot traficul este criptat TLS, toată stocarea este criptată în repaus, iar infrastructura noastră este găzduită în UE.</p>
         </div>
       </details>
 
       <details class="em-faq-item" data-aos="fade-up" data-aos-delay="180">
-        <summary>Can I match Emmi to my brand?</summary>
+        <summary data-en="Can I match Emmi to my brand?">Pot adapta Emmi la brandul meu?</summary>
         <div class="em-faq-content">
-          <p>Yes — accent colour, widget position, agent persona name, voice, system prompt, and pronunciation rules are all configurable per deployment. The widget runs in Shadow DOM, so it never conflicts with your site's CSS.</p>
+          <p data-en="Yes — accent colour, widget position, agent persona name, voice, system prompt, and pronunciation rules are all configurable per deployment. The widget runs in Shadow DOM, so it never conflicts with your site's CSS.">Da — culoarea de accent, poziția widgetului, numele personalității agentului, vocea, promptul de sistem și regulile de pronunție sunt toate configurabile per implementare. Widgetul rulează în Shadow DOM, așa că nu intră niciodată în conflict cu CSS-ul site-ului tău.</p>
         </div>
       </details>
 
       <details class="em-faq-item" data-aos="fade-up" data-aos-delay="240">
-        <summary>What languages are supported?</summary>
+        <summary data-en="What languages are supported?">Ce limbi sunt acceptate?</summary>
         <div class="em-faq-content">
-          <p>Romanian and Russian are production-ready, with full Cyrillic and Romanian diacritic accuracy at the speech-recognition layer. Other languages are available on request — talk to us about your specific requirements.</p>
+          <p data-en="Romanian and Russian are production-ready, with full Cyrillic and Romanian diacritic accuracy at the speech-recognition layer. Other languages are available on request — talk to us about your specific requirements.">Româna și rusa sunt gata de producție, cu acuratețe completă pentru chirilice și diacritice românești la nivelul recunoașterii vocale. Alte limbi sunt disponibile la cerere — discută cu noi despre cerințele tale specifice.</p>
         </div>
       </details>
 
       <details class="em-faq-item" data-aos="fade-up" data-aos-delay="300">
-        <summary>Is Emmi GDPR-compliant?</summary>
+        <summary data-en="Is Emmi GDPR-compliant?">Este Emmi conform cu GDPR?</summary>
         <div class="em-faq-content">
-          <p>Yes. Built-in endpoints for data export and deletion, configurable retention policies, opt-in consent recording in the greeting, and a Data Processing Agreement template are all part of the standard package.</p>
+          <p data-en="Yes. Built-in endpoints for data export and deletion, configurable retention policies, opt-in consent recording in the greeting, and a Data Processing Agreement template are all part of the standard package.">Da. Endpoint-uri integrate pentru exportul și ștergerea datelor, politici de retenție configurabile, înregistrarea consimțământului în mesajul de întâmpinare și un model de Acord de prelucrare a datelor fac toate parte din pachetul standard.</p>
         </div>
       </details>
 
       <details class="em-faq-item" data-aos="fade-up" data-aos-delay="360">
-        <summary>What does it cost?</summary>
+        <summary data-en="What does it cost?">Cât costă?</summary>
         <div class="em-faq-content">
-          <p>Usage-metered pricing — per-minute for voice, per-token for chat — with volume tiers and monthly commitments for higher usage. Contact us with your expected call volume and we'll send a tailored quote.</p>
+          <p data-en="Usage-metered pricing — per-minute for voice, per-token for chat — with volume tiers and monthly commitments for higher usage. Contact us with your expected call volume and we'll send a tailored quote.">Tarifare pe consum — pe minut pentru voce, pe token pentru chat — cu praguri de volum și angajamente lunare pentru utilizare mai mare. Contactează-ne cu volumul tău estimat de apeluri și îți trimitem o ofertă personalizată.</p>
         </div>
       </details>
     </div>
@@ -1550,11 +1587,11 @@
   <!-- CTA -->
   <section class="em-cta">
     <div class="em-cta-inner" data-aos="fade-up">
-      <h2>Stop missing conversations. Start automating them.</h2>
-      <p>Talk to our team about deploying Emmi for your organisation — or open the widget on this page and chat with Emmi yourself.</p>
+      <h2 data-en="Stop missing conversations. Start automating them.">Nu mai rata conversații. Începe să le automatizezi.</h2>
+      <p data-en="Talk to our team about deploying Emmi for your organisation — or open the widget on this page and chat with Emmi yourself.">Discută cu echipa noastră despre implementarea Emmi pentru organizația ta — sau deschide widgetul de pe această pagină și stai de vorbă chiar tu cu Emmi.</p>
       <div class="em-hero-actions">
-        <a href="contacts" class="em-btn-primary"><i class="fas fa-paper-plane"></i> Request a Demo</a>
-        <a href="#" data-emmi-trigger="open" class="em-btn-secondary"><i class="fas fa-comment-dots"></i> Open the Live Widget</a>
+        <a href="contacts" class="em-btn-primary"><i class="fas fa-paper-plane"></i> <span data-en="Request a Demo">Solicită o demonstrație</span></a>
+        <a href="#" data-emmi-trigger="open" class="em-btn-secondary"><i class="fas fa-comment-dots"></i> <span data-en="Open the Live Widget">Deschide widgetul live</span></a>
       </div>
     </div>
   </section>
@@ -1570,17 +1607,17 @@
           </a>
         </div>
         <div class="footer-info">
-          <p>&copy; 2026 Applexium. All Rights Reserved.</p>
+          <p>&copy; <span class="footer-year">2026</span> Applexium. <span data-en="All Rights Reserved.">Toate drepturile rezervate.</span></p>
         </div>
       </div>
 
       <div class="footer-legal">
-        <a href="terms-and-conditions"><i class="fas fa-file-contract"></i> Terms & Conditions</a>
-        <a href="privacy-policy"><i class="fas fa-shield-halved"></i> Privacy Policy</a>
-        <a href="cookie-policy"><i class="fas fa-cookie-bite"></i> Cookie Policy</a>
-        <a href="ai-ethics"><i class="fas fa-brain"></i> AI Ethics Statement</a>
-        <a href="accessibility"><i class="fas fa-universal-access"></i> Accessibility Statement</a>
-        <a href="esg"><i class="fas fa-leaf"></i> ESG Statement</a>
+        <a href="terms-and-conditions"><i class="fas fa-file-contract"></i> <span data-en="Terms &amp; Conditions">Termeni și condiții</span></a>
+        <a href="privacy-policy"><i class="fas fa-shield-halved"></i> <span data-en="Privacy Policy">Politica de confidențialitate</span></a>
+        <a href="cookie-policy"><i class="fas fa-cookie-bite"></i> <span data-en="Cookie Policy">Politica de cookie-uri</span></a>
+        <a href="ai-ethics"><i class="fas fa-brain"></i> <span data-en="AI Ethics Statement">Declarație de etică AI</span></a>
+        <a href="accessibility"><i class="fas fa-universal-access"></i> <span data-en="Accessibility Statement">Declarație de accesibilitate</span></a>
+        <a href="esg"><i class="fas fa-leaf"></i> <span data-en="ESG Statement">Declarație ESG</span></a>
       </div>
     </div>
   </footer>
@@ -1641,5 +1678,8 @@
       });
     })();
   </script>
+
+  <!-- Bilingual engine (RO default / EN alternative) -->
+  <script src="i18n.js"></script>
 </body>
 </html>

@@ -1,24 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ro">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Our Team - Applexium</title>
-  <meta name="description" content="Meet the Applexium team — passionate minds dedicated to building innovative digital solutions. Led by CEO Mircea Ursu and CTO Nichita Griu.">
-  <meta name="keywords" content="Applexium team, Mircea Ursu, Nichita Griu, CEO, CTO, software developers, Moldova tech team">
+  <!-- Set language before paint (from ?lang= or localStorage) to avoid a flash -->
+  <script>(function(){try{var l=new URLSearchParams(location.search).get('lang')||localStorage.getItem('applexium-lang');document.documentElement.setAttribute('data-lang',l==='en'?'en':'ro');if(l==='en'){document.documentElement.lang='en';}}catch(e){document.documentElement.setAttribute('data-lang','ro');}})();</script>
+
+  <title data-en="Our Team - Applexium">Echipa noastră - Applexium</title>
+  <meta name="description" content="Cunoaște echipa Applexium — minți pasionate dedicate construirii de soluții digitale inovatoare. Condusă de CEO Mircea Ursu și CTO Nichita Griu.">
+  <meta name="keywords" content="echipa Applexium, Mircea Ursu, Nichita Griu, CEO, CTO, dezvoltatori software, echipă tech Moldova">
   <meta name="author" content="Applexium">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://applexium.com/team">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Our Team - Applexium">
-  <meta property="og:description" content="Meet the passionate minds behind Applexium, dedicated to building innovative digital solutions.">
+  <meta property="og:title" content="Echipa noastră - Applexium">
+  <meta property="og:description" content="Cunoaște mințile pasionate din spatele Applexium, dedicate construirii de soluții digitale inovatoare.">
   <meta property="og:url" content="https://applexium.com/team">
   <meta property="og:site_name" content="Applexium">
   <meta property="og:image" content="https://applexium.com/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="ro_RO">
+  <meta property="og:locale:alternate" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Echipa noastră - Applexium">
+  <meta name="twitter:description" content="Cunoaște mințile pasionate din spatele Applexium, dedicate construirii de soluții digitale inovatoare.">
+  <meta name="twitter:image" content="https://applexium.com/og-image.png">
 
   <link rel="icon" href="favicon.ico" sizes="48x48">
   <link rel="icon" type="image/svg+xml" href="logo-icon.svg">
@@ -39,6 +50,24 @@
 
   <!-- Custom CSS -->
   <link rel="stylesheet" href="style.css">
+
+  <!-- Structured data: AboutPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "@id": "https://applexium.com/team",
+    "url": "https://applexium.com/team",
+    "name": "Echipa noastră - Applexium",
+    "description": "Cunoaște echipa Applexium — minți pasionate dedicate construirii de soluții digitale inovatoare, conduse de CEO Mircea Ursu și CTO Nichita Griu.",
+    "inLanguage": "ro",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Applexium",
+      "url": "https://applexium.com/"
+    }
+  }
+  </script>
 </head>
 <body>
   <!-- Floating Lines Background -->
@@ -53,19 +82,25 @@
       </a>
     </div>
 
-    <!-- Mobile Menu Toggle -->
-    <button class="mobile-menu-toggle" aria-label="Toggle menu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-
     <div class="nav-links">
-      <a href="/#capabilities">Services</a>
-      <a href="/#products">Solutions</a>
-      <a href="/#portfolio">Portfolio</a>
-      <a href="team">Team</a>
-      <a href="contacts">Contact</a>
+      <a href="/#capabilities" data-en="Services">Servicii</a>
+      <a href="/#products" data-en="Solutions">Soluții</a>
+      <a href="/#portfolio" data-en="Portfolio">Portofoliu</a>
+      <a href="team" data-en="Team">Echipă</a>
+      <a href="contacts" data-en="Contact">Contact</a>
+    </div>
+
+    <div class="nav-actions">
+      <div class="lang-switch" role="group" aria-label="Schimbă limba" data-en-aria-label="Change language">
+        <button type="button" class="lang-btn" data-lang-switch="ro" aria-pressed="true">RO</button>
+        <button type="button" class="lang-btn" data-lang-switch="en" aria-pressed="false">EN</button>
+      </div>
+      <!-- Mobile Menu Toggle -->
+      <button class="mobile-menu-toggle" aria-label="Comută meniul" data-en-aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
   </nav>
 
@@ -74,8 +109,8 @@
     <div class="container">
       <!-- Header -->
       <div class="team-header" data-aos="fade-up">
-        <h1>Meet Our Team</h1>
-        <p>The passionate minds behind Applexium, dedicated to building innovative digital solutions.</p>
+        <h1 data-en="Meet Our Team">Cunoaște echipa noastră</h1>
+        <p data-en="The passionate minds behind Applexium, dedicated to building innovative digital solutions.">Mințile pasionate din spatele Applexium, dedicate construirii de soluții digitale inovatoare.</p>
       </div>
 
       <!-- Team Cards -->
@@ -88,9 +123,9 @@
             </div>
             <h3>Mircea Ursu</h3>
             <span class="team-role">CEO</span>
-            <p>Leading the vision and strategy of Applexium, driving innovation and growth.</p>
+            <p data-en="Leading the vision and strategy of Applexium, driving innovation and growth.">Conduce viziunea și strategia Applexium, impulsionând inovația și creșterea.</p>
             <div class="team-social">
-              <span class="view-profile">View Profile <i class="fas fa-arrow-right"></i></span>
+              <span class="view-profile" data-en="View Profile <i class=&quot;fas fa-arrow-right&quot;></i>">Vezi profilul <i class="fas fa-arrow-right"></i></span>
             </div>
           </div>
         </a>
@@ -103,9 +138,9 @@
             </div>
             <h3>Nichita Griu</h3>
             <span class="team-role">CTO</span>
-            <p>Architecting the technical foundation and leading development of cutting-edge solutions.</p>
+            <p data-en="Architecting the technical foundation and leading development of cutting-edge solutions.">Proiectează fundația tehnică și conduce dezvoltarea de soluții de ultimă generație.</p>
             <div class="team-social">
-              <span class="view-profile">View Profile <i class="fas fa-arrow-right"></i></span>
+              <span class="view-profile" data-en="View Profile <i class=&quot;fas fa-arrow-right&quot;></i>">Vezi profilul <i class="fas fa-arrow-right"></i></span>
             </div>
           </div>
         </a>
@@ -118,9 +153,9 @@
             </div>
             <h3>Diana Tatar</h3>
             <span class="team-role">CMO</span>
-            <p>Shaping the brand and marketing of Applexium — visual identity, campaigns, and AI-driven content.</p>
+            <p data-en="Shaping the brand and marketing of Applexium — visual identity, campaigns, and AI-driven content.">Modelează brandul și marketingul Applexium — identitate vizuală, campanii și conținut bazat pe AI.</p>
             <div class="team-social">
-              <span class="view-profile">View Profile <i class="fas fa-arrow-right"></i></span>
+              <span class="view-profile" data-en="View Profile <i class=&quot;fas fa-arrow-right&quot;></i>">Vezi profilul <i class="fas fa-arrow-right"></i></span>
             </div>
           </div>
         </a>
@@ -139,17 +174,17 @@
           </a>
         </div>
         <div class="footer-info">
-          <p>&copy; 2026 Applexium. All Rights Reserved.</p>
+          <p>&copy; <span class="footer-year">2026</span> Applexium. <span data-en="All Rights Reserved.">Toate drepturile rezervate.</span></p>
         </div>
       </div>
 
       <div class="footer-legal">
-        <a href="terms-and-conditions"><i class="fas fa-file-contract"></i> Terms & Conditions</a>
-        <a href="privacy-policy"><i class="fas fa-shield-halved"></i> Privacy Policy</a>
-        <a href="cookie-policy"><i class="fas fa-cookie-bite"></i> Cookie Policy</a>
-        <a href="ai-ethics"><i class="fas fa-brain"></i> AI Ethics Statement</a>
-        <a href="accessibility"><i class="fas fa-universal-access"></i> Accessibility Statement</a>
-        <a href="esg"><i class="fas fa-leaf"></i> ESG Statement</a>
+        <a href="terms-and-conditions"><i class="fas fa-file-contract"></i> <span data-en="Terms &amp; Conditions">Termeni și condiții</span></a>
+        <a href="privacy-policy"><i class="fas fa-shield-halved"></i> <span data-en="Privacy Policy">Politica de confidențialitate</span></a>
+        <a href="cookie-policy"><i class="fas fa-cookie-bite"></i> <span data-en="Cookie Policy">Politica de cookie-uri</span></a>
+        <a href="ai-ethics"><i class="fas fa-brain"></i> <span data-en="AI Ethics Statement">Declarație de etică AI</span></a>
+        <a href="accessibility"><i class="fas fa-universal-access"></i> <span data-en="Accessibility Statement">Declarație de accesibilitate</span></a>
+        <a href="esg"><i class="fas fa-leaf"></i> <span data-en="ESG Statement">Declarație ESG</span></a>
       </div>
     </div>
   </footer>
@@ -159,5 +194,7 @@
 
   <!-- Custom JavaScript -->
   <script src="script.js"></script>
+  <!-- Bilingual engine (RO default / EN alternative) -->
+  <script src="i18n.js"></script>
 </body>
 </html>

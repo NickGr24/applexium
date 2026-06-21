@@ -2,32 +2,77 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://applexium.com/</loc>
-    <lastmod>2026-03-15</lastmod>
+    <lastmod>2026-06-21</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://applexium.com/emmi</loc>
+    <lastmod>2026-06-21</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://applexium.com/legalia</loc>
+    <lastmod>2026-06-21</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://applexium.com/precedentia</loc>
+    <lastmod>2026-06-21</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://applexium.com/team</loc>
-    <lastmod>2026-03-15</lastmod>
+    <lastmod>2026-06-21</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://applexium.com/contacts</loc>
-    <lastmod>2026-03-15</lastmod>
+    <lastmod>2026-06-21</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://applexium.com/legalia</loc>
-    <lastmod>2026-03-15</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://applexium.com/precedentia</loc>
-    <lastmod>2026-03-26</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://applexium.com/mircea-ursu</loc>
-    <lastmod>2026-03-15</lastmod>
+    <lastmod>2026-06-21</lastmod>
     <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://applexium.com/nichita-griu</loc>
+    <lastmod>2026-06-21</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://applexium.com/diana-tatar</loc>
+    <lastmod>2026-06-21</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://applexium.com/terms-and-conditions</loc>
+    <lastmod>2026-06-21</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://applexium.com/privacy-policy</loc>
+    <lastmod>2026-06-21</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://applexium.com/cookie-policy</loc>
+    <lastmod>2026-06-21</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://applexium.com/ai-ethics</loc>
+    <lastmod>2026-06-21</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://applexium.com/accessibility</loc>
+    <lastmod>2026-06-21</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://applexium.com/esg</loc>
+    <lastmod>2026-06-21</lastmod>
+    <priority>0.3</priority>
   </url>
 </urlset>

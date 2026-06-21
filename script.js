@@ -261,11 +261,12 @@ if (video) {
 // ===========================
 // Dynamic Year in Footer
 // ===========================
+// Updates only the year number — the surrounding copyright text is
+// translatable (data-en) and managed by i18n.js, so we must not overwrite it.
 const updateFooterYear = () => {
-    const yearElement = document.querySelector('.footer-info p');
+    const yearElement = document.querySelector('.footer-year');
     if (yearElement) {
-        const currentYear = new Date().getFullYear();
-        yearElement.textContent = `© ${currentYear} Applexium. All Rights Reserved.`;
+        yearElement.textContent = new Date().getFullYear();
     }
 };
 

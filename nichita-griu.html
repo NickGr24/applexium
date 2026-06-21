@@ -1,24 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ro">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nichita Griu - CTO | Applexium</title>
-  <meta name="description" content="Nichita Griu — Co-Founder & CTO of Applexium. Full-stack and mobile engineer behind Legalia and Emmi, specialising in React Native, real-time backends, and applied AI.">
-  <meta name="keywords" content="Nichita Griu, Applexium CTO, software engineer Moldova, React Native developer, Supabase, AI agents, Legalia, Emmi">
+  <!-- Set language before paint (from ?lang= or localStorage) to avoid a flash -->
+  <script>(function(){try{var l=new URLSearchParams(location.search).get('lang')||localStorage.getItem('applexium-lang');document.documentElement.setAttribute('data-lang',l==='en'?'en':'ro');if(l==='en'){document.documentElement.lang='en';}}catch(e){document.documentElement.setAttribute('data-lang','ro');}})();</script>
+
+  <title data-en="Nichita Griu - CTO | Applexium">Nichita Griu — CTO | Applexium</title>
+  <meta name="description" content="Nichita Griu — Co-fondator și CTO al Applexium. Inginer full-stack și mobile din spatele Legalia și Emmi, specializat în React Native, backend-uri în timp real și AI aplicat.">
+  <meta name="keywords" content="Nichita Griu, CTO Applexium, inginer software Moldova, dezvoltator React Native, Supabase, agenți AI, Legalia, Emmi">
   <meta name="author" content="Applexium">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://applexium.com/nichita-griu">
 
   <!-- Open Graph -->
   <meta property="og:type" content="profile">
-  <meta property="og:title" content="Nichita Griu - CTO | Applexium">
-  <meta property="og:description" content="Co-Founder & CTO of Applexium. The engineer behind Legalia and Emmi — React Native, real-time backends, and applied AI.">
+  <meta property="og:title" content="Nichita Griu — CTO | Applexium">
+  <meta property="og:description" content="Co-fondator și CTO al Applexium. Inginerul din spatele Legalia și Emmi — React Native, backend-uri în timp real și AI aplicat.">
   <meta property="og:url" content="https://applexium.com/nichita-griu">
   <meta property="og:site_name" content="Applexium">
   <meta property="og:image" content="https://applexium.com/nikitagriu.webp">
+  <meta property="og:locale" content="ro_RO">
+  <meta property="og:locale:alternate" content="en_US">
   <meta property="profile:first_name" content="Nichita">
   <meta property="profile:last_name" content="Griu">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Nichita Griu — CTO | Applexium">
+  <meta name="twitter:description" content="Co-fondator și CTO al Applexium. Inginerul din spatele Legalia și Emmi — React Native, backend-uri în timp real și AI aplicat.">
+  <meta name="twitter:image" content="https://applexium.com/nikitagriu.webp">
 
   <link rel="icon" href="favicon.ico" sizes="48x48">
   <link rel="icon" type="image/svg+xml" href="logo-icon.svg">
@@ -39,6 +50,40 @@
 
   <!-- Custom CSS -->
   <link rel="stylesheet" href="style.css">
+
+  <!-- Structured data: Person + BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://applexium.com/nichita-griu#person",
+        "name": "Nichita Griu",
+        "givenName": "Nichita",
+        "familyName": "Griu",
+        "jobTitle": "Co-fondator și CTO",
+        "url": "https://applexium.com/nichita-griu",
+        "image": "https://applexium.com/nikitagriu.webp",
+        "email": "nichitagriu@applexium.com",
+        "worksFor": {
+          "@type": "Organization",
+          "@id": "https://applexium.com/#organization",
+          "name": "Applexium",
+          "url": "https://applexium.com/"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Acasă", "item": "https://applexium.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Echipă", "item": "https://applexium.com/team" },
+          { "@type": "ListItem", "position": 3, "name": "Nichita Griu", "item": "https://applexium.com/nichita-griu" }
+        ]
+      }
+    ]
+  }
+  </script>
 
   <style>
     .profile-page {
@@ -376,19 +421,25 @@
       </a>
     </div>
 
-    <!-- Mobile Menu Toggle -->
-    <button class="mobile-menu-toggle" aria-label="Toggle menu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-
     <div class="nav-links">
-      <a href="/#capabilities">Services</a>
-      <a href="/#products">Solutions</a>
-      <a href="/#portfolio">Portfolio</a>
-      <a href="team">Team</a>
-      <a href="contacts">Contact</a>
+      <a href="/#capabilities" data-en="Services">Servicii</a>
+      <a href="/#products" data-en="Solutions">Soluții</a>
+      <a href="/#portfolio" data-en="Portfolio">Portofoliu</a>
+      <a href="team" data-en="Team">Echipă</a>
+      <a href="contacts" data-en="Contact">Contact</a>
+    </div>
+
+    <div class="nav-actions">
+      <div class="lang-switch" role="group" aria-label="Schimbă limba" data-en-aria-label="Change language">
+        <button type="button" class="lang-btn" data-lang-switch="ro" aria-pressed="true">RO</button>
+        <button type="button" class="lang-btn" data-lang-switch="en" aria-pressed="false">EN</button>
+      </div>
+      <!-- Mobile Menu Toggle -->
+      <button class="mobile-menu-toggle" aria-label="Comută meniul" data-en-aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
   </nav>
 
@@ -399,29 +450,32 @@
         <div class="profile-photo">
           <img src="nikitagriu.webp" alt="Nichita Griu">
         </div>
-        <span class="profile-status">CTO &amp; Founder</span>
+        <span class="profile-status" data-en="CTO &amp; Founder">CTO și fondator</span>
       </div>
 
       <div class="profile-info" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
         <a href="team" class="back-link">
           <i class="fas fa-arrow-left"></i>
-          Back to Team
+          <span data-en="Back to Team">Înapoi la echipă</span>
         </a>
 
         <h1 class="profile-name">Nichita Griu</h1>
-        <p class="profile-title">Co-Founder &amp; CTO</p>
+        <p class="profile-title" data-en="Co-Founder &amp; CTO">Co-fondator și CTO</p>
 
-        <p class="profile-bio">
-          The engineer behind Applexium's products. Nichita leads the company's technology end-to-end —
+        <p class="profile-bio" data-en="The engineer behind Applexium's products. Nichita leads the company's technology end-to-end —
           from mobile apps and real-time backends to applied AI — turning ideas into shipped products.
           He architected and built <strong>Legalia</strong>, a full legal-learning platform, and
-          <strong>Emmi</strong>, a multi-channel conversational AI agent.
+          <strong>Emmi</strong>, a multi-channel conversational AI agent.">
+          Inginerul din spatele produselor Applexium. Nichita conduce tehnologia companiei de la cap la coadă —
+          de la aplicații mobile și backend-uri în timp real până la AI aplicat — transformând ideile în produse livrate.
+          A arhitecturat și a construit <strong>Legalia</strong>, o platformă completă de educație juridică, și
+          <strong>Emmi</strong>, un agent AI conversațional multi-canal.
         </p>
 
         <div class="profile-contact-grid">
           <div class="profile-contact-item">
             <i class="fas fa-map-marker-alt"></i>
-            <span>Chisinau, Moldova</span>
+            <span data-en="Chisinau, Moldova">Chișinău, Moldova</span>
           </div>
           <div class="profile-contact-item">
             <i class="fas fa-envelope"></i>
@@ -437,7 +491,7 @@
 
     <!-- Products -->
     <section class="profile-section" data-aos="fade-up">
-      <h2 class="profile-section-title"><i class="fas fa-cubes"></i> Built at Applexium</h2>
+      <h2 class="profile-section-title"><i class="fas fa-cubes"></i> <span data-en="Built at Applexium">Construit la Applexium</span></h2>
       <div class="np-products">
 
         <!-- Legalia -->
@@ -446,17 +500,17 @@
             <div class="np-product-ico legalia"><img src="legalia-icon-v2.png" alt="Legalia"></div>
             <div>
               <div class="np-product-name">Legalia</div>
-              <div class="np-product-kicker">Legal learning platform</div>
+              <div class="np-product-kicker" data-en="Legal learning platform">Platformă de educație juridică</div>
             </div>
           </div>
-          <p>A mobile app that turns the entire law curriculum into a guided journey — 521 topics, 6,900+ questions, plus video lessons, podcasts and mind maps for nearly every topic, with gamified progress and friend duels.</p>
+          <p data-en="A mobile app that turns the entire law curriculum into a guided journey — 521 topics, 6,900+ questions, plus video lessons, podcasts and mind maps for nearly every topic, with gamified progress and friend duels.">O aplicație mobilă care transformă întreaga programă de drept într-un parcurs ghidat — 521 de teme, peste 6.900 de întrebări, plus lecții video, podcasturi și hărți mentale pentru aproape fiecare temă, cu progres gamificat și dueluri între prieteni.</p>
           <div class="np-product-tags">
             <span>React Native</span>
             <span>Expo</span>
             <span>TypeScript</span>
             <span>Supabase</span>
           </div>
-          <span class="np-product-link">View product <i class="fas fa-arrow-right"></i></span>
+          <span class="np-product-link" data-en="View product <i class=&quot;fas fa-arrow-right&quot;></i>">Vezi produsul <i class="fas fa-arrow-right"></i></span>
         </a>
 
         <!-- Emmi -->
@@ -465,17 +519,17 @@
             <div class="np-product-ico emmi"><i class="fas fa-robot"></i></div>
             <div>
               <div class="np-product-name">Emmi</div>
-              <div class="np-product-kicker">Multi-channel AI agent</div>
+              <div class="np-product-kicker" data-en="Multi-channel AI agent">Agent AI multi-canal</div>
             </div>
           </div>
-          <p>A multi-channel conversational AI agent that answers questions in natural language across voice and chat — deployed as an embeddable widget and tuned for fast, accessible, 24/7 support.</p>
+          <p data-en="A multi-channel conversational AI agent that answers questions in natural language across voice and chat — deployed as an embeddable widget and tuned for fast, accessible, 24/7 support.">Un agent AI conversațional multi-canal care răspunde la întrebări în limbaj natural prin voce și chat — livrat ca widget integrabil și optimizat pentru suport rapid, accesibil, disponibil 24/7.</p>
           <div class="np-product-tags">
             <span>AI / LLMs</span>
-            <span>Voice &amp; Chat</span>
-            <span>Realtime</span>
-            <span>Embeddable widget</span>
+            <span data-en="Voice &amp; Chat">Voce și chat</span>
+            <span data-en="Realtime">Timp real</span>
+            <span data-en="Embeddable widget">Widget integrabil</span>
           </div>
-          <span class="np-product-link">View product <i class="fas fa-arrow-right"></i></span>
+          <span class="np-product-link" data-en="View product <i class=&quot;fas fa-arrow-right&quot;></i>">Vezi produsul <i class="fas fa-arrow-right"></i></span>
         </a>
 
       </div>
@@ -483,11 +537,11 @@
 
     <!-- Tech Stack -->
     <section class="profile-section" data-aos="fade-up">
-      <h2 class="profile-section-title"><i class="fas fa-layer-group"></i> Tech Stack</h2>
+      <h2 class="profile-section-title"><i class="fas fa-layer-group"></i> <span data-en="Tech Stack">Stivă tehnologică</span></h2>
       <div class="np-stack">
 
         <div class="np-stack-group">
-          <h3>Mobile &amp; Frontend</h3>
+          <h3 data-en="Mobile &amp; Frontend">Mobile și frontend</h3>
           <div class="np-pills">
             <span class="np-pill"><i class="fab fa-react"></i> React Native</span>
             <span class="np-pill"><i class="fas fa-mobile-screen-button"></i> Expo</span>
@@ -497,30 +551,30 @@
         </div>
 
         <div class="np-stack-group">
-          <h3>Backend &amp; Data</h3>
+          <h3 data-en="Backend &amp; Data">Backend și date</h3>
           <div class="np-pills">
             <span class="np-pill"><i class="fab fa-node-js"></i> Node.js</span>
             <span class="np-pill"><i class="fas fa-bolt"></i> Supabase</span>
             <span class="np-pill"><i class="fas fa-database"></i> PostgreSQL</span>
-            <span class="np-pill"><i class="fas fa-plug"></i> REST &amp; Realtime APIs</span>
+            <span class="np-pill"><i class="fas fa-plug"></i> <span data-en="REST &amp; Realtime APIs">API-uri REST și în timp real</span></span>
           </div>
         </div>
 
         <div class="np-stack-group">
-          <h3>AI &amp; Languages</h3>
+          <h3 data-en="AI &amp; Languages">AI și limbaje</h3>
           <div class="np-pills">
-            <span class="np-pill"><i class="fas fa-robot"></i> AI Agents &amp; LLMs</span>
-            <span class="np-pill"><i class="fas fa-microphone-lines"></i> Voice AI</span>
+            <span class="np-pill"><i class="fas fa-robot"></i> <span data-en="AI Agents &amp; LLMs">Agenți AI și LLM-uri</span></span>
+            <span class="np-pill"><i class="fas fa-microphone-lines"></i> <span data-en="Voice AI">AI vocal</span></span>
             <span class="np-pill"><i class="fab fa-python"></i> Python</span>
             <span class="np-pill"><i class="fab fa-js"></i> TypeScript / JavaScript</span>
           </div>
         </div>
 
         <div class="np-stack-group">
-          <h3>Tools</h3>
+          <h3 data-en="Tools">Instrumente</h3>
           <div class="np-pills">
             <span class="np-pill"><i class="fab fa-git-alt"></i> Git</span>
-            <span class="np-pill"><i class="fas fa-cloud"></i> CI/CD &amp; Deployment</span>
+            <span class="np-pill"><i class="fas fa-cloud"></i> <span data-en="CI/CD &amp; Deployment">CI/CD și deployment</span></span>
             <span class="np-pill"><i class="fas fa-mobile-screen"></i> App Store &amp; Play Store</span>
           </div>
         </div>
@@ -541,17 +595,17 @@
           </a>
         </div>
         <div class="footer-info">
-          <p>&copy; 2026 Applexium. All Rights Reserved.</p>
+          <p>&copy; <span class="footer-year">2026</span> Applexium. <span data-en="All Rights Reserved.">Toate drepturile rezervate.</span></p>
         </div>
       </div>
 
       <div class="footer-legal">
-        <a href="terms-and-conditions"><i class="fas fa-file-contract"></i> Terms & Conditions</a>
-        <a href="privacy-policy"><i class="fas fa-shield-halved"></i> Privacy Policy</a>
-        <a href="cookie-policy"><i class="fas fa-cookie-bite"></i> Cookie Policy</a>
-        <a href="ai-ethics"><i class="fas fa-brain"></i> AI Ethics Statement</a>
-        <a href="accessibility"><i class="fas fa-universal-access"></i> Accessibility Statement</a>
-        <a href="esg"><i class="fas fa-leaf"></i> ESG Statement</a>
+        <a href="terms-and-conditions"><i class="fas fa-file-contract"></i> <span data-en="Terms &amp; Conditions">Termeni și condiții</span></a>
+        <a href="privacy-policy"><i class="fas fa-shield-halved"></i> <span data-en="Privacy Policy">Politica de confidențialitate</span></a>
+        <a href="cookie-policy"><i class="fas fa-cookie-bite"></i> <span data-en="Cookie Policy">Politica de cookie-uri</span></a>
+        <a href="ai-ethics"><i class="fas fa-brain"></i> <span data-en="AI Ethics Statement">Declarație de etică AI</span></a>
+        <a href="accessibility"><i class="fas fa-universal-access"></i> <span data-en="Accessibility Statement">Declarație de accesibilitate</span></a>
+        <a href="esg"><i class="fas fa-leaf"></i> <span data-en="ESG Statement">Declarație ESG</span></a>
       </div>
     </div>
   </footer>
@@ -561,5 +615,7 @@
 
   <!-- Custom JavaScript -->
   <script src="script.js"></script>
+  <!-- Bilingual engine (RO default / EN alternative) -->
+  <script src="i18n.js"></script>
 </body>
 </html>

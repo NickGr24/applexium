@@ -1,24 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ro">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Precedentia - AI Legal Search Engine | Applexium</title>
-  <meta name="description" content="Precedentia is an AI-powered legal search engine for Moldova's case law. Search the Supreme Court, Constitutional Court, and ECHR decisions with keyword, semantic, and AI assistant capabilities.">
-  <meta name="keywords" content="Precedentia, legal search, Moldova case law, jurisprudence, CSJ, Constitutional Court, ECHR, AI legal assistant, Applexium, semantic search">
+  <!-- Set language before paint (from ?lang= or localStorage) to avoid a flash -->
+  <script>(function(){try{var l=new URLSearchParams(location.search).get('lang')||localStorage.getItem('applexium-lang');document.documentElement.setAttribute('data-lang',l==='en'?'en':'ro');if(l==='en'){document.documentElement.lang='en';}}catch(e){document.documentElement.setAttribute('data-lang','ro');}})();</script>
+
+  <title data-en="Precedentia - AI Legal Search Engine | Applexium">Precedentia — Motor de căutare juridică cu AI | Applexium</title>
+  <meta name="description" content="Precedentia este un motor de căutare juridică bazat pe AI pentru jurisprudența Moldovei. Caută în deciziile Curții Supreme de Justiție, ale Curții Constituționale și ale CEDO prin căutare după cuvinte-cheie, semantică și asistent AI.">
+  <meta name="keywords" content="Precedentia, căutare juridică, jurisprudența Moldovei, jurisprudență, CSJ, Curtea Constituțională, CEDO, asistent juridic AI, Applexium, căutare semantică">
   <meta name="author" content="Applexium">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://applexium.com/precedentia">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Precedentia - AI Legal Search Engine | Applexium">
-  <meta property="og:description" content="An AI-powered legal search engine for Moldova's case law — covering the Supreme Court, Constitutional Court, and ECHR.">
+  <meta property="og:title" content="Precedentia — Motor de căutare juridică cu AI | Applexium">
+  <meta property="og:description" content="Un motor de căutare juridică bazat pe AI pentru jurisprudența Moldovei — acoperind Curtea Supremă de Justiție, Curtea Constituțională și CEDO.">
   <meta property="og:url" content="https://applexium.com/precedentia">
   <meta property="og:site_name" content="Applexium">
   <meta property="og:image" content="https://applexium.com/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="ro_RO">
+  <meta property="og:locale:alternate" content="en_US">
 
   <link rel="icon" href="favicon.ico" sizes="48x48">
   <link rel="icon" type="image/svg+xml" href="logo-icon.svg">
@@ -39,6 +44,25 @@
 
   <!-- Shared CSS (navbar/footer) -->
   <link rel="stylesheet" href="style.css">
+
+  <!-- Structured data: SoftwareApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Precedentia",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "description": "Motor de căutare juridică bazat pe AI pentru jurisprudența Moldovei — acoperind Curtea Supremă de Justiție, Curtea Constituțională și CEDO, cu căutare după cuvinte-cheie, căutare semantică și asistent juridic AI.",
+    "url": "https://applexium.com/precedentia",
+    "inLanguage": "ro",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Applexium",
+      "url": "https://applexium.com/"
+    }
+  }
+  </script>
 
   <style>
     /* ============================================
@@ -719,18 +743,25 @@
       </a>
     </div>
 
-    <button class="mobile-menu-toggle" aria-label="Toggle menu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-
     <div class="nav-links">
-      <a href="/#capabilities">Services</a>
-      <a href="/#products">Solutions</a>
-      <a href="/#portfolio">Portfolio</a>
-      <a href="team">Team</a>
-      <a href="contacts">Contact</a>
+      <a href="/#capabilities" data-en="Services">Servicii</a>
+      <a href="/#products" data-en="Solutions">Soluții</a>
+      <a href="/#portfolio" data-en="Portfolio">Portofoliu</a>
+      <a href="team" data-en="Team">Echipă</a>
+      <a href="contacts" data-en="Contact">Contact</a>
+    </div>
+
+    <div class="nav-actions">
+      <div class="lang-switch" role="group" aria-label="Schimbă limba" data-en-aria-label="Change language">
+        <button type="button" class="lang-btn" data-lang-switch="ro" aria-pressed="true">RO</button>
+        <button type="button" class="lang-btn" data-lang-switch="en" aria-pressed="false">EN</button>
+      </div>
+      <!-- Mobile Menu Toggle -->
+      <button class="mobile-menu-toggle" aria-label="Comută meniul" data-en-aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
   </nav>
 
@@ -768,11 +799,11 @@
         <path d="M140.214 82.9075C117.57 89.3288 98.8695 104.875 88.956 125.265C80.9575 141.713 81.07 140.248 81.2953 225.19L81.6335 301.006L91.9977 306.188C97.7431 309.004 106.417 312.721 111.149 314.299L119.936 317.228L120.274 273.856L120.499 230.597L124.78 232.737C148.55 244.791 179.079 243.777 202.511 230.146C230.224 213.811 246.559 178.551 240.701 147.571C237.321 129.659 230.111 116.028 217.269 103.185C210.397 96.3134 206.566 93.497 198.117 89.3288C192.259 86.3998 184.036 83.3582 179.642 82.457C168.828 80.2039 148.775 80.4292 140.214 82.9075ZM178.178 123.801C186.289 127.518 194.175 135.404 198.005 143.628C200.708 149.261 201.047 151.401 201.047 161.315C201.047 171.454 200.709 173.143 197.892 178.551C193.611 186.662 185.951 194.097 178.178 197.702C172.658 200.293 170.292 200.744 161.055 200.744C151.479 200.744 149.677 200.406 143.819 197.477C135.82 193.421 128.047 185.31 124.104 176.748C121.513 171.341 121.062 168.75 121.062 160.751C121.062 152.753 121.513 150.162 123.992 144.98C129.174 133.827 138.411 125.491 149.339 121.998C157.562 119.407 170.179 120.196 178.178 123.801Z" fill="currentColor"/>
         <path d="M238.335 254.367C220.085 270.025 196.315 279.714 170.968 281.967L162.181 282.755V322.184L173.785 321.508C208.707 319.368 243.179 304.497 270.329 279.714L275.06 275.433L261.204 261.464C253.544 253.803 247.01 247.607 246.672 247.607C246.334 247.607 242.616 250.649 238.335 254.367Z" fill="currentColor"/>
       </svg>
-      <h1>Intelligent Search in <span class="gradient-text">Moldova's Case Law</span></h1>
-      <p>All court decisions in one place. Keyword search, AI-powered semantic search, and a legal AI assistant — covering CSJ, Constitutional Court, and ECHR.</p>
+      <h1 data-en="Intelligent Search in <span class=&quot;gradient-text&quot;>Moldova's Case Law</span>">Căutare inteligentă în <span class="gradient-text">jurisprudența Moldovei</span></h1>
+      <p data-en="All court decisions in one place. Keyword search, AI-powered semantic search, and a legal AI assistant — covering CSJ, Constitutional Court, and ECHR.">Toate deciziile instanțelor într-un singur loc. Căutare după cuvinte-cheie, căutare semantică bazată pe AI și un asistent juridic AI — acoperind CSJ, Curtea Constituțională și CEDO.</p>
       <div class="pr-hero-actions">
-        <a href="https://precedentia.md" class="pr-btn-primary" target="_blank"><i class="fas fa-search"></i> Try Precedentia</a>
-        <a href="#features" class="pr-btn-secondary"><i class="fas fa-play-circle"></i> Learn More</a>
+        <a href="https://precedentia.md" class="pr-btn-primary" target="_blank"><i class="fas fa-search"></i> <span data-en="Try Precedentia">Încearcă Precedentia</span></a>
+        <a href="#features" class="pr-btn-secondary"><i class="fas fa-play-circle"></i> <span data-en="Learn More">Află mai multe</span></a>
       </div>
     </div>
   </section>
@@ -790,10 +821,10 @@
         </div>
       </div>
       <div class="pr-about-text" data-aos="fade-left">
-        <h2>Concept & Mission</h2>
-        <p>Precedentia is a specialized legal search platform for the Republic of Moldova. It brings together jurisprudence from three essential sources into a single, intelligent interface.</p>
-        <p>The platform offers instant keyword search, AI-powered semantic search that understands context and legal reasoning, and an AI assistant that answers legal questions with exact citations from existing case law.</p>
-        <p>All databases are automatically updated from official sources, ensuring practitioners always have access to the latest decisions.</p>
+        <h2 data-en="Concept &amp; Mission">Concept și misiune</h2>
+        <p data-en="Precedentia is a specialized legal search platform for the Republic of Moldova. It brings together jurisprudence from three essential sources into a single, intelligent interface.">Precedentia este o platformă specializată de căutare juridică pentru Republica Moldova. Reunește jurisprudența din trei surse esențiale într-o singură interfață inteligentă.</p>
+        <p data-en="The platform offers instant keyword search, AI-powered semantic search that understands context and legal reasoning, and an AI assistant that answers legal questions with exact citations from existing case law.">Platforma oferă căutare instantanee după cuvinte-cheie, căutare semantică bazată pe AI care înțelege contextul și raționamentul juridic, precum și un asistent AI care răspunde la întrebări juridice cu citate exacte din jurisprudența existentă.</p>
+        <p data-en="All databases are automatically updated from official sources, ensuring practitioners always have access to the latest decisions.">Toate bazele de date sunt actualizate automat din surse oficiale, asigurând că practicienii au întotdeauna acces la cele mai recente decizii.</p>
       </div>
     </div>
   </section>
@@ -801,40 +832,40 @@
   <!-- Features -->
   <section id="features" class="pr-features">
     <div class="pr-section-header" data-aos="fade-up">
-      <h2>Platform Features</h2>
-      <p>Three search modes for every legal research need</p>
+      <h2 data-en="Platform Features">Funcționalitățile platformei</h2>
+      <p data-en="Three search modes for every legal research need">Trei moduri de căutare pentru orice nevoie de cercetare juridică</p>
     </div>
 
     <div class="pr-features-grid">
       <div class="pr-feature-card" data-aos="fade-up" data-aos-delay="0">
         <div class="pr-feature-icon"><i class="fas fa-bolt"></i></div>
-        <h3>Keyword Search</h3>
-        <p>Instant full-text search across all databases with advanced filters by source, date, court chamber, and document type</p>
+        <h3 data-en="Keyword Search">Căutare după cuvinte-cheie</h3>
+        <p data-en="Instant full-text search across all databases with advanced filters by source, date, court chamber, and document type">Căutare instantanee full-text în toate bazele de date, cu filtre avansate după sursă, dată, colegiu și tip de document</p>
       </div>
       <div class="pr-feature-card" data-aos="fade-up" data-aos-delay="80">
         <div class="pr-feature-icon"><i class="fas fa-brain"></i></div>
-        <h3>Semantic Search</h3>
-        <p>Describe your legal situation in natural language. The AI finds relevant cases by understanding context, not just keywords</p>
+        <h3 data-en="Semantic Search">Căutare semantică</h3>
+        <p data-en="Describe your legal situation in natural language. The AI finds relevant cases by understanding context, not just keywords">Descrie situația ta juridică în limbaj natural. AI-ul găsește cazuri relevante înțelegând contextul, nu doar cuvintele-cheie</p>
       </div>
       <div class="pr-feature-card" data-aos="fade-up" data-aos-delay="160">
         <div class="pr-feature-icon"><i class="fas fa-robot"></i></div>
-        <h3>AI Legal Assistant</h3>
-        <p>Ask legal questions and receive answers grounded in existing jurisprudence, with exact citations and case references</p>
+        <h3 data-en="AI Legal Assistant">Asistent juridic AI</h3>
+        <p data-en="Ask legal questions and receive answers grounded in existing jurisprudence, with exact citations and case references">Pune întrebări juridice și primește răspunsuri bazate pe jurisprudența existentă, cu citate exacte și referințe la cazuri</p>
       </div>
       <div class="pr-feature-card" data-aos="fade-up" data-aos-delay="240">
         <div class="pr-feature-icon"><i class="fas fa-filter"></i></div>
-        <h3>Advanced Filters</h3>
-        <p>Filter by court source, date range, CSJ chamber (civil, criminal, plenum), and Constitutional Court document type</p>
+        <h3 data-en="Advanced Filters">Filtre avansate</h3>
+        <p data-en="Filter by court source, date range, CSJ chamber (civil, criminal, plenum), and Constitutional Court document type">Filtrează după sursa instanței, interval de date, colegiul CSJ (civil, penal, plen) și tipul de document al Curții Constituționale</p>
       </div>
       <div class="pr-feature-card" data-aos="fade-up" data-aos-delay="320">
         <div class="pr-feature-icon"><i class="fas fa-sync-alt"></i></div>
-        <h3>Auto-Updated</h3>
-        <p>Databases are scraped and updated automatically from official court sources — always up to date</p>
+        <h3 data-en="Auto-Updated">Actualizare automată</h3>
+        <p data-en="Databases are scraped and updated automatically from official court sources — always up to date">Bazele de date sunt colectate și actualizate automat din sursele oficiale ale instanțelor — mereu la zi</p>
       </div>
       <div class="pr-feature-card" data-aos="fade-up" data-aos-delay="400">
         <div class="pr-feature-icon"><i class="fas fa-user-shield"></i></div>
-        <h3>Tiered Access</h3>
-        <p>Free basic access with premium tiers for semantic search and AI assistant — built for law students and practitioners</p>
+        <h3 data-en="Tiered Access">Acces pe niveluri</h3>
+        <p data-en="Free basic access with premium tiers for semantic search and AI assistant — built for law students and practitioners">Acces de bază gratuit, cu niveluri premium pentru căutare semantică și asistent AI — creat pentru studenții la drept și practicieni</p>
       </div>
     </div>
   </section>
@@ -842,34 +873,34 @@
   <!-- Sources -->
   <section class="pr-sources">
     <div class="pr-section-header" data-aos="fade-up">
-      <h2>Data Sources</h2>
-      <p>Automatically updated from official institutions</p>
+      <h2 data-en="Data Sources">Surse de date</h2>
+      <p data-en="Automatically updated from official institutions">Actualizate automat din instituții oficiale</p>
     </div>
 
     <div class="pr-sources-grid">
       <div class="pr-source-card" data-aos="fade-up" data-aos-delay="0">
         <div class="pr-source-card-header">
-          <span class="pr-source-badge" style="background: #062e23; color: #09E1AC;">ECHR</span>
+          <span class="pr-source-badge" style="background: #062e23; color: #09E1AC;">CEDO</span>
           <span class="pr-source-url">HUDOC API</span>
         </div>
-        <h3>European Court of Human Rights</h3>
-        <p>Judgments, decisions, and communications regarding fundamental rights involving the Republic of Moldova.</p>
+        <h3 data-en="European Court of Human Rights">Curtea Europeană a Drepturilor Omului</h3>
+        <p data-en="Judgments, decisions, and communications regarding fundamental rights involving the Republic of Moldova.">Hotărâri, decizii și comunicări privind drepturile fundamentale care implică Republica Moldova.</p>
       </div>
       <div class="pr-source-card" data-aos="fade-up" data-aos-delay="100">
         <div class="pr-source-card-header">
           <span class="pr-source-badge" style="background: #0d0b4d; color: #6e6aff;">CSJ</span>
           <span class="pr-source-url">jurisprudenta.csj.md</span>
         </div>
-        <h3>Supreme Court of Justice</h3>
-        <p>Civil and criminal chamber decisions, plenum rulings — the highest court of ordinary jurisdiction in Moldova.</p>
+        <h3 data-en="Supreme Court of Justice">Curtea Supremă de Justiție</h3>
+        <p data-en="Civil and criminal chamber decisions, plenum rulings — the highest court of ordinary jurisdiction in Moldova.">Decizii ale colegiilor civil și penal, hotărâri ale plenului — cea mai înaltă instanță de jurisdicție ordinară din Moldova.</p>
       </div>
       <div class="pr-source-card" data-aos="fade-up" data-aos-delay="200">
         <div class="pr-source-card-header">
           <span class="pr-source-badge" style="background: #0a2e1a; color: #E0FFE9;">CC</span>
           <span class="pr-source-url">constcourt.md</span>
         </div>
-        <h3>Constitutional Court</h3>
-        <p>Rulings, decisions, advisory opinions, referrals, and ECtHR summaries from Moldova's Constitutional Court.</p>
+        <h3 data-en="Constitutional Court">Curtea Constituțională</h3>
+        <p data-en="Rulings, decisions, advisory opinions, referrals, and ECtHR summaries from Moldova's Constitutional Court.">Hotărâri, decizii, avize consultative, sesizări și rezumate CEDO de la Curtea Constituțională a Moldovei.</p>
       </div>
     </div>
   </section>
@@ -878,8 +909,8 @@
   <section class="pr-demo">
     <div class="pr-demo-inner" data-aos="fade-up">
       <div class="pr-section-header">
-        <h2>How It Works</h2>
-        <p>Search Moldova's jurisprudence in seconds</p>
+        <h2 data-en="How It Works">Cum funcționează</h2>
+        <p data-en="Search Moldova's jurisprudence in seconds">Caută în jurisprudența Moldovei în câteva secunde</p>
       </div>
 
       <div class="pr-demo-visual">
@@ -889,46 +920,46 @@
             <div class="pr-demo-input">dreptul la viață privată în contextul supravegherii digitale...</div>
           </div>
           <div class="pr-demo-modes">
-            <div class="pr-demo-mode">Keywords</div>
-            <div class="pr-demo-mode active">Semantic</div>
+            <div class="pr-demo-mode" data-en="Keywords">Cuvinte-cheie</div>
+            <div class="pr-demo-mode active" data-en="Semantic">Semantic</div>
           </div>
         </div>
 
         <div class="pr-demo-results">
           <div class="pr-demo-result">
             <div class="pr-demo-result-header">
-              <span class="pr-source-badge" style="background: #062e23; color: #09E1AC;">ECHR</span>
+              <span class="pr-source-badge" style="background: #062e23; color: #09E1AC;">CEDO</span>
               <h4>Sandu and Others v. Moldova</h4>
             </div>
-            <p>The Court found a violation of Article 8 regarding the surveillance measures applied without adequate judicial oversight...</p>
+            <p data-en="The Court found a violation of Article 8 regarding the surveillance measures applied without adequate judicial oversight...">Curtea a constatat o încălcare a Articolului 8 privind măsurile de supraveghere aplicate fără un control judiciar adecvat...</p>
             <div class="pr-demo-result-meta">
-              <span>Application no. 21034/05</span>
-              <span>17 July 2018</span>
-              <span>Similarity: 94.2%</span>
+              <span data-en="Application no. 21034/05">Cererea nr. 21034/05</span>
+              <span data-en="17 July 2018">17 iulie 2018</span>
+              <span data-en="Similarity: 94.2%">Similaritate: 94,2%</span>
             </div>
           </div>
           <div class="pr-demo-result">
             <div class="pr-demo-result-header">
               <span class="pr-source-badge" style="background: #0d0b4d; color: #6e6aff;">CSJ</span>
-              <h4>Decision no. 2ra-1147/21</h4>
+              <h4 data-en="Decision no. 2ra-1147/21">Decizia nr. 2ra-1147/21</h4>
             </div>
-            <p>Regarding the unlawful interception of communications and the right to privacy under Article 28 of the Constitution...</p>
+            <p data-en="Regarding the unlawful interception of communications and the right to privacy under Article 28 of the Constitution...">Privind interceptarea ilegală a comunicărilor și dreptul la viață privată conform Articolului 28 din Constituție...</p>
             <div class="pr-demo-result-meta">
-              <span>Civil Chamber</span>
-              <span>12 March 2021</span>
-              <span>Similarity: 89.7%</span>
+              <span data-en="Civil Chamber">Colegiul civil</span>
+              <span data-en="12 March 2021">12 martie 2021</span>
+              <span data-en="Similarity: 89.7%">Similaritate: 89,7%</span>
             </div>
           </div>
           <div class="pr-demo-result">
             <div class="pr-demo-result-header">
               <span class="pr-source-badge" style="background: #0a2e1a; color: #E0FFE9;">CC</span>
-              <h4>Decision no. 14 of 10.05.2022</h4>
+              <h4 data-en="Decision no. 14 of 10.05.2022">Decizia nr. 14 din 10.05.2022</h4>
             </div>
-            <p>On the constitutionality of provisions regarding personal data processing in the context of national security operations...</p>
+            <p data-en="On the constitutionality of provisions regarding personal data processing in the context of national security operations...">Privind constituționalitatea prevederilor referitoare la prelucrarea datelor cu caracter personal în contextul operațiunilor de securitate națională...</p>
             <div class="pr-demo-result-meta">
-              <span>Constitutional Court</span>
-              <span>10 May 2022</span>
-              <span>Similarity: 86.1%</span>
+              <span data-en="Constitutional Court">Curtea Constituțională</span>
+              <span data-en="10 May 2022">10 mai 2022</span>
+              <span data-en="Similarity: 86.1%">Similaritate: 86,1%</span>
             </div>
           </div>
         </div>
@@ -939,11 +970,11 @@
   <!-- CTA -->
   <section class="pr-cta">
     <div class="pr-cta-inner" data-aos="fade-up">
-      <h2>Start Researching Smarter</h2>
-      <p>Access Moldova's complete jurisprudence with AI-powered search. Built for law students, attorneys, and legal professionals.</p>
+      <h2 data-en="Start Researching Smarter">Începe să cercetezi mai inteligent</h2>
+      <p data-en="Access Moldova's complete jurisprudence with AI-powered search. Built for law students, attorneys, and legal professionals.">Accesează întreaga jurisprudență a Moldovei prin căutare bazată pe AI. Creat pentru studenții la drept, avocați și profesioniștii din domeniul juridic.</p>
       <div class="pr-hero-actions">
-        <a href="https://precedentia.md" class="pr-btn-primary" target="_blank"><i class="fas fa-search"></i> Try Precedentia</a>
-        <a href="contacts" class="pr-btn-secondary"><i class="fas fa-envelope"></i> Contact Us</a>
+        <a href="https://precedentia.md" class="pr-btn-primary" target="_blank"><i class="fas fa-search"></i> <span data-en="Try Precedentia">Încearcă Precedentia</span></a>
+        <a href="contacts" class="pr-btn-secondary"><i class="fas fa-envelope"></i> <span data-en="Contact Us">Contactează-ne</span></a>
       </div>
     </div>
   </section>
@@ -959,17 +990,17 @@
           </a>
         </div>
         <div class="footer-info">
-          <p>&copy; 2026 Applexium. All Rights Reserved.</p>
+          <p>&copy; <span class="footer-year">2026</span> Applexium. <span data-en="All Rights Reserved.">Toate drepturile rezervate.</span></p>
         </div>
       </div>
 
       <div class="footer-legal">
-        <a href="terms-and-conditions"><i class="fas fa-file-contract"></i> Terms & Conditions</a>
-        <a href="privacy-policy"><i class="fas fa-shield-halved"></i> Privacy Policy</a>
-        <a href="cookie-policy"><i class="fas fa-cookie-bite"></i> Cookie Policy</a>
-        <a href="ai-ethics"><i class="fas fa-brain"></i> AI Ethics Statement</a>
-        <a href="accessibility"><i class="fas fa-universal-access"></i> Accessibility Statement</a>
-        <a href="esg"><i class="fas fa-leaf"></i> ESG Statement</a>
+        <a href="terms-and-conditions"><i class="fas fa-file-contract"></i> <span data-en="Terms &amp; Conditions">Termeni și condiții</span></a>
+        <a href="privacy-policy"><i class="fas fa-shield-halved"></i> <span data-en="Privacy Policy">Politica de confidențialitate</span></a>
+        <a href="cookie-policy"><i class="fas fa-cookie-bite"></i> <span data-en="Cookie Policy">Politica de cookie-uri</span></a>
+        <a href="ai-ethics"><i class="fas fa-brain"></i> <span data-en="AI Ethics Statement">Declarație de etică AI</span></a>
+        <a href="accessibility"><i class="fas fa-universal-access"></i> <span data-en="Accessibility Statement">Declarație de accesibilitate</span></a>
+        <a href="esg"><i class="fas fa-leaf"></i> <span data-en="ESG Statement">Declarație ESG</span></a>
       </div>
     </div>
   </footer>
@@ -978,5 +1009,7 @@
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <!-- Custom JavaScript -->
   <script src="script.js"></script>
+  <!-- Bilingual engine (RO default / EN alternative) -->
+  <script src="i18n.js"></script>
 </body>
 </html>

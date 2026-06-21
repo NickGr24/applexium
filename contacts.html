@@ -1,24 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ro">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact Us - Applexium</title>
-  <meta name="description" content="Get in touch with Applexium. Contact us for custom software development, IT consulting, startup advisory, and digital product solutions in Moldova.">
-  <meta name="keywords" content="contact Applexium, IT consulting Moldova, software development contact, startup consulting, Chisinau tech company">
+  <!-- Set language before paint (from ?lang= or localStorage) to avoid a flash -->
+  <script>(function(){try{var l=new URLSearchParams(location.search).get('lang')||localStorage.getItem('applexium-lang');document.documentElement.setAttribute('data-lang',l==='en'?'en':'ro');if(l==='en'){document.documentElement.lang='en';}}catch(e){document.documentElement.setAttribute('data-lang','ro');}})();</script>
+
+  <title data-en="Contact Us - Applexium">Contactează-ne - Applexium</title>
+  <meta name="description" content="Contactează Applexium pentru dezvoltare software personalizată, consultanță IT, consultanță pentru startup-uri și soluții de produse digitale în Moldova.">
+  <meta name="keywords" content="contact Applexium, consultanță IT Moldova, contact dezvoltare software, consultanță startup, companie tech Chișinău">
   <meta name="author" content="Applexium">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://applexium.com/contacts">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Contact Us - Applexium">
-  <meta property="og:description" content="Get in touch with Applexium for custom software development, IT consulting, and digital product solutions.">
+  <meta property="og:title" content="Contactează-ne - Applexium">
+  <meta property="og:description" content="Contactează Applexium pentru dezvoltare software personalizată, consultanță IT și soluții de produse digitale.">
   <meta property="og:url" content="https://applexium.com/contacts">
   <meta property="og:site_name" content="Applexium">
   <meta property="og:image" content="https://applexium.com/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="ro_RO">
+  <meta property="og:locale:alternate" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Contactează-ne - Applexium">
+  <meta name="twitter:description" content="Contactează Applexium pentru dezvoltare software personalizată, consultanță IT și soluții de produse digitale.">
+  <meta name="twitter:image" content="https://applexium.com/og-image.png">
 
   <link rel="icon" href="favicon.ico" sizes="48x48">
   <link rel="icon" type="image/svg+xml" href="logo-icon.svg">
@@ -39,6 +50,51 @@
 
   <!-- Custom CSS -->
   <link rel="stylesheet" href="style.css">
+
+  <!-- Structured data: ContactPage + Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ContactPage",
+        "@id": "https://applexium.com/contacts#contactpage",
+        "url": "https://applexium.com/contacts",
+        "name": "Contactează-ne - Applexium",
+        "description": "Contactează echipa Applexium pentru solicitări de proiecte, parteneriate sau suport.",
+        "inLanguage": "ro",
+        "isPartOf": { "@id": "https://applexium.com/#website" },
+        "about": { "@id": "https://applexium.com/#organization" }
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://applexium.com/#organization",
+        "name": "Applexium",
+        "legalName": "SCALELAW SOLUTIONS SRL",
+        "url": "https://applexium.com/",
+        "logo": "https://applexium.com/favicon-512x512.png",
+        "image": "https://applexium.com/og-image.png",
+        "email": "info@applexium.com",
+        "telephone": "+373 78 76 87 65",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Mihai Viteazul 2a",
+          "addressLocality": "Chișinău",
+          "addressCountry": "MD"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+373 78 76 87 65",
+          "email": "info@applexium.com",
+          "contactType": "customer support",
+          "availableLanguage": ["ro", "en", "ru"]
+        },
+        "areaServed": ["MD", "EU"],
+        "knowsLanguage": ["ro", "en", "ru"]
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <!-- Floating Lines Background -->
@@ -53,19 +109,25 @@
       </a>
     </div>
 
-    <!-- Mobile Menu Toggle -->
-    <button class="mobile-menu-toggle" aria-label="Toggle menu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-
     <div class="nav-links">
-      <a href="/#capabilities">Services</a>
-      <a href="/#products">Solutions</a>
-      <a href="/#portfolio">Portfolio</a>
-      <a href="team">Team</a>
-      <a href="contacts">Contact</a>
+      <a href="/#capabilities" data-en="Services">Servicii</a>
+      <a href="/#products" data-en="Solutions">Soluții</a>
+      <a href="/#portfolio" data-en="Portfolio">Portofoliu</a>
+      <a href="team" data-en="Team">Echipă</a>
+      <a href="contacts" data-en="Contact">Contact</a>
+    </div>
+
+    <div class="nav-actions">
+      <div class="lang-switch" role="group" aria-label="Schimbă limba" data-en-aria-label="Change language">
+        <button type="button" class="lang-btn" data-lang-switch="ro" aria-pressed="true">RO</button>
+        <button type="button" class="lang-btn" data-lang-switch="en" aria-pressed="false">EN</button>
+      </div>
+      <!-- Mobile Menu Toggle -->
+      <button class="mobile-menu-toggle" aria-label="Comută meniul" data-en-aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
   </nav>
 
@@ -74,8 +136,8 @@
     <div class="container">
       <!-- Header -->
       <div class="contact-header" data-aos="fade-up">
-        <h1>Let's Build the Future Together.</h1>
-        <p>Reach out to our team for project inquiries, partnerships, or support. We're here to help you innovate and succeed.</p>
+        <h1 data-en="Let's Build the Future Together.">Să construim viitorul împreună.</h1>
+        <p data-en="Reach out to our team for project inquiries, partnerships, or support. We're here to help you innovate and succeed.">Contactează echipa noastră pentru solicitări de proiecte, parteneriate sau suport. Suntem aici pentru a te ajuta să inovezi și să reușești.</p>
       </div>
 
       <!-- Contact Cards -->
@@ -86,7 +148,7 @@
             <i class="fas fa-envelope"></i>
           </div>
           <h3>info@applexium.com </h3>
-          <p>Email Us</p>
+          <p data-en="Email Us">Scrie-ne</p>
         </div>
 
         <!-- Phone Card -->
@@ -95,7 +157,7 @@
             <i class="fas fa-phone-alt"></i>
           </div>
           <h3>+373 78 76 87 65</h3>
-          <p>Call Us</p>
+          <p data-en="Call Us">Sună-ne</p>
         </div>
 
         <!-- Address Card -->
@@ -104,7 +166,7 @@
             <i class="fas fa-map-marker-alt"></i>
           </div>
           <h3>Mihai Viteazul 2a, Chișinău, Moldova</h3>
-          <p>Our Office</p>
+          <p data-en="Our Office">Biroul nostru</p>
         </div>
       </div>
 
@@ -112,27 +174,27 @@
       <div class="contact-content">
         <!-- Contact Form -->
         <div class="contact-form-wrapper" data-aos="fade-right" data-aos-delay="200">
-          <h2>Send Us a Message</h2>
+          <h2 data-en="Send Us a Message">Trimite-ne un mesaj</h2>
           <form class="contact-form" action="https://formspree.io/f/mkoqzdlo" method="POST">
             <div class="form-row">
               <div class="form-group">
-                <label for="fullName">Full Name</label>
-                <input type="text" id="fullName" name="fullName" placeholder="John Doe" required>
+                <label for="fullName" data-en="Full Name">Nume complet</label>
+                <input type="text" id="fullName" name="fullName" placeholder="Ion Popescu" data-en-placeholder="John Doe" required>
               </div>
               <div class="form-group">
-                <label for="workEmail">Work Email</label>
-                <input type="email" id="workEmail" name="email" placeholder="you@company.com" required>
+                <label for="workEmail" data-en="Work Email">Email de serviciu</label>
+                <input type="email" id="workEmail" name="email" placeholder="tu@companie.com" data-en-placeholder="you@company.com" required>
               </div>
             </div>
             <div class="form-group">
-              <label for="companyName">Company Name <span class="optional">(Optional)</span></label>
-              <input type="text" id="companyName" name="companyName" placeholder="Your Company Inc.">
+              <label for="companyName"><span data-en="Company Name">Numele companiei</span> <span class="optional" data-en="(Optional)">(Opțional)</span></label>
+              <input type="text" id="companyName" name="companyName" placeholder="Compania Ta SRL" data-en-placeholder="Your Company Inc.">
             </div>
             <div class="form-group">
-              <label for="message">Message</label>
-              <textarea id="message" name="message" rows="5" placeholder="Tell us about your project..." required></textarea>
+              <label for="message" data-en="Message">Mesaj</label>
+              <textarea id="message" name="message" rows="5" placeholder="Spune-ne despre proiectul tău..." data-en-placeholder="Tell us about your project..." required></textarea>
             </div>
-            <button type="submit" class="submit-btn">Send Message</button>
+            <button type="submit" class="submit-btn" data-en="Send Message">Trimite mesajul</button>
           </form>
         </div>
 
@@ -163,17 +225,17 @@
           </a>
         </div>
         <div class="footer-info">
-          <p>&copy; 2025 Applexium. All Rights Reserved.</p>
+          <p>&copy; <span class="footer-year">2026</span> Applexium. <span data-en="All Rights Reserved.">Toate drepturile rezervate.</span></p>
         </div>
       </div>
 
       <div class="footer-legal">
-        <a href="terms-and-conditions"><i class="fas fa-file-contract"></i> Terms & Conditions</a>
-        <a href="privacy-policy"><i class="fas fa-shield-halved"></i> Privacy Policy</a>
-        <a href="cookie-policy"><i class="fas fa-cookie-bite"></i> Cookie Policy</a>
-        <a href="ai-ethics"><i class="fas fa-brain"></i> AI Ethics Statement</a>
-        <a href="accessibility"><i class="fas fa-universal-access"></i> Accessibility Statement</a>
-        <a href="esg"><i class="fas fa-leaf"></i> ESG Statement</a>
+        <a href="terms-and-conditions"><i class="fas fa-file-contract"></i> <span data-en="Terms &amp; Conditions">Termeni și condiții</span></a>
+        <a href="privacy-policy"><i class="fas fa-shield-halved"></i> <span data-en="Privacy Policy">Politica de confidențialitate</span></a>
+        <a href="cookie-policy"><i class="fas fa-cookie-bite"></i> <span data-en="Cookie Policy">Politica de cookie-uri</span></a>
+        <a href="ai-ethics"><i class="fas fa-brain"></i> <span data-en="AI Ethics Statement">Declarație de etică AI</span></a>
+        <a href="accessibility"><i class="fas fa-universal-access"></i> <span data-en="Accessibility Statement">Declarație de accesibilitate</span></a>
+        <a href="esg"><i class="fas fa-leaf"></i> <span data-en="ESG Statement">Declarație ESG</span></a>
       </div>
     </div>
   </footer>
@@ -183,5 +245,7 @@
 
   <!-- Custom JavaScript -->
   <script src="script.js"></script>
+  <!-- Bilingual engine (RO default / EN alternative) -->
+  <script src="i18n.js"></script>
 </body>
 </html>

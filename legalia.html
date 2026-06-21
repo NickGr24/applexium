@@ -1,24 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ro">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Legalia - Legal Learning Platform | Applexium</title>
-  <meta name="description" content="Legalia is a legal learning platform designed for Moldova, helping users understand legislation through structured courses, interactive quizzes, and accessible legal education.">
-  <meta name="keywords" content="Legalia, legal education, Moldova law, legal learning platform, legislation courses, legal quizzes, Applexium, drept Moldova">
+  <!-- Set language before paint (from ?lang= or localStorage) to avoid a flash -->
+  <script>(function(){try{var l=new URLSearchParams(location.search).get('lang')||localStorage.getItem('applexium-lang');document.documentElement.setAttribute('data-lang',l==='en'?'en':'ro');if(l==='en'){document.documentElement.lang='en';}}catch(e){document.documentElement.setAttribute('data-lang','ro');}})();</script>
+
+  <title data-en="Legalia - Legal Learning Platform | Applexium">Legalia - Platformă de educație juridică | Applexium</title>
+  <meta name="description" content="Legalia este o platformă de educație juridică creată pentru Moldova, care ajută utilizatorii să înțeleagă legislația prin cursuri structurate, teste interactive și educație juridică accesibilă.">
+  <meta name="keywords" content="Legalia, educație juridică, drept Moldova, platformă de învățare juridică, cursuri de legislație, teste juridice, Applexium, drept Moldova">
   <meta name="author" content="Applexium">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://applexium.com/legalia">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Legalia - Legal Learning Platform | Applexium">
-  <meta property="og:description" content="A legal learning platform designed for Moldova, helping users understand legislation through structured courses and interactive quizzes.">
+  <meta property="og:title" content="Legalia - Platformă de educație juridică | Applexium">
+  <meta property="og:description" content="O platformă de educație juridică creată pentru Moldova, care ajută utilizatorii să înțeleagă legislația prin cursuri structurate și teste interactive.">
   <meta property="og:url" content="https://applexium.com/legalia">
   <meta property="og:site_name" content="Applexium">
   <meta property="og:image" content="https://applexium.com/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="ro_RO">
+  <meta property="og:locale:alternate" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Legalia - Platformă de educație juridică | Applexium">
+  <meta name="twitter:description" content="O platformă de educație juridică creată pentru Moldova, care ajută utilizatorii să înțeleagă legislația prin cursuri structurate și teste interactive.">
+  <meta name="twitter:image" content="https://applexium.com/og-image.png">
 
   <link rel="icon" href="favicon.ico" sizes="48x48">
   <link rel="icon" type="image/svg+xml" href="logo-icon.svg">
@@ -39,6 +50,25 @@
 
   <!-- Shared CSS (navbar/footer) -->
   <link rel="stylesheet" href="style.css">
+
+  <!-- Structured data: SoftwareApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Legalia",
+    "applicationCategory": "EducationalApplication",
+    "operatingSystem": "Web",
+    "description": "O platformă de educație juridică creată pentru Moldova, care ajută utilizatorii să înțeleagă legislația prin cursuri structurate și teste interactive.",
+    "inLanguage": "ro",
+    "url": "https://applexium.com/legalia",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Applexium",
+      "url": "https://applexium.com/"
+    }
+  }
+  </script>
 
   <style>
     /* ============================================
@@ -561,18 +591,25 @@
       </a>
     </div>
 
-    <button class="mobile-menu-toggle" aria-label="Toggle menu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-
     <div class="nav-links">
-      <a href="/#capabilities">Services</a>
-      <a href="/#products">Solutions</a>
-      <a href="/#portfolio">Portfolio</a>
-      <a href="team">Team</a>
-      <a href="contacts">Contact</a>
+      <a href="/#capabilities" data-en="Services">Servicii</a>
+      <a href="/#products" data-en="Solutions">Soluții</a>
+      <a href="/#portfolio" data-en="Portfolio">Portofoliu</a>
+      <a href="team" data-en="Team">Echipă</a>
+      <a href="contacts" data-en="Contact">Contact</a>
+    </div>
+
+    <div class="nav-actions">
+      <div class="lang-switch" role="group" aria-label="Schimbă limba" data-en-aria-label="Change language">
+        <button type="button" class="lang-btn" data-lang-switch="ro" aria-pressed="true">RO</button>
+        <button type="button" class="lang-btn" data-lang-switch="en" aria-pressed="false">EN</button>
+      </div>
+      <!-- Mobile Menu Toggle -->
+      <button class="mobile-menu-toggle" aria-label="Comută meniul" data-en-aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
   </nav>
 
@@ -607,16 +644,16 @@
     <div class="lg-hero-grid">
       <div class="lg-hero-copy" data-aos="fade-right">
         <img src="legalia-logo-horizontal.png" alt="Legalia" class="lg-hero-logo">
-        <h1>Master Law the <span class="gradient-text">Way You Learn Best</span></h1>
-        <p>Legalia turns the entire law curriculum into a guided journey — interactive quizzes, video lessons, podcasts and mind maps for every topic, with instant feedback that explains the <em>why</em> behind each answer.</p>
+        <h1 data-en="Master Law the <span class=&quot;gradient-text&quot;>Way You Learn Best</span>">Stăpânește dreptul <span class="gradient-text">așa cum înveți cel mai bine</span></h1>
+        <p data-en="Legalia turns the entire law curriculum into a guided journey — interactive quizzes, video lessons, podcasts and mind maps for every topic, with instant feedback that explains the <em>why</em> behind each answer.">Legalia transformă întreaga programă de drept într-o călătorie ghidată — teste interactive, lecții video, podcasturi și hărți mentale pentru fiecare subiect, cu feedback instant care explică <em>de ce</em> se află în spatele fiecărui răspuns.</p>
         <div class="lg-hero-actions">
-          <a href="#" class="lg-btn-primary"><i class="fas fa-download"></i> Download App</a>
-          <a href="#how" class="lg-btn-secondary"><i class="fas fa-play-circle"></i> See It in Action</a>
+          <a href="#" class="lg-btn-primary"><i class="fas fa-download"></i> <span data-en="Download App">Descarcă aplicația</span></a>
+          <a href="#how" class="lg-btn-secondary"><i class="fas fa-play-circle"></i> <span data-en="See It in Action">Vezi cum funcționează</span></a>
         </div>
         <div class="lg-hero-badges">
-          <span><i class="fas fa-layer-group"></i> 521 study topics</span>
-          <span><i class="fas fa-circle-question"></i> 6,900+ questions</span>
-          <span><i class="fas fa-mobile-screen-button"></i> iOS &amp; Android</span>
+          <span><i class="fas fa-layer-group"></i> <span data-en="521 study topics">521 subiecte de studiu</span></span>
+          <span><i class="fas fa-circle-question"></i> <span data-en="6,900+ questions">6.900+ întrebări</span></span>
+          <span><i class="fas fa-mobile-screen-button"></i> <span data-en="iOS &amp; Android">iOS și Android</span></span>
         </div>
       </div>
 
@@ -624,7 +661,7 @@
         <div class="lg-hero-glow"></div>
         <div class="lg-device">
           <div class="lg-device-screen">
-            <video autoplay muted loop playsinline poster="legalia-app/demo-poster.jpg" aria-label="Legalia app walkthrough">
+            <video autoplay muted loop playsinline poster="legalia-app/demo-poster.jpg" aria-label="Prezentare a aplicației Legalia" data-en-aria-label="Legalia app walkthrough">
               <source src="legalia-app/demo.mp4" type="video/mp4">
             </video>
           </div>
@@ -639,23 +676,23 @@
       <div class="lg-stats-grid">
         <div>
           <div class="lg-stat-num" data-count="4">4</div>
-          <div class="lg-stat-label">Learning Programs</div>
+          <div class="lg-stat-label" data-en="Learning Programs">Programe de învățare</div>
         </div>
         <div>
           <div class="lg-stat-num" data-count="52">52</div>
-          <div class="lg-stat-label">Legal Disciplines</div>
+          <div class="lg-stat-label" data-en="Legal Disciplines">Discipline juridice</div>
         </div>
         <div>
           <div class="lg-stat-num" data-count="521">521</div>
-          <div class="lg-stat-label">Study Topics</div>
+          <div class="lg-stat-label" data-en="Study Topics">Subiecte de studiu</div>
         </div>
         <div>
           <div class="lg-stat-num" data-count="6972">6,972</div>
-          <div class="lg-stat-label">Quiz Questions</div>
+          <div class="lg-stat-label" data-en="Quiz Questions">Întrebări de test</div>
         </div>
       </div>
-      <p class="lg-stats-foot">
-        Plus <strong>1,600+</strong> rapid-fire questions, <strong>25,535</strong> answer options, and a podcast, video lesson &amp; mind map behind nearly every topic.
+      <p class="lg-stats-foot" data-en="Plus <strong>1,600+</strong> rapid-fire questions, <strong>25,535</strong> answer options, and a podcast, video lesson &amp; mind map behind nearly every topic.">
+        Plus <strong>1.600+</strong> întrebări rapide, <strong>25.535</strong> opțiuni de răspuns și câte un podcast, o lecție video și o hartă mentală pentru aproape fiecare subiect.
       </p>
     </div>
   </section>
@@ -663,42 +700,42 @@
   <!-- Programs -->
   <section class="lg-programs">
     <div class="lg-section-header" data-aos="fade-up">
-      <span class="lg-eyebrow">Four ways to study</span>
-      <h2>One app, four full learning tracks</h2>
-      <p>Whether you are sitting an entrance exam, preparing for the bar, following the university curriculum, or specialising in business law — Legalia has a dedicated program for it.</p>
+      <span class="lg-eyebrow" data-en="Four ways to study">Patru moduri de a învăța</span>
+      <h2 data-en="One app, four full learning tracks">O aplicație, patru programe complete de învățare</h2>
+      <p data-en="Whether you are sitting an entrance exam, preparing for the bar, following the university curriculum, or specialising in business law — Legalia has a dedicated program for it.">Fie că susții un examen de admitere, te pregătești pentru baroul de avocați, urmezi programa universitară sau te specializezi în dreptul afacerilor — Legalia are un program dedicat pentru tine.</p>
     </div>
 
     <div class="lg-programs-grid">
       <div class="lg-program-card" data-aos="fade-up" data-aos-delay="0">
         <div class="lg-program-ico"><i class="fas fa-scale-balanced"></i></div>
         <div>
-          <h3>National Institute of Justice prep</h3>
-          <p>Targeted preparation for the INJ entrance exam — the path to becoming a judge or prosecutor.</p>
-          <span class="lg-program-tag">7 disciplines</span>
+          <h3 data-en="National Institute of Justice prep">Pregătire pentru Institutul Național al Justiției</h3>
+          <p data-en="Targeted preparation for the INJ entrance exam — the path to becoming a judge or prosecutor.">Pregătire țintită pentru examenul de admitere la INJ — calea către o carieră de judecător sau procuror.</p>
+          <span class="lg-program-tag" data-en="7 disciplines">7 discipline</span>
         </div>
       </div>
       <div class="lg-program-card" data-aos="fade-up" data-aos-delay="80">
         <div class="lg-program-ico"><i class="fas fa-user-tie"></i></div>
         <div>
-          <h3>Bar &amp; legal practice</h3>
-          <p>Focused tracks for future attorneys — criminalistics, intellectual property, notarial and customs law.</p>
-          <span class="lg-program-tag">4 disciplines</span>
+          <h3 data-en="Bar &amp; legal practice">Barou și practică juridică</h3>
+          <p data-en="Focused tracks for future attorneys — criminalistics, intellectual property, notarial and customs law.">Trasee dedicate viitorilor avocați — criminalistică, proprietate intelectuală, drept notarial și vamal.</p>
+          <span class="lg-program-tag" data-en="4 disciplines">4 discipline</span>
         </div>
       </div>
       <div class="lg-program-card" data-aos="fade-up" data-aos-delay="160">
         <div class="lg-program-ico"><i class="fas fa-graduation-cap"></i></div>
         <div>
-          <h3>University curriculum</h3>
-          <p>The full law degree, year by year — from legal theory and civil law to procedure and human rights.</p>
-          <span class="lg-program-tag">23 disciplines</span>
+          <h3 data-en="University curriculum">Programa universitară</h3>
+          <p data-en="The full law degree, year by year — from legal theory and civil law to procedure and human rights.">Întreaga licență în drept, an de an — de la teoria dreptului și dreptul civil până la procedură și drepturile omului.</p>
+          <span class="lg-program-tag" data-en="23 disciplines">23 discipline</span>
         </div>
       </div>
       <div class="lg-program-card" data-aos="fade-up" data-aos-delay="240">
         <div class="lg-program-ico"><i class="fas fa-briefcase"></i></div>
         <div>
-          <h3>Business &amp; corporate law</h3>
-          <p>Modern, market-ready topics: corporate structuring, FinTech, ESG, AI in business and international taxation.</p>
-          <span class="lg-program-tag">18 disciplines</span>
+          <h3 data-en="Business &amp; corporate law">Dreptul afacerilor și dreptul corporativ</h3>
+          <p data-en="Modern, market-ready topics: corporate structuring, FinTech, ESG, AI in business and international taxation.">Subiecte moderne, adaptate pieței: structurare corporativă, FinTech, ESG, AI în afaceri și fiscalitate internațională.</p>
+          <span class="lg-program-tag" data-en="18 disciplines">18 discipline</span>
         </div>
       </div>
     </div>
@@ -710,18 +747,18 @@
       <div class="lg-showcase-media">
         <div class="lg-device">
           <div class="lg-device-screen">
-            <img src="legalia-app/roadmap-disciplines.jpg" alt="Discipline roadmap in Legalia" width="588" height="1040" loading="lazy">
+            <img src="legalia-app/roadmap-disciplines.jpg" alt="Traseul disciplinelor în Legalia" width="588" height="1040" loading="lazy">
           </div>
         </div>
       </div>
       <div class="lg-showcase-text">
-        <span class="lg-showcase-num">01 — GUIDED PATH</span>
-        <h2>A roadmap for every discipline</h2>
-        <p>No more wondering what to study next. Each discipline unfolds as a step-by-step path — complete a level to unlock the next, with your progress visible at a glance.</p>
+        <span class="lg-showcase-num" data-en="01 — GUIDED PATH">01 — TRASEU GHIDAT</span>
+        <h2 data-en="A roadmap for every discipline">Un traseu pentru fiecare disciplină</h2>
+        <p data-en="No more wondering what to study next. Each discipline unfolds as a step-by-step path — complete a level to unlock the next, with your progress visible at a glance.">Gata cu nesiguranța privind ce să studiezi în continuare. Fiecare disciplină se desfășoară ca un traseu pas cu pas — completează un nivel pentru a-l debloca pe următorul, cu progresul vizibil dintr-o privire.</p>
         <ul class="lg-showcase-list">
-          <li><i class="fas fa-check-circle"></i> Duolingo-style level progression keeps you moving forward</li>
-          <li><i class="fas fa-check-circle"></i> Clear per-topic progress bars across all 52 disciplines</li>
-          <li><i class="fas fa-check-circle"></i> Pick up exactly where you left off</li>
+          <li><i class="fas fa-check-circle"></i> <span data-en="Duolingo-style level progression keeps you moving forward">Progresie pe niveluri în stil Duolingo care te ține în mișcare</span></li>
+          <li><i class="fas fa-check-circle"></i> <span data-en="Clear per-topic progress bars across all 52 disciplines">Bare de progres clare pe subiect, pentru toate cele 52 de discipline</span></li>
+          <li><i class="fas fa-check-circle"></i> <span data-en="Pick up exactly where you left off">Reia exact de unde ai rămas</span></li>
         </ul>
       </div>
     </div>
@@ -733,18 +770,18 @@
       <div class="lg-showcase-media">
         <div class="lg-device">
           <div class="lg-device-screen">
-            <img src="legalia-app/study-options.jpg" alt="Video, podcast and quiz options for a topic" width="588" height="1040" loading="lazy">
+            <img src="legalia-app/study-options.jpg" alt="Opțiuni video, podcast și test pentru un subiect" width="588" height="1040" loading="lazy">
           </div>
         </div>
       </div>
       <div class="lg-showcase-text">
-        <span class="lg-showcase-num">02 — FULL COURSE PER TOPIC</span>
-        <h2>Watch, listen, map — then test yourself</h2>
-        <p>Every topic is a complete mini-course. Prefer to watch? There's a video lesson. On the move? Press play on the podcast. Need the big picture? Open the mind map. Then take the quiz to lock it in.</p>
+        <span class="lg-showcase-num" data-en="02 — FULL COURSE PER TOPIC">02 — CURS COMPLET PE SUBIECT</span>
+        <h2 data-en="Watch, listen, map — then test yourself">Privește, ascultă, vizualizează — apoi testează-te</h2>
+        <p data-en="Every topic is a complete mini-course. Prefer to watch? There's a video lesson. On the move? Press play on the podcast. Need the big picture? Open the mind map. Then take the quiz to lock it in.">Fiecare subiect este un mini-curs complet. Preferi să privești? Există o lecție video. Ești în mișcare? Pornește podcastul. Ai nevoie de imaginea de ansamblu? Deschide harta mentală. Apoi rezolvă testul pentru a fixa cunoștințele.</p>
         <ul class="lg-showcase-list">
-          <li><i class="fas fa-video"></i> A narrated video lesson for nearly every topic</li>
-          <li><i class="fas fa-headphones"></i> Audio podcasts to learn hands-free</li>
-          <li><i class="fas fa-diagram-project"></i> Visual mind maps that connect the concepts</li>
+          <li><i class="fas fa-video"></i> <span data-en="A narrated video lesson for nearly every topic">O lecție video narată pentru aproape fiecare subiect</span></li>
+          <li><i class="fas fa-headphones"></i> <span data-en="Audio podcasts to learn hands-free">Podcasturi audio pentru a învăța fără mâini</span></li>
+          <li><i class="fas fa-diagram-project"></i> <span data-en="Visual mind maps that connect the concepts">Hărți mentale vizuale care leagă conceptele</span></li>
         </ul>
       </div>
     </div>
@@ -753,28 +790,28 @@
   <!-- Media stats -->
   <section class="lg-media">
     <div class="lg-section-header" data-aos="fade-up">
-      <span class="lg-eyebrow">Multimedia library</span>
-      <h2>It's not just quizzes — it's a whole course</h2>
-      <p>Nearly all of the 521 topics ship with their own podcast, video lesson and mind map. That's a multimedia legal library most platforms simply don't have.</p>
+      <span class="lg-eyebrow" data-en="Multimedia library">Bibliotecă multimedia</span>
+      <h2 data-en="It's not just quizzes — it's a whole course">Nu sunt doar teste — este un curs întreg</h2>
+      <p data-en="Nearly all of the 521 topics ship with their own podcast, video lesson and mind map. That's a multimedia legal library most platforms simply don't have.">Aproape toate cele 521 de subiecte vin cu propriul podcast, lecție video și hartă mentală. Este o bibliotecă juridică multimedia pe care majoritatea platformelor pur și simplu nu o au.</p>
     </div>
     <div class="lg-media-stats">
       <div class="lg-media-card" data-aos="fade-up" data-aos-delay="0">
         <i class="fas fa-headphones-simple"></i>
         <div class="lg-stat-num" data-count="478">478</div>
-        <h3>Podcasts</h3>
-        <p>Listen to a topic explained, anywhere</p>
+        <h3 data-en="Podcasts">Podcasturi</h3>
+        <p data-en="Listen to a topic explained, anywhere">Ascultă explicația unui subiect, oriunde</p>
       </div>
       <div class="lg-media-card" data-aos="fade-up" data-aos-delay="80">
         <i class="fas fa-clapperboard"></i>
         <div class="lg-stat-num" data-count="477">477</div>
-        <h3>Video lessons</h3>
-        <p>Watch the concepts come to life</p>
+        <h3 data-en="Video lessons">Lecții video</h3>
+        <p data-en="Watch the concepts come to life">Privește cum prind viață conceptele</p>
       </div>
       <div class="lg-media-card" data-aos="fade-up" data-aos-delay="160">
         <i class="fas fa-diagram-project"></i>
         <div class="lg-stat-num" data-count="470">470</div>
-        <h3>Mind maps</h3>
-        <p>See how everything connects</p>
+        <h3 data-en="Mind maps">Hărți mentale</h3>
+        <p data-en="See how everything connects">Vezi cum se leagă totul</p>
       </div>
     </div>
   </section>
@@ -785,18 +822,18 @@
       <div class="lg-showcase-media">
         <div class="lg-device">
           <div class="lg-device-screen">
-            <img src="legalia-app/quiz-feedback.jpg" alt="Quiz answer with explanation" width="588" height="1040" loading="lazy">
+            <img src="legalia-app/quiz-feedback.jpg" alt="Răspuns de test cu explicație" width="588" height="1040" loading="lazy">
           </div>
         </div>
       </div>
       <div class="lg-showcase-text">
-        <span class="lg-showcase-num">03 — LEARN BY DOING</span>
-        <h2>Quizzes that explain, not just grade</h2>
-        <p>Stuck on a question? Tap for a hint. Got it wrong? Legalia shows you the correct answer <em>and</em> the reasoning — often citing the exact article — so you understand the law instead of memorising it.</p>
+        <span class="lg-showcase-num" data-en="03 — LEARN BY DOING">03 — ÎNVAȚĂ PRIN PRACTICĂ</span>
+        <h2 data-en="Quizzes that explain, not just grade">Teste care explică, nu doar notează</h2>
+        <p data-en="Stuck on a question? Tap for a hint. Got it wrong? Legalia shows you the correct answer <em>and</em> the reasoning — often citing the exact article — so you understand the law instead of memorising it.">Te-ai blocat la o întrebare? Apasă pentru un indiciu. Ai greșit? Legalia îți arată răspunsul corect <em>și</em> raționamentul — adesea citând articolul exact — astfel încât să înțelegi legea în loc să o memorezi.</p>
         <ul class="lg-showcase-list">
-          <li><i class="fas fa-lightbulb"></i> On-demand hints for tricky questions</li>
-          <li><i class="fas fa-circle-check"></i> Per-answer explanations grounded in the legislation</li>
-          <li><i class="fas fa-list-check"></i> 6,972 curated questions with 25,535 answer options</li>
+          <li><i class="fas fa-lightbulb"></i> <span data-en="On-demand hints for tricky questions">Indicii la cerere pentru întrebările dificile</span></li>
+          <li><i class="fas fa-circle-check"></i> <span data-en="Per-answer explanations grounded in the legislation">Explicații pentru fiecare răspuns, bazate pe legislație</span></li>
+          <li><i class="fas fa-list-check"></i> <span data-en="6,972 curated questions with 25,535 answer options">6.972 de întrebări selectate cu 25.535 de opțiuni de răspuns</span></li>
         </ul>
       </div>
     </div>
@@ -808,18 +845,18 @@
       <div class="lg-showcase-media">
         <div class="lg-device">
           <div class="lg-device-screen">
-            <img src="legalia-app/quiz-result.jpg" alt="Quiz result with XP and streak" width="588" height="1040" loading="lazy">
+            <img src="legalia-app/quiz-result.jpg" alt="Rezultat de test cu XP și serie" width="588" height="1040" loading="lazy">
           </div>
         </div>
       </div>
       <div class="lg-showcase-text">
-        <span class="lg-showcase-num">04 — STAY MOTIVATED</span>
-        <h2>Earn XP. Build streaks. Keep going.</h2>
-        <p>Every completed quiz rewards XP, tracks your time and feeds your daily streak. Small wins add up — and unlock achievements that keep you coming back.</p>
+        <span class="lg-showcase-num" data-en="04 — STAY MOTIVATED">04 — RĂMÂI MOTIVAT</span>
+        <h2 data-en="Earn XP. Build streaks. Keep going.">Câștigă XP. Construiește serii. Continuă.</h2>
+        <p data-en="Every completed quiz rewards XP, tracks your time and feeds your daily streak. Small wins add up — and unlock achievements that keep you coming back.">Fiecare test finalizat îți aduce XP, îți urmărește timpul și îți alimentează seria zilnică. Micile victorii se adună — și deblochează realizări care te aduc înapoi.</p>
         <ul class="lg-showcase-list">
-          <li><i class="fas fa-bolt"></i> XP for every quiz and milestone</li>
-          <li><i class="fas fa-fire"></i> Daily streaks that build a study habit</li>
-          <li><i class="fas fa-medal"></i> Achievements to unlock as you progress</li>
+          <li><i class="fas fa-bolt"></i> <span data-en="XP for every quiz and milestone">XP pentru fiecare test și etapă atinsă</span></li>
+          <li><i class="fas fa-fire"></i> <span data-en="Daily streaks that build a study habit">Serii zilnice care construiesc un obicei de studiu</span></li>
+          <li><i class="fas fa-medal"></i> <span data-en="Achievements to unlock as you progress">Realizări de deblocat pe măsură ce avansezi</span></li>
         </ul>
       </div>
     </div>
@@ -831,18 +868,18 @@
       <div class="lg-showcase-media">
         <div class="lg-device">
           <div class="lg-device-screen">
-            <img src="legalia-app/leaderboard.jpg" alt="Legalia leaderboard" width="588" height="1040" loading="lazy">
+            <img src="legalia-app/leaderboard.jpg" alt="Clasamentul Legalia" width="588" height="1040" loading="lazy">
           </div>
         </div>
       </div>
       <div class="lg-showcase-text">
-        <span class="lg-showcase-num">05 — FRIENDLY COMPETITION</span>
-        <h2>Climb the leaderboard</h2>
-        <p>Learning is more fun together. See how you rank against everyone, just your friends, or other universities — and let a little rivalry push you further.</p>
+        <span class="lg-showcase-num" data-en="05 — FRIENDLY COMPETITION">05 — COMPETIȚIE PRIETENOASĂ</span>
+        <h2 data-en="Climb the leaderboard">Urcă în clasament</h2>
+        <p data-en="Learning is more fun together. See how you rank against everyone, just your friends, or other universities — and let a little rivalry push you further.">Învățatul e mai distractiv împreună. Vezi cum te clasezi față de toți ceilalți, doar prietenii tăi sau alte universități — și lasă o mică rivalitate să te împingă mai departe.</p>
         <ul class="lg-showcase-list">
-          <li><i class="fas fa-globe"></i> Global, friends-only and university rankings</li>
-          <li><i class="fas fa-trophy"></i> A live podium for the top performers</li>
-          <li><i class="fas fa-building-columns"></i> Represent your university on the board</li>
+          <li><i class="fas fa-globe"></i> <span data-en="Global, friends-only and university rankings">Clasamente globale, doar pentru prieteni și pe universități</span></li>
+          <li><i class="fas fa-trophy"></i> <span data-en="A live podium for the top performers">Un podium în timp real pentru cei mai buni</span></li>
+          <li><i class="fas fa-building-columns"></i> <span data-en="Represent your university on the board">Reprezintă-ți universitatea în clasament</span></li>
         </ul>
       </div>
     </div>
@@ -854,18 +891,18 @@
       <div class="lg-showcase-media">
         <div class="lg-device">
           <div class="lg-device-screen">
-            <img src="legalia-app/duel.jpg" alt="Challenge a friend to a duel" width="588" height="1040" loading="lazy">
+            <img src="legalia-app/duel.jpg" alt="Provoacă un prieten la un duel" width="588" height="1040" loading="lazy">
           </div>
         </div>
       </div>
       <div class="lg-showcase-text">
-        <span class="lg-showcase-num">06 — SOCIAL LEARNING</span>
-        <h2>Add friends &amp; challenge them to a duel<span class="lg-pill">NEW</span></h2>
-        <p>Send friend requests, build your study circle, then go head-to-head in a real-time quiz duel. Nothing sharpens your knowledge like beating a classmate to the right answer.</p>
+        <span class="lg-showcase-num" data-en="06 — SOCIAL LEARNING">06 — ÎNVĂȚARE SOCIALĂ</span>
+        <h2 data-en="Add friends &amp; challenge them to a duel<span class=&quot;lg-pill&quot;>NEW</span>">Adaugă prieteni și provoacă-i la un duel<span class="lg-pill">NOU</span></h2>
+        <p data-en="Send friend requests, build your study circle, then go head-to-head in a real-time quiz duel. Nothing sharpens your knowledge like beating a classmate to the right answer.">Trimite cereri de prietenie, construiește-ți cercul de studiu, apoi confruntă-te direct într-un duel de test în timp real. Nimic nu-ți ascute cunoștințele mai bine decât să-l întreci pe un coleg la răspunsul corect.</p>
         <ul class="lg-showcase-list">
-          <li><i class="fas fa-user-plus"></i> Friend requests with accept &amp; decline</li>
-          <li><i class="fas fa-bolt"></i> 1-on-1 quiz duels against your friends</li>
-          <li><i class="fas fa-users"></i> A friends-only leaderboard to settle the score</li>
+          <li><i class="fas fa-user-plus"></i> <span data-en="Friend requests with accept &amp; decline">Cereri de prietenie cu acceptare și refuz</span></li>
+          <li><i class="fas fa-bolt"></i> <span data-en="1-on-1 quiz duels against your friends">Dueluri de test 1 la 1 cu prietenii tăi</span></li>
+          <li><i class="fas fa-users"></i> <span data-en="A friends-only leaderboard to settle the score">Un clasament doar pentru prieteni, ca să stabiliți cine câștigă</span></li>
         </ul>
       </div>
     </div>
@@ -877,18 +914,18 @@
       <div class="lg-showcase-media">
         <div class="lg-device">
           <div class="lg-device-screen">
-            <img src="legalia-app/progress.jpg" alt="Progress and statistics" width="588" height="1040" loading="lazy">
+            <img src="legalia-app/progress.jpg" alt="Progres și statistici" width="588" height="1040" loading="lazy">
           </div>
         </div>
       </div>
       <div class="lg-showcase-text">
-        <span class="lg-showcase-num">07 — KNOW YOUR PROGRESS</span>
-        <h2>See exactly where you stand</h2>
-        <p>Detailed statistics turn study into insight: track your accuracy, daily activity, completed quizzes and your strongest disciplines — so you always know what to revise next.</p>
+        <span class="lg-showcase-num" data-en="07 — KNOW YOUR PROGRESS">07 — CUNOAȘTE-ȚI PROGRESUL</span>
+        <h2 data-en="See exactly where you stand">Vezi exact unde te afli</h2>
+        <p data-en="Detailed statistics turn study into insight: track your accuracy, daily activity, completed quizzes and your strongest disciplines — so you always know what to revise next.">Statisticile detaliate transformă studiul în înțelegere: urmărește-ți acuratețea, activitatea zilnică, testele finalizate și disciplinele tale cele mai puternice — ca să știi mereu ce să revizuiești în continuare.</p>
         <ul class="lg-showcase-list">
-          <li><i class="fas fa-chart-line"></i> Accuracy, XP and streaks over time</li>
-          <li><i class="fas fa-calendar-check"></i> Daily activity charts</li>
-          <li><i class="fas fa-ranking-star"></i> Per-discipline performance breakdown</li>
+          <li><i class="fas fa-chart-line"></i> <span data-en="Accuracy, XP and streaks over time">Acuratețe, XP și serii în timp</span></li>
+          <li><i class="fas fa-calendar-check"></i> <span data-en="Daily activity charts">Grafice de activitate zilnică</span></li>
+          <li><i class="fas fa-ranking-star"></i> <span data-en="Per-discipline performance breakdown">Defalcarea performanței pe discipline</span></li>
         </ul>
       </div>
     </div>
@@ -897,40 +934,40 @@
   <!-- Feature grid (the rest) -->
   <section class="lg-features">
     <div class="lg-section-header" data-aos="fade-up">
-      <span class="lg-eyebrow">And more</span>
-      <h2>Everything else you'd expect</h2>
-      <p>Thoughtful details that make studying with Legalia feel effortless.</p>
+      <span class="lg-eyebrow" data-en="And more">Și mai mult</span>
+      <h2 data-en="Everything else you'd expect">Tot ce te-ai aștepta să găsești</h2>
+      <p data-en="Thoughtful details that make studying with Legalia feel effortless.">Detalii gândite cu grijă, care fac studiul cu Legalia să pară lipsit de efort.</p>
     </div>
     <div class="lg-features-grid">
       <div class="lg-feature-card" data-aos="fade-up" data-aos-delay="0">
         <div class="lg-feature-icon"><i class="fas fa-file-signature"></i></div>
-        <h3>Exam mode</h3>
-        <p>Timed, full-length exam simulations to test yourself under real conditions.</p>
+        <h3 data-en="Exam mode">Mod examen</h3>
+        <p data-en="Timed, full-length exam simulations to test yourself under real conditions.">Simulări de examen cronometrate, în format complet, ca să te testezi în condiții reale.</p>
       </div>
       <div class="lg-feature-card" data-aos="fade-up" data-aos-delay="80">
         <div class="lg-feature-icon"><i class="fas fa-shuffle"></i></div>
-        <h3>Random quiz</h3>
-        <p>1,600+ rapid-fire questions drawn from across every discipline for quick practice.</p>
+        <h3 data-en="Random quiz">Test aleatoriu</h3>
+        <p data-en="1,600+ rapid-fire questions drawn from across every discipline for quick practice.">1.600+ întrebări rapide extrase din toate disciplinele, pentru exersare rapidă.</p>
       </div>
       <div class="lg-feature-card" data-aos="fade-up" data-aos-delay="160">
         <div class="lg-feature-icon"><i class="fas fa-bell"></i></div>
-        <h3>Smart reminders</h3>
-        <p>Optional study notifications that keep your streak — and your habit — alive.</p>
+        <h3 data-en="Smart reminders">Memento-uri inteligente</h3>
+        <p data-en="Optional study notifications that keep your streak — and your habit — alive.">Notificări opționale de studiu care îți păstrează seria — și obiceiul — în viață.</p>
       </div>
       <div class="lg-feature-card" data-aos="fade-up" data-aos-delay="0">
         <div class="lg-feature-icon"><i class="fas fa-circle-half-stroke"></i></div>
-        <h3>Light &amp; dark theme</h3>
-        <p>A clean, calm interface that adapts to however you like to read.</p>
+        <h3 data-en="Light &amp; dark theme">Temă deschisă și întunecată</h3>
+        <p data-en="A clean, calm interface that adapts to however you like to read.">O interfață curată și calmă, care se adaptează la felul în care îți place să citești.</p>
       </div>
       <div class="lg-feature-card" data-aos="fade-up" data-aos-delay="80">
         <div class="lg-feature-icon"><i class="fas fa-language"></i></div>
-        <h3>Multilingual</h3>
-        <p>Built for the Moldovan market with full Romanian-language content.</p>
+        <h3 data-en="Multilingual">Multilingv</h3>
+        <p data-en="Built for the Moldovan market with full Romanian-language content.">Construit pentru piața din Moldova, cu conținut integral în limba română.</p>
       </div>
       <div class="lg-feature-card" data-aos="fade-up" data-aos-delay="160">
         <div class="lg-feature-icon"><i class="fas fa-mobile-screen-button"></i></div>
-        <h3>Native iOS &amp; Android</h3>
-        <p>A fast, native app experience with sound effects and haptic feedback.</p>
+        <h3 data-en="Native iOS &amp; Android">Native iOS și Android</h3>
+        <p data-en="A fast, native app experience with sound effects and haptic feedback.">O experiență rapidă, nativă, cu efecte sonore și feedback haptic.</p>
       </div>
     </div>
   </section>
@@ -938,8 +975,8 @@
   <!-- CTA -->
   <section class="lg-cta">
     <div class="lg-cta-inner" data-aos="fade-up">
-      <h2>Ready to learn law the smart way?</h2>
-      <p>Download Legalia and turn 521 topics, thousands of questions and a full multimedia library into a study habit you'll actually enjoy.</p>
+      <h2 data-en="Ready to learn law the smart way?">Pregătit să înveți dreptul în mod inteligent?</h2>
+      <p data-en="Download Legalia and turn 521 topics, thousands of questions and a full multimedia library into a study habit you'll actually enjoy.">Descarcă Legalia și transformă 521 de subiecte, mii de întrebări și o bibliotecă multimedia completă într-un obicei de studiu de care chiar te vei bucura.</p>
       <div class="lg-hero-actions">
         <a href="#" class="lg-btn-primary"><i class="fab fa-app-store-ios"></i> App Store</a>
         <a href="#" class="lg-btn-primary" style="background: linear-gradient(135deg, #8752FA, #591EF3);"><i class="fab fa-google-play"></i> Google Play</a>
@@ -958,17 +995,17 @@
           </a>
         </div>
         <div class="footer-info">
-          <p>&copy; 2026 Applexium. All Rights Reserved.</p>
+          <p>&copy; <span class="footer-year">2026</span> Applexium. <span data-en="All Rights Reserved.">Toate drepturile rezervate.</span></p>
         </div>
       </div>
 
       <div class="footer-legal">
-        <a href="terms-and-conditions"><i class="fas fa-file-contract"></i> Terms & Conditions</a>
-        <a href="privacy-policy"><i class="fas fa-shield-halved"></i> Privacy Policy</a>
-        <a href="cookie-policy"><i class="fas fa-cookie-bite"></i> Cookie Policy</a>
-        <a href="ai-ethics"><i class="fas fa-brain"></i> AI Ethics Statement</a>
-        <a href="accessibility"><i class="fas fa-universal-access"></i> Accessibility Statement</a>
-        <a href="esg"><i class="fas fa-leaf"></i> ESG Statement</a>
+        <a href="terms-and-conditions"><i class="fas fa-file-contract"></i> <span data-en="Terms &amp; Conditions">Termeni și condiții</span></a>
+        <a href="privacy-policy"><i class="fas fa-shield-halved"></i> <span data-en="Privacy Policy">Politica de confidențialitate</span></a>
+        <a href="cookie-policy"><i class="fas fa-cookie-bite"></i> <span data-en="Cookie Policy">Politica de cookie-uri</span></a>
+        <a href="ai-ethics"><i class="fas fa-brain"></i> <span data-en="AI Ethics Statement">Declarație de etică AI</span></a>
+        <a href="accessibility"><i class="fas fa-universal-access"></i> <span data-en="Accessibility Statement">Declarație de accesibilitate</span></a>
+        <a href="esg"><i class="fas fa-leaf"></i> <span data-en="ESG Statement">Declarație ESG</span></a>
       </div>
     </div>
   </footer>
@@ -1009,5 +1046,8 @@
       nums.forEach(function (el) { io.observe(el); });
     })();
   </script>
+
+  <!-- Bilingual engine (RO default / EN alternative) -->
+  <script src="i18n.js"></script>
 </body>
 </html>

@@ -356,6 +356,84 @@ body::after {
 }
 
 /* ===========================
+   Language Switcher (RO / EN)
+   =========================== */
+.nav-links {
+    /* keep links + actions clustered on the right; logo stays on the left */
+    margin-left: auto;
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    margin-left: 2.5rem;
+}
+
+.lang-switch {
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+    padding: 3px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 9999px;
+    background: rgba(255, 255, 255, 0.05);
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+}
+
+.lang-btn {
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.6);
+    font-family: 'Questrial', 'Century Gothic', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    line-height: 1;
+    padding: 5px 11px;
+    border-radius: 9999px;
+    cursor: pointer;
+    transition: color 0.25s ease, background 0.25s ease;
+}
+
+.lang-btn:hover {
+    color: #ffffff;
+}
+
+.lang-btn:focus-visible {
+    outline: 2px solid var(--lang-accent, #245EFE);
+    outline-offset: 2px;
+}
+
+/* Active state is driven by html[data-lang] (set by an inline <head> script
+   before paint) so the correct language is highlighted with no flash. */
+html[data-lang="ro"] .lang-btn[data-lang-switch="ro"],
+html[data-lang="en"] .lang-btn[data-lang-switch="en"] {
+    background: var(--lang-accent, #245EFE);
+    color: #ffffff;
+}
+
+@media (max-width: 1023px) {
+    .nav-actions {
+        margin-left: 0;
+        gap: 0.6rem;
+        z-index: 1002; /* stay above the fullscreen nav overlay */
+    }
+
+    .lang-switch {
+        padding: 2px;
+    }
+
+    .lang-btn {
+        font-size: 0.72rem;
+        padding: 5px 9px;
+    }
+}
+
+/* ===========================
    Hero Section
    =========================== */
 .hero {
@@ -1057,6 +1135,20 @@ body::after {
 
 .portfolio-logo.logo-rounded {
     border-radius: 16px;
+}
+
+/* DARE-EU logo — enlarged within the 200px preview (×1.1 hover still fits) */
+.portfolio-logo.logo-dare {
+    max-width: 290px;
+    max-height: 178px;
+    padding: 8px 14px;
+}
+
+/* EUROBRIDGE UA MD — wide EU-funded lockup, sized for legibility */
+.portfolio-logo.logo-eurobridge {
+    max-width: 290px;
+    max-height: 150px;
+    padding: 10px 16px;
 }
 
 .portfolio-icon {

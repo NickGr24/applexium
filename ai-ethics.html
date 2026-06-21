@@ -1,16 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ro">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI Ethics Statement | Applexium</title>
-  <meta name="description" content="AI Ethics and Responsible AI Statement by Applexium">
+  <!-- Set language before paint (from ?lang= or localStorage) to avoid a flash -->
+  <script>(function(){try{var l=new URLSearchParams(location.search).get('lang')||localStorage.getItem('applexium-lang');document.documentElement.setAttribute('data-lang',l==='en'?'en':'ro');if(l==='en'){document.documentElement.lang='en';}}catch(e){document.documentElement.setAttribute('data-lang','ro');}})();</script>
+
+  <title data-en="AI Ethics Statement | Applexium">Declarație de etică AI | Applexium</title>
+  <meta name="description" content="Declarație privind principiile etice și utilizarea responsabilă a inteligenței artificiale de către Applexium">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Declarație de etică AI | Applexium">
+  <meta property="og:description" content="Declarație privind principiile etice și utilizarea responsabilă a inteligenței artificiale de către Applexium">
+  <meta property="og:locale" content="ro_RO">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta name="twitter:title" content="Declarație de etică AI | Applexium">
+  <meta name="twitter:description" content="Declarație privind principiile etice și utilizarea responsabilă a inteligenței artificiale de către Applexium">
   <link rel="icon" href="favicon.ico" sizes="48x48">
   <link rel="icon" type="image/svg+xml" href="logo-icon.svg">
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Questrial&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="style.css">
+
+  <!-- Structured data: WebPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://applexium.com/ai-ethics#webpage",
+    "url": "https://applexium.com/ai-ethics",
+    "name": "Declarație de etică AI | Applexium",
+    "description": "Declarație privind principiile etice și utilizarea responsabilă a inteligenței artificiale de către Applexium.",
+    "inLanguage": "ro",
+    "publisher": {
+      "@type": "Organization",
+      "@id": "https://applexium.com/#organization",
+      "name": "Applexium",
+      "url": "https://applexium.com/"
+    }
+  }
+  </script>
 </head>
 <body>
   <div class="legal-page">
@@ -21,94 +50,95 @@
           <span class="logo-text">Applexium</span>
         </a>
       </div>
-      <button class="mobile-menu-toggle" aria-label="Toggle menu">
-        <span></span><span></span><span></span>
-      </button>
       <div class="nav-links">
-        <a href="/#capabilities">Services</a>
-        <a href="/#products">Solutions</a>
-        <a href="/#portfolio">Portfolio</a>
-        <a href="team">Team</a>
-        <a href="contacts">Contact</a>
+        <a href="/#capabilities" data-en="Services">Servicii</a>
+        <a href="/#products" data-en="Solutions">Soluții</a>
+        <a href="/#portfolio" data-en="Portfolio">Portofoliu</a>
+        <a href="team" data-en="Team">Echipă</a>
+        <a href="contacts" data-en="Contact">Contact</a>
+      </div>
+      <div class="nav-actions">
+        <div class="lang-switch" role="group" aria-label="Schimbă limba" data-en-aria-label="Change language">
+          <button type="button" class="lang-btn" data-lang-switch="ro" aria-pressed="true">RO</button>
+          <button type="button" class="lang-btn" data-lang-switch="en" aria-pressed="false">EN</button>
+        </div>
+        <button class="mobile-menu-toggle" aria-label="Comută meniul" data-en-aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
       </div>
     </nav>
 
     <section class="legal-hero">
       <div class="legal-hero-icon"><i class="fas fa-brain"></i></div>
-      <h1>AI Ethics Statement</h1>
-      <p class="legal-subtitle">Declarație privind Principiile Etice și Utilizarea Responsabilă a IA</p>
-      <p class="legal-version">Version 1.0 &bull; April 2026</p>
+      <h1 data-en="AI Ethics Statement">Declarație de etică AI</h1>
+      <p class="legal-subtitle" data-en="Statement on Ethical Principles and the Responsible Use of AI">Declarație privind principiile etice și utilizarea responsabilă a IA</p>
+      <p class="legal-version" data-en="Version 1.0 &bull; April 2026">Versiunea 1.0 &bull; Aprilie 2026</p>
     </section>
 
-    <div class="legal-lang-toggle">
-      <button class="legal-lang-btn active" data-lang="ro">Română</button>
-      <button class="legal-lang-btn" data-lang="en">English</button>
-    </div>
-
     <div class="legal-content-wrap">
-      <div class="legal-content active" id="content-ro">
+      <div class="legal-content active">
 <div class="legal-info-box">
-  <p>Emis de: SRL SCALELAW SOLUTIONS  |  Brand: Applexium</p>
+  <p data-en="Issued by: SRL SCALELAW SOLUTIONS  |  Brand: Applexium">Emis de: SRL SCALELAW SOLUTIONS  |  Brand: Applexium</p>
   <p>Director: Mircea Ursu  |  <a href="mailto:info@applexium.com">info@applexium.com</a>  |  +373 78 76 87 65</p>
-  <p>Cadru de referință: EU AI Act (Reg. UE 2024/1689)  |  Ghiduri OCDE privind IA  |  UNESCO Rec. on AI Ethics</p>
+  <p data-en="Reference framework: EU AI Act (Reg. UE 2024/1689)  |  OECD AI Guidelines  |  UNESCO Rec. on AI Ethics">Cadru de referință: EU AI Act (Reg. UE 2024/1689)  |  Ghiduri OCDE privind IA  |  UNESCO Rec. on AI Ethics</p>
 </div>
 <div class="legal-info-box">
-  <p>Applexium oferă servicii de AI Act Advisory și AI Governance clienților săi. Acest lucru înseamnă că îi ajutăm pe alții să construiască sisteme de inteligență artificială responsabile, conforme și etice.</p>
-  <p>Clienții care vin la noi pentru AI governance au dreptul să știe cum gândim noi înșine despre IA. Nu poți consilia pe alții să respecte principii pe care tu nu le-ai definit și nu le aplici. Această declarație nu este un document de PR — este poziția noastră instituțională, asumată, aplicată și revizuită periodic.</p>
-  <p>Ea stă la baza oricărui proiect care implică inteligența artificială, fie că îl construim, fie că îl audităm.</p>
+  <p data-en="Applexium provides AI Act Advisory and AI Governance services to its clients. This means we help others build responsible, compliant and ethical artificial intelligence systems.">Applexium oferă servicii de AI Act Advisory și AI Governance clienților săi. Acest lucru înseamnă că îi ajutăm pe alții să construiască sisteme de inteligență artificială responsabile, conforme și etice.</p>
+  <p data-en="Clients who come to us for AI governance have the right to know how we ourselves think about AI. You cannot advise others to follow principles that you have not defined and do not apply. This statement is not a PR document — it is our institutional position, assumed, applied and periodically reviewed.">Clienții care vin la noi pentru AI governance au dreptul să știe cum gândim noi înșine despre IA. Nu poți consilia pe alții să respecte principii pe care tu nu le-ai definit și nu le aplici. Această declarație nu este un document de PR — este poziția noastră instituțională, asumată, aplicată și revizuită periodic.</p>
+  <p data-en="It forms the foundation of every project involving artificial intelligence, whether we build it or audit it.">Ea stă la baza oricărui proiect care implică inteligența artificială, fie că îl construim, fie că îl audităm.</p>
 </div>
 <div class="legal-section">
   <div class="legal-section-num">Section 1</div>
-  <h2>Contextul: EU AI Act și de ce contează</h2>
-  <p>Regulamentul (UE) 2024/1689 — cunoscut sub denumirea de EU AI Act — reprezintă primul cadru legal cuprinzător din lume dedicat reglementării sistemelor de inteligență artificială. Aplicat gradual începând cu 2024 și cu efect deplin din 2026, acesta stabilește:</p>
-  <ul><li>O clasificare a sistemelor AI pe niveluri de risc (inacceptabil, ridicat, limitat, minimal);</li>
-<li>Obligații clare pentru dezvoltatori, furnizori și operatori de sisteme AI;</li>
-<li>Cerințe de transparență, documentare și supraveghere umană;</li></ul>
-  <p>Sancțiuni de până la 35.000.000 EUR sau 7% din cifra de afaceri globală anuală.</p>
+  <h2 data-en="EU AI Act and Why It Matters">Contextul: EU AI Act și de ce contează</h2>
+  <p data-en="Regulamentul (UE) 2024/1689 — known as the EU AI Act — is the world's first comprehensive legal framework dedicated to regulating artificial intelligence systems. Gradually applied starting in 2024 and fully effective from 2026, it establishes:">Regulamentul (UE) 2024/1689 — cunoscut sub denumirea de EU AI Act — reprezintă primul cadru legal cuprinzător din lume dedicat reglementării sistemelor de inteligență artificială. Aplicat gradual începând cu 2024 și cu efect deplin din 2026, acesta stabilește:</p>
+  <ul><li data-en="A classification of AI systems by risk levels (unacceptable, high, limited, minimal);">O clasificare a sistemelor AI pe niveluri de risc (inacceptabil, ridicat, limitat, minimal);</li>
+<li data-en="Clear obligations for developers, providers and operators of AI systems;">Obligații clare pentru dezvoltatori, furnizori și operatori de sisteme AI;</li>
+<li data-en="Transparency, documentation and human oversight requirements;">Cerințe de transparență, documentare și supraveghere umană;</li></ul>
+  <p data-en="Penalties of up to EUR 35,000,000 or 7% of annual global turnover.">Sancțiuni de până la 35.000.000 EUR sau 7% din cifra de afaceri globală anuală.</p>
 <div class="legal-info-box">
-  <p>Poziția Applexium față de EU AI Act</p>
-  <p>Applexium tratează EU AI Act ca pe un cadru de calitate — un set de standarde care protejează utilizatorii finali și cresc încrederea în produsele digitale.</p>
-  <p>Oferim servicii de AI Act Advisory tocmai pentru că credem că reglementarea inteligentă a IA este necesară și benefică. Această declarație este dovada că practicăm ceea ce predicăm.</p>
+  <p data-en="Applexium's position on the EU AI Act">Poziția Applexium față de EU AI Act</p>
+  <p data-en="Applexium treats the EU AI Act as a quality framework — a set of standards that protects end users and increases trust in digital products.">Applexium tratează EU AI Act ca pe un cadru de calitate — un set de standarde care protejează utilizatorii finali și cresc încrederea în produsele digitale.</p>
+  <p data-en="We offer AI Act Advisory services precisely because we believe that intelligent regulation of AI is necessary and beneficial. This statement is proof that we practice what we preach.">Oferim servicii de AI Act Advisory tocmai pentru că credem că reglementarea inteligentă a IA este necesară și benefică. Această declarație este dovada că practicăm ceea ce predicăm.</p>
 </div>
 </div>
 
 <div class="legal-section">
   <div class="legal-section-num">Section 2</div>
-  <h2>Principiile noastre de IA responsabilă</h2>
-  <p>Toate activitățile Applexium care implică inteligența artificială — fie că dezvoltăm, integrăm sau consiliem — se ghidează după următoarele principii fundamentale:</p>
+  <h2 data-en="Our Responsible AI Principles">Principiile noastre de IA responsabilă</h2>
+  <p data-en="All Applexium activities involving artificial intelligence — whether we develop, integrate or advise — are guided by the following fundamental principles:">Toate activitățile Applexium care implică inteligența artificială — fie că dezvoltăm, integrăm sau consiliem — se ghidează după următoarele principii fundamentale:</p>
 <div style="overflow-x:auto;margin-bottom:24px;">
 <table class="legal-table">
   <tr>
-    <th>1. Transparență</th>
-    <th>Utilizatorii trebuie să știe când interacționează cu un sistem AI. Nu construim sisteme AI care se pretind a fi umane fără consimțământul utilizatorului. Deciziile automatizate trebuie să poată fi explicate.</th>
+    <th data-en="1. Transparency">1. Transparență</th>
+    <th data-en="Users must know when they are interacting with an AI system. We do not build AI systems that pretend to be human without the user's consent. Automated decisions must be explainable.">Utilizatorii trebuie să știe când interacționează cu un sistem AI. Nu construim sisteme AI care se pretind a fi umane fără consimțământul utilizatorului. Deciziile automatizate trebuie să poată fi explicate.</th>
   </tr>
   <tr>
-    <td>2. Echitate și non-discriminare</td>
-    <td>Sistemele AI pe care le construim sunt testate pentru bias și discriminare. Nu construim și nu consiliem sisteme care tratează diferit persoanele pe baza rasei, genului, originii, religiei sau altor caracteristici protejate.</td>
+    <td data-en="2. Fairness and Non-Discrimination">2. Echitate și non-discriminare</td>
+    <td data-en="The AI systems we build are tested for bias and discrimination. We do not build or advise on systems that treat people differently based on race, gender, origin, religion or other protected characteristics.">Sistemele AI pe care le construim sunt testate pentru bias și discriminare. Nu construim și nu consiliem sisteme care tratează diferit persoanele pe baza rasei, genului, originii, religiei sau altor caracteristici protejate.</td>
   </tr>
   <tr>
-    <td>3. Supraveghere umană</td>
-    <td>Niciun sistem AI cu impact semnificativ asupra drepturilor sau deciziilor persoanelor fizice nu funcționează fără un mecanism de supraveghere și intervenție umană. Automatizarea nu înlocuiește responsabilitatea.</td>
+    <td data-en="3. Human Oversight">3. Supraveghere umană</td>
+    <td data-en="No AI system with significant impact on the rights or decisions of individuals operates without a mechanism for human oversight and intervention. Automation does not replace responsibility.">Niciun sistem AI cu impact semnificativ asupra drepturilor sau deciziilor persoanelor fizice nu funcționează fără un mecanism de supraveghere și intervenție umană. Automatizarea nu înlocuiește responsabilitatea.</td>
   </tr>
   <tr>
-    <td>4. Securitate și robustețe</td>
-    <td>Sistemele AI trebuie să funcționeze corect, inclusiv în condiții adverse. Testăm rezistența la atacuri adversariale, date corupte și erori de distribuție.</td>
+    <td data-en="4. Security and Robustness">4. Securitate și robustețe</td>
+    <td data-en="AI systems must function correctly, including under adverse conditions. We test resilience against adversarial attacks, corrupted data and distribution errors.">Sistemele AI trebuie să funcționeze corect, inclusiv în condiții adverse. Testăm rezistența la atacuri adversariale, date corupte și erori de distribuție.</td>
   </tr>
   <tr>
-    <td>5. Protecția datelor și a vieții private</td>
-    <td>Datele utilizate pentru antrenarea sau operarea sistemelor AI sunt prelucrate în conformitate cu GDPR și cadrul legal aplicabil. Minimizarea datelor este un principiu de design, nu o opțiune.</td>
+    <td data-en="5. Data and Privacy Protection">5. Protecția datelor și a vieții private</td>
+    <td data-en="Data used for training or operating AI systems is processed in compliance with GDPR and the applicable legal framework. Data minimization is a design principle, not an option.">Datele utilizate pentru antrenarea sau operarea sistemelor AI sunt prelucrate în conformitate cu GDPR și cadrul legal aplicabil. Minimizarea datelor este un principiu de design, nu o opțiune.</td>
   </tr>
   <tr>
-    <td>6. Responsabilitate</td>
-    <td>Fiecare sistem AI are un responsabil identificat. Știm în orice moment cine este operatorul, furnizorul și persoana de contact pentru orice sistem AI pe care îl livrăm sau îl consultăm.</td>
+    <td data-en="6. Accountability">6. Responsabilitate</td>
+    <td data-en="Every AI system has an identified responsible party. We know at all times who the operator, provider and contact person is for any AI system we deliver or consult on.">Fiecare sistem AI are un responsabil identificat. Știm în orice moment cine este operatorul, furnizorul și persoana de contact pentru orice sistem AI pe care îl livrăm sau îl consultăm.</td>
   </tr>
   <tr>
-    <td>7. Beneficiu social</td>
-    <td>Nu construim și nu consiliem sisteme AI al căror scop unic sau principal este să dăuneze, să manipuleze sau să exploateze persoane fizice sau grupuri vulnerabile.</td>
+    <td data-en="7. Social Benefit">7. Beneficiu social</td>
+    <td data-en="We do not build or advise on AI systems whose sole or primary purpose is to harm, manipulate or exploit individuals or vulnerable groups.">Nu construim și nu consiliem sisteme AI al căror scop unic sau principal este să dăuneze, să manipuleze sau să exploateze persoane fizice sau grupuri vulnerabile.</td>
   </tr>
   <tr>
-    <td>8. Durabilitate</td>
-    <td>Luăm în considerare impactul energetic și de mediu al sistemelor AI pe care le recomandăm sau construim. Eficiența computațională este parte din arhitectura responsabilă.</td>
+    <td data-en="8. Sustainability">8. Durabilitate</td>
+    <td data-en="We consider the energy and environmental impact of the AI systems we recommend or build. Computational efficiency is part of responsible architecture.">Luăm în considerare impactul energetic și de mediu al sistemelor AI pe care le recomandăm sau construim. Eficiența computațională este parte din arhitectura responsabilă.</td>
   </tr>
 </table>
 </div>
@@ -116,34 +146,34 @@
 
 <div class="legal-section">
   <div class="legal-section-num">Section 3</div>
-  <h2>Clasificarea riscurilor și abordarea noastră</h2>
-  <p>Applexium aplică taxonomia de risc a EU AI Act în evaluarea oricărui sistem AI, fie că îl construim pentru clienți, fie că îl audităm în cadrul serviciilor de AI Governance:</p>
+  <h2 data-en="Risk Classification and Our Approach">Clasificarea riscurilor și abordarea noastră</h2>
+  <p data-en="Applexium applies the EU AI Act risk taxonomy in evaluating any AI system, whether we build it for clients or audit it as part of AI Governance services:">Applexium aplică taxonomia de risc a EU AI Act în evaluarea oricărui sistem AI, fie că îl construim pentru clienți, fie că îl audităm în cadrul serviciilor de AI Governance:</p>
 <div style="overflow-x:auto;margin-bottom:24px;">
 <table class="legal-table">
   <tr>
-    <th>Clasa de risc</th>
-    <th>Exemple sisteme AI</th>
-    <th>Abordare Applexium</th>
+    <th data-en="Risk Class">Clasa de risc</th>
+    <th data-en="AI System Examples">Exemple sisteme AI</th>
+    <th data-en="Applexium's Approach">Abordare Applexium</th>
   </tr>
   <tr>
-    <td>RISC INACCEPTABIL</td>
-    <td>Scoring social, manipulare subliminală, identificare biometrică în spații publice în timp real (uz general)</td>
-    <td>REFUZĂM implicarea. Nu construim, nu consiliem, nu integrăm sisteme din această categorie, indiferent de client sau compensație financiară.</td>
+    <td data-en="UNACCEPTABLE RISK">RISC INACCEPTABIL</td>
+    <td data-en="Social scoring, subliminal manipulation, real-time biometric identification in public spaces (general use)">Scoring social, manipulare subliminală, identificare biometrică în spații publice în timp real (uz general)</td>
+    <td data-en="WE REFUSE involvement. We do not build, advise on or integrate systems in this category, regardless of the client or financial compensation.">REFUZĂM implicarea. Nu construim, nu consiliem, nu integrăm sisteme din această categorie, indiferent de client sau compensație financiară.</td>
   </tr>
   <tr>
-    <td>RISC RIDICAT</td>
-    <td>AI în educație, angajare, sănătate, infrastructură critică, justiție</td>
-    <td>Acceptăm cu diligență completă: evaluare de impact (DPIA + AI impact), documentație tehnică exhaustivă, supraveghere umană obligatorie, conformitate EU AI Act garantată contractual.</td>
+    <td data-en="HIGH RISK">RISC RIDICAT</td>
+    <td data-en="AI in education, employment, healthcare, critical infrastructure, justice">AI în educație, angajare, sănătate, infrastructură critică, justiție</td>
+    <td data-en="We accept with full due diligence: impact assessment (DPIA + AI impact), exhaustive technical documentation, mandatory human oversight, EU AI Act compliance contractually guaranteed.">Acceptăm cu diligență completă: evaluare de impact (DPIA + AI impact), documentație tehnică exhaustivă, supraveghere umană obligatorie, conformitate EU AI Act garantată contractual.</td>
   </tr>
   <tr>
-    <td>RISC LIMITAT</td>
-    <td>Chatboți, generatoare de conținut, sisteme de recomandare</td>
-    <td>Acceptăm cu obligații de transparență: utilizatorii sunt informați că interacționează cu IA, conținutul generat este marcat corespunzător.</td>
+    <td data-en="LIMITED RISK">RISC LIMITAT</td>
+    <td data-en="Chatbots, content generators, recommendation systems">Chatboți, generatoare de conținut, sisteme de recomandare</td>
+    <td data-en="We accept with transparency obligations: users are informed they are interacting with AI, generated content is appropriately labeled.">Acceptăm cu obligații de transparență: utilizatorii sunt informați că interacționează cu IA, conținutul generat este marcat corespunzător.</td>
   </tr>
   <tr>
-    <td>RISC MINIMAL</td>
-    <td>Filtre spam, jocuri, sisteme de analiză a datelor agregate</td>
-    <td>Acceptăm cu bune practici standard de securitate și protecția datelor.</td>
+    <td data-en="MINIMAL RISK">RISC MINIMAL</td>
+    <td data-en="Spam filters, games, aggregate data analysis systems">Filtre spam, jocuri, sisteme de analiză a datelor agregate</td>
+    <td data-en="We accept with standard security and data protection best practices.">Acceptăm cu bune practici standard de securitate și protecția datelor.</td>
   </tr>
 </table>
 </div>
@@ -151,309 +181,106 @@
 
 <div class="legal-section">
   <div class="legal-section-num">Section 4</div>
-  <h2>Cum aplicăm aceste principii în serviciile noastre</h2>
-  <h3>Când construim produse AI</h3>
-  <p>Pentru orice produs digital care include componente de inteligență artificială, Applexium integrează obligatoriu:</p>
-  <ul><li>Evaluarea clasei de risc AI Act încă din faza de discovery;</li>
-<li>Documentație tehnică conform Anexei IV a EU AI Act (pentru sisteme de risc ridicat);</li>
-<li>Fișă de sistem AI (AI System Card) — descriere transparentă a capacităților, limitelor și riscurilor;</li>
-<li>Mecanism de supraveghere și intervenție umană;</li>
-<li>Jurnal de audit al deciziilor automatizate (audit log);</li>
-<li>Testare pentru bias și discriminare înainte de lansare;</li></ul>
-  <p>Procedură de notificare a incidentelor de securitate AI.</p>
-  <h3>Când oferim AI Act Advisory</h3>
-  <p>Serviciile noastre de consultanță în AI Governance includ:</p>
-  <ul><li>Clasificarea sistemelor AI existente sau planificate pe niveluri de risc EU AI Act;</li>
-<li>Gap analysis față de cerințele EU AI Act pentru furnizori și operatori;</li>
-<li>Asistență la redactarea documentației tehnice obligatorii;</li>
-<li>Evaluarea Impactului asupra Protecției Datelor (DPIA) cu componentă AI;</li>
-<li>Conformity Assessment pentru sisteme de risc ridicat;</li>
-<li>Formare și training pentru echipele interne ale clienților;</li></ul>
-  <p>Suport la înregistrarea în baza de date EU AI (EU AI Database) unde este aplicabil.</p>
+  <h2 data-en="How We Apply These Principles in Our Services">Cum aplicăm aceste principii în serviciile noastre</h2>
+  <h3 data-en="When we build AI products">Când construim produse AI</h3>
+  <p data-en="For any digital product that includes artificial intelligence components, Applexium mandatorily integrates:">Pentru orice produs digital care include componente de inteligență artificială, Applexium integrează obligatoriu:</p>
+  <ul><li data-en="AI Act risk class assessment from the discovery phase;">Evaluarea clasei de risc AI Act încă din faza de discovery;</li>
+<li data-en="Technical documentation in accordance with Annex IV of the EU AI Act (for high-risk systems);">Documentație tehnică conform Anexei IV a EU AI Act (pentru sisteme de risc ridicat);</li>
+<li data-en="AI System Card — a transparent description of capabilities, limitations and risks;">Fișă de sistem AI (AI System Card) — descriere transparentă a capacităților, limitelor și riscurilor;</li>
+<li data-en="Human oversight and intervention mechanism;">Mecanism de supraveghere și intervenție umană;</li>
+<li data-en="Automated decision audit log;">Jurnal de audit al deciziilor automatizate (audit log);</li>
+<li data-en="Bias and discrimination testing before launch;">Testare pentru bias și discriminare înainte de lansare;</li></ul>
+  <p data-en="AI security incident notification procedure.">Procedură de notificare a incidentelor de securitate AI.</p>
+  <h3 data-en="When we provide AI Act Advisory">Când oferim AI Act Advisory</h3>
+  <p data-en="Our AI Governance consultancy services include:">Serviciile noastre de consultanță în AI Governance includ:</p>
+  <ul><li data-en="Classification of existing or planned AI systems by EU AI Act risk levels;">Clasificarea sistemelor AI existente sau planificate pe niveluri de risc EU AI Act;</li>
+<li data-en="Gap analysis against EU AI Act requirements for providers and operators;">Gap analysis față de cerințele EU AI Act pentru furnizori și operatori;</li>
+<li data-en="Assistance in drafting mandatory technical documentation;">Asistență la redactarea documentației tehnice obligatorii;</li>
+<li data-en="Data Protection Impact Assessment (DPIA) with an AI component;">Evaluarea Impactului asupra Protecției Datelor (DPIA) cu componentă AI;</li>
+<li data-en="Conformity Assessment for high-risk systems;">Conformity Assessment pentru sisteme de risc ridicat;</li>
+<li data-en="Training and capacity building for clients' internal teams;">Formare și training pentru echipele interne ale clienților;</li></ul>
+  <p data-en="Support for registration in the EU AI Database where applicable.">Suport la înregistrarea în baza de date EU AI (EU AI Database) unde este aplicabil.</p>
 <div class="legal-info-box">
-  <p>Angajamentul nostru de coerență instituțională</p>
-  <p>Nu consiliem clienții să respecte EU AI Act dacă noi înșine nu aplicăm aceste principii în propriile produse. Prezenta declarație este auditabilă — orice client are dreptul să ne solicite dovezi ale aplicării ei.</p>
+  <p data-en="Our institutional coherence commitment">Angajamentul nostru de coerență instituțională</p>
+  <p data-en="We do not advise clients to comply with the EU AI Act if we ourselves do not apply these principles in our own products. This statement is auditable — any client has the right to request evidence of its application.">Nu consiliem clienții să respecte EU AI Act dacă noi înșine nu aplicăm aceste principii în propriile produse. Prezenta declarație este auditabilă — orice client are dreptul să ne solicite dovezi ale aplicării ei.</p>
 </div>
 </div>
 
 <div class="legal-section">
   <div class="legal-section-num">Section 5</div>
-  <h2>Produsele noastre AI și aplicarea principiilor</h2>
-  <p>Applexium dezvoltă produse proprii care integrează componente de inteligență artificială. Prezentăm mai jos poziția de conformitate pentru fiecare:</p>
-  <p>Emmi — AI Voice Agent</p>
-  <p>Agent vocal AI bilingv (română/rusă) pentru gestionarea apelurilor instituționale. Clasificare preliminară EU AI Act: risc limitat. Utilizatorii sunt informați că interacționează cu un sistem AI. Nu ia decizii autonome cu impact asupra drepturilor persoanelor.</p>
-  <p>Legalia — platformă de educație juridică</p>
-  <p>Platformă de cursuri și quiz-uri juridice. Componentele AI (dacă sunt integrate) sunt utilizate exclusiv pentru personalizarea conținutului educațional. Clasificare: risc minimal. Nu generează sfaturi juridice cu caracter obligatoriu.</p>
-  <p>Precedentia — motor de căutare juridică AI</p>
-  <p>Motor de căutare AI pentru jurisprudența din Republica Moldova (CSJ, CC, CEDO). Clasificare: risc limitat. Sistemul asistă cercetarea juridică, dar nu substituie raționamentul profesionistului în drept. Rezultatele sunt marcate ca generate automat și necesită validare umană.</p>
+  <h2 data-en="Our AI Products and Principle Application">Produsele noastre AI și aplicarea principiilor</h2>
+  <p data-en="Applexium develops its own products that integrate artificial intelligence components. Below we present the compliance position for each:">Applexium dezvoltă produse proprii care integrează componente de inteligență artificială. Prezentăm mai jos poziția de conformitate pentru fiecare:</p>
+  <p data-en="Emmi — AI Voice Agent">Emmi — AI Voice Agent</p>
+  <p data-en="Bilingual AI voice agent (Romanian/Russian) for managing institutional calls. Preliminary EU AI Act classification: limited risk. Users are informed that they are interacting with an AI system. It does not make autonomous decisions with impact on individuals' rights.">Agent vocal AI bilingv (română/rusă) pentru gestionarea apelurilor instituționale. Clasificare preliminară EU AI Act: risc limitat. Utilizatorii sunt informați că interacționează cu un sistem AI. Nu ia decizii autonome cu impact asupra drepturilor persoanelor.</p>
+  <p data-en="Legalia — Legal Education Platform">Legalia — platformă de educație juridică</p>
+  <p data-en="A platform for legal courses and quizzes. AI components (if integrated) are used exclusively for personalizing educational content. Classification: minimal risk. It does not generate legally binding legal advice.">Platformă de cursuri și quiz-uri juridice. Componentele AI (dacă sunt integrate) sunt utilizate exclusiv pentru personalizarea conținutului educațional. Clasificare: risc minimal. Nu generează sfaturi juridice cu caracter obligatoriu.</p>
+  <p data-en="Precedentia — AI Legal Search Engine">Precedentia — motor de căutare juridică AI</p>
+  <p data-en="AI search engine for case law from the Republic of Moldova (SCJ, CC, ECHR). Classification: limited risk. The system assists legal research but does not substitute the reasoning of legal professionals. Results are marked as automatically generated and require human validation.">Motor de căutare AI pentru jurisprudența din Republica Moldova (CSJ, CC, CEDO). Clasificare: risc limitat. Sistemul asistă cercetarea juridică, dar nu substituie raționamentul profesionistului în drept. Rezultatele sunt marcate ca generate automat și necesită validare umană.</p>
 <div class="legal-info-box">
-  <p>Notă de revizuire:</p>
-  <p>Clasificările de risc de mai sus sunt evaluări preliminare și vor fi revizuite la fiecare actualizare majoră a produselor sau a cadrului legal EU AI Act. În caz de dubiu, Applexium aplică în mod conservator nivelul de risc superior.</p>
+  <p data-en="Review note:">Notă de revizuire:</p>
+  <p data-en="The risk classifications above are preliminary assessments and will be reviewed with each major product update or change to the EU AI Act legal framework. In case of doubt, Applexium conservatively applies the higher risk level.">Clasificările de risc de mai sus sunt evaluări preliminare și vor fi revizuite la fiecare actualizare majoră a produselor sau a cadrului legal EU AI Act. În caz de dubiu, Applexium aplică în mod conservator nivelul de risc superior.</p>
 </div>
 </div>
 
 <div class="legal-section">
   <div class="legal-section-num">Section 6</div>
-  <h2>Practici interzise — linii roșii</h2>
-  <p>Indiferent de context, client, compensație financiară sau presiune comercială, Applexium nu va construi, integra, consilia sau susține sisteme AI care:</p>
-  <ul><li>Utilizează tehnici subliminale sau manipulatorii pentru a influența comportamentul uman fără consimțământ;</li>
-<li>Exploatează vulnerabilitățile persoanelor din cauza vârstei, dizabilității sau circumstanțelor sociale;</li>
-<li>Realizează scoring social al persoanelor fizice de către autorități publice sau entități private;</li>
-<li>Efectuează identificare biometrică în timp real în spații publice în scop de supraveghere generalizată;</li>
-<li>Iau decizii complet automatizate cu impact juridic semnificativ fără supraveghere umană;</li>
-<li>Sunt proiectate pentru a dezinforma, manipula sau influența procesele democratice;</li></ul>
-  <p>Folosesc date cu caracter personal obținute ilegal sau fără consimțământ valabil pentru antrenare.</p>
+  <h2 data-en="Prohibited Practices — Red Lines">Practici interzise — linii roșii</h2>
+  <p data-en="Regardless of context, client, financial compensation or commercial pressure, Applexium will not build, integrate, advise on or support AI systems that:">Indiferent de context, client, compensație financiară sau presiune comercială, Applexium nu va construi, integra, consilia sau susține sisteme AI care:</p>
+  <ul><li data-en="Use subliminal or manipulative techniques to influence human behavior without consent;">Utilizează tehnici subliminale sau manipulatorii pentru a influența comportamentul uman fără consimțământ;</li>
+<li data-en="Exploit the vulnerabilities of individuals due to age, disability or social circumstances;">Exploatează vulnerabilitățile persoanelor din cauza vârstei, dizabilității sau circumstanțelor sociale;</li>
+<li data-en="Perform social scoring of individuals by public authorities or private entities;">Realizează scoring social al persoanelor fizice de către autorități publice sau entități private;</li>
+<li data-en="Conduct real-time biometric identification in public spaces for the purpose of generalized surveillance;">Efectuează identificare biometrică în timp real în spații publice în scop de supraveghere generalizată;</li>
+<li data-en="Make fully automated decisions with significant legal impact without human oversight;">Iau decizii complet automatizate cu impact juridic semnificativ fără supraveghere umană;</li>
+<li data-en="Are designed to disinform, manipulate or influence democratic processes;">Sunt proiectate pentru a dezinforma, manipula sau influența procesele democratice;</li></ul>
+  <p data-en="Use personal data obtained illegally or without valid consent for training.">Folosesc date cu caracter personal obținute ilegal sau fără consimțământ valabil pentru antrenare.</p>
 <div class="legal-info-box">
-  <p>Aceste linii roșii sunt absolute și nu fac obiectul negocierii comerciale.</p>
-  <p>Un client sau proiect care impune încălcarea acestor principii va fi refuzat, indiferent de valoarea contractuală.</p>
+  <p data-en="These red lines are absolute and are not subject to commercial negotiation.">Aceste linii roșii sunt absolute și nu fac obiectul negocierii comerciale.</p>
+  <p data-en="A client or project that requires violation of these principles will be refused, regardless of contractual value.">Un client sau proiect care impune încălcarea acestor principii va fi refuzat, indiferent de valoarea contractuală.</p>
 </div>
 </div>
 
 <div class="legal-section">
   <div class="legal-section-num">Section 7</div>
-  <h2>Guvernanța Internă a IA la Applexium</h2>
-  <p>Applexium aplică intern următorul cadru de guvernanță pentru proiectele care implică inteligența artificială:</p>
-  <p>Orice proiect care include componente AI este evaluat obligatoriu pe dimensiunea de risc EU AI Act înainte de startul dezvoltării;</p>
-  <p>Echipa de Compliance &amp; Legal Advisory revizuiește clasificarea de risc și documentația tehnică pentru fiecare proiect AI;</p>
-  <p>Clientul este informat transparent cu privire la clasificarea de risc a sistemului AI livrat și la obligațiile sale ca operator;</p>
-  <p>Incidentele de securitate sau comportament neașteptat al sistemelor AI sunt documentate și, unde este cazul, raportate conform cadrului legal aplicabil;</p>
-  <p>Prezenta Declarație este revizuită semestrial sau ori de câte ori intervine o modificare semnificativă a cadrului legal EU AI Act.</p>
+  <h2 data-en="Internal AI Governance at Applexium">Guvernanța Internă a IA la Applexium</h2>
+  <p data-en="Applexium internally applies the following governance framework for projects involving artificial intelligence:">Applexium aplică intern următorul cadru de guvernanță pentru proiectele care implică inteligența artificială:</p>
+  <p data-en="Any project that includes AI components is mandatorily assessed on the EU AI Act risk dimension before development begins;">Orice proiect care include componente AI este evaluat obligatoriu pe dimensiunea de risc EU AI Act înainte de startul dezvoltării;</p>
+  <p data-en="The Compliance &amp; Legal Advisory team reviews the risk classification and technical documentation for each AI project;">Echipa de Compliance &amp; Legal Advisory revizuiește clasificarea de risc și documentația tehnică pentru fiecare proiect AI;</p>
+  <p data-en="The client is transparently informed about the risk classification of the delivered AI system and their obligations as an operator;">Clientul este informat transparent cu privire la clasificarea de risc a sistemului AI livrat și la obligațiile sale ca operator;</p>
+  <p data-en="Security incidents or unexpected behavior of AI systems are documented and, where applicable, reported in accordance with the applicable legal framework;">Incidentele de securitate sau comportament neașteptat al sistemelor AI sunt documentate și, unde este cazul, raportate conform cadrului legal aplicabil;</p>
+  <p data-en="This Statement is reviewed semi-annually or whenever a significant change to the EU AI Act legal framework occurs.">Prezenta Declarație este revizuită semestrial sau ori de câte ori intervine o modificare semnificativă a cadrului legal EU AI Act.</p>
 </div>
 
 <div class="legal-section">
   <div class="legal-section-num">Section 8</div>
-  <h2>Cadrul legal și documentele de referință</h2>
-  <p>Prezenta Declarație se întemeiază pe și face referire la:</p>
-  <ul><li>Regulamentul (UE) 2024/1689 — EU AI Act;</li>
-<li>Regulamentul (UE) 2016/679 — GDPR (prelucrat prin Legea RM nr. 195/2024 din august 2026);</li>
-<li>Ghidurile OCDE privind inteligența artificială (OECD AI Principles, 2019, revizuite 2024);</li>
-<li>Recomandarea UNESCO privind etica inteligenței artificiale (2021);</li>
-<li>Ghidul de etică pentru IA demn de încredere al Grupului de Experți de Nivel Înalt al Comisiei Europene (HLEG AI, 2019);</li></ul>
-  <p>Standardele ISO/IEC 42001 (Sisteme de management AI) și ISO/IEC 23894 (Managementul riscurilor AI).</p>
+  <h2 data-en="Legal Framework and Reference Documents">Cadrul legal și documentele de referință</h2>
+  <p data-en="This Statement is based on and refers to:">Prezenta Declarație se întemeiază pe și face referire la:</p>
+  <ul><li data-en="Regulamentul (UE) 2024/1689 — EU AI Act;">Regulamentul (UE) 2024/1689 — EU AI Act;</li>
+<li data-en="Regulamentul (UE) 2016/679 — GDPR (transposed via RM Law no. 195/2024 of August 2026);">Regulamentul (UE) 2016/679 — GDPR (prelucrat prin Legea RM nr. 195/2024 din august 2026);</li>
+<li data-en="OECD Guidelines on Artificial Intelligence (OECD AI Principles, 2019, revised 2024);">Ghidurile OCDE privind inteligența artificială (OECD AI Principles, 2019, revizuite 2024);</li>
+<li data-en="UNESCO Recommendation on the Ethics of Artificial Intelligence (2021);">Recomandarea UNESCO privind etica inteligenței artificiale (2021);</li>
+<li data-en="Ethics Guidelines for Trustworthy AI by the European Commission High-Level Expert Group (HLEG AI, 2019);">Ghidul de etică pentru IA demn de încredere al Grupului de Experți de Nivel Înalt al Comisiei Europene (HLEG AI, 2019);</li></ul>
+  <p data-en="ISO/IEC 42001 (AI Management Systems) and ISO/IEC 23894 (AI Risk Management) standards.">Standardele ISO/IEC 42001 (Sisteme de management AI) și ISO/IEC 23894 (Managementul riscurilor AI).</p>
 </div>
 
 <div class="legal-section">
   <div class="legal-section-num">Section 9</div>
-  <h2>Contact și sesizări</h2>
-  <p>Pentru orice întrebări, sesizări sau solicitări legate de etica IA și practicile Applexium în domeniul inteligenței artificiale:</p>
-  <p>Email: <a href="mailto:info@applexium.com">info@applexium.com</a></p>
-  <p>Telefon: +373 78 76 87 65</p>
-  <p>Adresă birou: Mihai Viteazul 2a, Chișinău, Moldova</p>
-  <p>Pagina de contact: <a href="https://applexium.com/contacts" target="_blank" rel="noopener">https://applexium.com/contacts</a></p>
-  <p>Ne angajăm să răspundem oricărei sesizări în termen de 10 zile lucrătoare. Sesizările privind comportamentul neașteptat al sistemelor AI pe care le-am construit sau consiliat sunt tratate cu prioritate.</p>
+  <h2 data-en="Contact and Reports">Contact și sesizări</h2>
+  <p data-en="For any questions, reports or requests related to AI ethics and Applexium's practices in the field of artificial intelligence:">Pentru orice întrebări, sesizări sau solicitări legate de etica IA și practicile Applexium în domeniul inteligenței artificiale:</p>
+  <p><span data-en="Email:">Email:</span> <a href="mailto:info@applexium.com">info@applexium.com</a></p>
+  <p><span data-en="Phone: +373 78 76 87 65">Telefon: +373 78 76 87 65</span></p>
+  <p data-en="Office address: Mihai Viteazul 2a, Chisinau, Moldova">Adresă birou: Mihai Viteazul 2a, Chișinău, Moldova</p>
+  <p><span data-en="Contact page:">Pagina de contact:</span> <a href="https://applexium.com/contacts" target="_blank" rel="noopener">https://applexium.com/contacts</a></p>
+  <p data-en="We commit to responding to any report within 10 business days. Reports concerning unexpected behavior of AI systems that we have built or advised on are treated with priority.">Ne angajăm să răspundem oricărei sesizări în termen de 10 zile lucrătoare. Sesizările privind comportamentul neașteptat al sistemelor AI pe care le-am construit sau consiliat sunt tratate cu prioritate.</p>
 <div class="legal-info-box">
-  <p>Versiune și revizuire</p>
-    <p>Următoarea revizuire planificată: Octombrie 2026 sau la modificări majore ale EU AI Act.</p>
-  <p>Responsabil: Mircea Ursu, Director — SRL SCALELAW SOLUTIONS</p>
-</div>
-</div>
-
-      </div>
-      <div class="legal-content" id="content-en">
-<div class="legal-info-box">
-  <p>Issued by: SRL SCALELAW SOLUTIONS  |  Brand: Applexium</p>
-  <p>Director: Mircea Ursu  |  <a href="mailto:info@applexium.com">info@applexium.com</a>  |  +373 78 76 87 65</p>
-  <p>Reference framework: EU AI Act (Reg. UE 2024/1689)  |  OECD AI Guidelines  |  UNESCO Rec. on AI Ethics</p>
-</div>
-<div class="legal-info-box">
-  <p>Applexium provides AI Act Advisory and AI Governance services to its clients. This means we help others build responsible, compliant and ethical artificial intelligence systems.</p>
-  <p>Clients who come to us for AI governance have the right to know how we ourselves think about AI. You cannot advise others to follow principles that you have not defined and do not apply. This statement is not a PR document — it is our institutional position, assumed, applied and periodically reviewed.</p>
-  <p>It forms the foundation of every project involving artificial intelligence, whether we build it or audit it.</p>
-</div>
-<div class="legal-section">
-  <div class="legal-section-num">Section 1</div>
-  <h2>EU AI Act and Why It Matters</h2>
-  <p>Regulamentul (UE) 2024/1689 — known as the EU AI Act — is the world's first comprehensive legal framework dedicated to regulating artificial intelligence systems. Gradually applied starting in 2024 and fully effective from 2026, it establishes:</p>
-  <ul><li>A classification of AI systems by risk levels (unacceptable, high, limited, minimal);</li>
-<li>Clear obligations for developers, providers and operators of AI systems;</li>
-<li>Transparency, documentation and human oversight requirements;</li></ul>
-  <p>Penalties of up to EUR 35,000,000 or 7% of annual global turnover.</p>
-<div class="legal-info-box">
-  <p>Applexium's position on the EU AI Act</p>
-  <p>Applexium treats the EU AI Act as a quality framework — a set of standards that protects end users and increases trust in digital products.</p>
-  <p>We offer AI Act Advisory services precisely because we believe that intelligent regulation of AI is necessary and beneficial. This statement is proof that we practice what we preach.</p>
-</div>
-</div>
-
-<div class="legal-section">
-  <div class="legal-section-num">Section 2</div>
-  <h2>Our Responsible AI Principles</h2>
-  <p>All Applexium activities involving artificial intelligence — whether we develop, integrate or advise — are guided by the following fundamental principles:</p>
-<div style="overflow-x:auto;margin-bottom:24px;">
-<table class="legal-table">
-  <tr>
-    <th>1. Transparency</th>
-    <th>Users must know when they are interacting with an AI system. We do not build AI systems that pretend to be human without the user's consent. Automated decisions must be explainable.</th>
-  </tr>
-  <tr>
-    <td>2. Fairness and Non-Discrimination</td>
-    <td>The AI systems we build are tested for bias and discrimination. We do not build or advise on systems that treat people differently based on race, gender, origin, religion or other protected characteristics.</td>
-  </tr>
-  <tr>
-    <td>3. Human Oversight</td>
-    <td>No AI system with significant impact on the rights or decisions of individuals operates without a mechanism for human oversight and intervention. Automation does not replace responsibility.</td>
-  </tr>
-  <tr>
-    <td>4. Security and Robustness</td>
-    <td>AI systems must function correctly, including under adverse conditions. We test resilience against adversarial attacks, corrupted data and distribution errors.</td>
-  </tr>
-  <tr>
-    <td>5. Data and Privacy Protection</td>
-    <td>Data used for training or operating AI systems is processed in compliance with GDPR and the applicable legal framework. Data minimization is a design principle, not an option.</td>
-  </tr>
-  <tr>
-    <td>6. Accountability</td>
-    <td>Every AI system has an identified responsible party. We know at all times who the operator, provider and contact person is for any AI system we deliver or consult on.</td>
-  </tr>
-  <tr>
-    <td>7. Social Benefit</td>
-    <td>We do not build or advise on AI systems whose sole or primary purpose is to harm, manipulate or exploit individuals or vulnerable groups.</td>
-  </tr>
-  <tr>
-    <td>8. Sustainability</td>
-    <td>We consider the energy and environmental impact of the AI systems we recommend or build. Computational efficiency is part of responsible architecture.</td>
-  </tr>
-</table>
-</div>
-</div>
-
-<div class="legal-section">
-  <div class="legal-section-num">Section 3</div>
-  <h2>Risk Classification and Our Approach</h2>
-  <p>Applexium applies the EU AI Act risk taxonomy in evaluating any AI system, whether we build it for clients or audit it as part of AI Governance services:</p>
-<div style="overflow-x:auto;margin-bottom:24px;">
-<table class="legal-table">
-  <tr>
-    <th>Risk Class</th>
-    <th>AI System Examples</th>
-    <th>Applexium's Approach</th>
-  </tr>
-  <tr>
-    <td>UNACCEPTABLE RISK</td>
-    <td>Social scoring, subliminal manipulation, real-time biometric identification in public spaces (general use)</td>
-    <td>WE REFUSE involvement. We do not build, advise on or integrate systems in this category, regardless of the client or financial compensation.</td>
-  </tr>
-  <tr>
-    <td>HIGH RISK</td>
-    <td>AI in education, employment, healthcare, critical infrastructure, justice</td>
-    <td>We accept with full due diligence: impact assessment (DPIA + AI impact), exhaustive technical documentation, mandatory human oversight, EU AI Act compliance contractually guaranteed.</td>
-  </tr>
-  <tr>
-    <td>LIMITED RISK</td>
-    <td>Chatbots, content generators, recommendation systems</td>
-    <td>We accept with transparency obligations: users are informed they are interacting with AI, generated content is appropriately labeled.</td>
-  </tr>
-  <tr>
-    <td>MINIMAL RISK</td>
-    <td>Spam filters, games, aggregate data analysis systems</td>
-    <td>We accept with standard security and data protection best practices.</td>
-  </tr>
-</table>
-</div>
-</div>
-
-<div class="legal-section">
-  <div class="legal-section-num">Section 4</div>
-  <h2>How We Apply These Principles in Our Services</h2>
-  <h3>When we build AI products</h3>
-  <p>For any digital product that includes artificial intelligence components, Applexium mandatorily integrates:</p>
-  <ul><li>AI Act risk class assessment from the discovery phase;</li>
-<li>Technical documentation in accordance with Annex IV of the EU AI Act (for high-risk systems);</li>
-<li>AI System Card — a transparent description of capabilities, limitations and risks;</li>
-<li>Human oversight and intervention mechanism;</li>
-<li>Automated decision audit log;</li>
-<li>Bias and discrimination testing before launch;</li></ul>
-  <p>AI security incident notification procedure.</p>
-  <h3>When we provide AI Act Advisory</h3>
-  <p>Our AI Governance consultancy services include:</p>
-  <ul><li>Classification of existing or planned AI systems by EU AI Act risk levels;</li>
-<li>Gap analysis against EU AI Act requirements for providers and operators;</li>
-<li>Assistance in drafting mandatory technical documentation;</li>
-<li>Data Protection Impact Assessment (DPIA) with an AI component;</li>
-<li>Conformity Assessment for high-risk systems;</li>
-<li>Training and capacity building for clients' internal teams;</li></ul>
-  <p>Support for registration in the EU AI Database where applicable.</p>
-<div class="legal-info-box">
-  <p>Our institutional coherence commitment</p>
-  <p>We do not advise clients to comply with the EU AI Act if we ourselves do not apply these principles in our own products. This statement is auditable — any client has the right to request evidence of its application.</p>
-</div>
-</div>
-
-<div class="legal-section">
-  <div class="legal-section-num">Section 5</div>
-  <h2>Our AI Products and Principle Application</h2>
-  <p>Applexium develops its own products that integrate artificial intelligence components. Below we present the compliance position for each:</p>
-  <p>Emmi — AI Voice Agent</p>
-  <p>Bilingual AI voice agent (Romanian/Russian) for managing institutional calls. Preliminary EU AI Act classification: limited risk. Users are informed that they are interacting with an AI system. It does not make autonomous decisions with impact on individuals' rights.</p>
-  <p>Legalia — Legal Education Platform</p>
-  <p>A platform for legal courses and quizzes. AI components (if integrated) are used exclusively for personalizing educational content. Classification: minimal risk. It does not generate legally binding legal advice.</p>
-  <p>Precedentia — AI Legal Search Engine</p>
-  <p>AI search engine for case law from the Republic of Moldova (SCJ, CC, ECHR). Classification: limited risk. The system assists legal research but does not substitute the reasoning of legal professionals. Results are marked as automatically generated and require human validation.</p>
-<div class="legal-info-box">
-  <p>Review note:</p>
-  <p>The risk classifications above are preliminary assessments and will be reviewed with each major product update or change to the EU AI Act legal framework. In case of doubt, Applexium conservatively applies the higher risk level.</p>
-</div>
-</div>
-
-<div class="legal-section">
-  <div class="legal-section-num">Section 6</div>
-  <h2>Prohibited Practices — Red Lines</h2>
-  <p>Regardless of context, client, financial compensation or commercial pressure, Applexium will not build, integrate, advise on or support AI systems that:</p>
-  <ul><li>Use subliminal or manipulative techniques to influence human behavior without consent;</li>
-<li>Exploit the vulnerabilities of individuals due to age, disability or social circumstances;</li>
-<li>Perform social scoring of individuals by public authorities or private entities;</li>
-<li>Conduct real-time biometric identification in public spaces for the purpose of generalized surveillance;</li>
-<li>Make fully automated decisions with significant legal impact without human oversight;</li>
-<li>Are designed to disinform, manipulate or influence democratic processes;</li></ul>
-  <p>Use personal data obtained illegally or without valid consent for training.</p>
-<div class="legal-info-box">
-  <p>These red lines are absolute and are not subject to commercial negotiation.</p>
-  <p>A client or project that requires violation of these principles will be refused, regardless of contractual value.</p>
-</div>
-</div>
-
-<div class="legal-section">
-  <div class="legal-section-num">Section 7</div>
-  <h2>Internal AI Governance at Applexium</h2>
-  <p>Applexium internally applies the following governance framework for projects involving artificial intelligence:</p>
-  <p>Any project that includes AI components is mandatorily assessed on the EU AI Act risk dimension before development begins;</p>
-  <p>The Compliance &amp; Legal Advisory team reviews the risk classification and technical documentation for each AI project;</p>
-  <p>The client is transparently informed about the risk classification of the delivered AI system and their obligations as an operator;</p>
-  <p>Security incidents or unexpected behavior of AI systems are documented and, where applicable, reported in accordance with the applicable legal framework;</p>
-  <p>This Statement is reviewed semi-annually or whenever a significant change to the EU AI Act legal framework occurs.</p>
-</div>
-
-<div class="legal-section">
-  <div class="legal-section-num">Section 8</div>
-  <h2>Legal Framework and Reference Documents</h2>
-  <p>This Statement is based on and refers to:</p>
-  <ul><li>Regulamentul (UE) 2024/1689 — EU AI Act;</li>
-<li>Regulamentul (UE) 2016/679 — GDPR (transposed via RM Law no. 195/2024 of August 2026);</li>
-<li>OECD Guidelines on Artificial Intelligence (OECD AI Principles, 2019, revised 2024);</li>
-<li>UNESCO Recommendation on the Ethics of Artificial Intelligence (2021);</li>
-<li>Ethics Guidelines for Trustworthy AI by the European Commission High-Level Expert Group (HLEG AI, 2019);</li></ul>
-  <p>ISO/IEC 42001 (AI Management Systems) and ISO/IEC 23894 (AI Risk Management) standards.</p>
-</div>
-
-<div class="legal-section">
-  <div class="legal-section-num">Section 9</div>
-  <h2>Contact and Reports</h2>
-  <p>For any questions, reports or requests related to AI ethics and Applexium's practices in the field of artificial intelligence:</p>
-  <p>Email: <a href="mailto:info@applexium.com">info@applexium.com</a></p>
-  <p>Phone: +373 78 76 87 65</p>
-  <p>Office address: Mihai Viteazul 2a, Chisinau, Moldova</p>
-  <p>Contact page: <a href="https://applexium.com/contacts" target="_blank" rel="noopener">https://applexium.com/contacts</a></p>
-  <p>We commit to responding to any report within 10 business days. Reports concerning unexpected behavior of AI systems that we have built or advised on are treated with priority.</p>
-<div class="legal-info-box">
-  <p>Version and review</p>
-    <p>Next planned review: October 2026 or upon major changes to the EU AI Act.</p>
-  <p>Responsible: Mircea Ursu, Director — SRL SCALELAW SOLUTIONS</p>
+  <p data-en="Version and review">Versiune și revizuire</p>
+    <p data-en="Next planned review: October 2026 or upon major changes to the EU AI Act.">Următoarea revizuire planificată: Octombrie 2026 sau la modificări majore ale EU AI Act.</p>
+  <p data-en="Responsible: Mircea Ursu, Director — SRL SCALELAW SOLUTIONS">Responsabil: Mircea Ursu, Director — SRL SCALELAW SOLUTIONS</p>
 </div>
 </div>
 
       </div>
 
-      <p class="legal-copyright">&copy; 2026 SRL SCALELAW SOLUTIONS — Applexium. All rights reserved.</p>
+      <p class="legal-copyright" data-en="&copy; 2026 SRL SCALELAW SOLUTIONS — Applexium. All rights reserved.">&copy; 2026 SRL SCALELAW SOLUTIONS — Applexium. Toate drepturile rezervate.</p>
     </div>
 
     <footer class="footer">
@@ -466,30 +293,22 @@
             </a>
           </div>
           <div class="footer-info">
-            <p>&copy; 2026 Applexium. All Rights Reserved.</p>
+            <p>&copy; <span class="footer-year">2026</span> Applexium. <span data-en="All Rights Reserved.">Toate drepturile rezervate.</span></p>
           </div>
         </div>
         <div class="footer-legal">
-          <a href="terms-and-conditions"><i class="fas fa-file-contract"></i> Terms &amp; Conditions</a>
-          <a href="privacy-policy"><i class="fas fa-shield-halved"></i> Privacy Policy</a>
-          <a href="cookie-policy"><i class="fas fa-cookie-bite"></i> Cookie Policy</a>
-          <a href="ai-ethics"><i class="fas fa-brain"></i> AI Ethics Statement</a>
-          <a href="accessibility"><i class="fas fa-universal-access"></i> Accessibility Statement</a>
-          <a href="esg"><i class="fas fa-leaf"></i> ESG Statement</a>
+          <a href="terms-and-conditions"><i class="fas fa-file-contract"></i> <span data-en="Terms &amp; Conditions">Termeni și condiții</span></a>
+          <a href="privacy-policy"><i class="fas fa-shield-halved"></i> <span data-en="Privacy Policy">Politica de confidențialitate</span></a>
+          <a href="cookie-policy"><i class="fas fa-cookie-bite"></i> <span data-en="Cookie Policy">Politica de cookie-uri</span></a>
+          <a href="ai-ethics"><i class="fas fa-brain"></i> <span data-en="AI Ethics Statement">Declarație de etică AI</span></a>
+          <a href="accessibility"><i class="fas fa-universal-access"></i> <span data-en="Accessibility Statement">Declarație de accesibilitate</span></a>
+          <a href="esg"><i class="fas fa-leaf"></i> <span data-en="ESG Statement">Declarație ESG</span></a>
         </div>
       </div>
     </footer>
   </div>
 
   <script>
-    document.querySelectorAll('.legal-lang-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.legal-lang-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        document.querySelectorAll('.legal-content').forEach(c => c.classList.remove('active'));
-        document.getElementById('content-' + btn.dataset.lang).classList.add('active');
-      });
-    });
     const toggle = document.querySelector('.mobile-menu-toggle');
     const navLinks = document.querySelector('.nav-links');
     if (toggle) toggle.addEventListener('click', () => { toggle.classList.toggle('active'); navLinks.classList.toggle('active'); });
@@ -508,5 +327,7 @@
       observer.observe(el);
     });
   </script>
+  <!-- Bilingual engine (RO default / EN alternative) -->
+  <script src="i18n.js"></script>
 </body>
 </html>

@@ -1,11 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ro">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Diana Tatar - CMO | Applexium</title>
-  <meta name="description" content="Diana Tatar — Chief Marketing Officer at Applexium. Graphic designer and AI content creator with 6 years of experience, 10+ brands and 200+ clients across branding, social media, editorial, and AI content.">
-  <meta name="keywords" content="Diana Tatar, CMO, chief marketing officer, marketing Moldova, branding, visual identity, AI content creator, Applexium, Chisinau">
+  <!-- Set language before paint (from ?lang= or localStorage) to avoid a flash -->
+  <script>(function(){try{var l=new URLSearchParams(location.search).get('lang')||localStorage.getItem('applexium-lang');document.documentElement.setAttribute('data-lang',l==='en'?'en':'ro');if(l==='en'){document.documentElement.lang='en';}}catch(e){document.documentElement.setAttribute('data-lang','ro');}})();</script>
+
+  <title data-en="Diana Tatar - CMO | Applexium">Diana Tatar - CMO | Applexium</title>
+  <meta name="description" content="Diana Tatar — Chief Marketing Officer la Applexium. Designer grafic și creatoare de conținut AI cu 6 ani de experiență, peste 10 branduri și peste 200 de clienți în branding, social media, editorial și conținut AI.">
+  <meta name="keywords" content="Diana Tatar, CMO, chief marketing officer, marketing Moldova, branding, identitate vizuală, creatoare de conținut AI, Applexium, Chișinău">
   <meta name="author" content="Applexium">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://applexium.com/diana-tatar">
@@ -13,12 +16,20 @@
   <!-- Open Graph -->
   <meta property="og:type" content="profile">
   <meta property="og:title" content="Diana Tatar - CMO | Applexium">
-  <meta property="og:description" content="Chief Marketing Officer at Applexium — graphic designer and AI content creator. 6 years, 10+ brands, 200+ clients.">
+  <meta property="og:description" content="Chief Marketing Officer la Applexium — designer grafic și creatoare de conținut AI. 6 ani, peste 10 branduri, peste 200 de clienți.">
   <meta property="og:url" content="https://applexium.com/diana-tatar">
   <meta property="og:site_name" content="Applexium">
   <meta property="og:image" content="https://applexium.com/dianatatar.webp">
+  <meta property="og:locale" content="ro_RO">
+  <meta property="og:locale:alternate" content="en_US">
   <meta property="profile:first_name" content="Diana">
   <meta property="profile:last_name" content="Tatar">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Diana Tatar - CMO | Applexium">
+  <meta name="twitter:description" content="Chief Marketing Officer la Applexium — designer grafic și creatoare de conținut AI. 6 ani, peste 10 branduri, peste 200 de clienți.">
+  <meta name="twitter:image" content="https://applexium.com/dianatatar.webp">
 
   <link rel="icon" href="favicon.ico" sizes="48x48">
   <link rel="icon" type="image/svg+xml" href="logo-icon.svg">
@@ -39,6 +50,56 @@
 
   <!-- Custom CSS -->
   <link rel="stylesheet" href="style.css">
+
+  <!-- Structured data: Person + BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://applexium.com/diana-tatar#person",
+        "name": "Diana Tatar",
+        "givenName": "Diana",
+        "familyName": "Tatar",
+        "jobTitle": "Chief Marketing Officer",
+        "url": "https://applexium.com/diana-tatar",
+        "image": "https://applexium.com/dianatatar.webp",
+        "email": "designerdianatatar30@gmail.com",
+        "worksFor": {
+          "@type": "Organization",
+          "@id": "https://applexium.com/#organization",
+          "name": "Applexium",
+          "url": "https://applexium.com/"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://applexium.com/diana-tatar#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Acasă",
+            "item": "https://applexium.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Echipă",
+            "item": "https://applexium.com/team"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Diana Tatar",
+            "item": "https://applexium.com/diana-tatar"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 
   <style>
     .profile-page { background: var(--dark-bg); min-height: 100vh; }
@@ -360,19 +421,25 @@
       </a>
     </div>
 
-    <!-- Mobile Menu Toggle -->
-    <button class="mobile-menu-toggle" aria-label="Toggle menu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-
     <div class="nav-links">
-      <a href="/#capabilities">Services</a>
-      <a href="/#products">Solutions</a>
-      <a href="/#portfolio">Portfolio</a>
-      <a href="team">Team</a>
-      <a href="contacts">Contact</a>
+      <a href="/#capabilities" data-en="Services">Servicii</a>
+      <a href="/#products" data-en="Solutions">Soluții</a>
+      <a href="/#portfolio" data-en="Portfolio">Portofoliu</a>
+      <a href="team" data-en="Team">Echipă</a>
+      <a href="contacts" data-en="Contact">Contact</a>
+    </div>
+
+    <div class="nav-actions">
+      <div class="lang-switch" role="group" aria-label="Schimbă limba" data-en-aria-label="Change language">
+        <button type="button" class="lang-btn" data-lang-switch="ro" aria-pressed="true">RO</button>
+        <button type="button" class="lang-btn" data-lang-switch="en" aria-pressed="false">EN</button>
+      </div>
+      <!-- Mobile Menu Toggle -->
+      <button class="mobile-menu-toggle" aria-label="Comută meniul" data-en-aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
   </nav>
 
@@ -389,17 +456,17 @@
       <div class="profile-info" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
         <a href="team" class="back-link">
           <i class="fas fa-arrow-left"></i>
-          Back to Team
+          <span data-en="Back to Team">Înapoi la echipă</span>
         </a>
 
         <h1 class="profile-name">Diana Tatar</h1>
-        <p class="profile-title">Chief Marketing Officer</p>
+        <p class="profile-title" data-en="Chief Marketing Officer">Chief Marketing Officer</p>
 
-        <p class="profile-bio">
-          Diana leads marketing and brand at Applexium. A graphic designer and AI content creator,
-          she has spent 6 years building visual identities and campaigns — 10+ brands developed and 200+ clients
-          across branding, social media, editorial, and AI-generated content. She also mentors the next
-          generation of creators at <strong>Vector Academy</strong>.
+        <p class="profile-bio" data-en="Diana leads marketing and brand at Applexium. A graphic designer and AI content creator,&#10;          she has spent 6 years building visual identities and campaigns — 10+ brands developed and 200+ clients&#10;          across branding, social media, editorial, and AI-generated content. She also mentors the next&#10;          generation of creators at &lt;strong&gt;Vector Academy&lt;/strong&gt;.">
+          Diana conduce departamentul de marketing și brand la Applexium. Designer grafic și creatoare de conținut AI,
+          a petrecut 6 ani construind identități vizuale și campanii — peste 10 branduri dezvoltate și peste 200 de clienți
+          în branding, social media, editorial și conținut generat cu AI. De asemenea, mentorează următoarea
+          generație de creatori la <strong>Vector Academy</strong>.
         </p>
 
         <div class="profile-contact-grid">
@@ -425,15 +492,15 @@
     <div class="dt-stats-inner" data-aos="fade-up">
       <div>
         <div class="dt-stat-num">6+</div>
-        <div class="dt-stat-label">Years of experience</div>
+        <div class="dt-stat-label" data-en="Years of experience">Ani de experiență</div>
       </div>
       <div>
         <div class="dt-stat-num">10+</div>
-        <div class="dt-stat-label">Brands developed</div>
+        <div class="dt-stat-label" data-en="Brands developed">Branduri dezvoltate</div>
       </div>
       <div>
         <div class="dt-stat-num">200+</div>
-        <div class="dt-stat-label">Clients</div>
+        <div class="dt-stat-label" data-en="Clients">Clienți</div>
       </div>
     </div>
   </section>
@@ -443,45 +510,45 @@
 
     <!-- Expertise -->
     <section class="profile-section" data-aos="fade-up">
-      <h2 class="profile-section-title"><i class="fas fa-pen-ruler"></i> What I do</h2>
+      <h2 class="profile-section-title"><i class="fas fa-pen-ruler"></i> <span data-en="What I do">Ce fac</span></h2>
       <div class="dt-services">
         <div class="dt-service-card">
           <div class="dt-service-ico"><i class="fas fa-palette"></i></div>
-          <h3>Branding &amp; Visual Identity</h3>
-          <p>Visual systems with meaning, direction and authenticity — not just how a brand looks, but how it feels.</p>
+          <h3 data-en="Branding &amp; Visual Identity">Branding și identitate vizuală</h3>
+          <p data-en="Visual systems with meaning, direction and authenticity — not just how a brand looks, but how it feels.">Sisteme vizuale cu sens, direcție și autenticitate — nu doar cum arată un brand, ci cum se simte.</p>
         </div>
         <div class="dt-service-card">
           <div class="dt-service-ico"><i class="fas fa-share-nodes"></i></div>
-          <h3>Social Media</h3>
-          <p>Turning social pages into coherent visual spaces where every element builds a clear, memorable image.</p>
+          <h3 data-en="Social Media">Social Media</h3>
+          <p data-en="Turning social pages into coherent visual spaces where every element builds a clear, memorable image.">Transform paginile de social media în spații vizuale coerente, unde fiecare element construiește o imagine clară și memorabilă.</p>
         </div>
         <div class="dt-service-card">
           <div class="dt-service-ico"><i class="fas fa-newspaper"></i></div>
-          <h3>Editorial &amp; Print</h3>
-          <p>Clean, well-structured editorial and print layouts where text and visuals work together.</p>
+          <h3 data-en="Editorial &amp; Print">Editorial și print</h3>
+          <p data-en="Clean, well-structured editorial and print layouts where text and visuals work together.">Layouturi editoriale și de print curate și bine structurate, în care textul și vizualul lucrează împreună.</p>
         </div>
         <div class="dt-service-card">
           <div class="dt-service-ico"><i class="fas fa-lightbulb"></i></div>
-          <h3>Visual Concepts &amp; Campaigns</h3>
-          <p>From idea and creative direction to moodboards and clear implementation guides for campaigns.</p>
+          <h3 data-en="Visual Concepts &amp; Campaigns">Concepte vizuale și campanii</h3>
+          <p data-en="From idea and creative direction to moodboards and clear implementation guides for campaigns.">De la idee și direcție creativă până la moodboards și ghiduri clare de implementare pentru campanii.</p>
         </div>
         <div class="dt-service-card">
           <div class="dt-service-ico"><i class="fas fa-wand-magic-sparkles"></i></div>
-          <h3>AI Content Generation</h3>
-          <p>Static and video visual content created with AI — from creative concepts to campaign-ready assets.</p>
+          <h3 data-en="AI Content Generation">Generare de conținut cu AI</h3>
+          <p data-en="Static and video visual content created with AI — from creative concepts to campaign-ready assets.">Conținut vizual static și video creat cu AI — de la concepte creative până la materiale gata de campanie.</p>
         </div>
       </div>
     </section>
 
     <!-- Selected work -->
     <section class="profile-section" data-aos="fade-up">
-      <h2 class="profile-section-title"><i class="fas fa-folder-open"></i> Selected Work</h2>
+      <h2 class="profile-section-title"><i class="fas fa-folder-open"></i> <span data-en="Selected Work">Lucrări selectate</span></h2>
       <div class="dt-work">
         <a class="dt-work-card" href="https://dianatatar.com/proiect.html?slug=decoratii" target="_blank" rel="noopener">
           <span class="dt-work-num">01</span>
           <div class="dt-work-body">
             <h3>Decorații.md</h3>
-            <span class="dt-work-cat">Urban decor · Rebranding</span>
+            <span class="dt-work-cat" data-en="Urban decor · Rebranding">Decor urban · Rebranding</span>
           </div>
           <i class="fas fa-arrow-up-right-from-square dt-arrow"></i>
         </a>
@@ -489,7 +556,7 @@
           <span class="dt-work-num">02</span>
           <div class="dt-work-body">
             <h3>OO.Nutrition</h3>
-            <span class="dt-work-cat">Product concept · Brand presentation</span>
+            <span class="dt-work-cat" data-en="Product concept · Brand presentation">Concept de produs · Prezentare de brand</span>
           </div>
           <i class="fas fa-arrow-up-right-from-square dt-arrow"></i>
         </a>
@@ -497,7 +564,7 @@
           <span class="dt-work-num">03</span>
           <div class="dt-work-body">
             <h3>Centrul Sportiv Național</h3>
-            <span class="dt-work-cat">Brand book · Flyers · Magazines</span>
+            <span class="dt-work-cat" data-en="Brand book · Flyers · Magazines">Brand book · Flyere · Reviste</span>
           </div>
           <i class="fas fa-arrow-up-right-from-square dt-arrow"></i>
         </a>
@@ -505,7 +572,7 @@
           <span class="dt-work-num">04</span>
           <div class="dt-work-body">
             <h3>BloomIn &amp; Fine Digital</h3>
-            <span class="dt-work-cat">Creative direction · Social + Print</span>
+            <span class="dt-work-cat" data-en="Creative direction · Social + Print">Direcție creativă · Social + Print</span>
           </div>
           <i class="fas fa-arrow-up-right-from-square dt-arrow"></i>
         </a>
@@ -513,7 +580,7 @@
           <span class="dt-work-num">05</span>
           <div class="dt-work-body">
             <h3>Vector Academy — AI content</h3>
-            <span class="dt-work-cat">Video · Static · Moodboards</span>
+            <span class="dt-work-cat" data-en="Video · Static · Moodboards">Video · Static · Moodboards</span>
           </div>
           <i class="fas fa-arrow-up-right-from-square dt-arrow"></i>
         </a>
@@ -522,7 +589,7 @@
 
     <!-- Brands -->
     <section class="profile-section" data-aos="fade-up">
-      <h2 class="profile-section-title"><i class="fas fa-handshake"></i> Worked with</h2>
+      <h2 class="profile-section-title"><i class="fas fa-handshake"></i> <span data-en="Worked with">Colaborări</span></h2>
       <div class="dt-brands">
         <span class="dt-brand">Vector Academy</span>
         <span class="dt-brand">Fine Digital</span>
@@ -547,17 +614,17 @@
           </a>
         </div>
         <div class="footer-info">
-          <p>&copy; 2026 Applexium. All Rights Reserved.</p>
+          <p>&copy; <span class="footer-year">2026</span> Applexium. <span data-en="All Rights Reserved.">Toate drepturile rezervate.</span></p>
         </div>
       </div>
 
       <div class="footer-legal">
-        <a href="terms-and-conditions"><i class="fas fa-file-contract"></i> Terms & Conditions</a>
-        <a href="privacy-policy"><i class="fas fa-shield-halved"></i> Privacy Policy</a>
-        <a href="cookie-policy"><i class="fas fa-cookie-bite"></i> Cookie Policy</a>
-        <a href="ai-ethics"><i class="fas fa-brain"></i> AI Ethics Statement</a>
-        <a href="accessibility"><i class="fas fa-universal-access"></i> Accessibility Statement</a>
-        <a href="esg"><i class="fas fa-leaf"></i> ESG Statement</a>
+        <a href="terms-and-conditions"><i class="fas fa-file-contract"></i> <span data-en="Terms &amp; Conditions">Termeni și condiții</span></a>
+        <a href="privacy-policy"><i class="fas fa-shield-halved"></i> <span data-en="Privacy Policy">Politica de confidențialitate</span></a>
+        <a href="cookie-policy"><i class="fas fa-cookie-bite"></i> <span data-en="Cookie Policy">Politica de cookie-uri</span></a>
+        <a href="ai-ethics"><i class="fas fa-brain"></i> <span data-en="AI Ethics Statement">Declarație de etică AI</span></a>
+        <a href="accessibility"><i class="fas fa-universal-access"></i> <span data-en="Accessibility Statement">Declarație de accesibilitate</span></a>
+        <a href="esg"><i class="fas fa-leaf"></i> <span data-en="ESG Statement">Declarație ESG</span></a>
       </div>
     </div>
   </footer>
@@ -567,5 +634,7 @@
 
   <!-- Custom JavaScript -->
   <script src="script.js"></script>
+  <!-- Bilingual engine (RO default / EN alternative) -->
+  <script src="i18n.js"></script>
 </body>
 </html>

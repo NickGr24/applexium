@@ -1,22 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ro">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mircea Ursu - CEO | Applexium</title>
-  <meta name="description" content="Mircea Ursu — Co-Founder & CEO of Applexium. Experienced in law, banking compliance, AML services, and digital product development in Moldova.">
-  <meta name="keywords" content="Mircea Ursu, Applexium CEO, Moldova entrepreneur, legal advisory, startup founder, Jurista, banking compliance, AML">
+  <!-- Set language before paint (from ?lang= or localStorage) to avoid a flash -->
+  <script>(function(){try{var l=new URLSearchParams(location.search).get('lang')||localStorage.getItem('applexium-lang');document.documentElement.setAttribute('data-lang',l==='en'?'en':'ro');if(l==='en'){document.documentElement.lang='en';}}catch(e){document.documentElement.setAttribute('data-lang','ro');}})();</script>
+
+  <title data-en="Mircea Ursu - CEO | Applexium">Mircea Ursu — CEO | Applexium</title>
+  <meta name="description" content="Mircea Ursu — Co-fondator și CEO al Applexium. Cu experiență în drept, conformitate bancară, servicii AML și dezvoltarea de produse digitale în Moldova.">
+  <meta name="keywords" content="Mircea Ursu, CEO Applexium, antreprenor Moldova, consultanță juridică, fondator startup, Jurista, conformitate bancară, AML">
   <meta name="author" content="Applexium">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://applexium.com/mircea-ursu">
 
   <!-- Open Graph -->
   <meta property="og:type" content="profile">
-  <meta property="og:title" content="Mircea Ursu - CEO | Applexium">
-  <meta property="og:description" content="Co-Founder & CEO of Applexium. Experienced in law, banking compliance, and digital product development.">
+  <meta property="og:title" content="Mircea Ursu — CEO | Applexium">
+  <meta property="og:description" content="Co-fondator și CEO al Applexium. Cu experiență în drept, conformitate bancară și dezvoltarea de produse digitale.">
   <meta property="og:url" content="https://applexium.com/mircea-ursu">
   <meta property="og:site_name" content="Applexium">
   <meta property="og:image" content="https://applexium.com/mirceaursu.webp">
+  <meta property="og:locale" content="ro_RO">
+  <meta property="og:locale:alternate" content="en_US">
   <meta property="profile:first_name" content="Mircea">
   <meta property="profile:last_name" content="Ursu">
 
@@ -42,6 +47,49 @@
 
   <!-- Custom CSS -->
   <link rel="stylesheet" href="style.css">
+
+  <!-- Structured data: Person + Breadcrumb -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://applexium.com/mircea-ursu#person",
+        "name": "Mircea Ursu",
+        "givenName": "Mircea",
+        "familyName": "Ursu",
+        "jobTitle": "Co-fondator și CEO",
+        "image": "https://applexium.com/mirceaursu.webp",
+        "url": "https://applexium.com/mircea-ursu",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Applexium",
+          "legalName": "SCALELAW SOLUTIONS SRL",
+          "url": "https://applexium.com/"
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Chișinău",
+          "addressCountry": "MD"
+        },
+        "sameAs": [
+          "https://www.linkedin.com/in/mirceaursu/",
+          "https://t.me/observance_of_legality",
+          "https://www.facebook.com/mircea.ursu.520"
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Acasă", "item": "https://applexium.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Echipă", "item": "https://applexium.com/team" },
+          { "@type": "ListItem", "position": 3, "name": "Mircea Ursu", "item": "https://applexium.com/mircea-ursu" }
+        ]
+      }
+    ]
+  }
+  </script>
 
   <style>
     .profile-page {
@@ -601,19 +649,25 @@
       </a>
     </div>
 
-    <!-- Mobile Menu Toggle -->
-    <button class="mobile-menu-toggle" aria-label="Toggle menu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-
     <div class="nav-links">
-      <a href="/#capabilities">Services</a>
-      <a href="/#products">Solutions</a>
-      <a href="/#portfolio">Portfolio</a>
-      <a href="team">Team</a>
-      <a href="contacts">Contact</a>
+      <a href="/#capabilities" data-en="Services">Servicii</a>
+      <a href="/#products" data-en="Solutions">Soluții</a>
+      <a href="/#portfolio" data-en="Portfolio">Portofoliu</a>
+      <a href="team" data-en="Team">Echipă</a>
+      <a href="contacts" data-en="Contact">Contact</a>
+    </div>
+
+    <div class="nav-actions">
+      <div class="lang-switch" role="group" aria-label="Schimbă limba" data-en-aria-label="Change language">
+        <button type="button" class="lang-btn" data-lang-switch="ro" aria-pressed="true">RO</button>
+        <button type="button" class="lang-btn" data-lang-switch="en" aria-pressed="false">EN</button>
+      </div>
+      <!-- Mobile Menu Toggle -->
+      <button class="mobile-menu-toggle" aria-label="Comută meniul" data-en-aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
   </nav>
 
@@ -624,22 +678,22 @@
         <div class="profile-photo">
           <img src="mirceaursu.webp" alt="Mircea Ursu">
         </div>
-        <span class="profile-status">CEO & Founder</span>
+        <span class="profile-status" data-en="CEO &amp; Founder">CEO și fondator</span>
       </div>
 
       <div class="profile-info" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
         <a href="team" class="back-link">
           <i class="fas fa-arrow-left"></i>
-          Back to Team
+          <span data-en="Back to Team">Înapoi la echipă</span>
         </a>
 
         <h1 class="profile-name">Mircea Ursu</h1>
-        <p class="profile-title">Co-Founder & CEO</p>
+        <p class="profile-title" data-en="Co-Founder &amp; CEO">Co-fondator și CEO</p>
 
         <div class="profile-contact-grid">
           <div class="profile-contact-item">
             <i class="fas fa-map-marker-alt"></i>
-            <span>Chisinau, Moldova</span>
+            <span data-en="Chisinau, Moldova">Chișinău, Moldova</span>
           </div>
         </div>
 
@@ -653,7 +707,7 @@
           <a href="https://www.facebook.com/mircea.ursu.520" target="_blank" aria-label="Facebook">
             <i class="fab fa-facebook-f"></i>
           </a>
-          <a href="tel:+37378768765" aria-label="Phone">
+          <a href="tel:+37378768765" aria-label="Telefon" data-en-aria-label="Phone">
             <i class="fas fa-phone-alt"></i>
           </a>
           <a href="mailto:mirceaursu@applexium.com" aria-label="Email">
@@ -671,12 +725,12 @@
     <section class="tube-section">
       <div class="tube__wrapper">
         <ul class="tube__text__wrapper">
-          <li class="tube__text__item"><div class="exp-logo no-bg"><img src="logos/applexium-logo.jpg" alt="Applexium"></div>Applexium<span class="exp-role">Co-Founder & CEO</span></li>
-          <li class="tube__text__item"><div class="exp-logo no-bg"><img src="logos/jurista-logo.jpg" alt="Jurista"></div>Jurista<span class="exp-role">Business Law Advisory</span></li>
-          <li class="tube__text__item"><div class="exp-logo"><img src="logos/government-logo.svg" alt="Government"></div>Government<span class="exp-role">State Secretary Advisor</span></li>
-          <li class="tube__text__item"><div class="exp-logo"><img src="logos/startup-md-logo.webp" alt="Startup MD"></div>Startup MD<span class="exp-role">Legal Services</span></li>
-          <li class="tube__text__item"><div class="exp-logo no-bg"><img src="logos/maib-bank-logo.svg" alt="Banking"></div>Banking<span class="exp-role">Compliance Advisory</span></li>
-          <li class="tube__text__item"><div class="exp-logo"><img src="logos/payall-logo.svg" alt="Payall"></div>Payall<span class="exp-role">AML Services</span></li>
+          <li class="tube__text__item"><div class="exp-logo no-bg"><img src="logos/applexium-logo.jpg" alt="Applexium"></div>Applexium<span class="exp-role" data-en="Co-Founder &amp; CEO">Co-fondator și CEO</span></li>
+          <li class="tube__text__item"><div class="exp-logo no-bg"><img src="logos/jurista-logo.jpg" alt="Jurista"></div>Jurista<span class="exp-role" data-en="Business Law Advisory">Consultanță în dreptul afacerilor</span></li>
+          <li class="tube__text__item"><div class="exp-logo"><img src="logos/government-logo.svg" alt="Government"></div><span data-en="Government">Guvern</span><span class="exp-role" data-en="State Secretary Advisor">Consilier al secretarului de stat</span></li>
+          <li class="tube__text__item"><div class="exp-logo"><img src="logos/startup-md-logo.webp" alt="Startup MD"></div>Startup MD<span class="exp-role" data-en="Legal Services">Servicii juridice</span></li>
+          <li class="tube__text__item"><div class="exp-logo no-bg"><img src="logos/maib-bank-logo.svg" alt="Banking"></div><span data-en="Banking">Sector bancar</span><span class="exp-role" data-en="Compliance Advisory">Consultanță de conformitate</span></li>
+          <li class="tube__text__item"><div class="exp-logo"><img src="logos/payall-logo.svg" alt="Payall"></div>Payall<span class="exp-role" data-en="AML Services">Servicii AML</span></li>
         </ul>
       </div>
     </section>
@@ -685,10 +739,10 @@
     <section class="cylinder-section">
       <div class="cylinder__wrapper">
         <ul class="cylinder__text__wrapper">
-          <li class="cylinder__text__item">PHD Candidate<span class="edu-role">Economics & Management</span></li>
-          <li class="cylinder__text__item">LL.M.<span class="edu-role">Diplomacy</span></li>
-          <li class="cylinder__text__item">LL.M.<span class="edu-role">Economic Law</span></li>
-          <li class="cylinder__text__item">LL.B.<span class="edu-role">Bachelor of Laws</span></li>
+          <li class="cylinder__text__item"><span data-en="PHD Candidate">Doctorand</span><span class="edu-role" data-en="Economics &amp; Management">Economie și management</span></li>
+          <li class="cylinder__text__item">LL.M.<span class="edu-role" data-en="Diplomacy">Diplomație</span></li>
+          <li class="cylinder__text__item">LL.M.<span class="edu-role" data-en="Economic Law">Drept economic</span></li>
+          <li class="cylinder__text__item">LL.B.<span class="edu-role" data-en="Bachelor of Laws">Licență în drept</span></li>
         </ul>
       </div>
     </section>
@@ -706,17 +760,17 @@
           </a>
         </div>
         <div class="footer-info">
-          <p>&copy; 2026 Applexium. All Rights Reserved.</p>
+          <p>&copy; <span class="footer-year">2026</span> Applexium. <span data-en="All Rights Reserved.">Toate drepturile rezervate.</span></p>
         </div>
       </div>
 
       <div class="footer-legal">
-        <a href="terms-and-conditions"><i class="fas fa-file-contract"></i> Terms & Conditions</a>
-        <a href="privacy-policy"><i class="fas fa-shield-halved"></i> Privacy Policy</a>
-        <a href="cookie-policy"><i class="fas fa-cookie-bite"></i> Cookie Policy</a>
-        <a href="ai-ethics"><i class="fas fa-brain"></i> AI Ethics Statement</a>
-        <a href="accessibility"><i class="fas fa-universal-access"></i> Accessibility Statement</a>
-        <a href="esg"><i class="fas fa-leaf"></i> ESG Statement</a>
+        <a href="terms-and-conditions"><i class="fas fa-file-contract"></i> <span data-en="Terms &amp; Conditions">Termeni și condiții</span></a>
+        <a href="privacy-policy"><i class="fas fa-shield-halved"></i> <span data-en="Privacy Policy">Politica de confidențialitate</span></a>
+        <a href="cookie-policy"><i class="fas fa-cookie-bite"></i> <span data-en="Cookie Policy">Politica de cookie-uri</span></a>
+        <a href="ai-ethics"><i class="fas fa-brain"></i> <span data-en="AI Ethics Statement">Declarație de etică AI</span></a>
+        <a href="accessibility"><i class="fas fa-universal-access"></i> <span data-en="Accessibility Statement">Declarație de accesibilitate</span></a>
+        <a href="esg"><i class="fas fa-leaf"></i> <span data-en="ESG Statement">Declarație ESG</span></a>
       </div>
     </div>
   </footer>
@@ -863,5 +917,8 @@
       });
     })();
   </script>
+
+  <!-- Bilingual engine (RO default / EN alternative) -->
+  <script src="i18n.js"></script>
 </body>
 </html>

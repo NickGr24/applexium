@@ -1,16 +1,63 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ro">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Terms & Conditions | Applexium</title>
-  <meta name="description" content="Terms and Conditions of Use for applexium.com">
+  <!-- Set language before paint (from ?lang= or localStorage) to avoid a flash -->
+  <script>(function(){try{var l=new URLSearchParams(location.search).get('lang')||localStorage.getItem('applexium-lang');document.documentElement.setAttribute('data-lang',l==='en'?'en':'ro');if(l==='en'){document.documentElement.lang='en';}}catch(e){document.documentElement.setAttribute('data-lang','ro');}})();</script>
+
+  <title data-en="Terms &amp; Conditions | Applexium">Termeni și condiții | Applexium</title>
+  <meta name="description" content="Termenii și condițiile de utilizare ale site-ului applexium.com.">
+  <meta name="keywords" content="Applexium, termeni și condiții, termeni de utilizare, condiții de utilizare, SCALELAW SOLUTIONS, Moldova, GDPR">
+  <meta name="author" content="Applexium">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://applexium.com/terms-and-conditions">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Termeni și condiții | Applexium">
+  <meta property="og:description" content="Termenii și condițiile de utilizare ale site-ului applexium.com.">
+  <meta property="og:url" content="https://applexium.com/terms-and-conditions">
+  <meta property="og:site_name" content="Applexium">
+  <meta property="og:image" content="https://applexium.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="ro_RO">
+  <meta property="og:locale:alternate" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Termeni și condiții | Applexium">
+  <meta name="twitter:description" content="Termenii și condițiile de utilizare ale site-ului applexium.com.">
+  <meta name="twitter:image" content="https://applexium.com/og-image.png">
+
   <link rel="icon" href="favicon.ico" sizes="48x48">
   <link rel="icon" type="image/svg+xml" href="logo-icon.svg">
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Questrial&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="style.css">
+
+  <!-- Structured data: WebPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://applexium.com/terms-and-conditions#webpage",
+    "url": "https://applexium.com/terms-and-conditions",
+    "name": "Termeni și condiții",
+    "description": "Termenii și condițiile de utilizare ale site-ului applexium.com.",
+    "inLanguage": "ro",
+    "isPartOf": { "@id": "https://applexium.com/#website" },
+    "publisher": {
+      "@type": "Organization",
+      "@id": "https://applexium.com/#organization",
+      "name": "Applexium",
+      "legalName": "SCALELAW SOLUTIONS SRL",
+      "url": "https://applexium.com/"
+    }
+  }
+  </script>
 </head>
 <body>
   <div class="legal-page">
@@ -22,291 +69,162 @@
           <span class="logo-text">Applexium</span>
         </a>
       </div>
-      <button class="mobile-menu-toggle" aria-label="Toggle menu">
-        <span></span><span></span><span></span>
-      </button>
       <div class="nav-links">
-        <a href="/#capabilities">Services</a>
-        <a href="/#products">Solutions</a>
-        <a href="/#portfolio">Portfolio</a>
-        <a href="team">Team</a>
-        <a href="contacts">Contact</a>
+        <a href="/#capabilities" data-en="Services">Servicii</a>
+        <a href="/#products" data-en="Solutions">Soluții</a>
+        <a href="/#portfolio" data-en="Portfolio">Portofoliu</a>
+        <a href="team" data-en="Team">Echipă</a>
+        <a href="contacts" data-en="Contact">Contact</a>
+      </div>
+      <div class="nav-actions">
+        <div class="lang-switch" role="group" aria-label="Schimbă limba" data-en-aria-label="Change language">
+          <button type="button" class="lang-btn" data-lang-switch="ro" aria-pressed="true">RO</button>
+          <button type="button" class="lang-btn" data-lang-switch="en" aria-pressed="false">EN</button>
+        </div>
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-menu-toggle" aria-label="Comută meniul" data-en-aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
       </div>
     </nav>
 
     <!-- Hero -->
     <section class="legal-hero">
       <div class="legal-hero-icon"><i class="fas fa-file-contract"></i></div>
-      <h1>Terms & Conditions</h1>
-      <p class="legal-subtitle">Termeni și Condiții de Utilizare</p>
-      <p class="legal-version">Version 1.0 &bull; April 2026</p>
+      <h1 data-en="Terms &amp; Conditions">Termeni și condiții</h1>
+      <p class="legal-subtitle" data-en="Terms and Conditions of Use">Termeni și Condiții de Utilizare</p>
+      <p class="legal-version" data-en="Version 1.0 &bull; April 2026">Versiunea 1.0 &bull; Aprilie 2026</p>
     </section>
-
-    <!-- Language Toggle -->
-    <div class="legal-lang-toggle">
-      <button class="legal-lang-btn active" data-lang="ro">Română</button>
-      <button class="legal-lang-btn" data-lang="en">English</button>
-    </div>
 
     <!-- Content -->
     <div class="legal-content-wrap">
-      <!-- ROMANIAN -->
       <div class="legal-content active" id="content-ro">
 
         <div class="legal-section">
-          <div class="legal-section-num">Section 1</div>
-          <h2>Informații generale</h2>
-          <p>Prezentele Termeni și Condiții (denumite în continuare „T&C") reglementează utilizarea site-ului web <a href="https://applexium.com">applexium.com</a> (denumit în continuare „Site-ul"), operat de:</p>
+          <div class="legal-section-num" data-en="Section 1">Secțiunea 1</div>
+          <h2 data-en="General Information">Informații generale</h2>
+          <p data-en="These Terms and Conditions (hereinafter referred to as &quot;T&amp;C&quot;) govern the use of the website <a href=&quot;https://applexium.com&quot;>applexium.com</a> (hereinafter referred to as the &quot;Website&quot;), operated by:">Prezentul document stabilește Termenii și Condițiile de utilizare a site-ului web <a href="https://applexium.com">applexium.com</a> (denumit în continuare „Site-ul"), administrat de:</p>
 
           <div class="legal-info-box">
             <p><strong>SRL SCALELAW SOLUTIONS</strong></p>
-            <p><strong>Brand:</strong> Applexium</p>
+            <p><strong data-en="Brand:">Brand:</strong> Applexium</p>
             <p><strong>IDNO:</strong> 1025600064372</p>
-            <p><strong>Data înregistrării:</strong> 30 octombrie 2025</p>
-            <p><strong>Forma juridică:</strong> SRL (Societate cu Răspundere Limitată)</p>
-            <p><strong>Adresa juridică:</strong> mun. Chișinău, sec. Buiucani, str. Calea Ieșilor, 67, ap. 9</p>
-            <p><strong>Sediul operațional:</strong> Mihai Viteazul 2a, Chișinău, Moldova</p>
+            <p><strong data-en="Date of Registration:">Data înregistrării:</strong> <span data-en="October 30, 2025">30 octombrie 2025</span></p>
+            <p><strong data-en="Legal Form:">Forma juridică:</strong> <span data-en="SRL (Limited Liability Company)">Societate cu Răspundere Limitată (SRL)</span></p>
+            <p><strong data-en="Legal Address:">Adresa juridică:</strong> mun. Chișinău, sec. Buiucani, str. Calea Ieșilor, 67, ap. 9</p>
+            <p><strong data-en="Office:">Adresa biroului:</strong> Mihai Viteazul 2a, Chișinău, Moldova</p>
             <p><strong>Email:</strong> <a href="mailto:info@applexium.com">info@applexium.com</a></p>
-            <p><strong>Telefon:</strong> <a href="tel:+37378768765">+373 78 76 87 65</a></p>
-            <p><strong>Director:</strong> Mircea Ursu</p>
+            <p><strong data-en="Phone:">Telefon:</strong> <a href="tel:+37378768765">+373 78 76 87 65</a></p>
+            <p><strong data-en="Director:">Director:</strong> Mircea Ursu</p>
           </div>
 
-          <p>Prin accesarea și utilizarea Site-ului, confirmați că ați citit, înțeles și acceptat prezentele T&C. Dacă nu sunteți de acord cu oricare dintre prevederile de mai jos, vă rugăm să nu utilizați Site-ul.</p>
+          <p data-en="By accessing and using the Website, you confirm that you have read, understood, and accepted these T&amp;C. If you do not agree with any of the provisions below, please do not use the Website.">Prin accesarea sau utilizarea Site-ului, confirmați că ați citit, înțeles și acceptat în totalitate prezenții Termeni și Condiții. Dacă nu sunteți de acord cu aceștia, vă rugăm să nu utilizați Site-ul.</p>
         </div>
 
         <div class="legal-section">
-          <div class="legal-section-num">Section 2</div>
-          <h2>Scopul și natura site-ului</h2>
-          <p>Site-ul <a href="https://applexium.com">applexium.com</a> este un site informativ, care funcționează ca o carte de vizită digitală a companiei Applexium. Site-ul are următoarele scopuri:</p>
+          <div class="legal-section-num" data-en="Section 2">Secțiunea 2</div>
+          <h2 data-en="Purpose and Nature of the Website">Scopul și natura site-ului</h2>
+          <p data-en="The website <a href=&quot;https://applexium.com&quot;>applexium.com</a> is an informational site that serves as a digital business card for the company Applexium. The Website has the following purposes:">Site-ul <a href="https://applexium.com">applexium.com</a> are caracter informativ și reprezintă o carte de vizită digitală a companiei SRL SCALELAW SOLUTIONS, sub brandul Applexium. Scopul Site-ului este:</p>
           <ul>
-            <li>Prezentarea serviciilor oferite de companie (consultanță digitală, dezvoltare software, soluții AI)</li>
-            <li>Prezentarea portofoliului de lucrări și proiecte realizate</li>
-            <li>Prezentarea echipei și a competențelor profesionale</li>
-            <li>Oferirea unui formular de contact pentru potențialii clienți și parteneri</li>
+            <li data-en="Presenting the services offered by the company (digital consulting, software development, AI solutions)">Prezentarea serviciilor și expertizei companiei în domeniul dezvoltării de produse digitale, consultanței IT și conformității de reglementare;</li>
+            <li data-en="Showcasing the portfolio of completed works and projects">Afișarea portofoliului de proiecte realizate;</li>
+            <li data-en="Presenting the team and professional competencies">Prezentarea echipei companiei;</li>
+            <li data-en="Providing a contact form for potential clients and partners">Facilitarea contactului între potențialii clienți și echipa Applexium.</li>
           </ul>
-          <p>Site-ul nu oferă funcționalități de comerț electronic, nu procesează plăți și nu permite crearea de conturi de utilizator.</p>
-          <p><strong>Notă:</strong> Produsele dezvoltate de Applexium (inclusiv Legalia, Emmi și Precedentia) fac obiectul unor Termeni și Condiții separate, disponibile pe paginile respective ale fiecărui produs. Prezentele T&C se aplică exclusiv utilizării site-ului <a href="https://applexium.com">applexium.com</a>.</p>
+          <p data-en="The Website does not offer e-commerce functionalities, does not process payments, and does not allow the creation of user accounts.">Site-ul nu oferă funcționalități de comerț electronic, nu procesează plăți și nu permite crearea de conturi de utilizator.</p>
+          <p data-en="<strong>Note:</strong> Products developed by Applexium (including Legalia, Emmi, and Precedentia) are subject to separate Terms and Conditions, available on their respective product pages. These T&amp;C apply exclusively to the use of the website <a href=&quot;https://applexium.com&quot;>applexium.com</a>."><strong data-en="Note:">Notă importantă:</strong> Fiecare produs digital dezvoltat de Applexium (Legalia, Emmi, Precedentia etc.) sau orice platformă web lansată în viitor va dispune de propriii Termeni și Condiții, Politică de Confidențialitate și alte documente legale specifice, accesibile pe paginile dedicate acestor produse. Prezentul document se aplică exclusiv site-ului <a href="https://applexium.com">applexium.com</a>.</p>
         </div>
 
         <div class="legal-section">
-          <div class="legal-section-num">Section 3</div>
-          <h2>Proprietate intelectuală</h2>
-          <p>Toate conținuturile prezentate pe Site, inclusiv, dar fără a se limita la: texte, imagini, elemente grafice, logo-uri, icoane, fotografii, clipuri video, design-ul site-ului, structura paginilor, codurile sursă și orice alte materiale, sunt proprietatea exclusivă a SRL SCALELAW SOLUTIONS sau sunt utilizate cu licență corespunzătoare.</p>
-          <p>Este interzisă, fără acordul prealabil scris al companiei:</p>
+          <div class="legal-section-num" data-en="Section 3">Secțiunea 3</div>
+          <h2 data-en="Intellectual Property">Proprietate intelectuală</h2>
+          <p data-en="All content presented on the Website, including but not limited to: texts, images, graphic elements, logos, icons, photographs, video clips, website design, page structure, source code, and any other materials, are the exclusive property of SRL SCALELAW SOLUTIONS or are used under appropriate license.">Toate elementele Site-ului, inclusiv dar fără a se limita la texte, grafică, logo-uri, imagini, pictograme, denumiri comerciale, concepte, structura Site-ului și codul sursă, sunt proprietatea exclusivă a SRL SCALELAW SOLUTIONS sau sunt utilizate în baza unor licențe valabile.</p>
+          <p data-en="Without the prior written consent of the company, the following is prohibited:">Este strict interzisă:</p>
           <ul>
-            <li>Reproducerea, copierea, distribuirea sau publicarea oricărui conținut de pe Site</li>
-            <li>Utilizarea logo-ului, numelui „Applexium" sau a altor mărci asociate în scopuri comerciale sau de marketing</li>
-            <li>Crearea de lucrări derivate pe baza conținutului Site-ului</li>
-            <li>Extragerea sistematică a datelor sau conținutului de pe Site prin mijloace automate sau manuale</li>
+            <li data-en="Reproduction, copying, distribution, or publication of any content from the Website">Reproducerea, copierea sau distribuirea oricărui conținut al Site-ului fără acordul scris prealabil al companiei;</li>
+            <li data-en="Use of the logo, the name &quot;Applexium,&quot; or other associated trademarks for commercial or marketing purposes">Utilizarea logo-ului sau a numelui comercial Applexium în scopuri comerciale sau promoționale fără autorizare;</li>
+            <li data-en="Creation of derivative works based on the Website content">Modificarea, adaptarea sau crearea de lucrări derivate din conținutul Site-ului.</li>
+            <li data-en="Systematic extraction of data or content from the Website through automated or manual means">Extragerea sistematică a datelor sau conținutului de pe Site prin mijloace automate sau manuale.</li>
           </ul>
-          <p>Încălcarea drepturilor de proprietate intelectuală poate atrage răspunderea civilă și/sau penală în conformitate cu legislația aplicabilă.</p>
+          <p data-en="Violation of intellectual property rights may result in civil and/or criminal liability in accordance with applicable law.">Orice utilizare neautorizată a conținutului poate constitui o încălcare a legislației privind proprietatea intelectuală și poate atrage răspunderea juridică corespunzătoare.</p>
         </div>
 
         <div class="legal-section">
-          <div class="legal-section-num">Section 4</div>
-          <h2>Colectarea datelor prin formularul de contact</h2>
-          <p>Site-ul pune la dispoziția vizitatorilor un formular de contact prin care pot fi transmise următoarele informații:</p>
+          <div class="legal-section-num" data-en="Section 4">Secțiunea 4</div>
+          <h2 data-en="Data Collection via Contact Form">Colectarea datelor prin formularul de contact</h2>
+          <p data-en="The Website provides visitors with a contact form through which the following information may be submitted:">Site-ul conține un formular de contact prin intermediul căruia utilizatorii pot transmite solicitări către echipa Applexium. Prin completarea și trimiterea formularului, utilizatorul furnizează voluntar următoarele date:</p>
           <ul>
-            <li><strong>Nume</strong> — obligatoriu</li>
-            <li><strong>Adresă de email</strong> — obligatoriu</li>
-            <li><strong>Companie</strong> — opțional</li>
-            <li><strong>Mesaj</strong> — obligatoriu</li>
+            <li data-en="<strong>Name</strong> &mdash; required"><strong data-en="Full name">Numele complet</strong>;</li>
+            <li data-en="<strong>Email address</strong> &mdash; required"><strong data-en="Work email address">Adresa de email de serviciu</strong>;</li>
+            <li data-en="<strong>Company</strong> &mdash; optional"><strong data-en="Company name (optional field)">Numele companiei (câmp opțional)</strong>;</li>
+            <li data-en="<strong>Message</strong> &mdash; required"><strong data-en="Message / description of the inquiry">Mesajul / descrierea solicitării</strong>.</li>
           </ul>
-          <p>Aceste date sunt colectate exclusiv în scopul procesării solicitărilor și întrebărilor primite și nu sunt transmise către terți, cu excepția cazurilor prevăzute de lege.</p>
-          <p>Pentru informații detaliate privind modul în care prelucrăm datele dumneavoastră personale, vă rugăm să consultați <a href="privacy-policy">Politica de Confidențialitate</a>.</p>
-          <p>Prelucrarea datelor cu caracter personal se efectuează în conformitate cu Regulamentul General privind Protecția Datelor (GDPR — Regulamentul UE 2016/679) și cu legislația Republicii Moldova în domeniul protecției datelor personale.</p>
+          <p data-en="This data is collected exclusively for the purpose of processing inquiries and questions received and is not shared with third parties, except as required by law.">Datele colectate sunt utilizate exclusiv în scopul procesării solicitărilor și al comunicării cu potențialii clienți sau parteneri. Compania nu vinde, nu închiriază și nu transferă datele cu caracter personal terților în scopuri comerciale.</p>
+          <p data-en="For detailed information on how we process your personal data, please refer to our <a href=&quot;privacy-policy&quot;>Privacy Policy</a>.">Prelucrarea datelor cu caracter personal este reglementată în detaliu prin <a href="privacy-policy">Politica de Confidențialitate</a> disponibilă pe Site. În măsura în care utilizatorul se află pe teritoriul Uniunii Europene, prelucrarea datelor se realizează în conformitate cu Regulamentul (UE) 2016/679 (GDPR).</p>
+          <p data-en="The processing of personal data is carried out in accordance with the General Data Protection Regulation (GDPR &mdash; EU Regulation 2016/679) and the legislation of the Republic of Moldova on personal data protection.">Prelucrarea datelor cu caracter personal se efectuează în conformitate cu Regulamentul General privind Protecția Datelor (GDPR — Regulamentul UE 2016/679) și cu legislația Republicii Moldova în domeniul protecției datelor personale.</p>
         </div>
 
         <div class="legal-section">
-          <div class="legal-section-num">Section 5</div>
-          <h2>Rețele de socializare</h2>
-          <p>Applexium este prezentă pe următoarele platforme de social media:</p>
+          <div class="legal-section-num" data-en="Section 5">Secțiunea 5</div>
+          <h2 data-en="Social Media">Rețele de socializare</h2>
+          <p data-en="Applexium is present on the following social media platforms:">Applexium este prezent pe următoarele rețele de socializare:</p>
           <ul>
             <li><strong>Facebook</strong></li>
             <li><strong>Instagram</strong></li>
             <li><strong>TikTok</strong></li>
           </ul>
-          <p>Link-urile către aceste platforme sunt disponibile pe Site. Prin accesarea acestor link-uri, veți fi redirecționat către platforme externe care sunt guvernate de propriile lor politici de confidențialitate și termeni de utilizare.</p>
-          <p>Applexium nu este responsabilă pentru conținutul, politicile de confidențialitate sau practicile platformelor de social media externe. Vă încurajăm să consultați termenii și condițiile fiecărei platforme înainte de utilizare.</p>
+          <p data-en="Links to these platforms are available on the Website. By accessing these links, you will be redirected to external platforms that are governed by their own privacy policies and terms of use.">Site-ul poate conține butoane, widget-uri sau link-uri de redirecționare către paginile oficiale Applexium de pe aceste platforme. Prin accesarea acestor link-uri, utilizatorul părăsește site-ul applexium.com și este supus politicilor și termenilor proprii ai platformei respective.</p>
+          <p data-en="Applexium is not responsible for the content, privacy policies, or practices of external social media platforms. We encourage you to review the terms and conditions of each platform before use.">SRL SCALELAW SOLUTIONS nu exercită niciun control asupra acestor platforme și nu este responsabilă pentru conținutul sau practicile de confidențialitate ale acestora. Vă încurajăm să consultați termenii și condițiile fiecărei platforme înainte de utilizare.</p>
         </div>
 
         <div class="legal-section">
-          <div class="legal-section-num">Section 6</div>
-          <h2>Link-uri către site-uri terțe</h2>
-          <p>Site-ul poate conține link-uri către site-uri web operate de terți. Aceste link-uri sunt furnizate exclusiv pentru comoditatea utilizatorilor și în scop informativ.</p>
-          <p>Applexium nu controlează și nu își asumă responsabilitatea pentru conținutul, politicile de confidențialitate, disponibilitatea sau acuratețea informațiilor prezentate pe site-urile terțe. Accesarea oricărui link extern se face pe propria răspundere a utilizatorului.</p>
-          <p>Includerea unui link pe Site nu implică aprobarea sau recomandarea de către Applexium a site-ului respectiv sau a conținutului acestuia.</p>
+          <div class="legal-section-num" data-en="Section 6">Secțiunea 6</div>
+          <h2 data-en="Third-Party Links">Link-uri către site-uri terțe</h2>
+          <p data-en="The Website may contain links to websites operated by third parties. These links are provided solely for the convenience of users and for informational purposes.">Site-ul poate include referințe sau link-uri către site-uri, platforme sau resurse externe (de exemplu, site-urile clienților din portofoliu). Aceste link-uri sunt furnizate exclusiv cu titlu informativ.</p>
+          <p data-en="Applexium does not control and assumes no responsibility for the content, privacy policies, availability, or accuracy of information presented on third-party websites. Accessing any external link is done at the user's own risk.">SRL SCALELAW SOLUTIONS nu controlează conținutul site-urilor terțe și nu poartă nicio responsabilitate pentru acuratețea, actualitatea sau legalitatea conținutului acestora, pentru practicile lor de confidențialitate sau pentru orice prejudicii rezultate din utilizarea lor. Accesarea link-urilor externe se realizează exclusiv pe propria răspundere a utilizatorului.</p>
+          <p data-en="The inclusion of a link on the Website does not imply endorsement or recommendation by Applexium of the respective website or its content.">Includerea unui link pe Site nu implică aprobarea sau recomandarea de către Applexium a site-ului respectiv sau a conținutului acestuia.</p>
         </div>
 
         <div class="legal-section">
-          <div class="legal-section-num">Section 7</div>
-          <h2>Limitarea răspunderii</h2>
-          <p>Applexium depune toate eforturile pentru a asigura acuratețea și actualitatea informațiilor prezentate pe Site. Cu toate acestea, compania nu garantează că informațiile sunt complete, exacte sau lipsite de erori.</p>
-          <p>Conținutul Site-ului are caracter exclusiv informativ și nu constituie consultanță juridică, financiară, tehnică sau de altă natură profesională. Utilizatorii nu ar trebui să se bazeze exclusiv pe informațiile de pe Site pentru luarea deciziilor și sunt încurajați să solicite asistență profesională specializată.</p>
-          <p>Applexium nu va fi responsabilă pentru nicio pierdere sau daună, directă sau indirectă, rezultată din utilizarea sau imposibilitatea utilizării Site-ului, inclusiv, dar fără a se limita la, pierderi de date, întreruperi ale serviciului sau acces neautorizat.</p>
+          <div class="legal-section-num" data-en="Section 7">Secțiunea 7</div>
+          <h2 data-en="Limitation of Liability">Limitarea răspunderii</h2>
+          <p data-en="Applexium makes every effort to ensure the accuracy and currency of the information presented on the Website. However, the company does not guarantee that the information is complete, accurate, or free of errors.">SRL SCALELAW SOLUTIONS depune toate eforturile pentru a asigura acuratețea și actualitatea informațiilor publicate pe Site. Cu toate acestea, compania nu garantează că informațiile de pe Site sunt complete, corecte sau actualizate în orice moment, că Site-ul va funcționa continuu, fără întreruperi tehnice sau erori, ori că este lipsit de viruși sau alte componente dăunătoare.</p>
+          <p data-en="The content of the Website is exclusively informational and does not constitute legal, financial, technical, or other professional advice. Users should not rely solely on information from the Website for decision-making and are encouraged to seek specialized professional assistance.">Conținutul Site-ului are caracter pur informativ și nu constituie consiliere juridică, fiscală, financiară sau de altă natură profesională. Pentru servicii specializate, vă rugăm să contactați direct echipa Applexium.</p>
+          <p data-en="Applexium shall not be liable for any loss or damage, direct or indirect, resulting from the use or inability to use the Website, including but not limited to data loss, service interruptions, or unauthorized access.">Compania nu răspunde pentru niciun prejudiciu direct, indirect, incidental sau consecvent rezultat din accesarea sau utilizarea Site-ului, în limitele permise de legislația aplicabilă.</p>
         </div>
 
         <div class="legal-section">
-          <div class="legal-section-num">Section 8</div>
-          <h2>Modificarea termenilor</h2>
-          <p>Applexium își rezervă dreptul de a modifica prezentele Termeni și Condiții în orice moment, fără notificare prealabilă. Versiunea actualizată va fi publicată pe această pagină, cu indicarea datei ultimei modificări.</p>
-          <p>Continuarea utilizării Site-ului după publicarea modificărilor constituie acceptarea tacită a noilor Termeni și Condiții. Vă recomandăm să verificați periodic această pagină pentru a fi la curent cu eventualele actualizări.</p>
+          <div class="legal-section-num" data-en="Section 8">Secțiunea 8</div>
+          <h2 data-en="Amendments to Terms and Conditions">Modificarea termenilor și condițiilor</h2>
+          <p data-en="Applexium reserves the right to modify these Terms and Conditions at any time, without prior notice. The updated version will be published on this page, with an indication of the date of the last modification.">SRL SCALELAW SOLUTIONS își rezervă dreptul de a modifica, actualiza sau completa prezenții Termeni și Condiții în orice moment, fără o notificare prealabilă individuală. Versiunea actualizată va fi publicată pe Site, indicând data ultimei actualizări.</p>
+          <p data-en="Continued use of the Website after the publication of modifications constitutes tacit acceptance of the new Terms and Conditions. We recommend that you periodically check this page to stay informed of any updates.">Continuarea utilizării Site-ului după publicarea modificărilor constituie acceptarea tacită a noilor termeni. Vă recomandăm să verificați periodic această pagină pentru a fi la curent cu eventualele modificări.</p>
         </div>
 
         <div class="legal-section">
-          <div class="legal-section-num">Section 9</div>
-          <h2>Legea aplicabilă și jurisdicția</h2>
-          <p>Prezentele Termeni și Condiții sunt guvernate de și interpretate în conformitate cu legislația Republicii Moldova.</p>
-          <p>Orice litigiu sau neînțelegere decurgând din sau în legătură cu utilizarea Site-ului va fi soluționat, în primul rând, pe cale amiabilă, în termen de 30 de zile de la notificarea scrisă a părții nemulțumite. În cazul în care soluționarea amiabilă nu este posibilă, litigiul va fi deferit instanțelor judecătorești competente din Republica Moldova.</p>
-          <p><strong>Pentru utilizatorii din Uniunea Europeană:</strong> Drepturile dumneavoastră suplimentare în temeiul GDPR (Regulamentul UE 2016/679) și al legislației europene privind protecția consumatorilor rămân pe deplin aplicabile și nu sunt afectate de prezentele T&C.</p>
+          <div class="legal-section-num" data-en="Section 9">Secțiunea 9</div>
+          <h2 data-en="Applicable Law and Jurisdiction">Legea aplicabilă și jurisdicția</h2>
+          <p data-en="These Terms and Conditions are governed by and construed in accordance with the laws of the Republic of Moldova.">Prezenții Termeni și Condiții sunt guvernați și interpretați în conformitate cu legislația Republicii Moldova.</p>
+          <p data-en="Any dispute or disagreement arising from or in connection with the use of the Website shall be resolved, first and foremost, amicably, within 30 days of written notification by the dissatisfied party. If an amicable resolution is not possible, the dispute shall be referred to the competent courts of the Republic of Moldova.">Orice litigiu, dispută sau pretenție decurgând din sau în legătură cu utilizarea Site-ului va fi soluționată, în prima instanță, pe cale amiabilă. În cazul în care acordul amiabil nu poate fi atins în termen de 30 de zile de la notificarea scrisă, litigiul va fi deferit instanțelor judecătorești competente din Republica Moldova.</p>
+          <p data-en="<strong>For users in the European Union:</strong> Your additional rights under GDPR (EU Regulation 2016/679) and European consumer protection legislation remain fully applicable and are not affected by these T&amp;C."><strong data-en="For users in the European Union:">Pentru utilizatorii din Uniunea Europeană:</strong> se aplică suplimentar drepturile conferite de legislația UE, în special cele prevăzute de GDPR și Directiva privind drepturile consumatorilor, în măsura aplicabilității acestora.</p>
         </div>
 
         <div class="legal-section">
-          <div class="legal-section-num">Section 10</div>
-          <h2>Contact</h2>
-          <p>Pentru orice întrebări, solicitări sau nelămuriri privind prezentele Termeni și Condiții, ne puteți contacta prin următoarele mijloace:</p>
+          <div class="legal-section-num" data-en="Section 10">Secțiunea 10</div>
+          <h2 data-en="Contact">Contact</h2>
+          <p data-en="For any questions, requests, or concerns regarding these Terms and Conditions, you may contact us through the following means:">Pentru orice întrebări, sesizări sau solicitări referitoare la prezenții Termeni și Condiții, vă rugăm să ne contactați:</p>
           <ul>
             <li><strong>Email:</strong> <a href="mailto:info@applexium.com">info@applexium.com</a></li>
-            <li><strong>Telefon:</strong> <a href="tel:+37378768765">+373 78 76 87 65</a></li>
-            <li><strong>Sediul operațional:</strong> Mihai Viteazul 2a, Chișinău, Moldova</li>
-            <li><strong>Adresa juridică:</strong> mun. Chișinău, sec. Buiucani, str. Calea Ieșilor, 67, ap. 9</li>
-            <li><strong>Pagina de contact:</strong> <a href="contacts">applexium.com/contacts</a></li>
+            <li><strong data-en="Phone:">Telefon:</strong> <a href="tel:+37378768765">+373 78 76 87 65</a></li>
+            <li><strong data-en="Office:">Adresă birou:</strong> Mihai Viteazul 2a, Chișinău, Moldova</li>
+            <li><strong data-en="Legal Address:">Adresă juridică:</strong> mun. Chișinău, sec. Buiucani, str. Calea Ieșilor, 67, ap. 9</li>
+            <li><strong data-en="Contact Page:">Pagina de contact:</strong> <a href="contacts">applexium.com/contacts</a></li>
           </ul>
-          <p>Vom depune toate eforturile pentru a răspunde solicitărilor în termen de <strong>5 zile lucrătoare</strong> de la primirea acestora.</p>
+          <p data-en="We will make every effort to respond to inquiries within <strong>5 business days</strong> of receipt.">Ne angajăm să răspundem oricărei solicitări în termen de maxim <strong data-en="5 business days">5 zile lucrătoare</strong>.</p>
         </div>
 
       </div>
 
-      <!-- ENGLISH -->
-      <div class="legal-content" id="content-en">
-
-        <div class="legal-section">
-          <div class="legal-section-num">Section 1</div>
-          <h2>General Information</h2>
-          <p>These Terms and Conditions (hereinafter referred to as "T&C") govern the use of the website <a href="https://applexium.com">applexium.com</a> (hereinafter referred to as the "Website"), operated by:</p>
-
-          <div class="legal-info-box">
-            <p><strong>SRL SCALELAW SOLUTIONS</strong></p>
-            <p><strong>Brand:</strong> Applexium</p>
-            <p><strong>IDNO:</strong> 1025600064372</p>
-            <p><strong>Date of Registration:</strong> October 30, 2025</p>
-            <p><strong>Legal Form:</strong> SRL (Limited Liability Company)</p>
-            <p><strong>Legal Address:</strong> mun. Chișinău, sec. Buiucani, str. Calea Ieșilor, 67, ap. 9</p>
-            <p><strong>Office:</strong> Mihai Viteazul 2a, Chișinău, Moldova</p>
-            <p><strong>Email:</strong> <a href="mailto:info@applexium.com">info@applexium.com</a></p>
-            <p><strong>Phone:</strong> <a href="tel:+37378768765">+373 78 76 87 65</a></p>
-            <p><strong>Director:</strong> Mircea Ursu</p>
-          </div>
-
-          <p>By accessing and using the Website, you confirm that you have read, understood, and accepted these T&C. If you do not agree with any of the provisions below, please do not use the Website.</p>
-        </div>
-
-        <div class="legal-section">
-          <div class="legal-section-num">Section 2</div>
-          <h2>Purpose and Nature of the Website</h2>
-          <p>The website <a href="https://applexium.com">applexium.com</a> is an informational site that serves as a digital business card for the company Applexium. The Website has the following purposes:</p>
-          <ul>
-            <li>Presenting the services offered by the company (digital consulting, software development, AI solutions)</li>
-            <li>Showcasing the portfolio of completed works and projects</li>
-            <li>Presenting the team and professional competencies</li>
-            <li>Providing a contact form for potential clients and partners</li>
-          </ul>
-          <p>The Website does not offer e-commerce functionalities, does not process payments, and does not allow the creation of user accounts.</p>
-          <p><strong>Note:</strong> Products developed by Applexium (including Legalia, Emmi, and Precedentia) are subject to separate Terms and Conditions, available on their respective product pages. These T&C apply exclusively to the use of the website <a href="https://applexium.com">applexium.com</a>.</p>
-        </div>
-
-        <div class="legal-section">
-          <div class="legal-section-num">Section 3</div>
-          <h2>Intellectual Property</h2>
-          <p>All content presented on the Website, including but not limited to: texts, images, graphic elements, logos, icons, photographs, video clips, website design, page structure, source code, and any other materials, are the exclusive property of SRL SCALELAW SOLUTIONS or are used under appropriate license.</p>
-          <p>Without the prior written consent of the company, the following is prohibited:</p>
-          <ul>
-            <li>Reproduction, copying, distribution, or publication of any content from the Website</li>
-            <li>Use of the logo, the name "Applexium," or other associated trademarks for commercial or marketing purposes</li>
-            <li>Creation of derivative works based on the Website content</li>
-            <li>Systematic extraction of data or content from the Website through automated or manual means</li>
-          </ul>
-          <p>Violation of intellectual property rights may result in civil and/or criminal liability in accordance with applicable law.</p>
-        </div>
-
-        <div class="legal-section">
-          <div class="legal-section-num">Section 4</div>
-          <h2>Data Collection via Contact Form</h2>
-          <p>The Website provides visitors with a contact form through which the following information may be submitted:</p>
-          <ul>
-            <li><strong>Name</strong> — required</li>
-            <li><strong>Email address</strong> — required</li>
-            <li><strong>Company</strong> — optional</li>
-            <li><strong>Message</strong> — required</li>
-          </ul>
-          <p>This data is collected exclusively for the purpose of processing inquiries and questions received and is not shared with third parties, except as required by law.</p>
-          <p>For detailed information on how we process your personal data, please refer to our <a href="privacy-policy">Privacy Policy</a>.</p>
-          <p>The processing of personal data is carried out in accordance with the General Data Protection Regulation (GDPR — EU Regulation 2016/679) and the legislation of the Republic of Moldova on personal data protection.</p>
-        </div>
-
-        <div class="legal-section">
-          <div class="legal-section-num">Section 5</div>
-          <h2>Social Media</h2>
-          <p>Applexium is present on the following social media platforms:</p>
-          <ul>
-            <li><strong>Facebook</strong></li>
-            <li><strong>Instagram</strong></li>
-            <li><strong>TikTok</strong></li>
-          </ul>
-          <p>Links to these platforms are available on the Website. By accessing these links, you will be redirected to external platforms that are governed by their own privacy policies and terms of use.</p>
-          <p>Applexium is not responsible for the content, privacy policies, or practices of external social media platforms. We encourage you to review the terms and conditions of each platform before use.</p>
-        </div>
-
-        <div class="legal-section">
-          <div class="legal-section-num">Section 6</div>
-          <h2>Third-Party Links</h2>
-          <p>The Website may contain links to websites operated by third parties. These links are provided solely for the convenience of users and for informational purposes.</p>
-          <p>Applexium does not control and assumes no responsibility for the content, privacy policies, availability, or accuracy of information presented on third-party websites. Accessing any external link is done at the user's own risk.</p>
-          <p>The inclusion of a link on the Website does not imply endorsement or recommendation by Applexium of the respective website or its content.</p>
-        </div>
-
-        <div class="legal-section">
-          <div class="legal-section-num">Section 7</div>
-          <h2>Limitation of Liability</h2>
-          <p>Applexium makes every effort to ensure the accuracy and currency of the information presented on the Website. However, the company does not guarantee that the information is complete, accurate, or free of errors.</p>
-          <p>The content of the Website is exclusively informational and does not constitute legal, financial, technical, or other professional advice. Users should not rely solely on information from the Website for decision-making and are encouraged to seek specialized professional assistance.</p>
-          <p>Applexium shall not be liable for any loss or damage, direct or indirect, resulting from the use or inability to use the Website, including but not limited to data loss, service interruptions, or unauthorized access.</p>
-        </div>
-
-        <div class="legal-section">
-          <div class="legal-section-num">Section 8</div>
-          <h2>Amendments to Terms and Conditions</h2>
-          <p>Applexium reserves the right to modify these Terms and Conditions at any time, without prior notice. The updated version will be published on this page, with an indication of the date of the last modification.</p>
-          <p>Continued use of the Website after the publication of modifications constitutes tacit acceptance of the new Terms and Conditions. We recommend that you periodically check this page to stay informed of any updates.</p>
-        </div>
-
-        <div class="legal-section">
-          <div class="legal-section-num">Section 9</div>
-          <h2>Applicable Law and Jurisdiction</h2>
-          <p>These Terms and Conditions are governed by and construed in accordance with the laws of the Republic of Moldova.</p>
-          <p>Any dispute or disagreement arising from or in connection with the use of the Website shall be resolved, first and foremost, amicably, within 30 days of written notification by the dissatisfied party. If an amicable resolution is not possible, the dispute shall be referred to the competent courts of the Republic of Moldova.</p>
-          <p><strong>For users in the European Union:</strong> Your additional rights under GDPR (EU Regulation 2016/679) and European consumer protection legislation remain fully applicable and are not affected by these T&C.</p>
-        </div>
-
-        <div class="legal-section">
-          <div class="legal-section-num">Section 10</div>
-          <h2>Contact</h2>
-          <p>For any questions, requests, or concerns regarding these Terms and Conditions, you may contact us through the following means:</p>
-          <ul>
-            <li><strong>Email:</strong> <a href="mailto:info@applexium.com">info@applexium.com</a></li>
-            <li><strong>Phone:</strong> <a href="tel:+37378768765">+373 78 76 87 65</a></li>
-            <li><strong>Office:</strong> Mihai Viteazul 2a, Chișinău, Moldova</li>
-            <li><strong>Legal Address:</strong> mun. Chișinău, sec. Buiucani, str. Calea Ieșilor, 67, ap. 9</li>
-            <li><strong>Contact Page:</strong> <a href="contacts">applexium.com/contacts</a></li>
-          </ul>
-          <p>We will make every effort to respond to inquiries within <strong>5 business days</strong> of receipt.</p>
-        </div>
-
-      </div>
-
-      </a>
-
-      <p class="legal-copyright">&copy; 2026 SRL SCALELAW SOLUTIONS &mdash; Applexium. All rights reserved.</p>
+      <p class="legal-copyright" data-en="&copy; 2026 SRL SCALELAW SOLUTIONS &mdash; Applexium. All rights reserved.">&copy; 2026 SRL SCALELAW SOLUTIONS &mdash; Applexium. Toate drepturile rezervate.</p>
     </div>
 
     <!-- Footer -->
@@ -320,33 +238,22 @@
             </a>
           </div>
           <div class="footer-info">
-            <p>&copy; 2026 Applexium. All Rights Reserved.</p>
+            <p>&copy; <span class="footer-year">2026</span> Applexium. <span data-en="All Rights Reserved.">Toate drepturile rezervate.</span></p>
           </div>
         </div>
         <div class="footer-legal">
-          <a href="terms-and-conditions"><i class="fas fa-file-contract"></i> Terms & Conditions</a>
-          <a href="privacy-policy"><i class="fas fa-shield-halved"></i> Privacy Policy</a>
-          <a href="cookie-policy"><i class="fas fa-cookie-bite"></i> Cookie Policy</a>
-          <a href="ai-ethics"><i class="fas fa-brain"></i> AI Ethics Statement</a>
-          <a href="accessibility"><i class="fas fa-universal-access"></i> Accessibility Statement</a>
-          <a href="esg"><i class="fas fa-leaf"></i> ESG Statement</a>
+          <a href="terms-and-conditions"><i class="fas fa-file-contract"></i> <span data-en="Terms &amp; Conditions">Termeni și condiții</span></a>
+          <a href="privacy-policy"><i class="fas fa-shield-halved"></i> <span data-en="Privacy Policy">Politica de confidențialitate</span></a>
+          <a href="cookie-policy"><i class="fas fa-cookie-bite"></i> <span data-en="Cookie Policy">Politica de cookie-uri</span></a>
+          <a href="ai-ethics"><i class="fas fa-brain"></i> <span data-en="AI Ethics Statement">Declarație de etică AI</span></a>
+          <a href="accessibility"><i class="fas fa-universal-access"></i> <span data-en="Accessibility Statement">Declarație de accesibilitate</span></a>
+          <a href="esg"><i class="fas fa-leaf"></i> <span data-en="ESG Statement">Declarație ESG</span></a>
         </div>
       </div>
     </footer>
   </div>
 
   <script>
-    // Language toggle
-    document.querySelectorAll('.legal-lang-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.legal-lang-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        const lang = btn.dataset.lang;
-        document.querySelectorAll('.legal-content').forEach(c => c.classList.remove('active'));
-        document.getElementById('content-' + lang).classList.add('active');
-      });
-    });
-
     // Mobile menu
     const toggle = document.querySelector('.mobile-menu-toggle');
     const navLinks = document.querySelector('.nav-links');
@@ -356,7 +263,7 @@
         navLinks.classList.toggle('active');
       });
     }
-  
+
     // Scroll-triggered section reveal
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -372,5 +279,6 @@
     });
 
   </script>
+  <script src="i18n.js"></script>
 </body>
 </html>
