@@ -1414,12 +1414,22 @@ html[data-lang="en"] .lang-btn[data-lang-switch="en"] {
 
 @media (max-width: 480px) {
     .portfolio-preview {
-        height: 160px;
+        height: 175px;
     }
 
     .portfolio-logo {
-        max-width: 100px;
-        max-height: 70px;
+        max-width: 185px;
+        max-height: 120px;
+    }
+
+    /* Keep the EU-funded lockups the largest, but cap them so they fit
+       inside the card on ~320px phones instead of overflowing/clipping
+       (these classes out-specificity the generic rule above). */
+    .portfolio-logo.logo-dare,
+    .portfolio-logo.logo-eurobridge {
+        max-width: 220px;
+        max-height: 135px;
+        padding: 8px 14px;
     }
 
     .portfolio-icon {

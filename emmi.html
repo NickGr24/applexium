@@ -1156,6 +1156,20 @@
         font-size: 14px;
       }
     }
+
+    /* Emmi live-widget FAB (#voiceagent-widget-root) is injected by the
+       external loader with an inline `bottom: 24px`. On phones the browser's
+       bottom toolbar / system-navigation bar overlaps that zone and clips the
+       avatar (reported on Android Chrome), so lift the host above it on small
+       screens. The inline style carries no !important, so this !important rule
+       wins. env(safe-area-inset-bottom) is a harmless extra: it resolves to 0
+       today (no viewport-fit=cover) and would auto-add the gesture-bar inset if
+       cover is ever enabled site-wide. */
+    @media (max-width: 768px) {
+      #voiceagent-widget-root {
+        bottom: calc(76px + env(safe-area-inset-bottom, 0px)) !important;
+      }
+    }
   </style>
 </head>
 <body class="emmi-page">
