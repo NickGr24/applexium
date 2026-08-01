@@ -308,8 +308,15 @@ def build_sitemap() -> int:
     urlset["xmlns:xhtml"] = "http://www.w3.org/1999/xhtml"
 
     today = date.today().isoformat()
-    romanian = [u for u in soup.find_all("url")
-                if "/en/" not in u.find("loc").get_text()]
+
+    # Drop previously generated English entries first. Without this every run
+    # appended a fresh copy of all 15 of them — three runs turned a 30-URL
+    # sitemap into 90 URLs of duplicates.
+    for url in soup.find_all("url"):
+        if "/en/" in url.find("loc").get_text():
+            url.decompose()
+
+    romanian = list(soup.find_all("url"))
 
     for url in list(romanian):
         ro_loc = url.find("loc").get_text()
