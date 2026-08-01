@@ -382,9 +382,13 @@ body::after {
     backdrop-filter: blur(6px);
 }
 
+/* Rendered as <a> (each language is its own URL), so the anchor defaults for
+   display and underline have to be reset for the pill to keep its shape. */
 .lang-btn {
     -webkit-appearance: none;
     appearance: none;
+    display: inline-block;
+    text-decoration: none;
     background: transparent;
     border: none;
     color: rgba(255, 255, 255, 0.6);

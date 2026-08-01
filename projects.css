@@ -88,9 +88,12 @@ nav {
     background: rgba(255, 255, 255, 0.05);
 }
 
+/* Rendered as <a> (each language is its own URL) — reset the anchor defaults. */
 .lang-btn {
     -webkit-appearance: none;
     appearance: none;
+    display: inline-block;
+    text-decoration: none;
     background: transparent;
     border: none;
     color: rgba(255, 255, 255, 0.6);

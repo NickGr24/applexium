@@ -1,58 +1,49 @@
 <!DOCTYPE html>
-<html lang="ro">
+
+<html data-lang="ro" lang="ro">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Set language before paint (from ?lang= or localStorage) to avoid a flash -->
-  <script>(function(){try{var l=new URLSearchParams(location.search).get('lang')||localStorage.getItem('applexium-lang');document.documentElement.setAttribute('data-lang',l==='en'?'en':'ro');if(l==='en'){document.documentElement.lang='en';}}catch(e){document.documentElement.setAttribute('data-lang','ro');}})();</script>
-
-  <title data-en="Applexium - Digital Products, IT Services &amp; Startup Consulting">Applexium — Produse digitale, servicii IT și consultanță pentru startup-uri</title>
-  <meta name="description" content="Applexium creează produse digitale sigure, oferă servicii IT și consultanță pentru startup-uri. Site-uri, aplicații mobile, instrumente AI și soluții legal-tech din Moldova.">
-  <meta name="keywords" content="Applexium, produse digitale, servicii IT, consultanță startup, dezvoltare web, aplicații mobile, instrumente AI, legal tech, Moldova, dezvoltare software, Legalia, Emmi, Precedentia">
-  <meta name="author" content="Applexium">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://applexium.com/">
-
-  <!-- Open Graph -->
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Applexium — Produse digitale, servicii IT și consultanță pentru startup-uri">
-  <meta property="og:description" content="Ajutăm startup-urile și organizațiile să dezvolte produse digitale sigure, gestionând provocările juridice și de reglementare.">
-  <meta property="og:url" content="https://applexium.com/">
-  <meta property="og:site_name" content="Applexium">
-  <meta property="og:image" content="https://applexium.com/og-image.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:locale" content="ro_RO">
-  <meta property="og:locale:alternate" content="en_US">
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Applexium — Produse digitale, servicii IT și consultanță">
-  <meta name="twitter:description" content="Ajutăm startup-urile și organizațiile să dezvolte produse digitale sigure, gestionând provocările juridice și de reglementare.">
-  <meta name="twitter:image" content="https://applexium.com/og-image.png">
-
-  <link rel="icon" href="favicon.ico" sizes="48x48">
-  <link rel="icon" type="image/svg+xml" href="logo-icon.svg">
-  <link rel="icon" type="image/png" sizes="192x192" href="favicon-192x192.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-  <link rel="manifest" href="site.webmanifest">
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Questrial&display=swap" rel="stylesheet">
-
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-  <!-- AOS Library -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="style.css">
-
-  <!-- Structured data: Organization + WebSite -->
-  <script type="application/ld+json">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<!-- Set language before paint (from ?lang= or localStorage) to avoid a flash -->
+<title data-en="Applexium - Digital Products, IT Services &amp; Startup Consulting">Applexium — Produse digitale, servicii IT și consultanță pentru startup-uri</title>
+<meta content="Applexium creează produse digitale sigure, oferă servicii IT și consultanță pentru startup-uri. Site-uri, aplicații mobile, instrumente AI și soluții legal-tech din Moldova." name="description"/>
+<meta content="Applexium, produse digitale, servicii IT, consultanță startup, dezvoltare web, aplicații mobile, instrumente AI, legal tech, Moldova, dezvoltare software, Legalia, Emmi, Precedentia" name="keywords"/>
+<meta content="Applexium" name="author"/>
+<meta content="index, follow" name="robots"/>
+<link href="https://applexium.com/" rel="canonical"/>
+<!-- Open Graph -->
+<meta content="website" property="og:type"/>
+<meta content="Applexium — Produse digitale, servicii IT și consultanță pentru startup-uri" property="og:title"/>
+<meta content="Ajutăm startup-urile și organizațiile să dezvolte produse digitale sigure, gestionând provocările juridice și de reglementare." property="og:description"/>
+<meta content="https://applexium.com/" property="og:url"/>
+<meta content="Applexium" property="og:site_name"/>
+<meta content="https://applexium.com/og-image.png" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="ro_RO" property="og:locale"/>
+<meta content="en_US" property="og:locale:alternate"/>
+<!-- Twitter Card -->
+<meta content="summary" name="twitter:card"/>
+<meta content="Applexium — Produse digitale, servicii IT și consultanță" name="twitter:title"/>
+<meta content="Ajutăm startup-urile și organizațiile să dezvolte produse digitale sigure, gestionând provocările juridice și de reglementare." name="twitter:description"/>
+<meta content="https://applexium.com/og-image.png" name="twitter:image"/>
+<link href="favicon.ico" rel="icon" sizes="48x48"/>
+<link href="logo-icon.svg" rel="icon" type="image/svg+xml"/>
+<link href="favicon-192x192.png" rel="icon" sizes="192x192" type="image/png"/>
+<link href="favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link href="apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="site.webmanifest" rel="manifest"/>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&amp;family=Questrial&amp;display=swap" rel="stylesheet"/>
+<!-- Font Awesome -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<!-- AOS Library -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"/>
+<!-- Custom CSS -->
+<link href="style.css" rel="stylesheet"/>
+<!-- Structured data: Organization + WebSite -->
+<script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@graph": [
@@ -89,511 +80,466 @@
     ]
   }
   </script>
-</head>
+<link href="https://applexium.com/" hreflang="ro" rel="alternate"/><link href="https://applexium.com/en/" hreflang="en" rel="alternate"/><link href="https://applexium.com/" hreflang="x-default" rel="alternate"/></head>
 <body>
-  <!-- Hero Wrapper with Floating Lines -->
-  <div class="hero-wrapper">
-    <!-- Navigation -->
-    <nav class="navbar">
-    <div class="logo">
-      <a href="/" style="display: flex; align-items: center; gap: 12px; text-decoration: none;">
-        <img src="logo-icon.svg" alt="Applexium" class="logo-icon">
-        <span class="logo-text">Applexium</span>
-      </a>
-    </div>
-
-    <div class="nav-links">
-      <a href="#capabilities" data-en="Services">Servicii</a>
-      <a href="#products" data-en="Products">Produse</a>
-      <a href="#portfolio" data-en="Portfolio">Portofoliu</a>
-      <a href="team" data-en="Team">Echipă</a>
-      <a href="contacts" data-en="Contact">Contact</a>
-    </div>
-
-    <div class="nav-actions">
-      <div class="lang-switch" role="group" aria-label="Schimbă limba" data-en-aria-label="Change language">
-        <button type="button" class="lang-btn" data-lang-switch="ro" aria-pressed="true">RO</button>
-        <button type="button" class="lang-btn" data-lang-switch="en" aria-pressed="false">EN</button>
-      </div>
-      <!-- Mobile Menu Toggle -->
-      <button class="mobile-menu-toggle" aria-label="Comută meniul" data-en-aria-label="Toggle menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </div>
-  </nav>
-
-  <!-- Floating Lines Background - full width -->
-  <canvas id="floating-lines"></canvas>
-
-  <!-- Hero Section -->
-  <main class="hero">
-    <div class="hero-content">
-      <h1 data-en="Digital Products, IT Services<br>&amp; Startup Consulting">Produse digitale, servicii IT<br>și consultanță pentru startup-uri</h1>
-      <p data-en="We help startups and organizations build secure digital products while navigating legal and regulatory challenges.">Ajutăm startup-urile și organizațiile să dezvolte produse digitale sigure, gestionând în același timp provocările juridice și de reglementare.</p>
-      <div class="hero-buttons">
-        <a href="#contact" class="btn-hero-primary" data-en="Schedule a Consultation">Programează o consultație</a>
-        <a href="#capabilities" class="btn-secondary" data-en="Explore Services">Explorează serviciile</a>
-      </div>
-    </div>
-  </main>
-  </div> <!-- /.hero-wrapper -->
-
-  <!-- Products Section -->
-  <section id="products" class="products-section">
-    <div class="container" data-aos="fade-up">
-      <div class="header">
-        <h2 data-aos="fade-down" data-aos-duration="800" data-en="Our Digital Products">Produsele noastre digitale</h2>
-        <p data-aos="fade-up" data-aos-delay="150" data-aos-duration="800" data-en="Applexium develops its own software platforms designed to support businesses, institutions and communities.">Applexium dezvoltă propriile platforme software, concepute pentru a sprijini afaceri, instituții și comunități.</p>
-      </div>
-
-      <div class="products-grid">
-        <!-- Legalia Card -->
-        <div class="star-border-container" data-aos="fade-right" data-aos-delay="150" data-aos-duration="2500" data-aos-easing="ease-in-out-quart">
-          <div class="border-gradient-bottom"></div>
-          <div class="border-gradient-top"></div>
-          <div class="product-card">
-            <div class="product-image neural">
-              <img src="legalia-logo-vertical-v2.png" alt="Logo Legalia" class="product-logo product-logo-inverted">
-            </div>
-            <span class="product-category" data-en="Legal Education Platform">Platformă de educație juridică</span>
-            <h2 class="product-title">Legalia</h2>
-            <p class="product-description" data-en="The app that makes law easy to learn — interactive quizzes, video lessons and podcasts for every topic, from first year to the bar exam.">Aplicația care face dreptul ușor de învățat — teste interactive, lecții video și podcasturi pentru fiecare subiect, din anul întâi până la examenul de admitere în profesie.</p>
-            <a href="legalia"><button class="view-details-btn" data-en="Explore Product">Explorează produsul</button></a>
-          </div>
-        </div>
-
-        <!-- Emmi Card -->
-        <div class="star-border-container" data-aos="fade-up" data-aos-delay="400" data-aos-duration="2500" data-aos-easing="ease-in-out-quart">
-          <div class="border-gradient-bottom"></div>
-          <div class="border-gradient-top"></div>
-          <div class="product-card">
-            <div class="product-image emmi">
-              <img src="emmi.png" alt="Asistentul AI Emmi" class="product-logo product-logo-wide">
-            </div>
-            <span class="product-category" data-en="Multi-Channel Conversational AI">AI conversațional multi-canal</span>
-            <h2 class="product-title">Emmi</h2>
-            <p class="product-description" data-en="The AI agent that answers your customers on the phone, on your website, and on Instagram — in Romanian and Russian, 24/7, learning from your documents.">Agentul AI care răspunde clienților tăi la telefon, pe site și pe Instagram — în română și rusă, 24/7, învățând din documentele tale.</p>
-            <a href="emmi"><button class="view-details-btn" data-en="Explore Product">Explorează produsul</button></a>
-          </div>
-        </div>
-
-        <!-- Precedentia Card -->
-        <div class="star-border-container" data-aos="fade-left" data-aos-delay="650" data-aos-duration="2500" data-aos-easing="ease-in-out-quart">
-          <div class="border-gradient-bottom"></div>
-          <div class="border-gradient-top"></div>
-          <div class="product-card">
-            <div class="product-image precedentia">
-              <img src="precedentia-icon.svg" alt="Logo Precedentia" class="product-logo" style="height: 90px;">
-            </div>
-            <span class="product-category" data-en="Legal Search Platform">Platformă de căutare juridică</span>
-            <h2 class="product-title">Precedentia</h2>
-            <p class="product-description" data-en="Find the precedent that matters in seconds — 275,000+ court decisions from Moldova and Romania, searchable with AI in your own words.">Găsește precedentul care contează în câteva secunde — peste 275.000 de hotărâri din Moldova și România, căutate cu AI, cu propriile tale cuvinte.</p>
-            <a href="precedentia"><button class="view-details-btn" data-en="Explore Product">Explorează produsul</button></a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Portfolio Section -->
-  <section id="portfolio" class="portfolio-section">
-    <div class="container">
-      <div class="portfolio-header" data-aos="fade-up">
-        <h2 data-en="Client Projects &amp; Implementations">Proiecte și implementări pentru clienți</h2>
-        <p data-en="Digital platforms and solutions developed by Applexium for organizations, institutions and businesses.">Platforme și soluții digitale dezvoltate de Applexium pentru organizații, instituții și afaceri.</p>
-      </div>
-
-      <div class="portfolio-grid">
-        <!-- DARE-EU -->
-        <a href="https://dare-eu.net/" target="_blank" rel="noopener noreferrer" class="portfolio-card" data-aos="fade-up" data-aos-delay="100">
-          <div class="portfolio-card-inner">
-            <div class="portfolio-preview">
-              <img src="dare-eu.webp" alt="DARE-EU" class="portfolio-logo logo-dare">
-              <div class="portfolio-overlay">
-                <span class="view-project" data-en="View Project <i class=&quot;fas fa-arrow-right&quot;></i>">Vezi proiectul <i class="fas fa-arrow-right"></i></span>
-              </div>
-            </div>
-            <div class="portfolio-info">
-              <h3>DARE-EU</h3>
-              <p data-en="Cross-border emergency response coordination platform">Platformă de coordonare a răspunsului la urgențe transfrontaliere</p>
-              <div class="portfolio-tags">
-                <span data-en="EU Emergency Response Platform">Platformă UE de răspuns la urgențe</span>
-              </div>
-            </div>
-          </div>
-          <div class="portfolio-glow"></div>
-        </a>
-
-        <!-- EUROBRIDGE UA MD -->
-        <a href="https://eurobridge-uamd.org/" target="_blank" rel="noopener noreferrer" class="portfolio-card" data-aos="fade-up" data-aos-delay="200">
-          <div class="portfolio-card-inner">
-            <div class="portfolio-preview">
-              <img src="eurobridge.png" alt="EUROBRIDGE UA MD" class="portfolio-logo logo-eurobridge">
-              <div class="portfolio-overlay">
-                <span class="view-project" data-en="View Project <i class=&quot;fas fa-arrow-right&quot;></i>">Vezi proiectul <i class="fas fa-arrow-right"></i></span>
-              </div>
-            </div>
-            <div class="portfolio-info">
-              <h3>EUROBRIDGE UA MD</h3>
-              <p data-en="Cross-border grant programme between Moldova and Ukraine">Programul de granturi transfrontaliere dintre Moldova și Ucraina</p>
-              <div class="portfolio-tags">
-                <span data-en="Cross-border Grant Programme">Program de granturi transfrontaliere</span>
-              </div>
-            </div>
-          </div>
-          <div class="portfolio-glow"></div>
-        </a>
-
-        <!-- EnergiQ -->
-        <a href="https://energiq.md/ro/" target="_blank" rel="noopener noreferrer" class="portfolio-card" data-aos="fade-up" data-aos-delay="300">
-          <div class="portfolio-card-inner">
-            <div class="portfolio-preview">
-              <img src="energiq.webp" alt="EnergiQ" class="portfolio-logo">
-              <div class="portfolio-overlay">
-                <span class="view-project" data-en="View Project <i class=&quot;fas fa-arrow-right&quot;></i>">Vezi proiectul <i class="fas fa-arrow-right"></i></span>
-              </div>
-            </div>
-            <div class="portfolio-info">
-              <h3>EnergiQ</h3>
-              <p data-en="Energy solutions &amp; services platform">Platformă de soluții și servicii energetice</p>
-              <div class="portfolio-tags">
-                <span data-en="Energy Services Platform">Platformă de servicii energetice</span>
-              </div>
-            </div>
-          </div>
-          <div class="portfolio-glow"></div>
-        </a>
-
-        <a href="https://penitadreptului.md/" target="_blank" rel="noopener noreferrer" class="portfolio-card" data-aos="fade-up" data-aos-delay="400">
-          <div class="portfolio-card-inner">
-            <div class="portfolio-preview">
-              <img src="penitadreptului.webp" alt="Penita Dreptului" class="portfolio-logo logo-dark-bg">
-              <div class="portfolio-overlay">
-                <span class="view-project" data-en="View Project <i class=&quot;fas fa-arrow-right&quot;></i>">Vezi proiectul <i class="fas fa-arrow-right"></i></span>
-              </div>
-            </div>
-            <div class="portfolio-info">
-              <h3>Penita Dreptului</h3>
-              <p data-en="Legal education platform for aspiring lawyers">Platformă de educație juridică pentru viitori juriști</p>
-              <div class="portfolio-tags">
-                <span data-en="Legal Education">Educație juridică</span>
-              </div>
-            </div>
-          </div>
-          <div class="portfolio-glow"></div>
-        </a>
-
-
-        <a href="https://cmda.md/" target="_blank" rel="noopener noreferrer" class="portfolio-card" data-aos="fade-up" data-aos-delay="500">
-          <div class="portfolio-card-inner">
-            <div class="portfolio-preview">
-              <img src="cmda.webp" alt="CMDA" class="portfolio-logo">
-              <div class="portfolio-overlay">
-                <span class="view-project" data-en="View Project <i class=&quot;fas fa-arrow-right&quot;></i>">Vezi proiectul <i class="fas fa-arrow-right"></i></span>
-              </div>
-            </div>
-            <div class="portfolio-info">
-              <h3>CMDA</h3>
-              <p>cmda.md</p>
-              <div class="portfolio-tags">
-                <span data-en="Municipal Center for Enterpreneurship Development">Centrul Municipal pentru Dezvoltarea Antreprenoriatului</span>
-              </div>
-            </div>
-          </div>
-          <div class="portfolio-glow"></div>
-        </a>
-        <!-- StartIT Planet -->
-        <a href="https://startitplanet.com/#ro" target="_blank" rel="noopener noreferrer" class="portfolio-card" data-aos="fade-up" data-aos-delay="600">
-          <div class="portfolio-card-inner">
-            <div class="portfolio-preview">
-              <img src="startitplanet.webp" alt="StartIT Planet" class="portfolio-logo">
-              <div class="portfolio-overlay">
-                <span class="view-project" data-en="View Project <i class=&quot;fas fa-arrow-right&quot;></i>">Vezi proiectul <i class="fas fa-arrow-right"></i></span>
-              </div>
-            </div>
-            <div class="portfolio-info">
-              <h3>StartIT Planet</h3>
-              <p data-en="Educational tech platform for IT learning">Platformă edtech pentru învățarea IT</p>
-              <div class="portfolio-tags">
-                <span data-en="Education Platform">Platformă educațională</span>
-              </div>
-            </div>
-          </div>
-          <div class="portfolio-glow"></div>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Services & Expertise Section -->
-  <section id="capabilities" class="capabilities-section">
-    <div class="container">
-      <div class="section-header">
-        <h2 data-en="Our Services &amp; Expertise">Serviciile și expertiza noastră</h2>
-        <p data-en="End-to-end IT development and regulatory advisory for digital products.">Dezvoltare IT completă și consultanță de reglementare pentru produse digitale.</p>
-      </div>
-
-      <!-- Service category tabs -->
-      <div class="services-tabs">
-        <button class="services-tab active" data-tab="it-services">
-          <i class="fas fa-code"></i> <span data-en="IT Services">Servicii IT</span>
-        </button>
-        <button class="services-tab" data-tab="compliance-services">
-          <i class="fas fa-scale-balanced"></i> <span data-en="Compliance &amp; Legal Advisory">Conformitate și consultanță juridică</span>
-        </button>
-      </div>
-
-      <!-- IT Services -->
-      <div class="capabilities-grid services-panel active" id="it-services">
-        <div class="capability-card" data-aos="fade-up" data-aos-delay="0">
-          <div class="capability-icon">
-            <i class="fas fa-laptop-code"></i>
-          </div>
-          <h3 data-en="Custom Website Development">Dezvoltare de site-uri web personalizate</h3>
-          <p data-en="Responsive, high-performance websites and web applications tailored to your business needs.">Site-uri și aplicații web responsive, de înaltă performanță, adaptate nevoilor afacerii tale.</p>
-        </div>
-
-        <div class="capability-card" data-aos="fade-up" data-aos-delay="50">
-          <div class="capability-icon">
-            <i class="fas fa-mobile-alt"></i>
-          </div>
-          <h3 data-en="Mobile App Development">Dezvoltare de aplicații mobile</h3>
-          <p data-en="Native and cross-platform mobile applications for iOS and Android.">Aplicații mobile native și cross-platform pentru iOS și Android.</p>
-        </div>
-
-        <div class="capability-card" data-aos="fade-up" data-aos-delay="100">
-          <div class="capability-icon">
-            <i class="fas fa-brain"></i>
-          </div>
-          <h3 data-en="AI-Powered Tools &amp; Automation">Instrumente AI și automatizare</h3>
-          <p data-en="Intelligent tools leveraging machine learning and AI to automate workflows and optimize processes.">Instrumente inteligente care folosesc machine learning și AI pentru a automatiza fluxurile de lucru și a optimiza procesele.</p>
-        </div>
-
-        <div class="capability-card" data-aos="fade-up" data-aos-delay="150">
-          <div class="capability-icon">
-            <i class="fas fa-headset"></i>
-          </div>
-          <h3 data-en="Technical Maintenance &amp; Support">Mentenanță și suport tehnic</h3>
-          <p data-en="Ongoing technical support, monitoring, and maintenance to keep your products running smoothly.">Suport tehnic continuu, monitorizare și mentenanță pentru ca produsele tale să funcționeze impecabil.</p>
-        </div>
-
-        <div class="capability-card" data-aos="fade-up" data-aos-delay="200">
-          <div class="capability-icon">
-            <i class="fas fa-cloud"></i>
-          </div>
-          <h3 data-en="SaaS &amp; EdTech Platforms">Platforme SaaS și EdTech</h3>
-          <p data-en="Scalable software-as-a-service and educational technology platforms built for growth.">Platforme SaaS și de tehnologie educațională scalabile, construite pentru creștere.</p>
-        </div>
-
-        <div class="capability-card" data-aos="fade-up" data-aos-delay="250">
-          <div class="capability-icon">
-            <i class="fas fa-building"></i>
-          </div>
-          <h3 data-en="Internal Management Platforms">Platforme de management intern</h3>
-          <p data-en="Custom systems for institutions and companies — HR, document management, and workflow automation.">Sisteme personalizate pentru instituții și companii — HR, gestionarea documentelor și automatizarea proceselor.</p>
-        </div>
-
-        <div class="capability-card" data-aos="fade-up" data-aos-delay="300">
-          <div class="capability-icon">
-            <i class="fas fa-microphone-lines"></i>
-          </div>
-          <h3 data-en="AI Voice Agents &amp; Conversational Systems">Agenți vocali AI și sisteme conversaționale</h3>
-          <p data-en="Voice-enabled AI assistants and conversational interfaces for customer engagement and support.">Asistenți AI cu voce și interfețe conversaționale pentru implicarea și suportul clienților.</p>
-        </div>
-
-        <div class="capability-card" data-aos="fade-up" data-aos-delay="350">
-          <div class="capability-icon">
-            <i class="fas fa-plug"></i>
-          </div>
-          <h3 data-en="API Integrations &amp; Interoperability">Integrări API și interoperabilitate</h3>
-          <p data-en="Seamless system integrations, API development, and data exchange between platforms.">Integrări de sisteme fără fricțiuni, dezvoltare API și schimb de date între platforme.</p>
-        </div>
-
-        <div class="capability-card" data-aos="fade-up" data-aos-delay="400">
-          <div class="capability-icon">
-            <i class="fas fa-graduation-cap"></i>
-          </div>
-          <h3 data-en="E-Learning &amp; Knowledge Platforms">Platforme de e-learning și cunoaștere</h3>
-          <p data-en="Content management systems and interactive platforms for digital education and knowledge sharing.">Sisteme de gestionare a conținutului și platforme interactive pentru educație digitală și partajarea cunoștințelor.</p>
-        </div>
-      </div>
-
-      <!-- Compliance & Legal Advisory Services -->
-      <div class="capabilities-grid services-panel" id="compliance-services">
-        <div class="capability-card" data-aos="fade-up" data-aos-delay="0">
-          <div class="capability-icon compliance-icon">
-            <i class="fas fa-gavel"></i>
-          </div>
-          <h3 data-en="Legal &amp; Regulatory Advisory">Consultanță juridică și de reglementare</h3>
-          <p data-en="Strategic legal guidance for digital products — from concept through launch and scaling.">Îndrumare juridică strategică pentru produse digitale — de la concept până la lansare și scalare.</p>
-        </div>
-
-        <div class="capability-card" data-aos="fade-up" data-aos-delay="50">
-          <div class="capability-icon compliance-icon">
-            <i class="fas fa-shield-halved"></i>
-          </div>
-          <h3 data-en="Compliance-by-Design">Conformitate prin design</h3>
-          <p data-en="Built-in regulatory compliance for AI, SaaS, and FinTech solutions from the architecture stage.">Conformitate de reglementare integrată pentru soluții AI, SaaS și FinTech încă din etapa de arhitectură.</p>
-        </div>
-
-        <div class="capability-card" data-aos="fade-up" data-aos-delay="100">
-          <div class="capability-icon compliance-icon">
-            <i class="fas fa-user-shield"></i>
-          </div>
-          <h3 data-en="GDPR &amp; Data Governance">GDPR și guvernanța datelor</h3>
-          <p data-en="Data protection, privacy compliance, and governance frameworks for EU-regulated environments.">Protecția datelor, conformitate privind confidențialitatea și cadre de guvernanță pentru medii reglementate de UE.</p>
-        </div>
-
-        <div class="capability-card" data-aos="fade-up" data-aos-delay="150">
-          <div class="capability-icon compliance-icon">
-            <i class="fas fa-robot"></i>
-          </div>
-          <h3 data-en="AI Governance &amp; AI Act Readiness">Guvernanța AI și conformitate cu AI Act</h3>
-          <p data-en="Risk classification, conformity assessment, and compliance strategies under the EU AI Act.">Clasificarea riscurilor, evaluarea conformității și strategii de conformitate conform AI Act al UE.</p>
-        </div>
-
-        <div class="capability-card" data-aos="fade-up" data-aos-delay="200">
-          <div class="capability-icon compliance-icon">
-            <i class="fas fa-lock"></i>
-          </div>
-          <h3 data-en="Cybersecurity, DORA &amp; NIS2">Securitate cibernetică, DORA și NIS2</h3>
-          <p data-en="Security compliance support for critical infrastructure, financial entities, and digital services.">Suport pentru conformitatea de securitate pentru infrastructuri critice, entități financiare și servicii digitale.</p>
-        </div>
-
-        <div class="capability-card" data-aos="fade-up" data-aos-delay="250">
-          <div class="capability-icon compliance-icon">
-            <i class="fas fa-id-card"></i>
-          </div>
-          <h3 data-en="Digital Identity &amp; eIDAS 2.0">Identitate digitală și eIDAS 2.0</h3>
-          <p data-en="eSignature, digital identity, and EUDI Wallet advisory for trust services and identity verification.">Consultanță privind semnătura electronică, identitatea digitală și EUDI Wallet pentru servicii de încredere și verificarea identității.</p>
-        </div>
-
-        <div class="capability-card" data-aos="fade-up" data-aos-delay="300">
-          <div class="capability-icon compliance-icon">
-            <i class="fas fa-store"></i>
-          </div>
-          <h3 data-en="Platform &amp; Marketplace Compliance">Conformitate pentru platforme și marketplace-uri</h3>
-          <p data-en="Regulatory structuring for digital platforms, marketplaces, and intermediary services under EU rules.">Structurare de reglementare pentru platforme digitale, marketplace-uri și servicii de intermediere conform normelor UE.</p>
-        </div>
-
-        <div class="capability-card" data-aos="fade-up" data-aos-delay="350">
-          <div class="capability-icon compliance-icon">
-            <i class="fas fa-coins"></i>
-          </div>
-          <h3 data-en="FinTech &amp; Digital Assets Advisory">Consultanță FinTech și active digitale</h3>
-          <p data-en="Regulatory guidance for crypto, digital assets, payment services, and financial technology products.">Îndrumare de reglementare pentru cripto, active digitale, servicii de plată și produse de tehnologie financiară.</p>
-        </div>
-
-        <div class="capability-card" data-aos="fade-up" data-aos-delay="400">
-          <div class="capability-icon compliance-icon">
-            <i class="fas fa-magnifying-glass-dollar"></i>
-          </div>
-          <h3 data-en="AML/CFT, KYC &amp; Due Diligence">AML/CFT, KYC și due diligence</h3>
-          <p data-en="Anti-money laundering controls, customer due diligence, UBO identification, and suspicious activity reporting.">Controale anti-spălare de bani, due diligence al clienților, identificarea beneficiarului real (UBO) și raportarea activităților suspecte.</p>
-        </div>
-
-        <div class="capability-card" data-aos="fade-up" data-aos-delay="450">
-          <div class="capability-icon compliance-icon">
-            <i class="fas fa-leaf"></i>
-          </div>
-          <h3 data-en="ESG &amp; Sustainability Reporting">Raportare ESG și de sustenabilitate</h3>
-          <p data-en="Non-financial reporting compliance, ESG frameworks, and sustainability disclosure guidance.">Conformitate privind raportarea non-financiară, cadre ESG și îndrumare privind raportarea de sustenabilitate.</p>
-        </div>
-
-        <div class="capability-card" data-aos="fade-up" data-aos-delay="500">
-          <div class="capability-icon compliance-icon">
-            <i class="fas fa-rocket"></i>
-          </div>
-          <h3 data-en="Startup Structuring &amp; Equity Rounds">Structurarea startup-urilor și runde de finanțare</h3>
-          <p data-en="SAFEs, convertible notes, equity rounds, and legal structuring for early-stage startups.">SAFE-uri, note convertibile, runde de capital și structurare juridică pentru startup-uri aflate la început.</p>
-        </div>
-
-        <div class="capability-card" data-aos="fade-up" data-aos-delay="550">
-          <div class="capability-icon compliance-icon">
-            <i class="fas fa-hand-holding-dollar"></i>
-          </div>
-          <h3 data-en="Crowdfunding &amp; Crowdlending">Crowdfunding și crowdlending</h3>
-          <p data-en="Regulatory structuring and compliance for crowdfunding and crowdlending platforms under EU rules.">Structurare de reglementare și conformitate pentru platforme de crowdfunding și crowdlending conform normelor UE.</p>
-        </div>
-
-        <div class="capability-card" data-aos="fade-up" data-aos-delay="600">
-          <div class="capability-icon compliance-icon">
-            <i class="fas fa-globe"></i>
-          </div>
-          <h3 data-en="Sanctions &amp; Cross-Border Compliance">Sancțiuni și conformitate transfrontalieră</h3>
-          <p data-en="Sanctions screening, regulatory due diligence, and cross-border compliance for international operations.">Screening de sancțiuni, due diligence de reglementare și conformitate transfrontalieră pentru operațiuni internaționale.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-      <div class="video-text-container hero-video">
-      <div class="video-text">
-        <video autoplay muted loop playsinline>
-          <source src="background1.mp4" type="video/mp4">
-          <span data-en="Your browser does not support the video tag.">Browserul tău nu acceptă elementul video.</span>
-        </video>
-      </div>
-    </div>
-
-  <!-- Contact Section with Inline Form -->
-  <section id="contact" class="cta-section">
-    <div class="container">
-      <div class="cta-content">
-        <h2 data-en="Ready to Build Your Future?">Pregătit să-ți construiești viitorul?</h2>
-        <p data-en="Tell us about your project and our team will get back to you shortly.">Spune-ne despre proiectul tău, iar echipa noastră îți va răspunde în scurt timp.</p>
-        <form class="homepage-contact-form" action="https://formspree.io/f/mkoqzdlo" method="POST">
-          <div class="form-row-inline">
-            <div class="form-group-inline">
-              <input type="text" name="name" placeholder="Nume" data-en-placeholder="Name" required>
-            </div>
-            <div class="form-group-inline">
-              <input type="email" name="email" placeholder="Email" data-en-placeholder="Email" required>
-            </div>
-          </div>
-          <div class="form-group-inline">
-            <textarea name="message" rows="4" placeholder="Spune-ne despre proiectul tău..." data-en-placeholder="Tell us about your project..." required></textarea>
-          </div>
-          <button type="submit" class="cta-button" data-en="Send Request">Trimite cererea</button>
-          <p class="form-helper-text" data-en="Our team will respond within 24 hours.">Echipa noastră va răspunde în 24 de ore.</p>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-brand">
-          <a href="/" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
-            <img src="logo-icon.svg" alt="Applexium" class="footer-logo-icon">
-            <span class="logo-text">Applexium</span>
-          </a>
-        </div>
-        <div class="footer-info">
-          <p>&copy; <span class="footer-year">2026</span> Applexium. <span data-en="All Rights Reserved.">Toate drepturile rezervate.</span></p>
-        </div>
-      </div>
-
-      <div class="footer-legal">
-        <a href="terms-and-conditions"><i class="fas fa-file-contract"></i> <span data-en="Terms &amp; Conditions">Termeni și condiții</span></a>
-        <a href="privacy-policy"><i class="fas fa-shield-halved"></i> <span data-en="Privacy Policy">Politica de confidențialitate</span></a>
-        <a href="cookie-policy"><i class="fas fa-cookie-bite"></i> <span data-en="Cookie Policy">Politica de cookie-uri</span></a>
-        <a href="ai-ethics"><i class="fas fa-brain"></i> <span data-en="AI Ethics Statement">Declarație de etică AI</span></a>
-        <a href="accessibility"><i class="fas fa-universal-access"></i> <span data-en="Accessibility Statement">Declarație de accesibilitate</span></a>
-        <a href="esg"><i class="fas fa-leaf"></i> <span data-en="ESG Statement">Declarație ESG</span></a>
-      </div>
-    </div>
-  </footer>
-
-  <!-- AOS Library -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
-  <!-- Custom JavaScript -->
-  <script src="script.js"></script>
-  <!-- Bilingual engine (RO default / EN alternative) -->
-  <script src="i18n.js"></script>
+<!-- Hero Wrapper with Floating Lines -->
+<div class="hero-wrapper">
+<!-- Navigation -->
+<nav class="navbar">
+<div class="logo">
+<a href="/" style="display: flex; align-items: center; gap: 12px; text-decoration: none;">
+<img alt="Applexium" class="logo-icon" src="logo-icon.svg"/>
+<span class="logo-text">Applexium</span>
+</a>
+</div>
+<div class="nav-links">
+<a data-en="Services" href="#capabilities">Servicii</a>
+<a data-en="Products" href="#products">Produse</a>
+<a data-en="Portfolio" href="#portfolio">Portofoliu</a>
+<a data-en="Team" href="team">Echipă</a>
+<a data-en="Contact" href="contacts">Contact</a>
+</div>
+<div class="nav-actions">
+<div aria-label="Schimbă limba" class="lang-switch" data-en-aria-label="Change language" role="group">
+<a aria-pressed="true" class="lang-btn" data-lang-switch="ro" href="/" hreflang="ro">RO</a>
+<a aria-pressed="false" class="lang-btn" data-lang-switch="en" href="/en/" hreflang="en">EN</a>
+</div>
+<!-- Mobile Menu Toggle -->
+<button aria-label="Comută meniul" class="mobile-menu-toggle" data-en-aria-label="Toggle menu">
+<span></span>
+<span></span>
+<span></span>
+</button>
+</div>
+</nav>
+<!-- Floating Lines Background - full width -->
+<canvas id="floating-lines"></canvas>
+<!-- Hero Section -->
+<main class="hero">
+<div class="hero-content">
+<h1 data-en="Digital Products, IT Services&lt;br&gt;&amp; Startup Consulting">Produse digitale, servicii IT<br/>și consultanță pentru startup-uri</h1>
+<p data-en="We help startups and organizations build secure digital products while navigating legal and regulatory challenges.">Ajutăm startup-urile și organizațiile să dezvolte produse digitale sigure, gestionând în același timp provocările juridice și de reglementare.</p>
+<div class="hero-buttons">
+<a class="btn-hero-primary" data-en="Schedule a Consultation" href="#contact">Programează o consultație</a>
+<a class="btn-secondary" data-en="Explore Services" href="#capabilities">Explorează serviciile</a>
+</div>
+</div>
+</main>
+</div> <!-- /.hero-wrapper -->
+<!-- Products Section -->
+<section class="products-section" id="products">
+<div class="container" data-aos="fade-up">
+<div class="header">
+<h2 data-aos="fade-down" data-aos-duration="800" data-en="Our Digital Products">Produsele noastre digitale</h2>
+<p data-aos="fade-up" data-aos-delay="150" data-aos-duration="800" data-en="Applexium develops its own software platforms designed to support businesses, institutions and communities.">Applexium dezvoltă propriile platforme software, concepute pentru a sprijini afaceri, instituții și comunități.</p>
+</div>
+<div class="products-grid">
+<!-- Legalia Card -->
+<div class="star-border-container" data-aos="fade-right" data-aos-delay="150" data-aos-duration="2500" data-aos-easing="ease-in-out-quart">
+<div class="border-gradient-bottom"></div>
+<div class="border-gradient-top"></div>
+<div class="product-card">
+<div class="product-image neural">
+<img alt="Logo Legalia" class="product-logo product-logo-inverted" decoding="async" loading="lazy" src="legalia-logo-vertical-v2.png"/>
+</div>
+<span class="product-category" data-en="Legal Education Platform">Platformă de educație juridică</span>
+<h2 class="product-title">Legalia</h2>
+<p class="product-description" data-en="The app that makes law easy to learn — interactive quizzes, video lessons and podcasts for every topic, from first year to the bar exam.">Aplicația care face dreptul ușor de învățat — teste interactive, lecții video și podcasturi pentru fiecare subiect, din anul întâi până la examenul de admitere în profesie.</p>
+<a href="legalia"><button class="view-details-btn" data-en="Explore Product">Explorează produsul</button></a>
+</div>
+</div>
+<!-- Emmi Card -->
+<div class="star-border-container" data-aos="fade-up" data-aos-delay="400" data-aos-duration="2500" data-aos-easing="ease-in-out-quart">
+<div class="border-gradient-bottom"></div>
+<div class="border-gradient-top"></div>
+<div class="product-card">
+<div class="product-image emmi">
+<img alt="Asistentul AI Emmi" class="product-logo product-logo-wide" decoding="async" loading="lazy" src="emmi.webp"/>
+</div>
+<span class="product-category" data-en="Multi-Channel Conversational AI">AI conversațional multi-canal</span>
+<h2 class="product-title">Emmi</h2>
+<p class="product-description" data-en="The AI agent that answers your customers on the phone, on your website, and on Instagram, WhatsApp and Telegram — in Romanian and Russian, 24/7, learning from your documents.">Agentul AI care răspunde clienților tăi la telefon, pe site și pe Instagram, WhatsApp și Telegram — în română și rusă, 24/7, învățând din documentele tale.</p>
+<a href="emmi"><button class="view-details-btn" data-en="Explore Product">Explorează produsul</button></a>
+</div>
+</div>
+<!-- Precedentia Card -->
+<div class="star-border-container" data-aos="fade-left" data-aos-delay="650" data-aos-duration="2500" data-aos-easing="ease-in-out-quart">
+<div class="border-gradient-bottom"></div>
+<div class="border-gradient-top"></div>
+<div class="product-card">
+<div class="product-image precedentia">
+<img alt="Logo Precedentia" class="product-logo" decoding="async" loading="lazy" src="precedentia-icon.svg" style="height: 90px;"/>
+</div>
+<span class="product-category" data-en="Legal Search Platform">Platformă de căutare juridică</span>
+<h2 class="product-title">Precedentia</h2>
+<p class="product-description" data-en="Find the precedent that matters in seconds — 275,000+ court decisions from Moldova and Romania, searchable with AI in your own words.">Găsește precedentul care contează în câteva secunde — peste 275.000 de hotărâri din Moldova și România, căutate cu AI, cu propriile tale cuvinte.</p>
+<a href="precedentia"><button class="view-details-btn" data-en="Explore Product">Explorează produsul</button></a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Portfolio Section -->
+<section class="portfolio-section" id="portfolio">
+<div class="container">
+<div class="portfolio-header" data-aos="fade-up">
+<h2 data-en="Client Projects &amp; Implementations">Proiecte și implementări pentru clienți</h2>
+<p data-en="Digital platforms and solutions developed by Applexium for organizations, institutions and businesses.">Platforme și soluții digitale dezvoltate de Applexium pentru organizații, instituții și afaceri.</p>
+</div>
+<div class="portfolio-grid">
+<!-- DARE-EU -->
+<a class="portfolio-card" data-aos="fade-up" data-aos-delay="100" href="https://dare-eu.net/" rel="noopener noreferrer" target="_blank">
+<div class="portfolio-card-inner">
+<div class="portfolio-preview">
+<img alt="DARE-EU" class="portfolio-logo logo-dare" decoding="async" loading="lazy" src="dare-eu.webp"/>
+<div class="portfolio-overlay">
+<span class="view-project" data-en='View Project &lt;i class="fas fa-arrow-right"&gt;&lt;/i&gt;'>Vezi proiectul <i class="fas fa-arrow-right"></i></span>
+</div>
+</div>
+<div class="portfolio-info">
+<h3>DARE-EU</h3>
+<p data-en="Cross-border emergency response coordination platform">Platformă de coordonare a răspunsului la urgențe transfrontaliere</p>
+<div class="portfolio-tags">
+<span data-en="EU Emergency Response Platform">Platformă UE de răspuns la urgențe</span>
+</div>
+</div>
+</div>
+<div class="portfolio-glow"></div>
+</a>
+<!-- EUROBRIDGE UA MD -->
+<a class="portfolio-card" data-aos="fade-up" data-aos-delay="200" href="https://eurobridge-uamd.org/" rel="noopener noreferrer" target="_blank">
+<div class="portfolio-card-inner">
+<div class="portfolio-preview">
+<img alt="EUROBRIDGE UA MD" class="portfolio-logo logo-eurobridge" decoding="async" loading="lazy" src="eurobridge.webp"/>
+<div class="portfolio-overlay">
+<span class="view-project" data-en='View Project &lt;i class="fas fa-arrow-right"&gt;&lt;/i&gt;'>Vezi proiectul <i class="fas fa-arrow-right"></i></span>
+</div>
+</div>
+<div class="portfolio-info">
+<h3>EUROBRIDGE UA MD</h3>
+<p data-en="Cross-border grant programme between Moldova and Ukraine">Programul de granturi transfrontaliere dintre Moldova și Ucraina</p>
+<div class="portfolio-tags">
+<span data-en="Cross-border Grant Programme">Program de granturi transfrontaliere</span>
+</div>
+</div>
+</div>
+<div class="portfolio-glow"></div>
+</a>
+<!-- EnergiQ -->
+<a class="portfolio-card" data-aos="fade-up" data-aos-delay="300" href="https://energiq.md/ro/" rel="noopener noreferrer" target="_blank">
+<div class="portfolio-card-inner">
+<div class="portfolio-preview">
+<img alt="EnergiQ" class="portfolio-logo" decoding="async" loading="lazy" src="energiq.webp"/>
+<div class="portfolio-overlay">
+<span class="view-project" data-en='View Project &lt;i class="fas fa-arrow-right"&gt;&lt;/i&gt;'>Vezi proiectul <i class="fas fa-arrow-right"></i></span>
+</div>
+</div>
+<div class="portfolio-info">
+<h3>EnergiQ</h3>
+<p data-en="Energy solutions &amp; services platform">Platformă de soluții și servicii energetice</p>
+<div class="portfolio-tags">
+<span data-en="Energy Services Platform">Platformă de servicii energetice</span>
+</div>
+</div>
+</div>
+<div class="portfolio-glow"></div>
+</a>
+<a class="portfolio-card" data-aos="fade-up" data-aos-delay="400" href="https://penitadreptului.md/" rel="noopener noreferrer" target="_blank">
+<div class="portfolio-card-inner">
+<div class="portfolio-preview">
+<img alt="Penita Dreptului" class="portfolio-logo logo-dark-bg" decoding="async" loading="lazy" src="penitadreptului.webp"/>
+<div class="portfolio-overlay">
+<span class="view-project" data-en='View Project &lt;i class="fas fa-arrow-right"&gt;&lt;/i&gt;'>Vezi proiectul <i class="fas fa-arrow-right"></i></span>
+</div>
+</div>
+<div class="portfolio-info">
+<h3>Penita Dreptului</h3>
+<p data-en="Legal education platform for aspiring lawyers">Platformă de educație juridică pentru viitori juriști</p>
+<div class="portfolio-tags">
+<span data-en="Legal Education">Educație juridică</span>
+</div>
+</div>
+</div>
+<div class="portfolio-glow"></div>
+</a>
+<a class="portfolio-card" data-aos="fade-up" data-aos-delay="500" href="https://cmda.md/" rel="noopener noreferrer" target="_blank">
+<div class="portfolio-card-inner">
+<div class="portfolio-preview">
+<img alt="CMDA" class="portfolio-logo" decoding="async" loading="lazy" src="cmda.webp"/>
+<div class="portfolio-overlay">
+<span class="view-project" data-en='View Project &lt;i class="fas fa-arrow-right"&gt;&lt;/i&gt;'>Vezi proiectul <i class="fas fa-arrow-right"></i></span>
+</div>
+</div>
+<div class="portfolio-info">
+<h3>CMDA</h3>
+<p>cmda.md</p>
+<div class="portfolio-tags">
+<span data-en="Municipal Center for Enterpreneurship Development">Centrul Municipal pentru Dezvoltarea Antreprenoriatului</span>
+</div>
+</div>
+</div>
+<div class="portfolio-glow"></div>
+</a>
+<!-- StartIT Planet -->
+<a class="portfolio-card" data-aos="fade-up" data-aos-delay="600" href="https://startitplanet.com/#ro" rel="noopener noreferrer" target="_blank">
+<div class="portfolio-card-inner">
+<div class="portfolio-preview">
+<img alt="StartIT Planet" class="portfolio-logo" decoding="async" loading="lazy" src="startitplanet.webp"/>
+<div class="portfolio-overlay">
+<span class="view-project" data-en='View Project &lt;i class="fas fa-arrow-right"&gt;&lt;/i&gt;'>Vezi proiectul <i class="fas fa-arrow-right"></i></span>
+</div>
+</div>
+<div class="portfolio-info">
+<h3>StartIT Planet</h3>
+<p data-en="Educational tech platform for IT learning">Platformă edtech pentru învățarea IT</p>
+<div class="portfolio-tags">
+<span data-en="Education Platform">Platformă educațională</span>
+</div>
+</div>
+</div>
+<div class="portfolio-glow"></div>
+</a>
+</div>
+</div>
+</section>
+<!-- Services & Expertise Section -->
+<section class="capabilities-section" id="capabilities">
+<div class="container">
+<div class="section-header">
+<h2 data-en="Our Services &amp; Expertise">Serviciile și expertiza noastră</h2>
+<p data-en="End-to-end IT development and regulatory advisory for digital products.">Dezvoltare IT completă și consultanță de reglementare pentru produse digitale.</p>
+</div>
+<!-- Service category tabs -->
+<div class="services-tabs">
+<button class="services-tab active" data-tab="it-services">
+<i class="fas fa-code"></i> <span data-en="IT Services">Servicii IT</span>
+</button>
+<button class="services-tab" data-tab="compliance-services">
+<i class="fas fa-scale-balanced"></i> <span data-en="Compliance &amp; Legal Advisory">Conformitate și consultanță juridică</span>
+</button>
+</div>
+<!-- IT Services -->
+<div class="capabilities-grid services-panel active" id="it-services">
+<div class="capability-card" data-aos="fade-up" data-aos-delay="0">
+<div class="capability-icon">
+<i class="fas fa-laptop-code"></i>
+</div>
+<h3 data-en="Custom Website Development">Dezvoltare de site-uri web personalizate</h3>
+<p data-en="Responsive, high-performance websites and web applications tailored to your business needs.">Site-uri și aplicații web responsive, de înaltă performanță, adaptate nevoilor afacerii tale.</p>
+</div>
+<div class="capability-card" data-aos="fade-up" data-aos-delay="50">
+<div class="capability-icon">
+<i class="fas fa-mobile-alt"></i>
+</div>
+<h3 data-en="Mobile App Development">Dezvoltare de aplicații mobile</h3>
+<p data-en="Native and cross-platform mobile applications for iOS and Android.">Aplicații mobile native și cross-platform pentru iOS și Android.</p>
+</div>
+<div class="capability-card" data-aos="fade-up" data-aos-delay="100">
+<div class="capability-icon">
+<i class="fas fa-brain"></i>
+</div>
+<h3 data-en="AI-Powered Tools &amp; Automation">Instrumente AI și automatizare</h3>
+<p data-en="Intelligent tools leveraging machine learning and AI to automate workflows and optimize processes.">Instrumente inteligente care folosesc machine learning și AI pentru a automatiza fluxurile de lucru și a optimiza procesele.</p>
+</div>
+<div class="capability-card" data-aos="fade-up" data-aos-delay="150">
+<div class="capability-icon">
+<i class="fas fa-headset"></i>
+</div>
+<h3 data-en="Technical Maintenance &amp; Support">Mentenanță și suport tehnic</h3>
+<p data-en="Ongoing technical support, monitoring, and maintenance to keep your products running smoothly.">Suport tehnic continuu, monitorizare și mentenanță pentru ca produsele tale să funcționeze impecabil.</p>
+</div>
+<div class="capability-card" data-aos="fade-up" data-aos-delay="200">
+<div class="capability-icon">
+<i class="fas fa-cloud"></i>
+</div>
+<h3 data-en="SaaS &amp; EdTech Platforms">Platforme SaaS și EdTech</h3>
+<p data-en="Scalable software-as-a-service and educational technology platforms built for growth.">Platforme SaaS și de tehnologie educațională scalabile, construite pentru creștere.</p>
+</div>
+<div class="capability-card" data-aos="fade-up" data-aos-delay="250">
+<div class="capability-icon">
+<i class="fas fa-building"></i>
+</div>
+<h3 data-en="Internal Management Platforms">Platforme de management intern</h3>
+<p data-en="Custom systems for institutions and companies — HR, document management, and workflow automation.">Sisteme personalizate pentru instituții și companii — HR, gestionarea documentelor și automatizarea proceselor.</p>
+</div>
+<div class="capability-card" data-aos="fade-up" data-aos-delay="300">
+<div class="capability-icon">
+<i class="fas fa-microphone-lines"></i>
+</div>
+<h3 data-en="AI Voice Agents &amp; Conversational Systems">Agenți vocali AI și sisteme conversaționale</h3>
+<p data-en="Voice-enabled AI assistants and conversational interfaces for customer engagement and support.">Asistenți AI cu voce și interfețe conversaționale pentru implicarea și suportul clienților.</p>
+</div>
+<div class="capability-card" data-aos="fade-up" data-aos-delay="350">
+<div class="capability-icon">
+<i class="fas fa-plug"></i>
+</div>
+<h3 data-en="API Integrations &amp; Interoperability">Integrări API și interoperabilitate</h3>
+<p data-en="Seamless system integrations, API development, and data exchange between platforms.">Integrări de sisteme fără fricțiuni, dezvoltare API și schimb de date între platforme.</p>
+</div>
+<div class="capability-card" data-aos="fade-up" data-aos-delay="400">
+<div class="capability-icon">
+<i class="fas fa-graduation-cap"></i>
+</div>
+<h3 data-en="E-Learning &amp; Knowledge Platforms">Platforme de e-learning și cunoaștere</h3>
+<p data-en="Content management systems and interactive platforms for digital education and knowledge sharing.">Sisteme de gestionare a conținutului și platforme interactive pentru educație digitală și partajarea cunoștințelor.</p>
+</div>
+</div>
+<!-- Compliance & Legal Advisory Services -->
+<div class="capabilities-grid services-panel" id="compliance-services">
+<div class="capability-card" data-aos="fade-up" data-aos-delay="0">
+<div class="capability-icon compliance-icon">
+<i class="fas fa-gavel"></i>
+</div>
+<h3 data-en="Legal &amp; Regulatory Advisory">Consultanță juridică și de reglementare</h3>
+<p data-en="Strategic legal guidance for digital products — from concept through launch and scaling.">Îndrumare juridică strategică pentru produse digitale — de la concept până la lansare și scalare.</p>
+</div>
+<div class="capability-card" data-aos="fade-up" data-aos-delay="50">
+<div class="capability-icon compliance-icon">
+<i class="fas fa-shield-halved"></i>
+</div>
+<h3 data-en="Compliance-by-Design">Conformitate prin design</h3>
+<p data-en="Built-in regulatory compliance for AI, SaaS, and FinTech solutions from the architecture stage.">Conformitate de reglementare integrată pentru soluții AI, SaaS și FinTech încă din etapa de arhitectură.</p>
+</div>
+<div class="capability-card" data-aos="fade-up" data-aos-delay="100">
+<div class="capability-icon compliance-icon">
+<i class="fas fa-user-shield"></i>
+</div>
+<h3 data-en="GDPR &amp; Data Governance">GDPR și guvernanța datelor</h3>
+<p data-en="Data protection, privacy compliance, and governance frameworks for EU-regulated environments.">Protecția datelor, conformitate privind confidențialitatea și cadre de guvernanță pentru medii reglementate de UE.</p>
+</div>
+<div class="capability-card" data-aos="fade-up" data-aos-delay="150">
+<div class="capability-icon compliance-icon">
+<i class="fas fa-robot"></i>
+</div>
+<h3 data-en="AI Governance &amp; AI Act Readiness">Guvernanța AI și conformitate cu AI Act</h3>
+<p data-en="Risk classification, conformity assessment, and compliance strategies under the EU AI Act.">Clasificarea riscurilor, evaluarea conformității și strategii de conformitate conform AI Act al UE.</p>
+</div>
+<div class="capability-card" data-aos="fade-up" data-aos-delay="200">
+<div class="capability-icon compliance-icon">
+<i class="fas fa-lock"></i>
+</div>
+<h3 data-en="Cybersecurity, DORA &amp; NIS2">Securitate cibernetică, DORA și NIS2</h3>
+<p data-en="Security compliance support for critical infrastructure, financial entities, and digital services.">Suport pentru conformitatea de securitate pentru infrastructuri critice, entități financiare și servicii digitale.</p>
+</div>
+<div class="capability-card" data-aos="fade-up" data-aos-delay="250">
+<div class="capability-icon compliance-icon">
+<i class="fas fa-id-card"></i>
+</div>
+<h3 data-en="Digital Identity &amp; eIDAS 2.0">Identitate digitală și eIDAS 2.0</h3>
+<p data-en="eSignature, digital identity, and EUDI Wallet advisory for trust services and identity verification.">Consultanță privind semnătura electronică, identitatea digitală și EUDI Wallet pentru servicii de încredere și verificarea identității.</p>
+</div>
+<div class="capability-card" data-aos="fade-up" data-aos-delay="300">
+<div class="capability-icon compliance-icon">
+<i class="fas fa-store"></i>
+</div>
+<h3 data-en="Platform &amp; Marketplace Compliance">Conformitate pentru platforme și marketplace-uri</h3>
+<p data-en="Regulatory structuring for digital platforms, marketplaces, and intermediary services under EU rules.">Structurare de reglementare pentru platforme digitale, marketplace-uri și servicii de intermediere conform normelor UE.</p>
+</div>
+<div class="capability-card" data-aos="fade-up" data-aos-delay="350">
+<div class="capability-icon compliance-icon">
+<i class="fas fa-coins"></i>
+</div>
+<h3 data-en="FinTech &amp; Digital Assets Advisory">Consultanță FinTech și active digitale</h3>
+<p data-en="Regulatory guidance for crypto, digital assets, payment services, and financial technology products.">Îndrumare de reglementare pentru cripto, active digitale, servicii de plată și produse de tehnologie financiară.</p>
+</div>
+<div class="capability-card" data-aos="fade-up" data-aos-delay="400">
+<div class="capability-icon compliance-icon">
+<i class="fas fa-magnifying-glass-dollar"></i>
+</div>
+<h3 data-en="AML/CFT, KYC &amp; Due Diligence">AML/CFT, KYC și due diligence</h3>
+<p data-en="Anti-money laundering controls, customer due diligence, UBO identification, and suspicious activity reporting.">Controale anti-spălare de bani, due diligence al clienților, identificarea beneficiarului real (UBO) și raportarea activităților suspecte.</p>
+</div>
+<div class="capability-card" data-aos="fade-up" data-aos-delay="450">
+<div class="capability-icon compliance-icon">
+<i class="fas fa-leaf"></i>
+</div>
+<h3 data-en="ESG &amp; Sustainability Reporting">Raportare ESG și de sustenabilitate</h3>
+<p data-en="Non-financial reporting compliance, ESG frameworks, and sustainability disclosure guidance.">Conformitate privind raportarea non-financiară, cadre ESG și îndrumare privind raportarea de sustenabilitate.</p>
+</div>
+<div class="capability-card" data-aos="fade-up" data-aos-delay="500">
+<div class="capability-icon compliance-icon">
+<i class="fas fa-rocket"></i>
+</div>
+<h3 data-en="Startup Structuring &amp; Equity Rounds">Structurarea startup-urilor și runde de finanțare</h3>
+<p data-en="SAFEs, convertible notes, equity rounds, and legal structuring for early-stage startups.">SAFE-uri, note convertibile, runde de capital și structurare juridică pentru startup-uri aflate la început.</p>
+</div>
+<div class="capability-card" data-aos="fade-up" data-aos-delay="550">
+<div class="capability-icon compliance-icon">
+<i class="fas fa-hand-holding-dollar"></i>
+</div>
+<h3 data-en="Crowdfunding &amp; Crowdlending">Crowdfunding și crowdlending</h3>
+<p data-en="Regulatory structuring and compliance for crowdfunding and crowdlending platforms under EU rules.">Structurare de reglementare și conformitate pentru platforme de crowdfunding și crowdlending conform normelor UE.</p>
+</div>
+<div class="capability-card" data-aos="fade-up" data-aos-delay="600">
+<div class="capability-icon compliance-icon">
+<i class="fas fa-globe"></i>
+</div>
+<h3 data-en="Sanctions &amp; Cross-Border Compliance">Sancțiuni și conformitate transfrontalieră</h3>
+<p data-en="Sanctions screening, regulatory due diligence, and cross-border compliance for international operations.">Screening de sancțiuni, due diligence de reglementare și conformitate transfrontalieră pentru operațiuni internaționale.</p>
+</div>
+</div>
+</div>
+</section>
+<div class="video-text-container hero-video">
+<div class="video-text">
+<video autoplay="" loop="" muted="" playsinline="" preload="none">
+<source src="background1.mp4" type="video/mp4"/>
+<span data-en="Your browser does not support the video tag.">Browserul tău nu acceptă elementul video.</span>
+</video>
+</div>
+</div>
+<!-- Contact Section with Inline Form -->
+<section class="cta-section" id="contact">
+<div class="container">
+<div class="cta-content">
+<h2 data-en="Ready to Build Your Future?">Pregătit să-ți construiești viitorul?</h2>
+<p data-en="Tell us about your project and our team will get back to you shortly.">Spune-ne despre proiectul tău, iar echipa noastră îți va răspunde în scurt timp.</p>
+<form action="https://formspree.io/f/mkoqzdlo" class="homepage-contact-form" method="POST">
+<div class="form-row-inline">
+<div class="form-group-inline">
+<input data-en-placeholder="Name" name="name" placeholder="Nume" required="" type="text"/>
+</div>
+<div class="form-group-inline">
+<input data-en-placeholder="Email" name="email" placeholder="Email" required="" type="email"/>
+</div>
+</div>
+<div class="form-group-inline">
+<textarea data-en-placeholder="Tell us about your project..." name="message" placeholder="Spune-ne despre proiectul tău..." required="" rows="4"></textarea>
+</div>
+<button class="cta-button" data-en="Send Request" type="submit">Trimite cererea</button>
+<p class="form-helper-text" data-en="Our team will respond within 24 hours.">Echipa noastră va răspunde în 24 de ore.</p>
+</form>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="footer">
+<div class="container">
+<div class="footer-content">
+<div class="footer-brand">
+<a href="/" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
+<img alt="Applexium" class="footer-logo-icon" decoding="async" loading="lazy" src="logo-icon.svg"/>
+<span class="logo-text">Applexium</span>
+</a>
+</div>
+<div class="footer-info">
+<p>© <span class="footer-year">2026</span> Applexium. <span data-en="All Rights Reserved.">Toate drepturile rezervate.</span></p>
+</div>
+</div>
+<div class="footer-legal">
+<a href="terms-and-conditions"><i class="fas fa-file-contract"></i> <span data-en="Terms &amp; Conditions">Termeni și condiții</span></a>
+<a href="privacy-policy"><i class="fas fa-shield-halved"></i> <span data-en="Privacy Policy">Politica de confidențialitate</span></a>
+<a href="cookie-policy"><i class="fas fa-cookie-bite"></i> <span data-en="Cookie Policy">Politica de cookie-uri</span></a>
+<a href="ai-ethics"><i class="fas fa-brain"></i> <span data-en="AI Ethics Statement">Declarație de etică AI</span></a>
+<a href="accessibility"><i class="fas fa-universal-access"></i> <span data-en="Accessibility Statement">Declarație de accesibilitate</span></a>
+<a href="esg"><i class="fas fa-leaf"></i> <span data-en="ESG Statement">Declarație ESG</span></a>
+</div>
+</div>
+</footer>
+<!-- AOS Library -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<!-- Custom JavaScript -->
+<script src="script.js"></script>
+<!-- Bilingual engine (RO default / EN alternative) -->
 </body>
 </html>

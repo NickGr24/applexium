@@ -73,52 +73,70 @@ Page-specific styles live in an **inline `<style>` block inside the HTML head**,
 
 ## Bilingual system (Romanian default / English alternative)
 
-The site is **Romanian-first**: every page ships Romanian as the real, crawlable
-HTML text, and English is a client-side toggle. This is deliberate — search
-engines index the static HTML, so Romanian (the Moldovan audience's language) is
-what gets ranked. There are **no per-language URLs**; one URL serves both
-languages via JS (this was a product decision; it trades some English SEO for
-zero file duplication).
+The site is **Romanian-first**: the pages in the repo root are Romanian and are
+the single source of truth. English is **generated**, not hand-maintained, and
+lives at its own URLs under `/en/`.
+
+> **This replaces the earlier "no per-language URLs" decision.** English used to
+> exist only as a client-side toggle on the same URL, which meant search engines
+> never saw it — for a studio selling IT services, English indexing is lead flow.
+> Generating `/en/` buys that back without reintroducing the thing that decision
+> was protecting against: nobody edits two copies by hand.
 
 How it works:
-- **`i18n.js`** (shared, loaded on every page before `</body>`) is the engine.
-  Each translatable element carries `data-en="<English innerHTML>"`; the visible
-  text is Romanian. On switch to EN the engine sets `innerHTML` to the `data-en`
-  value; on switch back it restores the original Romanian (cached once into
-  `data-ro` on first run). Attribute variants: `data-en-placeholder`,
-  `data-en-aria-label`, and `<title data-en="…">`.
-- **Escaping** inside a `data-en` value (it is HTML assigned via innerHTML):
-  `&`→`&amp;`, `"`→`&quot;`. Inline tags like `<br>` / `<i class=&quot;…&quot;>`
-  are kept. See the `.view-project` spans in `index.html` for the canonical pattern.
-- **No FOUC, no JS for the active state**: an inline script in each `<head>` sets
-  `html[data-lang]` from `?lang=` or `localStorage` before paint; CSS highlights
-  the active `.lang-btn` purely off `html[data-lang="…"]`. Preference persists in
-  `localStorage['applexium-lang']`; a `?lang=en` / `?lang=ro` query overrides it
-  (handy for sharing a language-specific deep link).
-- **Switcher markup** lives in the navbar inside `.nav-actions` (which also holds
-  the mobile-menu toggle): a `.lang-switch` group with two
-  `<button data-lang-switch="ro|en">` pills. Styles are in `style.css`
-  (`.lang-switch` / `.lang-btn` / `.nav-actions`). **`projects.html` is the
-  exception** — it loads `projects.css`, not `style.css`, so a copy of those
-  switcher rules lives in `projects.css`.
+- **`build-en.py`** is the generator. Run it from the repo root after editing any
+  Romanian page:
+  ```
+  python3 build-en.py
+  ```
+  It rewrites everything under `en/` from scratch. **Never hand-edit `en/`** —
+  the next run overwrites it. It also updates the Romanian sources in place
+  (hreflang links + switcher hrefs) and regenerates `sitemap.xml`.
+- **Translations still live in `data-en`** on the Romanian pages: each
+  translatable element carries `data-en="<English innerHTML>"`, plus the
+  attribute variants `data-en-placeholder`, `data-en-aria-label` and
+  `<title data-en="…">`. The generator bakes them into real markup.
+- **`<meta>` tags have no attribute equivalent**, so their English text lives in
+  **`en-meta.json`**, keyed by source filename then by meta `name`/`property`.
+  The build **fails loudly** (non-zero exit) if a translatable meta field has no
+  entry — that guard exists because Romanian descriptions in English search
+  results are invisible until someone reports them.
+- **Escaping** inside a `data-en` value (it is an HTML fragment):
+  `&`→`&amp;`, `"`→`&quot;`, and `<`/`>`→`&lt;`/`&gt;` for inline tags.
+  Put `data-en` on the element that owns the **whole sentence** — if a paragraph
+  wraps a link, the attribute belongs on the `<p>`, not the `<a>`, or the
+  surrounding words stay Romanian.
+- **Switching is by URL, not JS.** The `.lang-switch` group holds two
+  `<a class="lang-btn" data-lang-switch="ro|en">` links pointing at the two
+  URLs. `i18n.js` is no longer loaded: on a static `/en/` page it would read
+  `localStorage['applexium-lang']` and flip the text back to Romanian, out of
+  sync with the URL. The file is kept in the repo for reference only.
+- **Active state** is still pure CSS off `html[data-lang="…"]`, which the
+  generator sets statically per page. `.lang-btn` needs `display: inline-block`
+  and `text-decoration: none` now that it is an anchor — those rules live in both
+  `style.css` and `projects.css` (**`projects.html` loads `projects.css`, not
+  `style.css`**, so switcher rules are duplicated there).
 
 Adding/changing content:
-- **New translatable string** → write the Romanian as the element text and add
-  `data-en="<English>"` (escaped). That's it — the engine picks it up.
+- **New translatable string** → write the Romanian as the element text, add
+  `data-en="<English>"` (escaped), then rerun `build-en.py`.
 - **New page** → copy `index.html` head/navbar/footer patterns: `<html lang="ro">`,
-  the inline early-language `<head>` script, the `.nav-actions`/`.lang-switch`
-  block, Romanian `<title data-en>` + meta + `og:locale` `ro_RO` (+`en_US`
-  alternate), a JSON-LD block, and `<script src="i18n.js"></script>`.
+  the `.nav-actions`/`.lang-switch` block, Romanian `<title data-en>` + meta +
+  `og:locale` `ro_RO` (+`en_US` alternate), and a JSON-LD block. Add its English
+  meta to `en-meta.json`, add it to `sitemap.xml`, then rerun the generator.
 - **Legal pages**: Romanian comes from `docs/*.docx` (source of truth), English
   goes in `data-en`. The old per-page `.legal-lang-toggle` + dual
-  `#content-ro`/`#content-en` blocks were retired in favour of this global engine
-  (the `.legal-lang-toggle` rules left in `style.css` are now dead).
+  `#content-ro`/`#content-en` blocks were retired (the `.legal-lang-toggle` rules
+  left in `style.css` are now dead).
 
-SEO surface: every page has a Romanian `<title>`/description/OG/Twitter, JSON-LD
-structured data (Organization, WebSite, SoftwareApplication, Person, ContactPage,
-WebPage, BreadcrumbList, CollectionPage), and `sitemap.xml` lists every real page.
-`projects.html` is intentionally excluded from `sitemap.xml` — it is orphaned
-placeholder content (no inbound links).
+SEO surface: every page has `<title>`/description/OG/Twitter in its own language,
+JSON-LD structured data (Organization, WebSite, SoftwareApplication, Person,
+ContactPage, WebPage, BreadcrumbList, CollectionPage) with `inLanguage` and URLs
+localized per version, reciprocal `hreflang` (`ro` / `en` / `x-default`) in both
+`<head>` and `sitemap.xml`, and canonical URLs pointing at each version itself.
+`sitemap.xml` lists every real page in both languages. `projects.html` is
+intentionally excluded from `sitemap.xml` — it is orphaned placeholder content
+(no inbound links) — and the generator preserves that exclusion.
 
 ## Emmi product page — live widget integration
 

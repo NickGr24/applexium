@@ -1,0 +1,127 @@
+{
+  "_comment": "English <head> metadata for the generated /en/ pages. Body text lives in data-en attributes on the Romanian pages; meta tags have no attribute equivalent, so their translations live here. Keys are meta name= or property= values. Applied by build-en.py.",
+
+  "accessibility.html": {
+    "description": "Accessibility Statement for applexium.com"
+  },
+
+  "ai-ethics.html": {
+    "description": "Statement on Applexium's ethical principles and responsible use of artificial intelligence",
+    "og:title": "AI Ethics Statement | Applexium",
+    "og:description": "Statement on Applexium's ethical principles and responsible use of artificial intelligence",
+    "twitter:title": "AI Ethics Statement | Applexium",
+    "twitter:description": "Statement on Applexium's ethical principles and responsible use of artificial intelligence"
+  },
+
+  "contacts.html": {
+    "description": "Contact Applexium for custom software development, IT consulting, startup advisory and digital product solutions in Moldova.",
+    "keywords": "contact Applexium, IT consulting Moldova, software development contact, startup consulting, tech company Chisinau",
+    "og:title": "Contact Us - Applexium",
+    "og:description": "Contact Applexium for custom software development, IT consulting and digital product solutions.",
+    "twitter:title": "Contact Us - Applexium",
+    "twitter:description": "Contact Applexium for custom software development, IT consulting and digital product solutions."
+  },
+
+  "cookie-policy.html": {
+    "description": "Cookie Policy for applexium.com"
+  },
+
+  "diana-tatar.html": {
+    "description": "Diana Tatar — Chief Marketing Officer at Applexium. Graphic designer and AI content creator with 6 years of experience, 10+ brands and 200+ clients across branding, social media, editorial and AI content.",
+    "keywords": "Diana Tatar, CMO, chief marketing officer, marketing Moldova, branding, visual identity, AI content creator, Applexium, Chisinau",
+    "og:title": "Diana Tatar - CMO | Applexium",
+    "og:description": "Chief Marketing Officer at Applexium — graphic designer and AI content creator. 6 years, 10+ brands, 200+ clients.",
+    "twitter:title": "Diana Tatar - CMO | Applexium",
+    "twitter:description": "Chief Marketing Officer at Applexium — graphic designer and AI content creator. 6 years, 10+ brands, 200+ clients."
+  },
+
+  "emmi.html": {
+    "description": "Emmi is a multi-channel conversational AI for business — it answers phone calls, web chat and messages on Instagram, WhatsApp and Telegram, 24/7, in Romanian and Russian, grounded in your own documents.",
+    "keywords": "Emmi, conversational AI, voice agent, AI web chat, Instagram AI, WhatsApp AI, Telegram AI, bilingual AI, Romanian, Russian, multi-channel customer support automation, Applexium, Moldova, AI for call centers",
+    "og:title": "Emmi — Multi-Channel Conversational AI | Applexium",
+    "og:description": "One AI agent for phone, web chat, Instagram, WhatsApp and Telegram. Bilingual (RO/RU), grounded in your own knowledge base, available 24/7.",
+    "twitter:title": "Emmi — Multi-Channel Conversational AI | Applexium",
+    "twitter:description": "One AI agent for phone, web chat, Instagram, WhatsApp and Telegram. Bilingual (RO/RU), grounded in your own knowledge base, available 24/7."
+  },
+
+  "esg.html": {
+    "description": "ESG Statement — Applexium's environmental, social and governance commitments",
+    "keywords": "Applexium, ESG statement, environmental, social, governance, sustainability, non-financial reporting, GRI, CSRD, compliance, Moldova",
+    "og:title": "ESG Statement | Applexium",
+    "og:description": "Applexium's environmental, social and governance commitments — transparent, versioned and auditable.",
+    "twitter:title": "ESG Statement | Applexium",
+    "twitter:description": "Applexium's environmental, social and governance commitments — transparent, versioned and auditable."
+  },
+
+  "index.html": {
+    "description": "Applexium builds secure digital products and provides IT services and startup consulting. Websites, mobile apps, AI tools and legal-tech solutions from Moldova.",
+    "keywords": "Applexium, digital products, IT services, startup consulting, web development, mobile apps, AI tools, legal tech, Moldova, software development, Legalia, Emmi, Precedentia",
+    "og:title": "Applexium — Digital Products, IT Services & Startup Consulting",
+    "og:description": "We help startups and organizations build secure digital products while navigating legal and regulatory challenges.",
+    "twitter:title": "Applexium — Digital Products, IT Services & Consulting",
+    "twitter:description": "We help startups and organizations build secure digital products while navigating legal and regulatory challenges."
+  },
+
+  "legalia.html": {
+    "description": "Legalia is a legal education platform built for Moldova, helping users understand legislation through structured courses, interactive quizzes and accessible legal education.",
+    "keywords": "Legalia, legal education, Moldovan law, legal learning platform, legislation courses, legal quizzes, Applexium, law Moldova",
+    "og:title": "Legalia - Legal Learning Platform | Applexium",
+    "og:description": "A legal education platform built for Moldova, helping users understand legislation through structured courses and interactive quizzes.",
+    "twitter:title": "Legalia - Legal Learning Platform | Applexium",
+    "twitter:description": "A legal education platform built for Moldova, helping users understand legislation through structured courses and interactive quizzes."
+  },
+
+  "mircea-ursu.html": {
+    "description": "Mircea Ursu — Co-founder and CEO of Applexium. Background in law, banking compliance, AML services and digital product development in Moldova.",
+    "keywords": "Mircea Ursu, CEO Applexium, entrepreneur Moldova, legal consulting, startup founder, Jurista, banking compliance, AML",
+    "og:title": "Mircea Ursu — CEO | Applexium",
+    "og:description": "Co-founder and CEO of Applexium. Background in law, banking compliance and digital product development."
+  },
+
+  "nichita-griu.html": {
+    "description": "Nichita Griu — Co-founder and CTO of Applexium. Full-stack and mobile engineer behind Legalia and Emmi, specialising in React Native, real-time backends and applied AI.",
+    "keywords": "Nichita Griu, CTO Applexium, software engineer Moldova, React Native developer, Supabase, AI agents, Legalia, Emmi",
+    "og:title": "Nichita Griu — CTO | Applexium",
+    "og:description": "Co-founder and CTO of Applexium. The engineer behind Legalia and Emmi — React Native, real-time backends and applied AI.",
+    "twitter:title": "Nichita Griu — CTO | Applexium",
+    "twitter:description": "Co-founder and CTO of Applexium. The engineer behind Legalia and Emmi — React Native, real-time backends and applied AI."
+  },
+
+  "precedentia.html": {
+    "description": "Precedentia is an AI-powered legal search engine for Moldovan and Romanian case law. Over 275,000 decisions — Supreme Court of Justice, Constitutional Court, ECHR and Romania's High Court of Cassation and Justice — with keyword, semantic and AI-assistant search.",
+    "keywords": "Precedentia, legal search, Moldovan case law, jurisprudence, Supreme Court of Justice, Constitutional Court, ECHR, AI legal assistant, Applexium, semantic search",
+    "og:title": "Precedentia — AI Legal Search Engine | Applexium",
+    "og:description": "An AI-powered legal search engine for Moldovan and Romanian case law — over 275,000 decisions from the Supreme Court of Justice, the Constitutional Court, the ECHR and Romania's High Court of Cassation and Justice."
+  },
+
+  "privacy-policy.html": {
+    "description": "Privacy policy and personal data protection for applexium.com"
+  },
+
+  "projects.html": {
+    "description": "Discover the powerful, custom digital products Applexium builds to bring efficiency and growth to the modern enterprise.",
+    "keywords": "Applexium, portfolio, client projects, digital products, software platforms, implementations, web development, AI solutions, Moldova",
+    "og:title": "Applexium — Our In-House Innovations",
+    "og:description": "Discover the powerful, custom digital products Applexium builds to bring efficiency and growth to the modern enterprise.",
+    "twitter:title": "Applexium — Our In-House Innovations",
+    "twitter:description": "Discover the powerful, custom digital products Applexium builds to bring efficiency and growth to the modern enterprise."
+  },
+
+  "team.html": {
+    "description": "Meet the Applexium team — passionate minds dedicated to building innovative digital solutions. Led by CEO Mircea Ursu and CTO Nichita Griu.",
+    "keywords": "Applexium team, Mircea Ursu, Nichita Griu, CEO, CTO, software developers, tech team Moldova",
+    "og:title": "Our Team - Applexium",
+    "og:description": "Meet the passionate minds behind Applexium, dedicated to building innovative digital solutions.",
+    "twitter:title": "Our Team - Applexium",
+    "twitter:description": "Meet the passionate minds behind Applexium, dedicated to building innovative digital solutions."
+  },
+
+  "terms-and-conditions.html": {
+    "description": "Terms and conditions of use for the applexium.com website.",
+    "keywords": "Applexium, terms and conditions, terms of use, conditions of use, SCALELAW SOLUTIONS, Moldova, GDPR",
+    "og:title": "Terms & Conditions | Applexium",
+    "og:description": "Terms and conditions of use for the applexium.com website.",
+    "twitter:title": "Terms & Conditions | Applexium",
+    "twitter:description": "Terms and conditions of use for the applexium.com website."
+  }
+}
