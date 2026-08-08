@@ -99,8 +99,8 @@
     }
 
     /* ===== HERO ===== */
-    /* Hero scene canvas (see scene.js). */
-    #arcade-stage {
+    /* Hero scene canvas (see scene-convergence.js). */
+    #emmi-stage {
       position: absolute; top: 0; left: 0; width: 100%; height: 100%;
       pointer-events: none; z-index: 0;
     }
@@ -1210,11 +1210,15 @@
 </nav>
 <!-- Hero -->
 <section class="em-hero">
-<!-- Hero scene, shared with the home page (scene.js). Replaces the static
+<!-- Hero scene: Emmi's own — five channel-coloured particle streams
+     converging into one core (scene-convergence.js). The page used to share
+     the home page's arcade, which made the two heroes near-identical; a
+     product page that looks like the page you just left reads as a dead end.
+     Replaces the static
      SVG line decoration that stood here: three fixed paths that never
      moved and read as wallpaper. data-accent tints the key light to this
      page's own cyan rather than the site indigo. -->
-<canvas aria-hidden="true" data-accent="#22D3EE" id="arcade-stage"></canvas>
+<canvas aria-hidden="true" id="emmi-stage"></canvas>
 <div class="em-hero-content">
 <img alt="Emmi" class="em-hero-logo" decoding="async" src="emmi.webp"/>
 <h1 data-en='One AI Agent. &lt;span class="em-gradient-text"&gt;Phone, Website, and Messaging.&lt;/span&gt;'>Un singur agent AI. <span class="em-gradient-text">Telefon, site și mesagerie.</span></h1>
@@ -1668,7 +1672,6 @@
     })();
   </script>
 <!-- Bilingual engine (RO default / EN alternative) -->
-<script defer="" src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
-<script defer="" src="scene.js"></script>
+<script defer="" src="scene-convergence.js"></script>
 </body>
 </html>
