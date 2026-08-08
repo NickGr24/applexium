@@ -265,8 +265,18 @@ function useShaftTexture() {
 }
 
 /** How far down the arcade the doorway stays, ahead of the camera. At rest
- * this puts the warm light on exactly the legacy z = -22. */
-const DOORWAY_DISTANCE = 36
+ * (progress 0) this puts the warm light on exactly the legacy z = -22.
+ *
+ * It closes to `_FAR` across the dolly so the end of the flight is an
+ * arrival rather than a stalemate: holding a fixed 36 the whole way meant
+ * the light was exactly as far away after 32 units of travel as before it,
+ * and the trip read as running on the spot. Six units of gain is enough for
+ * the column to grow and brighten noticeably; closing further starts down
+ * the road that made the doorway travel with the camera in the first place —
+ * parked four units short of the light, the shaft's 64px-wide texture covers
+ * half the frame and the water floods warm grey. */
+const DOORWAY_DISTANCE_NEAR = 36
+const DOORWAY_DISTANCE_FAR = 30
 const SHAFT_HEIGHT = 16
 
 /**
@@ -282,23 +292,23 @@ const SHAFT_HEIGHT = 16
  * at x = 0, with the camera never straying a unit off centre and the arches
  * seven units out, there is nothing it can wrongly cover.
  *
- * The whole doorway holds its distance from the camera instead of standing at
- * a fixed z. Parked, the dolly ends four units short of the light, which
- * floods the water with warm grey and blows a 64px-wide texture up across
- * half the frame. Travelling with the camera it stays the size and brightness
- * it has at rest: the light at the end you never quite reach, which is the
- * better story anyway.
+ * The whole doorway travels with the camera instead of standing at a fixed
+ * z — see `DOORWAY_DISTANCE_NEAR`/`_FAR` above for why it moves at all, and
+ * why it closes only part of the gap rather than letting the dolly reach it.
  */
-function Doorway() {
+function Doorway({ progressRef }: { progressRef: MutableRefObject<number> }) {
   const texture = useShaftTexture()
   const ref = useRef<Group>(null)
 
   useFrame((state) => {
-    if (ref.current) ref.current.position.z = state.camera.position.z - DOORWAY_DISTANCE
+    if (!ref.current) return
+    const p = Math.min(1, Math.max(0, progressRef.current))
+    const distance = lerp(DOORWAY_DISTANCE_NEAR, DOORWAY_DISTANCE_FAR, p)
+    ref.current.position.z = state.camera.position.z - distance
   })
 
   return (
-    <group ref={ref} position={[0, 0, -DOORWAY_DISTANCE]}>
+    <group ref={ref} position={[0, 0, -DOORWAY_DISTANCE_NEAR]}>
       <pointLight color="#ffd9a8" intensity={300} distance={60} position={[0, 1.4, 0]} />
       {texture && (
         <mesh position={[0, WATER_Y, -4]}>
@@ -500,7 +510,7 @@ export function HeroWorld({ progressRef }: HeroWorldProps) {
 
       <Water tier={tier} />
       <Orb tier={tier} />
-      <Doorway />
+      <Doorway progressRef={progressRef} />
       <Motes count={high ? 240 : 120} />
 
       <CameraRig progressRef={progressRef} parallax={high} />
