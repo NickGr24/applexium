@@ -1,0 +1,132 @@
+/* ProductPage — shared chrome for every product page (Emmi, Legalia,
+   Precedentia). No scroll dolly: unlike the home hero, each product's scene
+   owns its own self-contained animation loop, so this is a single static
+   viewport-height stage, not a pinned scroll track. Page-specific content
+   (channels, capabilities, …) lives in each product's own stylesheet. */
+
+.product-hero {
+  position: relative;
+  height: 100vh;
+  height: 100svh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.product-hero__scene {
+  position: absolute;
+  inset: 0;
+}
+
+/* Darkens the top (so the fixed nav keeps its contrast) and pools under the
+   copy, same job as the home hero's `.hero__scrim` — permanent here since
+   this hero has no scroll-driven copy to protect only part of the time. */
+.product-hero__scrim {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgb(4 6 13 / 0.62), rgb(4 6 13 / 0) 32%),
+    radial-gradient(60% 46% at 50% 62%, rgb(4 6 13 / 0.38), rgb(4 6 13 / 0) 78%),
+    radial-gradient(120% 70% at 50% 100%, rgb(4 6 13 / 0.82), rgb(4 6 13 / 0) 60%);
+}
+
+.product-hero__copy {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.5rem;
+  padding-block: 6rem;
+}
+
+.product-hero__title {
+  max-width: 18ch;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(2.2rem, 5.6vw, 4.6rem);
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+
+.product-hero__sub {
+  max-width: 56ch;
+  color: rgb(237 237 242 / 0.76);
+  font-size: clamp(1rem, 1.15vw, 1.15rem);
+  line-height: 1.6;
+}
+
+.product-hero__ctas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+/* Lets each product page tint the shared SpotlightCard with its own accent
+   instead of the site-wide brand cyan, via `--page-accent` (set inline on
+   the page root by ProductPage). */
+.product-page .spotlight-card:hover {
+  border-color: var(--page-accent);
+}
+
+.product-page .spotlight-card__icon {
+  color: var(--page-accent);
+}
+
+/* Closing CTA — shared visual treatment for every product page's final
+   chapter. Same shape as the home page's `.final`, tinted with the
+   product's own accent instead of the site-wide brand glow. Each product's
+   own copy/CTAs are supplied by the page, only this chrome is shared. */
+.product-final {
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  background:
+    radial-gradient(55% 42% at 50% 106%, rgb(var(--page-accent-rgb) / 0.28), transparent 68%),
+    var(--bg);
+}
+
+.product-final__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  padding-block: 8rem;
+}
+
+.product-final__title {
+  max-width: 20ch;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(2.2rem, 5.5vw, 4.4rem);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+
+.product-final__text {
+  max-width: 46ch;
+  color: var(--ink-dim);
+  line-height: 1.6;
+}
+
+.product-final__ctas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+@media (max-width: 620px) {
+  .product-hero__copy {
+    padding-block: 8rem 4rem;
+    gap: 1.25rem;
+  }
+
+  .product-final__inner {
+    padding-block: 6rem;
+  }
+}

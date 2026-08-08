@@ -5,7 +5,8 @@ import pages from './site/pages.json'
 
 const componentFor: Record<string, React.LazyExoticComponent<React.ComponentType>> = {
   home: React.lazy(() => import('./pages/Home')),
-  // страницы добавляются по мере задач; до тех пор — заглушка
+  emmi: React.lazy(() => import('./pages/product/emmi')),
+  // остальные страницы добавляются по мере задач; до тех пор — заглушка
 }
 const Placeholder = () => null
 

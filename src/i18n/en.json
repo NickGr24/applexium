@@ -122,5 +122,85 @@
       "text": "Tell us about your project and our team will get back to you shortly.",
       "button": "Schedule a Consultation"
     }
+  },
+  "emmi": {
+    "hero": {
+      "label": "MULTI-CHANNEL CONVERSATIONAL AI",
+      "title": "One AI agent. Phone, website, and messaging.",
+      "sub": "Emmi answers for you on the phone, in your website chat, and on Instagram, WhatsApp and Telegram — 24/7, in Romanian and Russian (in chat, English and Ukrainian too). It learns from your documents and only says what's true — like a team member who never sleeps.",
+      "cta1": "Request a Demo",
+      "cta2": "Try Emmi Live"
+    },
+    "channels": {
+      "label": "CHANNELS",
+      "title": "Built for every way your customers reach out",
+      "intro": "One agent, five channels — same knowledge, same persona, same quality.",
+      "phone": {
+        "title": "Voice (Phone)",
+        "text": "Answers your calls instantly, in the caller's language, with sub-second response times."
+      },
+      "web": {
+        "title": "Web Widget",
+        "text": "One line of code puts Emmi on your site — in your colors, with your voice."
+      },
+      "instagram": {
+        "title": "Instagram",
+        "text": "Replies to messages and comments on Instagram, with the same information as on the phone and your site."
+      },
+      "whatsapp": {
+        "title": "WhatsApp",
+        "text": "Picks up WhatsApp conversations with the same accuracy and the same answers as every other channel."
+      },
+      "telegram": {
+        "title": "Telegram",
+        "text": "Replies on Telegram instantly, in the customer's language, never contradicting the other channels."
+      }
+    },
+    "capabilities": {
+      "label": "CAPABILITIES",
+      "title": "What Emmi can do",
+      "item1": "Speaks your customers' language — flawless Romanian and Russian on the phone; in chat it also replies in English and Ukrainian.",
+      "item2": "Reasons before it answers — understands what's actually being asked, even when the question is vague or spread across several messages.",
+      "item3": "Hears you perfectly — understands speech in under half a second, with no awkward silence.",
+      "item4": "Pronounces everything right — company names, phone numbers and abbreviations, spoken clearly every time.",
+      "item5": "See everything at a glance — what customers ask, on which channels, in which languages, live in your dashboard.",
+      "item6": "Turns conversations into leads — captures the contact and what they need, ready for your team or your CRM.",
+      "item7": "A summary every Monday — what happened, what was asked most, what needs your attention."
+    },
+    "guarantees": {
+      "label": "GUARANTEES",
+      "title": "What stands behind every answer",
+      "speed": {
+        "title": "Answers in Under a Second",
+        "text": "At the speed of a real conversation. The caller never waits in silence, and the chat never leaves anyone staring at a blank screen."
+      },
+      "voice": {
+        "title": "A Voice That Sounds Human",
+        "text": "Warm and natural in Romanian and Russian, hard to tell from a real person — and it says company names, phone numbers and abbreviations correctly, every time."
+      },
+      "documents": {
+        "title": "Only From Your Documents",
+        "text": "Every answer is grounded in what you uploaded. When the answer is not there, Emmi says so and hands the conversation to your team instead of inventing one."
+      },
+      "connections": {
+        "title": "Official Channel Connections",
+        "text": "Phone, website, Instagram, WhatsApp and Telegram are connected through each platform's own approved route — no workarounds that stop working overnight."
+      },
+      "memory": {
+        "title": "Smart Memory",
+        "text": "Your documents become Emmi's memory — it finds the right information instantly, in either language."
+      },
+      "hosting": {
+        "title": "Solid Foundation",
+        "text": "Hosted in the EU and built to run around the clock — no breaks, no downtime surprises."
+      }
+    },
+    "final": {
+      "label": "CONTACT",
+      "title": "Stop missing conversations. Start automating them.",
+      "text": "Talk to our team about deploying Emmi for your organisation — or open the widget on this page and chat with Emmi yourself.",
+      "cta1": "Request a Demo",
+      "cta2": "Open the Live Widget"
+    }
   }
 }

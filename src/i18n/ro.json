@@ -122,5 +122,85 @@
       "text": "Spune-ne despre proiectul tău, iar echipa noastră îți va răspunde în scurt timp.",
       "button": "Programează o consultație"
     }
+  },
+  "emmi": {
+    "hero": {
+      "label": "AI CONVERSAȚIONAL MULTI-CANAL",
+      "title": "Un singur agent AI. Telefon, site și mesagerie.",
+      "sub": "Emmi răspunde în locul tău la telefon, în chatul site-ului și pe Instagram, WhatsApp și Telegram — 24/7, în română și rusă (în chat și în engleză și ucraineană). Învață din documentele tale și spune doar ce este adevărat — ca un coleg de echipă care nu doarme niciodată.",
+      "cta1": "Solicită o demonstrație",
+      "cta2": "Încearcă Emmi live"
+    },
+    "channels": {
+      "label": "CANALE",
+      "title": "Construit pentru fiecare mod în care te contactează clienții",
+      "intro": "Un singur agent, cinci canale — aceleași cunoștințe, aceeași personalitate, aceeași calitate.",
+      "phone": {
+        "title": "Voce (telefon)",
+        "text": "Răspunde la apelurile tale instant, în limba apelantului, cu timpi de răspuns sub o secundă."
+      },
+      "web": {
+        "title": "Widget web",
+        "text": "O singură linie de cod aduce Emmi pe site-ul tău — în culorile tale, cu vocea ta."
+      },
+      "instagram": {
+        "title": "Instagram",
+        "text": "Răspunde la mesaje și comentarii pe Instagram, cu aceleași informații ca la telefon și pe site."
+      },
+      "whatsapp": {
+        "title": "WhatsApp",
+        "text": "Preia conversațiile de pe WhatsApp cu aceeași acuratețe și aceleași răspunsuri ca pe orice alt canal."
+      },
+      "telegram": {
+        "title": "Telegram",
+        "text": "Răspunde pe Telegram instant, în limba clientului, fără să contrazică niciodată celelalte canale."
+      }
+    },
+    "capabilities": {
+      "label": "CAPACITĂȚI",
+      "title": "Ce știe să facă Emmi",
+      "item1": "Vorbește limba clienților tăi — română și rusă impecabile la telefon; în chat răspunde și în engleză și ucraineană.",
+      "item2": "Gândește înainte să răspundă — înțelege ce se cere cu adevărat, chiar și când întrebarea e vagă sau întinsă pe mai multe mesaje.",
+      "item3": "Te aude perfect — înțelege vorbirea în mai puțin de o jumătate de secundă, fără tăceri stânjenitoare.",
+      "item4": "Pronunță totul corect — nume de companii, numere de telefon și abrevieri, rostite clar de fiecare dată.",
+      "item5": "Vezi totul dintr-o privire — ce întreabă clienții, pe ce canale, în ce limbi, live în panoul tău.",
+      "item6": "Transformă discuțiile în leaduri — reține contactul și ce anume caută, gata pentru echipa ta sau CRM.",
+      "item7": "Un rezumat în fiecare luni — ce s-a întâmplat, ce a fost întrebat cel mai des, ce are nevoie de atenția ta."
+    },
+    "guarantees": {
+      "label": "GARANȚII",
+      "title": "Ce stă în spatele fiecărui răspuns",
+      "speed": {
+        "title": "Răspunde în mai puțin de o secundă",
+        "text": "În ritmul unei conversații reale. Apelantul nu așteaptă niciodată în tăcere, iar în chat nimeni nu rămâne cu ecranul gol."
+      },
+      "voice": {
+        "title": "O voce care sună uman",
+        "text": "Caldă și firească în română și rusă, greu de deosebit de o persoană reală — și rostește corect nume de companii, numere de telefon și abrevieri, de fiecare dată."
+      },
+      "documents": {
+        "title": "Numai din documentele tale",
+        "text": "Fiecare răspuns se sprijină pe ce ai încărcat tu. Când răspunsul nu există, Emmi o spune și predă discuția echipei tale, în loc să inventeze."
+      },
+      "connections": {
+        "title": "Conexiuni oficiale cu fiecare platformă",
+        "text": "Telefonul, site-ul, Instagram, WhatsApp și Telegram sunt conectate pe calea oficială a fiecărei platforme — fără improvizații care se strică peste noapte."
+      },
+      "memory": {
+        "title": "Memorie inteligentă",
+        "text": "Documentele tale devin memoria lui Emmi — găsește instant informația potrivită, în oricare dintre limbi."
+      },
+      "hosting": {
+        "title": "Fundație solidă",
+        "text": "Găzduită în UE și construită să meargă non-stop — fără pauze, fără surprize de indisponibilitate."
+      }
+    },
+    "final": {
+      "label": "CONTACT",
+      "title": "Nu mai rata conversații. Începe să le automatizezi.",
+      "text": "Discută cu echipa noastră despre implementarea Emmi pentru organizația ta — sau deschide widgetul de pe această pagină și stai de vorbă chiar tu cu Emmi.",
+      "cta1": "Solicită o demonstrație",
+      "cta2": "Deschide widgetul live"
+    }
   }
 }
