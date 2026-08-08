@@ -7,11 +7,13 @@ import {
   BufferAttribute,
   BufferGeometry,
   CanvasTexture,
+  CylinderGeometry,
   type Group,
   type Material,
   type Mesh,
   MeshStandardMaterial,
   SRGBColorSpace,
+  TorusGeometry,
 } from 'three'
 import { HERO_CAMERA } from './heroCamera'
 import { useSceneTier, type SceneTier } from './SceneCanvasInner'
@@ -68,39 +70,89 @@ function lerp(a: number, b: number, t: number) {
 /**
  * One arch: a half-torus resting on two cylinders. The legacy version baked
  * `scale` into every radius; here the geometry is the unit arch and the group
- * carries the scale, so all 18 arches (and their reflections) share three
- * geometries instead of building 54.
+ * carries the scale. `arcGeometry`/`legGeometry` are created once (see
+ * `useArchGeometries` below) and passed down as props rather than declared
+ * inline as JSX — an inline `<torusGeometry>`/`<cylinderGeometry>` makes R3F
+ * construct a fresh instance per mesh, which would mean 54 geometries (18
+ * arches × 3 meshes) instead of the 2 shared here. The two legs are mirror
+ * images by *position*, not by shape, so they reuse the same cylinder
+ * geometry too.
  */
-type ArchProps = { x: number; z: number; scale: number; material: Material }
+type ArchProps = {
+  x: number
+  z: number
+  scale: number
+  material: Material
+  arcGeometry: BufferGeometry
+  legGeometry: BufferGeometry
+}
 
-function Arch({ x, z, scale, material }: ArchProps) {
+function Arch({ x, z, scale, material, arcGeometry, legGeometry }: ArchProps) {
   return (
     <group position={[x, WATER_Y + 2.2 * scale, z]} scale={scale}>
-      <mesh material={material} position={[0, 2.2, 0]}>
-        <torusGeometry args={[1.25, 0.22, 10, 26, Math.PI]} />
-      </mesh>
-      <mesh material={material} position={[-1.25, 0, 0]}>
-        <cylinderGeometry args={[0.22, 0.22, 4.4, 12]} />
-      </mesh>
-      <mesh material={material} position={[1.25, 0, 0]}>
-        <cylinderGeometry args={[0.22, 0.22, 4.4, 12]} />
-      </mesh>
+      <mesh material={material} geometry={arcGeometry} position={[0, 2.2, 0]} />
+      <mesh material={material} geometry={legGeometry} position={[-1.25, 0, 0]} />
+      <mesh material={material} geometry={legGeometry} position={[1.25, 0, 0]} />
     </group>
   )
 }
 
 /** Both rows of the colonnade, mirrored across x. */
-function Arcade({ material }: { material: Material }) {
+function Arcade({
+  material,
+  arcGeometry,
+  legGeometry,
+}: {
+  material: Material
+  arcGeometry: BufferGeometry
+  legGeometry: BufferGeometry
+}) {
   return (
     <group>
       {ARCH_PAIRS.map(({ x, z, scale }) => (
         <group key={z}>
-          <Arch x={-x} z={z} scale={scale} material={material} />
-          <Arch x={x} z={z} scale={scale} material={material} />
+          <Arch
+            x={-x}
+            z={z}
+            scale={scale}
+            material={material}
+            arcGeometry={arcGeometry}
+            legGeometry={legGeometry}
+          />
+          <Arch
+            x={x}
+            z={z}
+            scale={scale}
+            material={material}
+            arcGeometry={arcGeometry}
+            legGeometry={legGeometry}
+          />
         </group>
       ))}
     </group>
   )
+}
+
+/** The two geometries every arch mesh draws from: one half-torus for the
+ * curve, one cylinder for both legs. Built once per mount (`useMemo`, empty
+ * deps — same reasoning as the `stone` material below) and disposed on
+ * unmount, exactly like the module's other GPU resources. */
+function useArchGeometries() {
+  const geometries = useMemo(
+    () => ({
+      arc: new TorusGeometry(1.25, 0.22, 10, 26, Math.PI),
+      leg: new CylinderGeometry(0.22, 0.22, 4.4, 12),
+    }),
+    [],
+  )
+  useEffect(
+    () => () => {
+      geometries.arc.dispose()
+      geometries.leg.dispose()
+    },
+    [geometries],
+  )
+  return geometries
 }
 
 /** A soft round dot. Without it points are drawn as squares, which nobody
@@ -398,6 +450,7 @@ export function HeroWorld({ progressRef }: HeroWorldProps) {
   const tier = useSceneTier()
   const high = tier === 'high'
 
+  const archGeometries = useArchGeometries()
   const stone = useMemo(
     () => new MeshStandardMaterial({ color: '#141c2b', roughness: 0.82, metalness: 0.05 }),
     [],
@@ -431,12 +484,17 @@ export function HeroWorld({ progressRef }: HeroWorldProps) {
       {/* The fourth light — the warm one at the end of the arcade — belongs
           to <Doorway>, which carries it down the colonnade with the camera. */}
 
-      <Arcade material={stone} />
+      <Arcade material={stone} arcGeometry={archGeometries.arc} legGeometry={archGeometries.leg} />
       {/* The cheap reflection: the arcade mirrored on Y and dimmed. `high`
-          doesn't need it — its water reflects the real thing. */}
+          doesn't need it — its water reflects the real thing. It reuses the
+          same geometries as the arcade above, just a different material. */}
       {!high && (
         <group scale={[1, -1, 1]} position={[0, WATER_Y * 2, 0]}>
-          <Arcade material={reflectedStone} />
+          <Arcade
+            material={reflectedStone}
+            arcGeometry={archGeometries.arc}
+            legGeometry={archGeometries.leg}
+          />
         </group>
       )}
 
