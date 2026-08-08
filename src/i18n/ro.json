@@ -514,5 +514,66 @@
         "item7": "Tech Women MD"
       }
     }
+  },
+  "projects": {
+    "label": "PORTOFOLIU",
+    "title": "Inovațiile noastre interne",
+    "intro": "Descoperă produsele digitale puternice și personalizate pe care le-am construit pentru a aduce eficiență și creștere întreprinderii moderne.",
+    "viewProject": "Vezi proiectul",
+    "cases": {
+      "dareEu": {
+        "name": "DARE-EU",
+        "text": "Platformă de coordonare a răspunsului la urgențe transfrontaliere",
+        "tag": "Platformă UE de răspuns la urgențe"
+      },
+      "eurobridge": {
+        "name": "EUROBRIDGE UA MD",
+        "text": "Programul de granturi transfrontaliere dintre Moldova și Ucraina",
+        "tag": "Program de granturi transfrontaliere"
+      },
+      "energiq": {
+        "name": "EnergiQ",
+        "text": "Platformă de soluții și servicii energetice",
+        "tag": "Platformă de servicii energetice"
+      },
+      "penitaDreptului": {
+        "name": "Penița Dreptului",
+        "text": "Platformă de educație juridică pentru viitori juriști",
+        "tag": "Educație juridică"
+      },
+      "cmda": {
+        "name": "CMDA",
+        "text": "Centrul Municipal pentru Dezvoltarea Antreprenoriatului",
+        "tag": "cmda.md"
+      },
+      "startItPlanet": {
+        "name": "StartIT Planet",
+        "text": "Platformă edtech pentru învățarea IT",
+        "tag": "Platformă educațională"
+      }
+    }
+  },
+  "contacts": {
+    "label": "CONTACT",
+    "title": "Să construim viitorul împreună.",
+    "intro": "Contactează echipa noastră pentru solicitări de proiecte, parteneriate sau suport. Suntem aici pentru a te ajuta să inovezi și să reușești.",
+    "info": {
+      "emailLabel": "Scrie-ne",
+      "phoneLabel": "Sună-ne",
+      "addressLabel": "Biroul nostru"
+    },
+    "form": {
+      "heading": "Trimite-ne un mesaj",
+      "fullName": { "label": "Nume complet", "placeholder": "Ion Popescu" },
+      "email": { "label": "Email de serviciu", "placeholder": "tu@companie.com" },
+      "companyName": { "label": "Numele companiei", "optional": "(Opțional)", "placeholder": "Compania Ta SRL" },
+      "message": { "label": "Mesaj", "placeholder": "Spune-ne despre proiectul tău..." },
+      "submit": "Trimite mesajul",
+      "sending": "Se trimite...",
+      "successTitle": "Mesaj trimis!",
+      "successText": "Îți vom răspunde în curând, pe adresa de email indicată.",
+      "successReset": "Trimite alt mesaj",
+      "error": "Ceva nu a mers bine. Te redirecționăm pentru a trimite mesajul direct."
+    }
   }
 }

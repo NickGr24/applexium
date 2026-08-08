@@ -514,5 +514,66 @@
         "item7": "Tech Women MD"
       }
     }
+  },
+  "projects": {
+    "label": "PORTFOLIO",
+    "title": "Our In-House Innovations",
+    "intro": "Discover the powerful, custom-built digital products we've engineered to drive efficiency and growth for the modern enterprise.",
+    "viewProject": "View project",
+    "cases": {
+      "dareEu": {
+        "name": "DARE-EU",
+        "text": "Cross-border emergency response coordination platform",
+        "tag": "EU Emergency Response Platform"
+      },
+      "eurobridge": {
+        "name": "EUROBRIDGE UA MD",
+        "text": "Cross-border grant programme between Moldova and Ukraine",
+        "tag": "Cross-border Grant Programme"
+      },
+      "energiq": {
+        "name": "EnergiQ",
+        "text": "Energy solutions & services platform",
+        "tag": "Energy Services Platform"
+      },
+      "penitaDreptului": {
+        "name": "Penița Dreptului",
+        "text": "Legal education platform for aspiring lawyers",
+        "tag": "Legal Education"
+      },
+      "cmda": {
+        "name": "CMDA",
+        "text": "Municipal Center for Entrepreneurship Development",
+        "tag": "cmda.md"
+      },
+      "startItPlanet": {
+        "name": "StartIT Planet",
+        "text": "Educational tech platform for IT learning",
+        "tag": "Education Platform"
+      }
+    }
+  },
+  "contacts": {
+    "label": "CONTACT",
+    "title": "Let's Build the Future Together.",
+    "intro": "Reach out to our team for project inquiries, partnerships, or support. We're here to help you innovate and succeed.",
+    "info": {
+      "emailLabel": "Email Us",
+      "phoneLabel": "Call Us",
+      "addressLabel": "Our Office"
+    },
+    "form": {
+      "heading": "Send Us a Message",
+      "fullName": { "label": "Full Name", "placeholder": "John Doe" },
+      "email": { "label": "Work Email", "placeholder": "you@company.com" },
+      "companyName": { "label": "Company Name", "optional": "(Optional)", "placeholder": "Your Company Inc." },
+      "message": { "label": "Message", "placeholder": "Tell us about your project..." },
+      "submit": "Send Message",
+      "sending": "Sending...",
+      "successTitle": "Message sent!",
+      "successText": "We'll get back to you soon at the email address you provided.",
+      "successReset": "Send another message",
+      "error": "Something went wrong. Redirecting you to send the message directly."
+    }
   }
 }

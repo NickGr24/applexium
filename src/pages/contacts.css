@@ -1,0 +1,296 @@
+/* Contacts — split layout: intro + contact facts on the left, the
+   Formspree form on the right. Ported from `_legacy/contacts.html`'s
+   `.contact-header`/`.contact-cards`/`.contact-form`, minus the AOS stagger
+   (RevealText/Section already animate this page's entrance) and the map
+   embed — the brief's split is explicitly two columns (info | form), and a
+   third-party iframe doesn't fit this build's otherwise embed-free pages. */
+
+.contacts-page {
+  display: grid;
+  grid-template-columns: minmax(300px, 1fr) minmax(380px, 1.15fr);
+  align-items: start;
+  gap: 4rem;
+  padding-block: 9rem 6rem;
+}
+
+.contacts-intro {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.1rem;
+  position: sticky;
+  top: 8rem;
+}
+
+.contacts-intro__title {
+  margin-top: 0.25rem;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(2.3rem, 4.6vw, 3.6rem);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+.contacts-intro__text {
+  max-width: 44ch;
+  color: var(--ink-dim);
+  font-size: 1.02rem;
+  line-height: 1.65;
+}
+
+.contacts-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  margin-top: 0.75rem;
+  padding: 0;
+  list-style: none;
+}
+
+.contacts-info__item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.contacts-info__icon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  border: 1px solid rgb(31 205 255 / 0.25);
+  color: var(--brand-cyan);
+}
+
+.contacts-info__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.contacts-info__value {
+  color: var(--ink);
+  font-size: 1.02rem;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+a.contacts-info__value:hover {
+  color: var(--brand-cyan);
+}
+
+.contacts-info__label {
+  color: var(--ink-dim);
+}
+
+/* ---------- Form panel ---------- */
+
+.contacts-panel {
+  background: var(--bg-raise);
+  border: 1px solid rgb(139 147 167 / 0.15);
+  border-radius: 20px;
+  padding: clamp(1.75rem, 3vw, 2.75rem);
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.contact-form__heading {
+  margin-bottom: 0.15rem;
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+/* ---------- Floating-label fields ----------
+   `label` sits after the input/textarea in the DOM so the `~` sibling
+   selector can read `:placeholder-shown`/`:focus` off the field itself —
+   `for`/`id` still keeps the pair programmatically associated regardless of
+   paint order, so this is a purely visual reorder. Resting position reads
+   as the placeholder; on focus (or once there's a value) it floats up and
+   the real placeholder fades in underneath as a hint. */
+
+.field {
+  position: relative;
+}
+
+.field input,
+.field textarea {
+  width: 100%;
+  padding: 0.65rem 0.1rem;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgb(139 147 167 / 0.3);
+  border-radius: 0;
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  transition: border-color 0.3s var(--ease-out);
+}
+
+.field textarea {
+  min-height: 6.5rem;
+  padding-top: 1.7rem;
+  resize: vertical;
+}
+
+.field input:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: rgb(31 205 255 / 0.5);
+}
+
+.field label {
+  position: absolute;
+  left: 0.1rem;
+  top: 0.75rem;
+  color: var(--ink-dim);
+  font-size: 1rem;
+  pointer-events: none;
+  transform-origin: left top;
+  transition:
+    transform 0.25s var(--ease-out),
+    top 0.25s var(--ease-out),
+    color 0.25s var(--ease-out);
+}
+
+.field__optional {
+  color: var(--ink-dim);
+  font-weight: 400;
+  font-size: 0.85em;
+}
+
+.field input:focus ~ label,
+.field input:not(:placeholder-shown) ~ label,
+.field textarea:focus ~ label,
+.field textarea:not(:placeholder-shown) ~ label {
+  top: -0.1rem;
+  transform: translateY(-1rem) scale(0.78);
+  color: var(--brand-cyan);
+}
+
+.field input:not(:focus)::placeholder,
+.field textarea:not(:focus)::placeholder {
+  color: transparent;
+}
+
+.field input:focus::placeholder,
+.field textarea:focus::placeholder {
+  color: rgb(139 147 167 / 0.6);
+}
+
+/* Focus underline in --glow, layered over the resting border-bottom. */
+.field::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 2px;
+  background: var(--glow);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s var(--ease-out);
+}
+
+.field:focus-within::after {
+  transform: scaleX(1);
+}
+
+.contact-form__submit {
+  align-self: flex-start;
+  margin-top: 0.25rem;
+}
+
+.contact-form__submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.contact-form__error {
+  margin: -0.75rem 0 0;
+  color: #ff7a86;
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+/* ---------- Success confirmation ---------- */
+
+.form-success {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.6rem;
+  padding-block: 1.5rem;
+}
+
+.form-success__icon {
+  margin-bottom: 0.4rem;
+  color: var(--brand-cyan);
+}
+
+.form-success__title {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.form-success__text {
+  max-width: 38ch;
+  color: var(--ink-dim);
+  line-height: 1.6;
+}
+
+.form-success__reset {
+  margin-top: 0.5rem;
+  padding: 0;
+  background: none;
+  border: none;
+  color: var(--brand-cyan);
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  letter-spacing: 0.02em;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .field label,
+  .field input,
+  .field textarea,
+  .field::after {
+    transition: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .contacts-page {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    padding-block: 7rem 4rem;
+  }
+
+  .contacts-intro {
+    position: static;
+  }
+
+  .field-row {
+    grid-template-columns: 1fr;
+    gap: 1.6rem;
+  }
+}

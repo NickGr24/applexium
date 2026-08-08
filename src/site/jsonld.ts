@@ -230,6 +230,31 @@ export function aboutPageJsonLd(lang: Lang) {
   }
 }
 
+/**
+ * Projects (portfolio) listing page. Flat `CollectionPage` object, matching
+ * `_legacy/projects.html`'s own JSON-LD block — like `aboutPageJsonLd`,
+ * `name`/`description` stay the RO legacy text on *both* language versions
+ * (`_legacy/en/projects.html`'s own block still reads "Inovațiile noastre
+ * interne" verbatim); only `url`/`@id`/`inLanguage`/`publisher.url` vary
+ * with `lang`. This page is intentionally excluded from `sitemap.xml` (see
+ * `pages.json`), but it still ships full SEO metadata and structured data
+ * like every other page.
+ */
+export function collectionPageJsonLd(lang: Lang) {
+  const url = siteUrl(lang, 'projects')
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    '@id': `${url}#collectionpage`,
+    url,
+    name: 'Inovațiile noastre interne',
+    description:
+      'Un portofoliu de produse digitale și proiecte pentru clienți dezvoltate de Applexium pentru întreprinderea modernă.',
+    inLanguage: lang,
+    publisher: { '@type': 'Organization', name: 'Applexium', url: siteUrl(lang, '') },
+  }
+}
+
 export function contactPageJsonLd(lang: Lang) {
   const url = siteUrl(lang, 'contacts')
   const orgUrl = siteUrl(lang, '')

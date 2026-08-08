@@ -12,6 +12,8 @@ const componentFor: Record<string, React.LazyExoticComponent<React.ComponentType
   'mircea-ursu': React.lazy(() => import('./pages/profile/mircea-ursu')),
   'nichita-griu': React.lazy(() => import('./pages/profile/nichita-griu')),
   'diana-tatar': React.lazy(() => import('./pages/profile/diana-tatar')),
+  projects: React.lazy(() => import('./pages/Projects')),
+  contacts: React.lazy(() => import('./pages/Contacts')),
   // остальные страницы добавляются по мере задач; до тех пор — заглушка
 }
 const Placeholder = () => null
