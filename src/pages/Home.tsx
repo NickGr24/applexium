@@ -8,6 +8,7 @@ import { SplitHeading } from '../components/SplitHeading'
 import { SpotlightCard } from '../components/SpotlightCard'
 import { StatCount } from '../components/StatCount'
 import { useLang } from '../i18n'
+import { CONVERGENCE_CAMERA } from '../scenes/convergenceCamera'
 import { HERO_CAMERA } from '../scenes/heroCamera'
 import { SceneCanvas } from '../scenes/SceneCanvas'
 import { organizationJsonLd, webSiteJsonLd } from '../site/jsonld'
@@ -15,6 +16,9 @@ import { organizationJsonLd, webSiteJsonLd } from '../site/jsonld'
 // Dynamic import so `@react-three/fiber`/`three` never reach this page's own
 // chunk — see SceneCanvasInner.tsx for why.
 const HeroWorld = lazy(() => import('../scenes/HeroWorld').then((m) => ({ default: m.HeroWorld })))
+const ConvergenceScene = lazy(() =>
+  import('../scenes/ConvergenceScene').then((m) => ({ default: m.ConvergenceScene })),
+)
 
 export default function Home() {
   const lang = useLang()
@@ -119,6 +123,20 @@ export default function Home() {
             }}
           />
         </label>
+      </Section>
+
+      <Section
+        label="CONVERGENCE"
+        index="04"
+        title="Cinci canale, un singur nucleu — hero-ul Emmi"
+      >
+        <SceneCanvas
+          className="scene-canvas-demo"
+          poster={<div className="scene-canvas-demo__poster--convergence" aria-hidden="true" />}
+          camera={CONVERGENCE_CAMERA}
+        >
+          <ConvergenceScene />
+        </SceneCanvas>
       </Section>
     </>
   )
