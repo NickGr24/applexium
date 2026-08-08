@@ -202,3 +202,30 @@
     radial-gradient(ellipse 800px 600px at 50% 85%, rgba(6, 182, 212, 0.25), transparent 70%),
     #09001b;
 }
+
+/* BeamsScene's poster: Legalia's palette (`_legacy/legalia.html`'s
+   `--lg-*`) as a row of soft vertical glows over the shared dark base, a
+   flat stand-in for the columns the real scene renders. */
+.scene-canvas-demo__poster--beams {
+  width: 100%;
+  height: 100%;
+  background:
+    linear-gradient(180deg, rgba(89, 30, 243, 0.32), transparent 55%),
+    radial-gradient(ellipse 260px 900px at 20% 55%, rgba(135, 82, 250, 0.4), transparent 70%),
+    radial-gradient(ellipse 260px 900px at 50% 45%, rgba(205, 131, 255, 0.35), transparent 70%),
+    radial-gradient(ellipse 260px 900px at 80% 60%, rgba(89, 30, 243, 0.4), transparent 70%),
+    #04060d;
+}
+
+/* GalaxyScene's poster: Precedentia's palette (`_legacy/precedentia.html`'s
+   `--pr-*`) as a bright core fading through brand green into the indigo
+   accent, echoing the real scene's core-to-rim particle gradient. */
+.scene-canvas-demo__poster--galaxy {
+  width: 100%;
+  height: 100%;
+  background:
+    radial-gradient(ellipse 420px 340px at 50% 45%, rgba(224, 255, 233, 0.45), transparent 60%),
+    radial-gradient(ellipse 800px 620px at 50% 50%, rgba(9, 225, 172, 0.28), transparent 70%),
+    radial-gradient(ellipse 1000px 800px at 50% 55%, rgba(61, 57, 204, 0.3), transparent 75%),
+    #04060d;
+}

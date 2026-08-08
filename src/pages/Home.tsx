@@ -8,7 +8,9 @@ import { SplitHeading } from '../components/SplitHeading'
 import { SpotlightCard } from '../components/SpotlightCard'
 import { StatCount } from '../components/StatCount'
 import { useLang } from '../i18n'
+import { BEAMS_CAMERA } from '../scenes/beamsCamera'
 import { CONVERGENCE_CAMERA } from '../scenes/convergenceCamera'
+import { GALAXY_CAMERA } from '../scenes/galaxyCamera'
 import { HERO_CAMERA } from '../scenes/heroCamera'
 import { SceneCanvas } from '../scenes/SceneCanvas'
 import { organizationJsonLd, webSiteJsonLd } from '../site/jsonld'
@@ -19,6 +21,8 @@ const HeroWorld = lazy(() => import('../scenes/HeroWorld').then((m) => ({ defaul
 const ConvergenceScene = lazy(() =>
   import('../scenes/ConvergenceScene').then((m) => ({ default: m.ConvergenceScene })),
 )
+const BeamsScene = lazy(() => import('../scenes/BeamsScene').then((m) => ({ default: m.BeamsScene })))
+const GalaxyScene = lazy(() => import('../scenes/GalaxyScene').then((m) => ({ default: m.GalaxyScene })))
 
 export default function Home() {
   const lang = useLang()
@@ -136,6 +140,26 @@ export default function Home() {
           camera={CONVERGENCE_CAMERA}
         >
           <ConvergenceScene />
+        </SceneCanvas>
+      </Section>
+
+      <Section label="BEAMS" index="05" title="Coloanele de lumină ale paginii Legalia">
+        <SceneCanvas
+          className="scene-canvas-demo"
+          poster={<div className="scene-canvas-demo__poster--beams" aria-hidden="true" />}
+          camera={BEAMS_CAMERA}
+        >
+          <BeamsScene />
+        </SceneCanvas>
+      </Section>
+
+      <Section label="GALAXY" index="06" title="Câmpul de precedente al paginii Precedentia">
+        <SceneCanvas
+          className="scene-canvas-demo"
+          poster={<div className="scene-canvas-demo__poster--galaxy" aria-hidden="true" />}
+          camera={GALAXY_CAMERA}
+        >
+          <GalaxyScene />
         </SceneCanvas>
       </Section>
     </>
