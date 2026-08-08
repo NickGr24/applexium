@@ -243,7 +243,13 @@ export default function Emmi() {
         camera={CONVERGENCE_CAMERA}
         accent={ACCENT}
         hero={{
-          logo: <img src="/emmi.webp" alt="Emmi" className="product-hero__logo" />,
+          logo: (
+            <img
+              src="/emmi-avatar.webp"
+              alt="Emmi"
+              className="product-hero__logo product-hero__logo--avatar"
+            />
+          ),
           label: t(lang, 'emmi.hero.label'),
           title: t(lang, 'emmi.hero.title'),
           sub: t(lang, 'emmi.hero.sub'),

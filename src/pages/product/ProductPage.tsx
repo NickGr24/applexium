@@ -18,7 +18,10 @@ type ProductPageHero = {
    * only accepts a plain string `children`, so a logo can't live inside the
    * heading itself; this slot is the alternative the brief asks for
    * ("above the mono label or next to the title"). Give the `<img>` the
-   * `.product-hero__logo` class to pick up the shared ~40–56px sizing. */
+   * `.product-hero__logo` class to pick up the shared ~40–56px sizing, and
+   * add `.product-hero__logo--avatar` on top for a circular avatar crop
+   * (ring + glow in `--page-accent`) instead of the default rounded-rect
+   * wordmark chip — see Emmi's own hero for the avatar variant in use. */
   logo?: ReactNode
 }
 

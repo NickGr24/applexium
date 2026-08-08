@@ -52,6 +52,23 @@
   box-shadow: 0 6px 20px rgb(0 0 0 / 0.35);
 }
 
+/* `--avatar` modifier: a circular crop instead of the rectangular wordmark
+   chip above — Emmi's hero uses a face cropped from `public/emmi.webp`
+   (see `public/emmi-avatar.webp`). Fixed square box (not the wordmark's
+   height-only sizing) so `object-fit: cover` has a stable circle to fill;
+   1px ring + soft glow in the page's own `--page-accent` stand in for the
+   wordmark's drop shadow. 56px desktop, 44px on small screens (media query
+   below, alongside this file's other <=620px overrides). */
+.product-hero__logo--avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow:
+    0 0 0 1px rgb(var(--page-accent-rgb) / 0.85),
+    0 0 22px rgb(var(--page-accent-rgb) / 0.4);
+}
+
 .product-hero__title {
   max-width: 18ch;
   font-family: var(--font-display);
@@ -134,6 +151,11 @@
   .product-hero__copy {
     padding-block: 8rem 4rem;
     gap: 1.25rem;
+  }
+
+  .product-hero__logo--avatar {
+    width: 44px;
+    height: 44px;
   }
 
   .product-final__inner {
