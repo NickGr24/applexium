@@ -13,6 +13,13 @@ type ProductPageHero = {
    * custom click handler for the live widget, not a plain href), so this
    * takes finished markup rather than a data shape. */
   ctas: ReactNode
+  /** Optional product wordmark, shown above the mono label. Finished markup
+   * (an `<img>`, typically) rather than a `src`/`alt` pair — `SplitHeading`
+   * only accepts a plain string `children`, so a logo can't live inside the
+   * heading itself; this slot is the alternative the brief asks for
+   * ("above the mono label or next to the title"). Give the `<img>` the
+   * `.product-hero__logo` class to pick up the shared ~40–56px sizing. */
+  logo?: ReactNode
 }
 
 type ProductPageProps = {
@@ -73,6 +80,7 @@ export function ProductPage({ scene, poster, camera, accent, hero, chapters }: P
         <div className="product-hero__scrim" aria-hidden="true" />
 
         <div className="product-hero__copy container">
+          {hero.logo}
           <MonoLabel index="01">{hero.label}</MonoLabel>
           <SplitHeading as="h1" className="product-hero__title">
             {hero.title}

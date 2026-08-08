@@ -42,6 +42,16 @@
   padding-block: 6rem;
 }
 
+/* Optional product wordmark (ProductPage's `hero.logo` slot), sits above
+   the mono label. Height-constrained, natural aspect ratio — the page
+   supplies the `<img>`, this only sizes it consistently across products. */
+.product-hero__logo {
+  height: clamp(2.5rem, 4vw, 3.5rem);
+  width: auto;
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgb(0 0 0 / 0.35);
+}
+
 .product-hero__title {
   max-width: 18ch;
   font-family: var(--font-display);

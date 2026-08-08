@@ -201,17 +201,36 @@ export default function Emmi() {
   const lang = useLang()
   const openWidget = useEmmiWidgetTrigger(lang)
 
-  // Client-only, and only on this page. Guards against double-injection on
-  // repeat visits within the same SPA session (back/forward, or navigating
-  // away and back never unmounts the <script> tag itself) by checking for
-  // the loader's own src first.
+  // Client-only, and only on this page. This is a SPA: navigating to another
+  // route doesn't reload the document, it unmounts this component — so
+  // without a cleanup, the loader's FAB (`#voiceagent-widget-root`) and its
+  // <script> tag would survive on every other page after a single visit to
+  // /emmi. Tear both down on unmount, and re-inject on the next mount (SPA
+  // back/forward into /emmi again) rather than reusing a stale script tag.
+  //
+  // What the loader actually does to the DOM (checked live, since it's
+  // hosted on app.emmi-agent.com, not in this repo): it appends exactly one
+  // `#voiceagent-widget-root` div to <body> — fixed-position, pointer-events
+  // on, at the top of the stacking context (z-index 2147483647) — and
+  // renders the FAB + chat UI into a closed shadow root on that div, so
+  // nothing else shows up in `document.body.children` to clean up.
+  // Removing the host div tears down the shadow tree (and whatever
+  // listeners live inside it) with it; only the <script> tag needs removing
+  // separately since it's a sibling, not a child.
   useEffect(() => {
-    if (document.querySelector(`script[src="${WIDGET_SRC}"]`)) return
-    const script = document.createElement('script')
-    script.src = WIDGET_SRC
-    script.dataset.agentId = WIDGET_AGENT_ID
-    script.defer = true
-    document.body.appendChild(script)
+    let script = document.querySelector<HTMLScriptElement>(`script[src="${WIDGET_SRC}"]`)
+    if (!script) {
+      script = document.createElement('script')
+      script.src = WIDGET_SRC
+      script.dataset.agentId = WIDGET_AGENT_ID
+      script.defer = true
+      document.body.appendChild(script)
+    }
+
+    return () => {
+      script?.remove()
+      document.getElementById('voiceagent-widget-root')?.remove()
+    }
   }, [])
 
   return (
@@ -224,6 +243,7 @@ export default function Emmi() {
         camera={CONVERGENCE_CAMERA}
         accent={ACCENT}
         hero={{
+          logo: <img src="/emmi.webp" alt="Emmi" className="product-hero__logo" />,
           label: t(lang, 'emmi.hero.label'),
           title: t(lang, 'emmi.hero.title'),
           sub: t(lang, 'emmi.hero.sub'),
