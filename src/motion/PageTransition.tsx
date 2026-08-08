@@ -56,7 +56,7 @@ export function PageTransition({ children }: { children: React.ReactNode }) {
   return (
     <>
       <div ref={overlayRef} className="page-transition" data-phase={phase} aria-hidden="true">
-        <img src="/applexium-symbol.png" alt="" className="page-transition__symbol" />
+        <img src="/brand/applexium-symbol.png" alt="" className="page-transition__symbol" />
       </div>
       {children}
     </>

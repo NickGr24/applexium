@@ -21,7 +21,7 @@ export function Footer() {
       <div className="container footer__grid">
         <div className="footer__brand">
           <Link to={localePath(lang, '')} className="footer__logo" aria-label="Applexium">
-            <img src="/applexium-logo-horizontal.png" alt="Applexium" />
+            <img src="/brand/applexium-horizontal.png" alt="Applexium" />
           </Link>
           <p className="footer__copy mono-label">
             © {year} Applexium. {t(lang, 'footer.rights')}

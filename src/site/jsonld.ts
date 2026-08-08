@@ -138,7 +138,7 @@ const personSource: Record<
     givenName: 'Mircea',
     familyName: 'Ursu',
     jobTitle: 'Co-fondator și CEO',
-    image: `${SITE_ORIGIN}/mirceaursu.webp`,
+    image: `${SITE_ORIGIN}/team/mirceaursu.webp`,
     sameAs: [
       'https://www.linkedin.com/in/mirceaursu/',
       'https://t.me/observance_of_legality',
@@ -151,7 +151,7 @@ const personSource: Record<
     givenName: 'Nichita',
     familyName: 'Griu',
     jobTitle: 'Co-fondator și CTO',
-    image: `${SITE_ORIGIN}/nikitagriu.webp`,
+    image: `${SITE_ORIGIN}/team/nikitagriu.webp`,
     email: 'nichitagriu@applexium.com',
   },
   'diana-tatar': {
@@ -159,7 +159,7 @@ const personSource: Record<
     givenName: 'Diana',
     familyName: 'Tatar',
     jobTitle: 'Chief Marketing Officer',
-    image: `${SITE_ORIGIN}/dianatatar.webp`,
+    image: `${SITE_ORIGIN}/team/dianatatar.webp`,
     email: 'designerdianatatar30@gmail.com',
   },
 }

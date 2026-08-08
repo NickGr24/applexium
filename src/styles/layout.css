@@ -51,8 +51,9 @@
 }
 
 .nav__logo img {
-  height: 26px;
+  height: 30px;
   width: auto;
+  filter: invert(1);
 }
 
 .nav__links {
@@ -216,6 +217,7 @@
 .footer__brand img {
   height: 24px;
   width: auto;
+  filter: invert(1);
 }
 
 .footer__copy {
@@ -283,6 +285,7 @@
   width: 56px;
   height: auto;
   opacity: 0.9;
+  filter: invert(1);
 }
 
 /* ---------- Custom cursor ---------- */

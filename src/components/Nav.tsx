@@ -75,7 +75,7 @@ export function Nav() {
     <header className={`nav${scrolled ? ' nav--scrolled' : ''}`}>
       <div className="nav__bar container">
         <Link to={localePath(lang, '')} className="nav__logo" aria-label="Applexium">
-          <img src="/applexium-logo-horizontal.png" alt="Applexium" />
+          <img src="/brand/applexium-horizontal.png" alt="Applexium" />
         </Link>
 
         <nav className="nav__links" aria-label={t(lang, 'nav.primary')}>
