@@ -96,15 +96,8 @@
   opacity:.028;mix-blend-mode:overlay;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E")}
 .hero{position:relative;z-index:2}
-.hero-trust{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;
-  gap:.5rem 1.7rem;margin-top:3rem;opacity:0;animation:fadeInCanvas 1s ease-out 1.1s forwards}
-.hero-trust span{font-size:.92rem;color:rgba(224,224,224,.72)}
-.hero-trust-label{font-size:.66rem!important;letter-spacing:.2em;text-transform:uppercase;
-  color:rgba(224,224,224,.5)!important}
-@media (max-width:768px){.hero-trust{gap:.4rem 1.1rem;margin-top:2rem}
-  .hero-trust span{font-size:.8rem}}
 @media (prefers-reduced-motion:reduce){
-  #arcade-stage,.hero-trust{animation:none;opacity:1}}
+  #arcade-stage{animation:none;opacity:1}}
 
 /* ── Portfolio tiles ──────────────────────────────────────────
    The chromatic edge and the off-square rest angle come from the
@@ -176,10 +169,6 @@
 <div class="hero-buttons">
 <a class="btn-hero-primary" data-en="Schedule a Consultation" href="#contact">Programează o consultație</a>
 <a class="btn-secondary" data-en="Explore Services" href="#capabilities">Explorează serviciile</a>
-</div>
-<div class="hero-trust">
-<span class="hero-trust-label" data-en="In use at">În uz la</span>
-<span>INJ</span><span>CMDA</span><span>EUROBRIDGE UA MD</span><span>DARE-EU</span><span>StartIT Planet</span>
 </div>
 </div>
 </main>
