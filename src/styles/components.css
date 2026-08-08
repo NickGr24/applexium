@@ -155,6 +155,68 @@
   line-height: 1.6;
 }
 
+/* ---------- DistortImage ---------- */
+
+.distort-image {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.distort-image__img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s var(--ease-out);
+}
+
+/* Fallback path (touch / lite / static / no-JS tiers): a plain CSS
+   scale on hover — no shader, no canvas, just the <img> that's always
+   there. Once the canvas takes over (--enhanced), the shader plane sits
+   on top and this transform would just double the effect, so it's
+   switched off. */
+.distort-image:hover .distort-image__img {
+  transform: scale(1.06);
+}
+
+.distort-image--enhanced .distort-image__img {
+  transition: none;
+}
+
+.distort-image--enhanced:hover .distort-image__img {
+  transform: none;
+}
+
+.distort-image__canvas {
+  position: absolute;
+  inset: 0;
+}
+
+.distort-image__canvas canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .distort-image__img {
+    transition: none;
+  }
+}
+
+/* ---------- DistortImage demo (showcase, dropped in Task 14) ---------- */
+
+.distort-image-demo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.distort-image-demo-grid .distort-image {
+  aspect-ratio: 3 / 4;
+}
+
 /* ---------- SceneCanvas demo (showcase, dropped in Task 14) ---------- */
 
 .scene-canvas-demo {
