@@ -185,7 +185,7 @@ function useEmmiWidgetTrigger(lang: Lang): () => void {
       return
     }
     root.scrollIntoView({ behavior: 'smooth', block: 'end' })
-    root.style.transition = 'transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.4s ease'
+    root.style.transition = 'transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), filter 0.4s ease'
     root.style.transform = 'scale(1.18)'
     root.style.filter = 'drop-shadow(0 0 24px rgba(103, 232, 249, 0.9))'
     window.setTimeout(() => {
