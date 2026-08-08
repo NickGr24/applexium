@@ -28,16 +28,34 @@
   inset: 0;
 }
 
-/* Darkens the top (so the fixed nav keeps its contrast), the bottom (so the
-   buttons sit on ink rather than on the water), and — softly — the middle,
-   where the doorway's light column runs straight up behind the subtitle. */
+/* Darkens the top (so the fixed nav keeps its contrast) and the bottom (so the
+   buttons sit on ink rather than on the water). Permanent — both jobs outlast
+   the copy. */
 .hero__scrim {
   position: absolute;
   inset: 0;
   background:
     linear-gradient(180deg, rgb(4 6 13 / 0.72), rgb(4 6 13 / 0) 28%),
-    radial-gradient(72% 40% at 50% 48%, rgb(4 6 13 / 0.5), rgb(4 6 13 / 0) 72%),
     radial-gradient(120% 70% at 50% 100%, rgb(4 6 13 / 0.8), rgb(4 6 13 / 0) 62%);
+}
+
+/* The copy's own backing: a soft pool over the middle of the frame, where the
+   doorway's light column runs up behind the subtitle. Separate from the scrim
+   above because it is scrubbed away with the copy — held for the whole track
+   it would flatten the deepest part of the flight, which is the one stretch
+   with no text on it to protect. */
+.hero__scrim--copy {
+  position: absolute;
+  inset: 0;
+  /* A band plus a pool, not a pool alone: a lone radial narrow enough to sit
+     behind the copy has an iso-line the eye can find, and on a phone — where
+     the ellipse is cut off by the viewport sides — it reads as a rectangle
+     behind the paragraph. The band carries most of the darkening and has no
+     lateral edge at all. */
+  background:
+    radial-gradient(58% 44% at 50% 47%, rgb(4 6 13 / 0.36), rgb(4 6 13 / 0) 82%),
+    linear-gradient(180deg, rgb(4 6 13 / 0) 6%, rgb(4 6 13 / 0.34) 44%, rgb(4 6 13 / 0) 84%);
+  will-change: opacity;
 }
 
 .hero__copy {

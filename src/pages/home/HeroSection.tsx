@@ -30,6 +30,7 @@ const HeroWorld = lazy(() => import('../../scenes/HeroWorld').then((m) => ({ def
 export function HeroSection({ lang }: { lang: Lang }) {
   const trackRef = useRef<HTMLElement>(null)
   const copyRef = useRef<HTMLDivElement>(null)
+  const copyScrimRef = useRef<HTMLDivElement>(null)
   const progressRef = useRef(0)
   const reduced = useReducedMotion()
 
@@ -71,6 +72,10 @@ export function HeroSection({ lang }: { lang: Lang }) {
         .to(lines[1], { yPercent: -25, opacity: 0, ease: 'none', duration: 0.5 }, 0)
         .to(lines[2], { yPercent: 135, opacity: 0, ease: 'none', duration: 0.5 }, 0)
         .to(tail, { opacity: 0, y: -32, ease: 'none', duration: 0.3 }, 0)
+        // The copy's backing leaves with the copy — over the same half of the
+        // track as the headline, so nothing is left sitting on a dimmed scene
+        // once there is no text to protect.
+        .to(copyScrimRef.current, { opacity: 0, ease: 'none', duration: 0.5 }, 0)
     }, track)
 
     return () => ctx.revert()
@@ -90,6 +95,7 @@ export function HeroSection({ lang }: { lang: Lang }) {
         </div>
 
         <div className="hero__scrim" aria-hidden="true" />
+        <div className="hero__scrim hero__scrim--copy" aria-hidden="true" ref={copyScrimRef} />
 
         <div className="hero__copy container" ref={copyRef}>
           <h1 className="hero__title">
