@@ -326,5 +326,194 @@
       "cta1": "Încearcă Precedentia",
       "cta2": "Contactează-ne"
     }
+  },
+  "team": {
+    "label": "ECHIPĂ",
+    "title": "Cunoaște echipa noastră",
+    "intro": "Mințile pasionate din spatele Applexium, dedicate construirii de soluții digitale inovatoare.",
+    "viewProfile": "Vezi profilul",
+    "mircea": {
+      "name": "Mircea Ursu",
+      "role": "CEO",
+      "text": "Conduce viziunea și strategia Applexium, impulsionând inovația și creșterea."
+    },
+    "nichita": {
+      "name": "Nichita Griu",
+      "role": "CTO",
+      "text": "Proiectează fundația tehnică și conduce dezvoltarea de soluții de ultimă generație."
+    },
+    "diana": {
+      "name": "Diana Tatar",
+      "role": "CMO",
+      "text": "Modelează brandul și marketingul Applexium — identitate vizuală, campanii și conținut bazat pe AI."
+    }
+  },
+  "profile": {
+    "back": "Înapoi la echipă",
+    "linkedin": "LinkedIn",
+    "telegram": "Telegram",
+    "facebook": "Facebook",
+    "email": "Email",
+    "phone": "Telefon",
+    "website": "Website"
+  },
+  "profiles": {
+    "mircea": {
+      "hero": {
+        "status": "CEO ȘI FONDATOR",
+        "role": "Co-fondator și CEO",
+        "location": "Chișinău, Moldova"
+      },
+      "facts": {
+        "roles": "roluri profesionale",
+        "degrees": "diplome universitare"
+      },
+      "experience": {
+        "label": "EXPERIENȚĂ",
+        "title": "Traseul profesional",
+        "applexium": { "org": "Applexium", "role": "Co-fondator și CEO" },
+        "jurista": { "org": "Jurista", "role": "Consultanță în dreptul afacerilor" },
+        "government": { "org": "Guvern", "role": "Consilier al secretarului de stat" },
+        "startupmd": { "org": "Startup MD", "role": "Servicii juridice" },
+        "banking": { "org": "Sector bancar", "role": "Consultanță de conformitate" },
+        "payall": { "org": "Payall", "role": "Servicii AML" }
+      },
+      "education": {
+        "label": "STUDII",
+        "title": "Formare academică",
+        "phd": { "degree": "Doctorand", "field": "Economie și management" },
+        "llm1": { "degree": "LL.M.", "field": "Diplomație" },
+        "llm2": { "degree": "LL.M.", "field": "Drept economic" },
+        "llb": { "degree": "LL.B.", "field": "Licență în drept" }
+      }
+    },
+    "nichita": {
+      "hero": {
+        "status": "CTO ȘI FONDATOR",
+        "role": "Co-fondator și CTO",
+        "location": "Chișinău, Moldova",
+        "bio": {
+          "p1": "Inginerul din spatele produselor Applexium. Nichita conduce tehnologia companiei de la cap la coadă — de la aplicații mobile și backend-uri în timp real până la AI aplicat — transformând ideile în produse livrate.",
+          "p2": "A arhitecturat și a construit Legalia, o platformă completă de educație juridică, și Emmi, un agent AI conversațional multi-canal."
+        }
+      },
+      "facts": {
+        "products": "produse Applexium construite",
+        "stack": "arii ale stivei tehnologice"
+      },
+      "products": {
+        "label": "PRODUSE",
+        "title": "Construit la Applexium",
+        "cta": "Vezi produsul",
+        "legalia": {
+          "kicker": "Platformă de educație juridică",
+          "text": "O aplicație mobilă care transformă întreaga programă de drept într-un parcurs ghidat — 521 de teme, peste 6.900 de întrebări, plus lecții video, podcasturi și hărți mentale pentru aproape fiecare temă, cu progres gamificat și dueluri între prieteni.",
+          "tag1": "React Native",
+          "tag2": "Expo",
+          "tag3": "TypeScript",
+          "tag4": "Supabase"
+        },
+        "emmi": {
+          "kicker": "Agent AI multi-canal",
+          "text": "Un agent AI conversațional multi-canal care răspunde la întrebări în limbaj natural prin voce și chat — livrat ca widget integrabil și optimizat pentru suport rapid, accesibil, disponibil 24/7.",
+          "tag1": "AI / LLM-uri",
+          "tag2": "Voce și chat",
+          "tag3": "Timp real",
+          "tag4": "Widget integrabil"
+        }
+      },
+      "stack": {
+        "label": "TEHNOLOGII",
+        "title": "Stivă tehnologică",
+        "mobile": {
+          "heading": "Mobile și frontend",
+          "item1": "React Native",
+          "item2": "Expo",
+          "item3": "React",
+          "item4": "HTML și CSS"
+        },
+        "backend": {
+          "heading": "Backend și date",
+          "item1": "Node.js",
+          "item2": "Supabase",
+          "item3": "PostgreSQL",
+          "item4": "API-uri REST și în timp real"
+        },
+        "ai": {
+          "heading": "AI și limbaje",
+          "item1": "Agenți AI și LLM-uri",
+          "item2": "AI vocal",
+          "item3": "Python",
+          "item4": "TypeScript / JavaScript"
+        },
+        "tools": {
+          "heading": "Instrumente",
+          "item1": "Git",
+          "item2": "CI/CD și deployment",
+          "item3": "App Store și Play Store"
+        }
+      }
+    },
+    "diana": {
+      "hero": {
+        "status": "CMO",
+        "role": "Chief Marketing Officer",
+        "location": "Chișinău, Moldova",
+        "website": "dianatatar.com",
+        "bio": {
+          "p1": "Diana conduce departamentul de marketing și brand la Applexium. Designer grafic și creatoare de conținut AI, a petrecut 6 ani construind identități vizuale și campanii — peste 10 branduri dezvoltate și peste 200 de clienți în branding, social media, editorial și conținut generat cu AI.",
+          "p2": "De asemenea, mentorează următoarea generație de creatori la Vector Academy."
+        }
+      },
+      "facts": {
+        "experience": "ani de experiență",
+        "brands": "branduri dezvoltate",
+        "clients": "clienți"
+      },
+      "services": {
+        "label": "CE FAC",
+        "title": "Ce fac",
+        "branding": {
+          "title": "Branding și identitate vizuală",
+          "text": "Sisteme vizuale cu sens, direcție și autenticitate — nu doar cum arată un brand, ci cum se simte."
+        },
+        "social": {
+          "title": "Social Media",
+          "text": "Transformă paginile de social media în spații vizuale coerente, unde fiecare element construiește o imagine clară și memorabilă."
+        },
+        "editorial": {
+          "title": "Editorial și print",
+          "text": "Layouturi editoriale și de print curate și bine structurate, în care textul și vizualul lucrează împreună."
+        },
+        "campaigns": {
+          "title": "Concepte vizuale și campanii",
+          "text": "De la idee și direcție creativă până la moodboards și ghiduri clare de implementare pentru campanii."
+        },
+        "aiContent": {
+          "title": "Generare de conținut cu AI",
+          "text": "Conținut vizual static și video creat cu AI — de la concepte creative până la materiale gata de campanie."
+        }
+      },
+      "work": {
+        "label": "PORTOFOLIU",
+        "title": "Lucrări selectate",
+        "decoratii": { "title": "Decorații.md", "cat": "Decor urban · Rebranding" },
+        "ooNutrition": { "title": "OO.Nutrition", "cat": "Concept de produs · Prezentare de brand" },
+        "centrulSportiv": { "title": "Centrul Sportiv Național", "cat": "Brand book · Flyere · Reviste" },
+        "bloomin": { "title": "BloomIn și Fine Digital", "cat": "Direcție creativă · Social + Print" },
+        "vectorAcademy": { "title": "Vector Academy — conținut AI", "cat": "Video · Static · Moodboards" }
+      },
+      "brands": {
+        "label": "COLABORĂRI",
+        "title": "Colaborări",
+        "item1": "Vector Academy",
+        "item2": "Fine Digital",
+        "item3": "BloomIn Agency",
+        "item4": "Moldcell",
+        "item5": "Microlab",
+        "item6": "BEST Chișinău",
+        "item7": "Tech Women MD"
+      }
+    }
   }
 }

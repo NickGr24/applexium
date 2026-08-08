@@ -8,6 +8,10 @@ const componentFor: Record<string, React.LazyExoticComponent<React.ComponentType
   emmi: React.lazy(() => import('./pages/product/emmi')),
   legalia: React.lazy(() => import('./pages/product/legalia')),
   precedentia: React.lazy(() => import('./pages/product/precedentia')),
+  team: React.lazy(() => import('./pages/Team')),
+  'mircea-ursu': React.lazy(() => import('./pages/profile/mircea-ursu')),
+  'nichita-griu': React.lazy(() => import('./pages/profile/nichita-griu')),
+  'diana-tatar': React.lazy(() => import('./pages/profile/diana-tatar')),
   // остальные страницы добавляются по мере задач; до тех пор — заглушка
 }
 const Placeholder = () => null

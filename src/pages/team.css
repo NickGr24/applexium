@@ -1,0 +1,88 @@
+/* Team page — a single Section (the header chrome + intro) framing a grid
+   of card-links, one per profile. Ported from `_legacy/team.html`'s
+   `.team-cards`, minus the AOS stagger (Section/RevealText already animate
+   this page's entrance) and the shader-hover the rest of the redesign
+   dropped in favour of `.photo-hover` (see components.css). */
+
+.team-intro {
+  max-width: 56ch;
+  margin-bottom: 3rem;
+  color: var(--ink-dim);
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.team-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  color: inherit;
+  text-decoration: none;
+  border-radius: 16px;
+}
+
+/* The whole card is the link target (per Task 17 brief) — an explicit ring
+   on top of the browser default, since a block-level <a> otherwise only
+   gets a thin outline hugging its (large, irregular) content box. */
+.team-card:focus-visible {
+  outline: 2px solid var(--brand-cyan);
+  outline-offset: 6px;
+  border-radius: 18px;
+}
+
+.team-card__photo {
+  aspect-ratio: 3 / 4;
+}
+
+.team-card__name {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.team-card__text {
+  color: var(--ink-dim);
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+.team-card__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: auto;
+  padding-top: 0.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  color: var(--brand-cyan);
+  transition: gap 0.3s var(--ease-out);
+}
+
+.team-card:hover .team-card__cta,
+.team-card:focus-visible .team-card__cta {
+  gap: 0.75rem;
+}
+
+@media (max-width: 900px) {
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 620px) {
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .team-card__photo {
+    aspect-ratio: 4 / 3;
+  }
+}

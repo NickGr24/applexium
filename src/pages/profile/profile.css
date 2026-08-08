@@ -1,0 +1,180 @@
+/* Profile — shared hero shell for all three team profiles (Profile.tsx).
+   Each person's own extra chapters (experience/education, products/stack,
+   services/work/…) live in that person's own stylesheet
+   (mircea-ursu.css / nichita-griu.css / diana-tatar.css); this file only
+   covers what's truly identical across the three, plus a couple of small
+   pieces (`.chip-row`/`.chip`) reused by more than one of them. */
+
+.profile-hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(220px, 300px) 1fr;
+  align-items: start;
+  gap: 3.5rem;
+  padding-block: 9rem 4rem;
+  overflow: hidden;
+}
+
+/* Soft brand glow behind the photo — same job as the product hero's scrim,
+   scaled down for a page with no full-bleed scene of its own. */
+.profile-hero::before {
+  content: '';
+  position: absolute;
+  top: -12%;
+  left: 12%;
+  width: 560px;
+  height: 560px;
+  background: radial-gradient(circle, rgb(36 94 254 / 0.16), rgb(31 205 255 / 0.05) 42%, transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.profile-hero__photo {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  box-shadow: 0 30px 60px rgb(0 0 0 / 0.4);
+}
+
+.profile-hero__info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.profile-hero__back {
+  color: var(--ink-dim);
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition:
+    color 0.3s var(--ease-out),
+    transform 0.3s var(--ease-out);
+}
+
+.profile-hero__back:hover {
+  color: var(--brand-cyan);
+  transform: translateX(-4px);
+}
+
+.profile-hero__name {
+  margin-top: 0.25rem;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+.profile-hero__role {
+  font-size: clamp(1rem, 1.4vw, 1.2rem);
+  color: var(--brand-cyan);
+}
+
+.profile-hero__facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  padding-block: 0.25rem;
+}
+
+.profile-bio {
+  max-width: 62ch;
+  color: var(--ink-dim);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.profile-hero__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-top: 0.5rem;
+}
+
+.profile-hero__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.profile-link {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1.1rem;
+  border-radius: 999px;
+  border: 1px solid rgb(139 147 167 / 0.25);
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition:
+    border-color 0.3s var(--ease-out),
+    background-color 0.3s var(--ease-out),
+    transform 0.3s var(--ease-out);
+}
+
+.profile-link:hover {
+  border-color: rgb(31 205 255 / 0.45);
+  background: rgb(31 205 255 / 0.08);
+  transform: translateY(-2px);
+}
+
+.profile-link:focus-visible {
+  outline: 2px solid var(--brand-cyan);
+  outline-offset: 3px;
+}
+
+/* ---------- Chips ----------
+   Reused by both the tech-stack pills (nichita-griu) and the brand tags
+   (diana-tatar) — same shape as the legacy `.np-pill`/`.dt-brand`. */
+
+.chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.chip {
+  padding: 0.6rem 1.1rem;
+  border-radius: 14px;
+  border: 1px solid rgb(31 205 255 / 0.16);
+  background: rgb(255 255 255 / 0.04);
+  color: var(--ink);
+  font-size: 0.88rem;
+  font-weight: 500;
+  transition:
+    transform 0.25s var(--ease-out),
+    border-color 0.25s var(--ease-out),
+    background-color 0.25s var(--ease-out);
+}
+
+.chip:hover {
+  transform: translateY(-3px);
+  border-color: rgb(31 205 255 / 0.45);
+  background: rgb(31 205 255 / 0.08);
+}
+
+@media (max-width: 860px) {
+  .profile-hero {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+    padding-block: 7.5rem 3rem;
+  }
+
+  .profile-hero__photo {
+    max-width: 260px;
+  }
+
+  .profile-hero__info {
+    align-items: center;
+  }
+
+  .profile-hero__facts {
+    justify-content: center;
+  }
+
+  .profile-hero__links {
+    justify-content: center;
+  }
+}

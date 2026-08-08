@@ -326,5 +326,194 @@
       "cta1": "Try Precedentia",
       "cta2": "Contact Us"
     }
+  },
+  "team": {
+    "label": "TEAM",
+    "title": "Meet Our Team",
+    "intro": "The passionate minds behind Applexium, dedicated to building innovative digital solutions.",
+    "viewProfile": "View profile",
+    "mircea": {
+      "name": "Mircea Ursu",
+      "role": "CEO",
+      "text": "Leading the vision and strategy of Applexium, driving innovation and growth."
+    },
+    "nichita": {
+      "name": "Nichita Griu",
+      "role": "CTO",
+      "text": "Architecting the technical foundation and leading development of cutting-edge solutions."
+    },
+    "diana": {
+      "name": "Diana Tatar",
+      "role": "CMO",
+      "text": "Shaping the brand and marketing of Applexium — visual identity, campaigns, and AI-driven content."
+    }
+  },
+  "profile": {
+    "back": "Back to Team",
+    "linkedin": "LinkedIn",
+    "telegram": "Telegram",
+    "facebook": "Facebook",
+    "email": "Email",
+    "phone": "Phone",
+    "website": "Website"
+  },
+  "profiles": {
+    "mircea": {
+      "hero": {
+        "status": "CEO & FOUNDER",
+        "role": "Co-Founder & CEO",
+        "location": "Chisinau, Moldova"
+      },
+      "facts": {
+        "roles": "professional roles",
+        "degrees": "academic degrees"
+      },
+      "experience": {
+        "label": "EXPERIENCE",
+        "title": "Professional path",
+        "applexium": { "org": "Applexium", "role": "Co-Founder & CEO" },
+        "jurista": { "org": "Jurista", "role": "Business Law Advisory" },
+        "government": { "org": "Government", "role": "State Secretary Advisor" },
+        "startupmd": { "org": "Startup MD", "role": "Legal Services" },
+        "banking": { "org": "Banking", "role": "Compliance Advisory" },
+        "payall": { "org": "Payall", "role": "AML Services" }
+      },
+      "education": {
+        "label": "EDUCATION",
+        "title": "Academic background",
+        "phd": { "degree": "PHD Candidate", "field": "Economics & Management" },
+        "llm1": { "degree": "LL.M.", "field": "Diplomacy" },
+        "llm2": { "degree": "LL.M.", "field": "Economic Law" },
+        "llb": { "degree": "LL.B.", "field": "Bachelor of Laws" }
+      }
+    },
+    "nichita": {
+      "hero": {
+        "status": "CTO & FOUNDER",
+        "role": "Co-Founder & CTO",
+        "location": "Chisinau, Moldova",
+        "bio": {
+          "p1": "The engineer behind Applexium's products. Nichita leads the company's technology end-to-end — from mobile apps and real-time backends to applied AI — turning ideas into shipped products.",
+          "p2": "He architected and built Legalia, a full legal-learning platform, and Emmi, a multi-channel conversational AI agent."
+        }
+      },
+      "facts": {
+        "products": "Applexium products built",
+        "stack": "tech stack areas"
+      },
+      "products": {
+        "label": "PRODUCTS",
+        "title": "Built at Applexium",
+        "cta": "View product",
+        "legalia": {
+          "kicker": "Legal learning platform",
+          "text": "A mobile app that turns the entire law curriculum into a guided journey — 521 topics, 6,900+ questions, plus video lessons, podcasts and mind maps for nearly every topic, with gamified progress and friend duels.",
+          "tag1": "React Native",
+          "tag2": "Expo",
+          "tag3": "TypeScript",
+          "tag4": "Supabase"
+        },
+        "emmi": {
+          "kicker": "Multi-channel AI agent",
+          "text": "A multi-channel conversational AI agent that answers questions in natural language across voice and chat — deployed as an embeddable widget and tuned for fast, accessible, 24/7 support.",
+          "tag1": "AI / LLMs",
+          "tag2": "Voice & Chat",
+          "tag3": "Realtime",
+          "tag4": "Embeddable widget"
+        }
+      },
+      "stack": {
+        "label": "TECHNOLOGIES",
+        "title": "Tech Stack",
+        "mobile": {
+          "heading": "Mobile & Frontend",
+          "item1": "React Native",
+          "item2": "Expo",
+          "item3": "React",
+          "item4": "HTML & CSS"
+        },
+        "backend": {
+          "heading": "Backend & Data",
+          "item1": "Node.js",
+          "item2": "Supabase",
+          "item3": "PostgreSQL",
+          "item4": "REST & Realtime APIs"
+        },
+        "ai": {
+          "heading": "AI & Languages",
+          "item1": "AI Agents & LLMs",
+          "item2": "Voice AI",
+          "item3": "Python",
+          "item4": "TypeScript / JavaScript"
+        },
+        "tools": {
+          "heading": "Tools",
+          "item1": "Git",
+          "item2": "CI/CD & Deployment",
+          "item3": "App Store & Play Store"
+        }
+      }
+    },
+    "diana": {
+      "hero": {
+        "status": "CMO",
+        "role": "Chief Marketing Officer",
+        "location": "Chisinau, Moldova",
+        "website": "dianatatar.com",
+        "bio": {
+          "p1": "Diana leads marketing and brand at Applexium. A graphic designer and AI content creator, she has spent 6 years building visual identities and campaigns — 10+ brands developed and 200+ clients across branding, social media, editorial, and AI-generated content.",
+          "p2": "She also mentors the next generation of creators at Vector Academy."
+        }
+      },
+      "facts": {
+        "experience": "years of experience",
+        "brands": "brands developed",
+        "clients": "clients"
+      },
+      "services": {
+        "label": "WHAT I DO",
+        "title": "What I do",
+        "branding": {
+          "title": "Branding & Visual Identity",
+          "text": "Visual systems with meaning, direction and authenticity — not just how a brand looks, but how it feels."
+        },
+        "social": {
+          "title": "Social Media",
+          "text": "Turning social pages into coherent visual spaces where every element builds a clear, memorable image."
+        },
+        "editorial": {
+          "title": "Editorial & Print",
+          "text": "Clean, well-structured editorial and print layouts where text and visuals work together."
+        },
+        "campaigns": {
+          "title": "Visual Concepts & Campaigns",
+          "text": "From idea and creative direction to moodboards and clear implementation guides for campaigns."
+        },
+        "aiContent": {
+          "title": "AI Content Generation",
+          "text": "Static and video visual content created with AI — from creative concepts to campaign-ready assets."
+        }
+      },
+      "work": {
+        "label": "PORTFOLIO",
+        "title": "Selected Work",
+        "decoratii": { "title": "Decorații.md", "cat": "Urban decor · Rebranding" },
+        "ooNutrition": { "title": "OO.Nutrition", "cat": "Product concept · Brand presentation" },
+        "centrulSportiv": { "title": "Centrul Sportiv Național", "cat": "Brand book · Flyers · Magazines" },
+        "bloomin": { "title": "BloomIn & Fine Digital", "cat": "Creative direction · Social + Print" },
+        "vectorAcademy": { "title": "Vector Academy — AI content", "cat": "Video · Static · Moodboards" }
+      },
+      "brands": {
+        "label": "WORKED WITH",
+        "title": "Worked with",
+        "item1": "Vector Academy",
+        "item2": "Fine Digital",
+        "item3": "BloomIn Agency",
+        "item4": "Moldcell",
+        "item5": "Microlab",
+        "item6": "BEST Chișinău",
+        "item7": "Tech Women MD"
+      }
+    }
   }
 }

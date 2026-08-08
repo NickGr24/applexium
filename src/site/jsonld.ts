@@ -207,6 +207,29 @@ export function personJsonLd(id: PersonId, lang: Lang) {
   }
 }
 
+/**
+ * Team listing page. Legacy (`_legacy/team.html` and its `en/` mirror) ships
+ * this as a flat `AboutPage` object, not a `@graph` — and, like the other
+ * factories above, `name`/`description` stay the RO legacy text on *both*
+ * language versions (`_legacy/en/team.html`'s own JSON-LD block still reads
+ * "Echipa noastră" verbatim); only `url`/`@id`/`inLanguage`/`publisher.url`
+ * vary with `lang`.
+ */
+export function aboutPageJsonLd(lang: Lang) {
+  const url = siteUrl(lang, 'team')
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'AboutPage',
+    '@id': url,
+    url,
+    name: 'Echipa noastră - Applexium',
+    description:
+      'Cunoaște echipa Applexium — minți pasionate dedicate construirii de soluții digitale inovatoare, conduse de CEO Mircea Ursu și CTO Nichita Griu.',
+    inLanguage: lang,
+    publisher: { '@type': 'Organization', name: 'Applexium', url: siteUrl(lang, '') },
+  }
+}
+
 export function contactPageJsonLd(lang: Lang) {
   const url = siteUrl(lang, 'contacts')
   const orgUrl = siteUrl(lang, '')

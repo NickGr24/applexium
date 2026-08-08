@@ -1,0 +1,111 @@
+/* Mircea Ursu's own chapters: a flat professional-path list (replacing the
+   legacy 3D tube carousel) and a small education grid (replacing the
+   legacy 3D cylinder carousel). */
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  list-style: none;
+  padding: 0;
+}
+
+.timeline-item {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.1rem 1.5rem;
+  border-radius: 16px;
+  background: var(--bg-raise);
+  border: 1px solid rgb(139 147 167 / 0.15);
+  transition:
+    border-color 0.3s var(--ease-out),
+    transform 0.3s var(--ease-out);
+}
+
+.timeline-item:hover {
+  border-color: rgb(31 205 255 / 0.35);
+  transform: translateX(6px);
+}
+
+.timeline-item__logo {
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  overflow: hidden;
+  background: rgb(255 255 255 / 0.06);
+  border: 1px solid rgb(255 255 255 / 0.08);
+}
+
+.timeline-item__logo img {
+  max-width: 72%;
+  max-height: 72%;
+  object-fit: contain;
+}
+
+/* The three logos that already sit on their own light ground — no chip
+   backdrop needed, the image itself reads as the card. */
+.timeline-item__logo--plain {
+  background: none;
+  border: none;
+}
+
+.timeline-item__logo--plain img {
+  max-width: 100%;
+  max-height: 100%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.timeline-item__org {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.05rem;
+  color: var(--ink);
+}
+
+.education-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.education-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.75rem 1.25rem;
+  border-radius: 16px;
+  background: var(--bg-raise);
+  border: 1px solid rgb(139 147 167 / 0.15);
+  text-align: center;
+}
+
+.education-card__degree {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.3rem;
+  color: var(--ink);
+}
+
+@media (max-width: 720px) {
+  .education-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .timeline-item {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 460px) {
+  .education-grid {
+    grid-template-columns: 1fr;
+  }
+}
