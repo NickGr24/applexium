@@ -34,6 +34,20 @@ type SceneCanvasProps = {
  * even once the client resolves the *real* tier after mount there is
  * nothing to reconcile against what was hydrated — the swap to Canvas only
  * ever happens later, from the IntersectionObserver effect below.
+ *
+ * `poster` is always mounted, as an absolutely-positioned base layer —
+ * never swapped out once Canvas exists. R3F's Canvas clears to a
+ * transparent background by default, and there is a real, visible gap
+ * between "the Canvas element exists in the DOM" and "the first WebGL
+ * frame has actually painted" (chunk already loaded, but the renderer,
+ * scene graph, and first `useFrame` tick still need to run). If poster
+ * were removed the moment Canvas mounts — e.g. as a Suspense fallback,
+ * which only covers the chunk-load wait, not that first-frame wait — that
+ * gap shows whatever sits behind the transparent canvas (the page
+ * background), not the poster. Keeping poster mounted underneath for
+ * good means that gap is invisible: the poster is what shows through
+ * until the scene paints over it, and it doubles as the scene's intended
+ * backdrop for any part of the frame the scene itself leaves transparent.
  */
 export function SceneCanvas({ tier, poster, className, camera, children }: SceneCanvasProps) {
   const [resolvedTier] = useState<GraphicsTier>(() => tier ?? graphicsTier())
@@ -68,29 +82,22 @@ export function SceneCanvas({ tier, poster, className, camera, children }: Scene
     return () => observer.disconnect()
   }, [resolvedTier])
 
-  if (resolvedTier === 'static') {
-    return (
-      <div ref={containerRef} className={className}>
-        {poster}
-      </div>
-    )
-  }
-
   return (
-    <div ref={containerRef} className={className}>
-      {entered ? (
-        <Suspense fallback={poster}>
-          <SceneCanvasInner
-            tier={resolvedTier}
-            camera={camera}
-            dpr={resolvedTier === 'high' ? [1, 1.75] : 1}
-            frameloop={frameloop}
-          >
-            {children}
-          </SceneCanvasInner>
-        </Suspense>
-      ) : (
-        poster
+    <div ref={containerRef} className={className} style={{ position: 'relative' }}>
+      <div style={{ position: 'absolute', inset: 0 }}>{poster}</div>
+      {resolvedTier !== 'static' && entered && (
+        <div style={{ position: 'absolute', inset: 0 }}>
+          <Suspense fallback={null}>
+            <SceneCanvasInner
+              tier={resolvedTier}
+              camera={camera}
+              dpr={resolvedTier === 'high' ? [1, 1.75] : 1}
+              frameloop={frameloop}
+            >
+              {children}
+            </SceneCanvasInner>
+          </Suspense>
+        </div>
       )}
     </div>
   )
