@@ -1,0 +1,78 @@
+/* Motion-primitive library — SplitHeading, RevealText, MonoLabel,
+   MagneticButton, StatCount. Shared by every page; each product page's own
+   inline <style> block may further override these via its --xx-* tokens. */
+
+/* ---------- MagneticButton ---------- */
+
+.magnetic-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.9rem 2rem;
+  border-radius: 999px;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  will-change: transform;
+}
+
+.magnetic-btn__label {
+  position: relative;
+  z-index: 1;
+}
+
+.magnetic-btn--primary {
+  color: var(--ink);
+  background: var(--glow);
+  border: 1px solid transparent;
+  box-shadow: 0 0 40px rgb(36 94 254 / 0.35);
+  transition: box-shadow 0.3s var(--ease-out);
+}
+
+.magnetic-btn--primary:hover {
+  box-shadow: 0 0 56px rgb(36 94 254 / 0.5);
+}
+
+.magnetic-btn--ghost {
+  color: var(--ink);
+  background: transparent;
+  border: 1px solid var(--ink-dim);
+  transition:
+    background-color 0.3s var(--ease-out),
+    border-color 0.3s var(--ease-out);
+}
+
+.magnetic-btn--ghost:hover {
+  background: rgba(237, 237, 242, 0.08);
+  border-color: var(--ink);
+}
+
+/* ---------- StatCount ---------- */
+
+.stat-count {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.stat-count__value {
+  font-family: var(--font-mono);
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1;
+}
+
+.stat-count__label {
+  color: var(--ink-dim);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .magnetic-btn {
+    transition: none;
+  }
+}
