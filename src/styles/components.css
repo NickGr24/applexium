@@ -191,6 +191,11 @@
 .distort-image__canvas {
   position: absolute;
   inset: 0;
+  /* Never intercept pointer events: DistortImage tracks the mouse itself
+     via a listener on .distort-image (see the component), and Task 17/18
+     wrap this component in an <a> for team/portfolio cards — a canvas
+     that captured hover/click/focus would break that link outright. */
+  pointer-events: none;
 }
 
 .distort-image__canvas canvas {

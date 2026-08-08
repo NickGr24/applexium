@@ -40,11 +40,25 @@ type DistortImageProps = {
  * Because both gates start closed and only ever open from a `useEffect`,
  * server render and first client (hydration) render agree exactly: `<img>`
  * only, canvas absent. Nothing here can trigger a hydration mismatch.
+ *
+ * The pointer itself is tracked here, on this `.distort-image` container,
+ * with a plain `mousemove`/`mouseenter`/`mouseleave` DOM listener — never
+ * by the canvas. The canvas is `pointer-events: none` (see components.css)
+ * and its shader plane has no raycasting of its own (see
+ * DistortImageCanvas's doc comment for why): Task 17/18 wrap this
+ * component in an `<a>` for the team/portfolio cards, and a canvas that
+ * intercepts pointer events would swallow that link's hover/click/focus.
+ * Position is written straight into a ref (`pointer`) as a raw container-
+ * relative fraction, coalesced to one write per native event — same
+ * "mutate outside React state" idiom `SpotlightCard`'s `--mx`/`--my` CSS
+ * vars use — and handed to the lazily-mounted canvas as a prop; nothing
+ * about mouse movement ever triggers a React re-render here.
  */
 export function DistortImage({ src, alt, className }: DistortImageProps) {
   const [enhanced, setEnhanced] = useState(false) // tier + pointer gate passed
   const [entered, setEntered] = useState(false) // IntersectionObserver gate passed
   const containerRef = useRef<HTMLDivElement>(null)
+  const pointer = useRef({ u: 0.5, v: 0.5, active: false })
 
   useEffect(() => {
     if (graphicsTier() !== 'high') return
@@ -77,6 +91,39 @@ export function DistortImage({ src, alt, className }: DistortImageProps) {
   }, [enhanced])
 
   const active = enhanced && entered
+
+  useEffect(() => {
+    if (!active) return
+    const node = containerRef.current
+    if (!node) return
+
+    // Rect-math only — no cover-crop awareness here. The container fraction
+    // this produces gets reconciled against the plane's own (possibly
+    // larger, cropped) UV space inside DistortImageCanvas, where the image's
+    // aspect ratio is actually known.
+    const onMove = (event: MouseEvent) => {
+      const rect = node.getBoundingClientRect()
+      pointer.current.u = (event.clientX - rect.left) / rect.width
+      pointer.current.v = 1 - (event.clientY - rect.top) / rect.height // y-down screen -> y-up UV
+      pointer.current.active = true
+    }
+    const onEnter = () => {
+      pointer.current.active = true
+    }
+    const onLeave = () => {
+      pointer.current.active = false
+    }
+
+    node.addEventListener('mousemove', onMove)
+    node.addEventListener('mouseenter', onEnter)
+    node.addEventListener('mouseleave', onLeave)
+    return () => {
+      node.removeEventListener('mousemove', onMove)
+      node.removeEventListener('mouseenter', onEnter)
+      node.removeEventListener('mouseleave', onLeave)
+    }
+  }, [active])
+
   const classes = ['distort-image', active && 'distort-image--enhanced', className].filter(Boolean).join(' ')
 
   return (
@@ -85,7 +132,7 @@ export function DistortImage({ src, alt, className }: DistortImageProps) {
       {active && (
         <div className="distort-image__canvas" aria-hidden="true">
           <Suspense fallback={null}>
-            <DistortImageCanvas src={src} />
+            <DistortImageCanvas src={src} pointer={pointer} />
           </Suspense>
         </div>
       )}
