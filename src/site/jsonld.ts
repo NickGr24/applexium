@@ -3,11 +3,16 @@ import { SITE_ORIGIN } from './meta'
 
 /**
  * JSON-LD factories, ported from the `<script type="application/ld+json">`
- * blocks in the corresponding `_legacy/*.html` pages. Only `url`/`@id` (and,
- * where the legacy source itself varied it per language, `inLanguage`) are
- * localized per `lang`; all other fields — names, descriptions, breadcrumb
- * labels — are reproduced verbatim from the RO legacy source, which is this
- * repo's single source of truth (see CLAUDE.md bilingual system).
+ * blocks in the corresponding `_legacy/*.html` pages. `url`/`@id` are always
+ * localized per `lang`. `inLanguage` is localized only where the legacy
+ * source itself varies it per page (`SoftwareApplication` for
+ * legalia/precedentia, `ContactPage`) — `WebSite.inLanguage` is the fixed
+ * `["ro", "en"]` in the legacy source on *both* the ro and en pages
+ * (`_legacy/index.html:77` / `_legacy/en/index.html:77`), so it stays a
+ * constant here too, not a per-`lang` value. All other fields — names,
+ * descriptions, breadcrumb labels — are reproduced verbatim from the RO
+ * legacy source, which is this repo's single source of truth (see
+ * CLAUDE.md bilingual system).
  *
  * `logo`/`image` are kept pointing at the site root rather than mirroring the
  * legacy site's `/en/...` asset paths: this build serves one shared asset
@@ -53,7 +58,7 @@ export function webSiteJsonLd(lang: Lang) {
     '@id': `${url}#website`,
     url,
     name: 'Applexium',
-    inLanguage: lang,
+    inLanguage: ['ro', 'en'],
     publisher: { '@id': `${url}#organization` },
   }
 }
