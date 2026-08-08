@@ -22,5 +22,105 @@
       "esg": "Declarație ESG"
     }
   },
-  "cta": { "consult": "Programează o consultație", "explore": "Explorează serviciile" }
+  "cta": { "consult": "Programează o consultație", "explore": "Explorează serviciile" },
+  "home": {
+    "hero": {
+      "line1": "Produse digitale,",
+      "line2": "servicii IT și consultanță",
+      "line3": "pentru instituții și afaceri",
+      "sub": "Platforme, agenți AI și produse SaaS — livrate împreună cu partea juridică și de reglementare care vine odată cu ele.",
+      "primary": "Programează o consultație",
+      "ghost": "Explorează serviciile",
+      "scroll": "Derulează"
+    },
+    "manifesto": {
+      "label": "MANIFEST",
+      "text": "Dezvoltare IT completă și consultanță de reglementare pentru produse digitale — de la platformele pe care le construim pentru noi, până la sistemele pe care le construim pentru instituții și afaceri."
+    },
+    "products": {
+      "label": "PRODUSE",
+      "cta": "Explorează produsul",
+      "emmi": {
+        "label": "AI CONVERSAȚIONAL MULTI-CANAL",
+        "name": "Emmi",
+        "fact1": "Cinci canale: telefon, site, Instagram, WhatsApp și Telegram",
+        "fact2": "Răspunde în mai puțin de o secundă, 24/7, învățând din documentele tale",
+        "fact3": "Română și rusă, vorbite nativ, fără accent"
+      },
+      "legalia": {
+        "label": "PLATFORMĂ DE EDUCAȚIE JURIDICĂ",
+        "name": "Legalia",
+        "fact1": "924 de subiecte de studiu în 105 discipline juridice",
+        "fact2": "11.154 de întrebări de test, cu feedback care explică de ce",
+        "fact3": "Patru programe complete, pe iOS și Android"
+      },
+      "precedentia": {
+        "label": "PLATFORMĂ DE CĂUTARE JURIDICĂ",
+        "name": "Precedentia",
+        "fact1": "Peste 275.000 de hotărâri din Moldova și România",
+        "fact2": "Patru instanțe: CSJ, Curtea Constituțională, CEDO și ÎCCJ",
+        "fact3": "Căutare cu AI, în propriile tale cuvinte"
+      }
+    },
+    "services": {
+      "label": "SERVICII",
+      "title": "Serviciile și expertiza noastră",
+      "web": {
+        "title": "Dezvoltare web și mobilă",
+        "text": "Site-uri și aplicații responsive, de înaltă performanță — native și cross-platform, pentru iOS, Android și web."
+      },
+      "ai": {
+        "title": "Instrumente AI și agenți conversaționali",
+        "text": "Automatizări, asistenți vocali și interfețe conversaționale care preiau munca repetitivă din echipă."
+      },
+      "saas": {
+        "title": "Platforme SaaS și EdTech",
+        "text": "Platforme software și de tehnologie educațională scalabile, construite pentru creștere."
+      },
+      "compliance": {
+        "title": "Conformitate prin design",
+        "text": "Conformitate integrată încă din etapa de arhitectură: GDPR, AI Act, DORA și NIS2."
+      },
+      "integrations": {
+        "title": "Integrări API și mentenanță",
+        "text": "Integrări între sisteme, schimb de date și suport tehnic continuu după lansare."
+      },
+      "advisory": {
+        "title": "Consultanță juridică și de reglementare",
+        "text": "Îndrumare strategică pentru produse digitale — de la concept la lansare, scalare și raportare ESG."
+      }
+    },
+    "portfolio": {
+      "label": "PORTOFOLIU",
+      "title": "Proiecte și implementări pentru clienți",
+      "clients": "Clienți și parteneri",
+      "all": "Vezi toate proiectele",
+      "dareEu": {
+        "name": "DARE-EU",
+        "text": "Platformă de coordonare a răspunsului la urgențe transfrontaliere"
+      },
+      "eurobridge": {
+        "name": "EUROBRIDGE UA MD",
+        "text": "Programul de granturi transfrontaliere dintre Moldova și Ucraina"
+      },
+      "energiq": {
+        "name": "EnergiQ",
+        "text": "Platformă de soluții și servicii energetice"
+      }
+    },
+    "stats": {
+      "label": "CIFRE",
+      "title": "Munca noastră, în cifre",
+      "products": { "label": "produse proprii în producție" },
+      "platforms": { "suffix": "+", "label": "platforme livrate clienților" },
+      "decisions": { "suffix": ".000+", "label": "hotărâri indexate în Precedentia" },
+      "questions": { "suffix": ".000+", "label": "întrebări de test în Legalia" }
+    },
+    "final": {
+      "label": "CONTACT",
+      "title": "Pregătit să-ți construiești viitorul?",
+      "text": "Spune-ne despre proiectul tău, iar echipa noastră îți va răspunde în scurt timp.",
+      "button": "Programează o consultație"
+    }
+  }
 }

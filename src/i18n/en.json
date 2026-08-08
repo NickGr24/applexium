@@ -22,5 +22,105 @@
       "esg": "ESG Statement"
     }
   },
-  "cta": { "consult": "Schedule a Consultation", "explore": "Explore Services" }
+  "cta": { "consult": "Schedule a Consultation", "explore": "Explore Services" },
+  "home": {
+    "hero": {
+      "line1": "Digital products,",
+      "line2": "IT services & consulting",
+      "line3": "for institutions and business",
+      "sub": "Platforms, AI agents and SaaS products — delivered together with the legal and regulatory work that comes with them.",
+      "primary": "Schedule a Consultation",
+      "ghost": "Explore Services",
+      "scroll": "Scroll"
+    },
+    "manifesto": {
+      "label": "MANIFESTO",
+      "text": "End-to-end IT development and regulatory advisory for digital products — from the platforms we build for ourselves to the systems we build for institutions and business."
+    },
+    "products": {
+      "label": "PRODUCTS",
+      "cta": "Explore Product",
+      "emmi": {
+        "label": "MULTI-CHANNEL CONVERSATIONAL AI",
+        "name": "Emmi",
+        "fact1": "Five channels: phone, website, Instagram, WhatsApp and Telegram",
+        "fact2": "Replies in under a second, 24/7, learning from your own documents",
+        "fact3": "Romanian and Russian, spoken natively, no accent"
+      },
+      "legalia": {
+        "label": "LEGAL EDUCATION PLATFORM",
+        "name": "Legalia",
+        "fact1": "924 study topics across 105 legal disciplines",
+        "fact2": "11,154 quiz questions, with feedback that explains why",
+        "fact3": "Four full programs, on iOS and Android"
+      },
+      "precedentia": {
+        "label": "LEGAL SEARCH PLATFORM",
+        "name": "Precedentia",
+        "fact1": "Over 275,000 decisions from Moldova and Romania",
+        "fact2": "Four courts: Supreme Court, Constitutional Court, ECHR and Romania's High Court",
+        "fact3": "AI search, in your own words"
+      }
+    },
+    "services": {
+      "label": "SERVICES",
+      "title": "Our services & expertise",
+      "web": {
+        "title": "Web & mobile development",
+        "text": "Responsive, high-performance websites and apps — native and cross-platform, for iOS, Android and the web."
+      },
+      "ai": {
+        "title": "AI tools & conversational agents",
+        "text": "Automations, voice assistants and conversational interfaces that take the repetitive work off your team."
+      },
+      "saas": {
+        "title": "SaaS & EdTech platforms",
+        "text": "Scalable software-as-a-service and educational technology platforms built for growth."
+      },
+      "compliance": {
+        "title": "Compliance by design",
+        "text": "Regulatory compliance built in from the architecture stage: GDPR, the AI Act, DORA and NIS2."
+      },
+      "integrations": {
+        "title": "API integrations & maintenance",
+        "text": "System integrations, data exchange between platforms, and ongoing technical support after launch."
+      },
+      "advisory": {
+        "title": "Legal & regulatory advisory",
+        "text": "Strategic guidance for digital products — from concept through launch, scaling and ESG reporting."
+      }
+    },
+    "portfolio": {
+      "label": "PORTFOLIO",
+      "title": "Client projects & implementations",
+      "clients": "Clients and partners",
+      "all": "See all projects",
+      "dareEu": {
+        "name": "DARE-EU",
+        "text": "Cross-border emergency response coordination platform"
+      },
+      "eurobridge": {
+        "name": "EUROBRIDGE UA MD",
+        "text": "Cross-border grant programme between Moldova and Ukraine"
+      },
+      "energiq": {
+        "name": "EnergiQ",
+        "text": "Energy solutions & services platform"
+      }
+    },
+    "stats": {
+      "label": "NUMBERS",
+      "title": "Our work, in numbers",
+      "products": { "label": "own products in production" },
+      "platforms": { "suffix": "+", "label": "platforms delivered for clients" },
+      "decisions": { "suffix": ",000+", "label": "decisions indexed in Precedentia" },
+      "questions": { "suffix": ",000+", "label": "quiz questions in Legalia" }
+    },
+    "final": {
+      "label": "CONTACT",
+      "title": "Ready to Build Your Future?",
+      "text": "Tell us about your project and our team will get back to you shortly.",
+      "button": "Schedule a Consultation"
+    }
+  }
 }
