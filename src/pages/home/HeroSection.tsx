@@ -70,16 +70,40 @@ export function HeroSection({ lang }: { lang: Lang }) {
       tl.to({}, { duration: 1 }, 0)
 
       // Duration 0.88: at the 50–60% mark the headline is still partway
-      // through dissolving (it's only ~55–68% through *its own* tween there),
-      // not gone — it only fully clears in the last stretch before the track
+      // through dissolving (only ~55–68% through *its own* tween there), not
+      // gone — it only fully clears in the last stretch before the track
       // ends, so the aurora never has to carry an empty screen on its own.
       // Held short of 1 (rather than running to the very end) so the fade
       // finishes a hair before the manifesto takes over, instead of cutting
       // off mid-tween at the handoff.
+      //
+      // All four groups below (lines 1–3, tail) share this one duration on
+      // purpose: for a tween where opacity and a transform fade out
+      // together over the *same* duration, the transform's value at any
+      // given opacity is fixed — `magnitude * (1 - opacity)` — independent
+      // of how long the fade takes. That's what makes the *magnitudes*
+      // below (not the duration) the actual safety lever for line 3 and the
+      // tail, which drift toward each other (line 3 down, tail up, in the
+      // same ~1.7rem/1.4rem gap in the flex column) rather than away like
+      // lines 1–2. yPercent 135 / y -32 — inherited unchanged from the
+      // pre-Aurora hero — turned out to already close that gap while both
+      // sides were still 60–80% opaque even under their *original*,
+      // shorter, independently-matched durations (confirmed by measuring
+      // real `getBoundingClientRect()`s against actual computed opacity at
+      // ~90 scroll samples per viewport: this is a pre-existing collision in
+      // the inherited numbers, not something either fix round introduced).
+      // Shrunk to yPercent 10 / y -12 here — small enough that even at the
+      // very last moment either side reads as more than a residual 5%
+      // ghost, the combined closure stays comfortably under the measured
+      // gap on both viewports (81.85px vs 32.93px line-height; 28px vs
+      // 22.4px gap) — an earlier, less conservative pass (yPercent 15 / y
+      // -16) left a ~1–2px technical overlap on mobile at ~5–13% opacity,
+      // caught only by sweeping real measurements rather than trusting the
+      // arithmetic, hence the wider margin here.
       tl.to(lines[0], { yPercent: -115, opacity: 0, ease: 'none', duration: 0.88 }, 0)
         .to(lines[1], { yPercent: -25, opacity: 0, ease: 'none', duration: 0.88 }, 0)
-        .to(lines[2], { yPercent: 135, opacity: 0, ease: 'none', duration: 0.88 }, 0)
-        .to(tail, { opacity: 0, y: -32, ease: 'none', duration: 0.55 }, 0)
+        .to(lines[2], { yPercent: 10, opacity: 0, ease: 'none', duration: 0.88 }, 0)
+        .to(tail, { opacity: 0, y: -12, ease: 'none', duration: 0.88 }, 0)
         // The copy's backing leaves with the copy — over the same stretch of
         // the track as the headline, so nothing is left sitting on a dimmed
         // scene once there is no text to protect.
