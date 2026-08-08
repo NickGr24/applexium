@@ -1,8 +1,10 @@
 import { MagneticButton } from '../components/MagneticButton'
 import { MonoLabel } from '../components/MonoLabel'
 import { RevealText } from '../components/RevealText'
+import { Section } from '../components/Section'
 import { Seo } from '../components/Seo'
 import { SplitHeading } from '../components/SplitHeading'
+import { SpotlightCard } from '../components/SpotlightCard'
 import { StatCount } from '../components/StatCount'
 import { useLang } from '../i18n'
 import { organizationJsonLd, webSiteJsonLd } from '../site/jsonld'
@@ -55,6 +57,30 @@ export default function Home() {
           <StatCount value={97} suffix="%" label="clienți mulțumiți" />
         </div>
       </section>
+
+      <Section label="SPOTLIGHT" index="02" title="Cărți care reacționează la cursor">
+        <div className="spotlight-grid">
+          <SpotlightCard
+            icon={<span aria-hidden="true">◆</span>}
+            title="Produse digitale"
+            text="De la idee la lansare: cercetare, design de interacțiune și cod de producție sub același acoperiș."
+          />
+          <SpotlightCard
+            icon={<span aria-hidden="true">▲</span>}
+            title="Automatizări AI"
+            text="Agenți vocali și fluxuri automatizate care preiau munca repetitivă din echipele noastre partenere."
+          />
+          <SpotlightCard
+            icon={<span aria-hidden="true">●</span>}
+            title="Platforme legale"
+            text="Legalia și Precedentia digitalizează procese juridice complexe pentru piața din Moldova."
+          />
+          <SpotlightCard
+            title="Fără icon"
+            text="A patra carte verifică layout-ul grilei fără icon — titlul și textul rămân aliniate corect."
+          />
+        </div>
+      </Section>
     </>
   )
 }
