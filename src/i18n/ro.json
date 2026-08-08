@@ -1,0 +1,5 @@
+{
+  "nav": { "services": "Servicii", "products": "Produse", "portfolio": "Portofoliu", "team": "Echipă", "contact": "Contact" },
+  "footer": { "rights": "Toate drepturile rezervate." },
+  "cta": { "consult": "Programează o consultație", "explore": "Explorează serviciile" }
+}

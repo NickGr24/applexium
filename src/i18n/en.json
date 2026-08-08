@@ -1,0 +1,5 @@
+{
+  "nav": { "services": "Services", "products": "Products", "portfolio": "Portfolio", "team": "Team", "contact": "Contact" },
+  "footer": { "rights": "All Rights Reserved." },
+  "cta": { "consult": "Schedule a Consultation", "explore": "Explore Services" }
+}
