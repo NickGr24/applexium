@@ -155,71 +155,41 @@
   line-height: 1.6;
 }
 
-/* ---------- DistortImage ---------- */
+/* ---------- Photo hover ----------
+   Calm replacement for the shader-distortion hover this codebase used to
+   run on faces (team/portfolio photography) — retired per explicit product
+   decision: warping a person's face on hover reads as a bug, not a flourish.
+   Wrap a photo in `.photo-hover`, give the `<img>` inside no extra class:
+   overflow-hidden + rounded corners on the wrapper, a plain scale + brightness
+   lift on the image, pointer-only so touch never gets a stuck hover state. */
 
-.distort-image {
+.photo-hover {
   position: relative;
   overflow: hidden;
   border-radius: 12px;
 }
 
-.distort-image__img {
+.photo-hover img {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s var(--ease-out);
+  transition:
+    transform 0.5s var(--ease-out),
+    filter 0.5s var(--ease-out);
 }
 
-/* Fallback path (touch / lite / static / no-JS tiers): a plain CSS
-   scale on hover — no shader, no canvas, just the <img> that's always
-   there. Once the canvas takes over (--enhanced), the shader plane sits
-   on top and this transform would just double the effect, so it's
-   switched off. */
-.distort-image:hover .distort-image__img {
-  transform: scale(1.06);
-}
-
-.distort-image--enhanced .distort-image__img {
-  transition: none;
-}
-
-.distort-image--enhanced:hover .distort-image__img {
-  transform: none;
-}
-
-.distort-image__canvas {
-  position: absolute;
-  inset: 0;
-  /* Never intercept pointer events: DistortImage tracks the mouse itself
-     via a listener on .distort-image (see the component), and Task 17/18
-     wrap this component in an <a> for team/portfolio cards — a canvas
-     that captured hover/click/focus would break that link outright. */
-  pointer-events: none;
-}
-
-.distort-image__canvas canvas {
-  display: block;
-  width: 100% !important;
-  height: 100% !important;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .distort-image__img {
-    transition: none;
+@media (hover: hover) {
+  .photo-hover:hover img {
+    transform: scale(1.05);
+    filter: brightness(1.08);
   }
 }
 
-/* ---------- DistortImage demo (showcase, dropped in Task 14) ---------- */
-
-.distort-image-demo-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.5rem;
-}
-
-.distort-image-demo-grid .distort-image {
-  aspect-ratio: 3 / 4;
+@media (prefers-reduced-motion: reduce) {
+  .photo-hover img {
+    transition: none;
+  }
 }
 
 /* ---------- SceneCanvas demo (showcase, dropped in Task 14) ---------- */

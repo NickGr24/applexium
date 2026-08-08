@@ -1,5 +1,4 @@
 import { lazy, useRef } from 'react'
-import { DistortImage } from '../components/DistortImage'
 import { MagneticButton } from '../components/MagneticButton'
 import { MonoLabel } from '../components/MonoLabel'
 import { RevealText } from '../components/RevealText'
@@ -162,14 +161,6 @@ export default function Home() {
         >
           <GalaxyScene />
         </SceneCanvas>
-      </Section>
-
-      <Section label="DISTORT IMAGE" index="07" title="Fotografii care se ondulează sub cursor">
-        <div className="distort-image-demo-grid">
-          <DistortImage src="/team/mirceaursu.webp" alt="Mircea Ursu" />
-          <DistortImage src="/team/nikitagriu.webp" alt="Nikita Griu" />
-          <DistortImage src="/team/dianatatar.webp" alt="Diana Tatar" />
-        </div>
       </Section>
     </>
   )
