@@ -5,16 +5,16 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <!-- Set language before paint (from ?lang= or localStorage) to avoid a flash -->
-<title>Applexium - Digital Products, IT Services &amp; Startup Consulting</title>
-<meta content="Applexium builds secure digital products and provides IT services and startup consulting. Websites, mobile apps, AI tools and legal-tech solutions from Moldova." name="description"/>
-<meta content="Applexium, digital products, IT services, startup consulting, web development, mobile apps, AI tools, legal tech, Moldova, software development, Legalia, Emmi, Precedentia" name="keywords"/>
+<title>Applexium - Digital Products, IT Services &amp; Consulting for Institutions and Business</title>
+<meta content="Applexium builds secure digital products and provides IT services and consulting for institutions and business. Platforms, AI agents, mobile apps and legal-tech solutions from Moldova." name="description"/>
+<meta content="Applexium, digital products, IT services, consulting for institutions, web development, mobile apps, AI agents, legal tech, Moldova, software development, Legalia, Emmi, Precedentia" name="keywords"/>
 <meta content="Applexium" name="author"/>
 <meta content="index, follow" name="robots"/>
 <link href="https://applexium.com/en/" rel="canonical"/>
 <!-- Open Graph -->
 <meta content="website" property="og:type"/>
-<meta content="Applexium — Digital Products, IT Services &amp; Startup Consulting" property="og:title"/>
-<meta content="We help startups and organizations build secure digital products while navigating legal and regulatory challenges." property="og:description"/>
+<meta content="Applexium — Digital Products, IT Services &amp; Consulting for Institutions and Business" property="og:title"/>
+<meta content="Platforms, AI agents and SaaS products for institutions and business — delivered together with the legal and regulatory work." property="og:description"/>
 <meta content="https://applexium.com/en/" property="og:url"/>
 <meta content="Applexium" property="og:site_name"/>
 <meta content="https://applexium.com/og-image.png" property="og:image"/>
@@ -25,7 +25,7 @@
 <!-- Twitter Card -->
 <meta content="summary" name="twitter:card"/>
 <meta content="Applexium — Digital Products, IT Services &amp; Consulting" name="twitter:title"/>
-<meta content="We help startups and organizations build secure digital products while navigating legal and regulatory challenges." name="twitter:description"/>
+<meta content="Platforms, AI agents and SaaS products for institutions and business — delivered with the legal work." name="twitter:description"/>
 <meta content="https://applexium.com/og-image.png" name="twitter:image"/>
 <link href="/favicon.ico" rel="icon" sizes="48x48"/>
 <link href="/logo-icon.svg" rel="icon" type="image/svg+xml"/>
@@ -105,6 +105,32 @@
   .hero-trust span{font-size:.8rem}}
 @media (prefers-reduced-motion:reduce){
   #arcade-stage,.hero-trust{animation:none;opacity:1}}
+
+/* ── Portfolio tiles ──────────────────────────────────────────
+   The chromatic edge and the off-square rest angle come from the
+   reference's project grid. The fringe is drawn with pseudo-elements so it
+   never touches the image itself, and it is the tile's own signature rather
+   than a hover decoration bolted on. */
+.portfolio-card .portfolio-preview{position:relative;overflow:hidden;
+  transform:rotate(var(--tilt,-.4deg));
+  transition:transform .55s cubic-bezier(.16,1,.3,1)}
+.portfolio-card:nth-child(2n) .portfolio-preview{--tilt:.45deg}
+.portfolio-card:nth-child(3n) .portfolio-preview{--tilt:-.22deg}
+.portfolio-card:hover .portfolio-preview{transform:rotate(0deg)}
+.portfolio-card .portfolio-preview::before,
+.portfolio-card .portfolio-preview::after{
+  content:"";position:absolute;top:0;bottom:0;width:3px;z-index:3;
+  mix-blend-mode:screen;opacity:.8;
+  transition:width .4s cubic-bezier(.16,1,.3,1),opacity .4s ease}
+.portfolio-card .portfolio-preview::before{left:0;background:#FF2D55}
+.portfolio-card .portfolio-preview::after{right:0;background:#1FCDFF}
+.portfolio-card:hover .portfolio-preview::before,
+.portfolio-card:hover .portfolio-preview::after{width:7px;opacity:1}
+/* The incumbent card carried a coloured bloom behind it; the fringe replaces
+   it, so the glow is retired rather than stacked on top. */
+.portfolio-card .portfolio-glow{display:none}
+@media (prefers-reduced-motion:reduce){
+  .portfolio-card .portfolio-preview{transform:none;transition:none}}
 </style>
 <link href="https://applexium.com/" hreflang="ro" rel="alternate"/><link href="https://applexium.com/en/" hreflang="en" rel="alternate"/><link href="https://applexium.com/" hreflang="x-default" rel="alternate"/></head>
 <body>
@@ -573,133 +599,7 @@
 <!-- Custom JavaScript -->
 <script src="/script.js"></script>
 <script defer="" src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
-<script defer="">
-/* Hero scene: an arcade standing in still water.
-   Built entirely from primitives — an arch is a half-torus on two cylinders —
-   so nothing is downloaded beyond the library itself. Flat geometry plus
-   material instead of imported meshes is the lesson from the Codrops piece on
-   building a 3D world without a single model, and it is the only way this fits
-   a static site.
-   Every failure path lands on the CSS gradient the page had before. */
-window.addEventListener("load", function(){
-  var host=document.getElementById("arcade-stage");
-  if(!host) return;
-  var fallback=function(){host.style.background="radial-gradient(70% 60% at 50% 45%,#16306b,#071116 72%)";};
-  var reduce=window.matchMedia("(prefers-reduced-motion:reduce)").matches;
-  if(!window.THREE){fallback();return;}
-
-  var renderer;
-  try{renderer=new THREE.WebGLRenderer({canvas:host,antialias:true,alpha:true});}
-  catch(e){fallback();return;}
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,1.75));
-
-  var scene=new THREE.Scene();
-  scene.fog=new THREE.FogExp2(0x071116,0.052);
-  var camera=new THREE.PerspectiveCamera(46,1,0.1,140);
-
-  scene.add(new THREE.AmbientLight(0x1A2536,1.0));
-  var key=new THREE.PointLight(0x1FCDFF,220,70);  key.position.set(-9,6,6);
-  var fill=new THREE.PointLight(0x245EFE,160,70); fill.position.set(9,1,4);
-  // A warm source deep in the arcade reads as a doorway at the far end — the
-  // thing that turns a colonnade into somewhere you could walk.
-  var far=new THREE.PointLight(0xFFD9A8,300,60);  far.position.set(0,1.4,-22);
-  var rim=new THREE.PointLight(0x8A6BFF,120,70);  rim.position.set(0,9,-10);
-  scene.add(key,fill,far,rim);
-
-  var WATER_Y=-2.6;
-  var stone=new THREE.MeshStandardMaterial({color:0x141C2B,roughness:.82,metalness:.05});
-  function arch(x,z,scale){
-    var a=new THREE.Group(),r=1.25*scale,h=2.2*scale,th=.22*scale;
-    var curve=new THREE.Mesh(new THREE.TorusGeometry(r,th,10,26,Math.PI),stone);
-    curve.position.y=h;
-    var pL=new THREE.Mesh(new THREE.CylinderGeometry(th,th,h*2,12),stone);
-    pL.position.set(-r,0,0);
-    var pR=pL.clone(); pR.position.set(r,0,0);
-    a.add(curve,pL,pR);
-    a.position.set(x,WATER_Y+h,z);
-    return a;
-  }
-  var arcade=new THREE.Group();
-  for(var k=0;k<9;k++){
-    arcade.add(arch(-7.4-k*.5,-k*4.6-2,1+k*.05));
-    arcade.add(arch( 7.4+k*.5,-k*4.6-2,1+k*.05));
-  }
-  scene.add(arcade);
-
-  var water=new THREE.Mesh(new THREE.PlaneGeometry(120,120),
-    new THREE.MeshStandardMaterial({color:0x060B14,roughness:.08,metalness:.9}));
-  water.rotation.x=-Math.PI/2; water.position.y=WATER_Y;
-  scene.add(water);
-
-  // The reflection is the arcade mirrored and dimmed, not a render target —
-  // at this darkness the difference is invisible and the cost is nil.
-  var mirror=arcade.clone();
-  mirror.scale.y=-1; mirror.position.y=WATER_Y*2;
-  mirror.traverse(function(o){ if(o.isMesh){
-    o.material=new THREE.MeshStandardMaterial({color:0x0E1626,roughness:.9,transparent:true,opacity:.34});}});
-  scene.add(mirror);
-
-  var orb=new THREE.Mesh(new THREE.SphereGeometry(1.15,48,48),
-    new THREE.MeshPhysicalMaterial({color:0xEAF6FF,roughness:.06,metalness:.1,
-      transmission:.55,thickness:1.6,ior:1.5,iridescence:1,iridescenceIOR:1.9,
-      iridescenceThicknessRange:[120,560],clearcoat:1,clearcoatRoughness:.05}));
-  orb.position.set(3.1,WATER_Y+2.5,-4.5);
-  scene.add(orb);
-
-  var N=240,pos=new Float32Array(N*3);
-  for(var i=0;i<N;i++){
-    pos[i*3]=(Math.random()-.5)*26;
-    pos[i*3+1]=WATER_Y+Math.random()*11;
-    pos[i*3+2]=(Math.random()-.5)*30-6;
-  }
-  var pg=new THREE.BufferGeometry();
-  pg.setAttribute("position",new THREE.BufferAttribute(pos,3));
-  scene.add(new THREE.Points(pg,new THREE.PointsMaterial({color:0xBFE6FF,size:.045,
-    transparent:true,opacity:.5,sizeAttenuation:true})));
-
-  function resize(){
-    var w=host.clientWidth||window.innerWidth, h=host.clientHeight||window.innerHeight;
-    renderer.setSize(w,h,false);
-    camera.aspect=w/h; camera.updateProjectionMatrix();
-  }
-  window.addEventListener("resize",resize); resize();
-
-  var tx=0,ty=0,cx=0,cy=0;
-  window.addEventListener("pointermove",function(e){
-    tx=(e.clientX/window.innerWidth-.5); ty=(e.clientY/window.innerHeight-.5);
-  },{passive:true});
-
-  var alive=true,onScreen=true;
-  document.addEventListener("visibilitychange",function(){
-    alive=!document.hidden; if(alive&&onScreen) requestAnimationFrame(tick);
-  });
-  // Once the hero has scrolled away the scene stops costing frames.
-  if(window.IntersectionObserver){
-    new IntersectionObserver(function(es){
-      onScreen=es[0].isIntersecting;
-      if(onScreen&&alive) requestAnimationFrame(tick);
-    },{threshold:0}).observe(host);
-  }
-
-  var t0=performance.now();
-  function tick(){
-    if(!alive||!onScreen) return;
-    var t=(performance.now()-t0)/1000;
-    cx+=(tx-cx)*.045; cy+=(ty-cy)*.045;
-    // The camera drifts through the arcade; the world stays put. Rotating the
-    // scene instead would betray it as an object on a turntable.
-    camera.position.x=cx*2.8;
-    camera.position.y=WATER_Y+1.15-cy*.9+Math.sin(t*.28)*.10;
-    camera.position.z=11.5-Math.sin(t*.16)*.8;
-    orb.position.y=WATER_Y+2.5+Math.sin(t*.55)*.2;
-    orb.rotation.y=t*.16;
-    camera.lookAt(0,WATER_Y+1.9,-10);
-    renderer.render(scene,camera);
-    if(!reduce) requestAnimationFrame(tick);
-  }
-  tick();
-});
-</script>
+<script defer="" src="/scene.js"></script>
 <!-- Bilingual engine (RO default / EN alternative) -->
 </body>
 </html>

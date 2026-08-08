@@ -99,6 +99,23 @@
     }
 
     /* ===== HERO ===== */
+    /* Hero scene canvas (see scene.js). */
+    #arcade-stage {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      pointer-events: none; z-index: 0;
+    }
+    /* Gentle in the middle: a heavy vignette erases the arcade it protects. */
+    .em-hero::after {
+      content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+      background: radial-gradient(130% 80% at 50% 46%, transparent 40%, rgba(9,0,27,.42) 78%, rgba(9,0,27,.76) 100%);
+    }
+    /* Grain sits BELOW the copy — above it, it greys out every glyph. */
+    .em-hero::before {
+      content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+      opacity: .028; mix-blend-mode: overlay;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+    .em-hero-content { position: relative; z-index: 2; }
     .em-hero {
       min-height: 100vh;
       display: flex;
@@ -1193,31 +1210,11 @@
 </nav>
 <!-- Hero -->
 <section class="em-hero">
-<div class="em-hero-lines">
-<svg fill="none" viewbox="0 0 1440 900" xmlns="http://www.w3.org/2000/svg">
-<path d="M-100 450C100 350 300 550 500 400C700 250 900 500 1100 350C1300 200 1500 400 1600 350" fill="none" stroke="url(#em1)" stroke-width="3"></path>
-<path d="M-100 550C150 450 350 650 550 500C750 350 950 600 1150 450C1350 300 1500 500 1600 450" fill="none" stroke="url(#em2)" stroke-width="2"></path>
-<path d="M-100 350C200 250 400 450 600 300C800 150 1000 400 1200 250C1400 100 1550 300 1600 250" fill="none" stroke="url(#em3)" stroke-width="2"></path>
-<defs>
-<lineargradient gradientunits="userSpaceOnUse" id="em1" x1="0" x2="1440" y1="0" y2="0">
-<stop offset="0" stop-color="#09001B"></stop>
-<stop offset="0.4" stop-color="#0891B2"></stop>
-<stop offset="0.7" stop-color="#67E8F9"></stop>
-<stop offset="1" stop-color="#A5F3FC"></stop>
-</lineargradient>
-<lineargradient gradientunits="userSpaceOnUse" id="em2" x1="0" x2="1440" y1="0" y2="0">
-<stop offset="0" stop-color="#67E8F9"></stop>
-<stop offset="0.5" stop-color="#06B6D4"></stop>
-<stop offset="1" stop-color="#09001B"></stop>
-</lineargradient>
-<lineargradient gradientunits="userSpaceOnUse" id="em3" x1="0" x2="1440" y1="0" y2="0">
-<stop offset="0" stop-color="#A5F3FC" stop-opacity="0.3"></stop>
-<stop offset="0.5" stop-color="#67E8F9" stop-opacity="0.2"></stop>
-<stop offset="1" stop-color="#0891B2" stop-opacity="0.1"></stop>
-</lineargradient>
-</defs>
-</svg>
-</div>
+<!-- Hero scene, shared with the home page (scene.js). Replaces the static
+     SVG line decoration that stood here: three fixed paths that never
+     moved and read as wallpaper. data-accent tints the key light to this
+     page's own cyan rather than the site indigo. -->
+<canvas aria-hidden="true" data-accent="#22D3EE" id="arcade-stage"></canvas>
 <div class="em-hero-content">
 <img alt="Emmi" class="em-hero-logo" decoding="async" src="/emmi.webp"/>
 <h1>One AI Agent. <span class="em-gradient-text">Phone, Website, and Messaging.</span></h1>
@@ -1671,5 +1668,7 @@
     })();
   </script>
 <!-- Bilingual engine (RO default / EN alternative) -->
+<script defer="" src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
+<script defer="" src="/scene.js"></script>
 </body>
 </html>
