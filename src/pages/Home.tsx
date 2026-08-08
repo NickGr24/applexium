@@ -1,4 +1,4 @@
-import { lazy } from 'react'
+import { lazy, useRef } from 'react'
 import { MagneticButton } from '../components/MagneticButton'
 import { MonoLabel } from '../components/MonoLabel'
 import { RevealText } from '../components/RevealText'
@@ -8,15 +8,18 @@ import { SplitHeading } from '../components/SplitHeading'
 import { SpotlightCard } from '../components/SpotlightCard'
 import { StatCount } from '../components/StatCount'
 import { useLang } from '../i18n'
+import { HERO_CAMERA } from '../scenes/heroCamera'
 import { SceneCanvas } from '../scenes/SceneCanvas'
 import { organizationJsonLd, webSiteJsonLd } from '../site/jsonld'
 
 // Dynamic import so `@react-three/fiber`/`three` never reach this page's own
-// chunk — see TestCube.tsx and SceneCanvasInner.tsx for why.
-const TestCube = lazy(() => import('../scenes/TestCube').then((m) => ({ default: m.TestCube })))
+// chunk — see SceneCanvasInner.tsx for why.
+const HeroWorld = lazy(() => import('../scenes/HeroWorld').then((m) => ({ default: m.HeroWorld })))
 
 export default function Home() {
   const lang = useLang()
+  // Stands in for the real hero scroll progress until Task 14 wires it up.
+  const progressRef = useRef(0)
   return (
     <>
       <Seo page="home" lang={lang} jsonLd={[organizationJsonLd(lang), webSiteJsonLd(lang)]} />
@@ -89,17 +92,33 @@ export default function Home() {
       </Section>
 
       <Section
-        label="GRAPHICS TIER"
+        label="HERO WORLD"
         index="03"
-        title="Un cub care nu se montează decât atunci când ajunge la tine"
+        title="Arcada din apă, cu scroll-ul falsificat de un slider"
       >
         <SceneCanvas
           className="scene-canvas-demo"
           poster={<div className="scene-canvas-demo__poster" aria-hidden="true" />}
-          camera={{ position: [0, 0, 4] }}
+          camera={HERO_CAMERA}
         >
-          <TestCube />
+          <HeroWorld progressRef={progressRef} />
         </SceneCanvas>
+        <label className="scene-canvas-demo__scrub">
+          <span>Progres</span>
+          <input
+            type="range"
+            min={0}
+            max={100}
+            step={1}
+            defaultValue={0}
+            aria-label="Progresul camerei prin arcadă"
+            // onInput, and straight into the ref: the scene reads progress
+            // every frame, so a re-render per slider tick would be pure waste.
+            onInput={(event) => {
+              progressRef.current = event.currentTarget.valueAsNumber / 100
+            }}
+          />
+        </label>
       </Section>
     </>
   )

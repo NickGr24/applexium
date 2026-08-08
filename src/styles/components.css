@@ -155,18 +155,36 @@
   line-height: 1.6;
 }
 
-/* ---------- SceneCanvas demo poster (Task 8 showcase) ---------- */
+/* ---------- SceneCanvas demo (showcase, dropped in Task 14) ---------- */
 
 .scene-canvas-demo {
   width: 100%;
-  height: 320px;
+  height: min(82vh, 760px);
   border-radius: 16px;
   overflow: hidden;
 }
 
+/* The poster the hero scene falls back to, and the sky it renders against:
+   the same gradient the legacy scene painted when WebGL was unavailable. */
 .scene-canvas-demo__poster {
   width: 100%;
   height: 100%;
-  background: var(--glow);
-  opacity: 0.35;
+  background: radial-gradient(70% 60% at 50% 45%, #16306b, #04060d 72%);
+}
+
+.scene-canvas-demo__scrub {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  color: var(--ink-dim);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.scene-canvas-demo__scrub input {
+  flex: 1;
+  max-width: 420px;
 }
