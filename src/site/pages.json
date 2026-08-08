@@ -1,0 +1,18 @@
+[
+  { "id": "home", "slug": "", "inSitemap": true },
+  { "id": "emmi", "slug": "emmi", "inSitemap": true },
+  { "id": "legalia", "slug": "legalia", "inSitemap": true },
+  { "id": "precedentia", "slug": "precedentia", "inSitemap": true },
+  { "id": "team", "slug": "team", "inSitemap": true },
+  { "id": "mircea-ursu", "slug": "mircea-ursu", "inSitemap": true },
+  { "id": "nichita-griu", "slug": "nichita-griu", "inSitemap": true },
+  { "id": "diana-tatar", "slug": "diana-tatar", "inSitemap": true },
+  { "id": "projects", "slug": "projects", "inSitemap": false },
+  { "id": "contacts", "slug": "contacts", "inSitemap": true },
+  { "id": "accessibility", "slug": "accessibility", "inSitemap": true },
+  { "id": "ai-ethics", "slug": "ai-ethics", "inSitemap": true },
+  { "id": "cookie-policy", "slug": "cookie-policy", "inSitemap": true },
+  { "id": "esg", "slug": "esg", "inSitemap": true },
+  { "id": "privacy-policy", "slug": "privacy-policy", "inSitemap": true },
+  { "id": "terms-and-conditions", "slug": "terms-and-conditions", "inSitemap": true }
+]
