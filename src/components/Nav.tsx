@@ -80,9 +80,9 @@ export function Nav() {
 
         <nav className="nav__links" aria-label={t(lang, 'nav.primary')}>
           {links.map(link => (
-            <a key={link.label} href={hrefFor(lang, link)}>
+            <Link key={link.label} to={hrefFor(lang, link)}>
               {link.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
@@ -118,15 +118,20 @@ export function Nav() {
       <div className={`nav__overlay${menuOpen ? ' nav__overlay--open' : ''}`} aria-hidden={!menuOpen}>
         <nav className="nav__overlay-links" aria-label={t(lang, 'nav.primary')}>
           {links.map((link, i) => (
-            <a
+            <Link
               key={link.label}
-              href={hrefFor(lang, link)}
+              to={hrefFor(lang, link)}
+              // The overlay is aria-hidden while closed, but aria-hidden
+              // alone doesn't stop these from being reachable by keyboard —
+              // pull them out of the tab order too so a closed menu can't
+              // trap focus on invisible links.
+              tabIndex={menuOpen ? 0 : -1}
               ref={el => {
                 itemRefs.current[i] = el
               }}
             >
               {link.label}
-            </a>
+            </Link>
           ))}
         </nav>
       </div>
