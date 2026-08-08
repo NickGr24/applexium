@@ -1,5 +1,26 @@
 {
-  "nav": { "services": "Servicii", "products": "Produse", "portfolio": "Portofoliu", "team": "Echipă", "contact": "Contact" },
-  "footer": { "rights": "Toate drepturile rezervate." },
+  "nav": {
+    "services": "Servicii",
+    "products": "Produse",
+    "portfolio": "Portofoliu",
+    "team": "Echipă",
+    "contact": "Contact",
+    "primary": "Navigare principală",
+    "menuOpen": "Deschide meniul",
+    "menuClose": "Închide meniul"
+  },
+  "footer": {
+    "rights": "Toate drepturile rezervate.",
+    "company": "Companie",
+    "legal": {
+      "heading": "Legal",
+      "terms": "Termeni și condiții",
+      "privacy": "Politica de confidențialitate",
+      "cookies": "Politica de cookie-uri",
+      "aiEthics": "Declarație de etică AI",
+      "accessibility": "Declarație de accesibilitate",
+      "esg": "Declarație ESG"
+    }
+  },
   "cta": { "consult": "Programează o consultație", "explore": "Explorează serviciile" }
 }

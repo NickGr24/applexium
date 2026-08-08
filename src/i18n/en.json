@@ -1,5 +1,26 @@
 {
-  "nav": { "services": "Services", "products": "Products", "portfolio": "Portfolio", "team": "Team", "contact": "Contact" },
-  "footer": { "rights": "All Rights Reserved." },
+  "nav": {
+    "services": "Services",
+    "products": "Products",
+    "portfolio": "Portfolio",
+    "team": "Team",
+    "contact": "Contact",
+    "primary": "Main navigation",
+    "menuOpen": "Open menu",
+    "menuClose": "Close menu"
+  },
+  "footer": {
+    "rights": "All Rights Reserved.",
+    "company": "Company",
+    "legal": {
+      "heading": "Legal",
+      "terms": "Terms & Conditions",
+      "privacy": "Privacy Policy",
+      "cookies": "Cookie Policy",
+      "aiEthics": "AI Ethics Statement",
+      "accessibility": "Accessibility Statement",
+      "esg": "ESG Statement"
+    }
+  },
   "cta": { "consult": "Schedule a Consultation", "explore": "Explore Services" }
 }

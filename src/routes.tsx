@@ -1,5 +1,6 @@
 import type { RouteRecord } from 'vite-react-ssg'
 import React from 'react'
+import SiteLayout from './layouts/SiteLayout'
 import pages from './site/pages.json'
 
 const componentFor: Record<string, React.LazyExoticComponent<React.ComponentType>> = {
@@ -8,11 +9,29 @@ const componentFor: Record<string, React.LazyExoticComponent<React.ComponentType
 }
 const Placeholder = () => null
 
+/**
+ * Builds the page routes for one language prefix ('' for RO at the root,
+ * 'en' for the /en mirror), as *relative* children of the root '/' layout
+ * route. The home page (slug '') becomes an index route when there's no
+ * prefix, or a literal `prefix` segment route when there is one — `/en`
+ * itself is a real page, not an index of anything.
+ */
 function pageRoutes(prefix: string): RouteRecord[] {
-  return pages.map(p => ({
-    path: p.slug === '' ? prefix || '/' : `${prefix}/${p.slug}`,
-    Component: componentFor[p.id] ?? Placeholder,
-  }))
+  return pages.map((p): RouteRecord => {
+    const Component = componentFor[p.id] ?? Placeholder
+    if (!prefix && p.slug === '') {
+      return { index: true, Component }
+    }
+    const path = prefix ? (p.slug ? `${prefix}/${p.slug}` : prefix) : p.slug
+    return { path, Component }
+  })
 }
 
-export const routes: RouteRecord[] = [...pageRoutes(''), ...pageRoutes('/en')]
+export const routes: RouteRecord[] = [
+  {
+    path: '/',
+    Component: SiteLayout,
+    entry: 'src/layouts/SiteLayout.tsx',
+    children: [...pageRoutes(''), ...pageRoutes('en')],
+  },
+]
