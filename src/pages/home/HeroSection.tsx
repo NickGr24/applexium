@@ -9,11 +9,19 @@ import { AuroraBackground } from '../../scenes/AuroraBackground'
 gsap.registerPlugin(ScrollTrigger)
 
 /**
- * The hero: a 260vh-tall scroll track with a sticky 100vh stage. One scrubbed
+ * The hero: a 140vh-tall scroll track with a sticky 100vh stage. One scrubbed
  * ScrollTrigger drives two things at once — the aurora's swell (written
  * straight into `progressRef`, never into React state, since AuroraCanvas
  * reads it every frame — see its own prop doc) and the headline coming
  * apart, its three lines drifting in different directions as they fade.
+ *
+ * Unlike the old camera-driven HeroWorld, the aurora has no dolly to carry
+ * the back half of the track — so the headline's dissolve is stretched
+ * across nearly the whole timeline (see the `duration: 0.88` below) instead
+ * of finishing at the halfway point. That keeps *something* legible on
+ * screen until just before the stage hands off to the manifesto; a track
+ * that finished fading by 50% left the last ~90vh of scroll as bare
+ * gradient with nothing happening.
  *
  * Under `prefers-reduced-motion` nothing here runs: `progressRef` stays 0, so
  * the scene — which `graphicsTier()` has already downgraded to `'static'` for
@@ -45,8 +53,9 @@ export function HeroSection({ lang }: { lang: Lang }) {
           start: 'top top',
           end: 'bottom bottom',
           scrub: true,
-          // The camera reads this every frame; a re-render per scroll tick
-          // would be pure waste, so the progress never becomes state.
+          // AuroraCanvas reads this every frame off the ref; a re-render per
+          // scroll tick would be pure waste, so the progress never becomes
+          // state.
           onUpdate: (self) => {
             progressRef.current = self.progress
           },
@@ -57,20 +66,24 @@ export function HeroSection({ lang }: { lang: Lang }) {
       // timeline is only as long as its last child — so this empty tween is
       // what makes the numbers below read as fractions of the whole track.
       // Without it the headline would still be dissolving at the very end of
-      // the flight instead of being long gone.
+      // the track instead of being long gone.
       tl.to({}, { duration: 1 }, 0)
 
-      // Duration 0.5: the headline is gone by the halfway point, and the
-      // second half of the track is the camera alone, deep in the colonnade
-      // with nothing on top of it.
-      tl.to(lines[0], { yPercent: -115, opacity: 0, ease: 'none', duration: 0.5 }, 0)
-        .to(lines[1], { yPercent: -25, opacity: 0, ease: 'none', duration: 0.5 }, 0)
-        .to(lines[2], { yPercent: 135, opacity: 0, ease: 'none', duration: 0.5 }, 0)
-        .to(tail, { opacity: 0, y: -32, ease: 'none', duration: 0.3 }, 0)
-        // The copy's backing leaves with the copy — over the same half of the
-        // track as the headline, so nothing is left sitting on a dimmed scene
-        // once there is no text to protect.
-        .to(copyScrimRef.current, { opacity: 0, ease: 'none', duration: 0.5 }, 0)
+      // Duration 0.88: at the 50–60% mark the headline is still partway
+      // through dissolving (it's only ~55–68% through *its own* tween there),
+      // not gone — it only fully clears in the last stretch before the track
+      // ends, so the aurora never has to carry an empty screen on its own.
+      // Held short of 1 (rather than running to the very end) so the fade
+      // finishes a hair before the manifesto takes over, instead of cutting
+      // off mid-tween at the handoff.
+      tl.to(lines[0], { yPercent: -115, opacity: 0, ease: 'none', duration: 0.88 }, 0)
+        .to(lines[1], { yPercent: -25, opacity: 0, ease: 'none', duration: 0.88 }, 0)
+        .to(lines[2], { yPercent: 135, opacity: 0, ease: 'none', duration: 0.88 }, 0)
+        .to(tail, { opacity: 0, y: -32, ease: 'none', duration: 0.55 }, 0)
+        // The copy's backing leaves with the copy — over the same stretch of
+        // the track as the headline, so nothing is left sitting on a dimmed
+        // scene once there is no text to protect.
+        .to(copyScrimRef.current, { opacity: 0, ease: 'none', duration: 0.88 }, 0)
     }, track)
 
     return () => ctx.revert()

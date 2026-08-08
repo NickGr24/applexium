@@ -4,13 +4,16 @@
 
 /* ---------- 1. Hero ---------- */
 
-/* 260vh of scroll track for a 100vh stage: the extra 160vh is what the
-   camera's flight down the arcade is scrubbed against. Under reduced motion
-   the track collapses to a single screen (bottom of this file) — no dolly
-   runs, so there would be nothing to scroll through. */
+/* 140vh of scroll track for a 100vh stage: the aurora has no camera to fly,
+   so the extra 40vh is only there to give the headline room to dissolve —
+   see HeroSection's timeline, which stretches that dissolve across nearly
+   the whole track so the screen is never left bare before the manifesto
+   picks up. Under reduced motion the track collapses to a single screen
+   (bottom of this file) — no scrub runs, so there would be nothing to
+   scroll through. */
 .hero {
   position: relative;
-  height: 260vh;
+  height: 140vh;
 }
 
 .hero__stage {
