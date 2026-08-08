@@ -1,4 +1,5 @@
-import { useEffect, useRef } from 'react'
+import { useRef } from 'react'
+import { useSpotlightPointer } from '../motion/useSpotlightPointer'
 
 type SpotlightCardProps = {
   icon?: React.ReactNode
@@ -8,47 +9,15 @@ type SpotlightCardProps = {
 
 /**
  * Bento-grid card with a radial spotlight that tracks the pointer. Position
- * is written straight to CSS custom properties (--mx/--my) via
- * el.style.setProperty on mousemove, coalesced to one write per animation
- * frame — no React re-render per pixel moved.
- *
- * The listener only attaches on fine-pointer devices (there's nothing to
- * track on touch, same gate as MagneticButton) and only inside useEffect,
- * so this is SSR-safe: the server and the first client render both emit the
- * static card with the spotlight centered via the CSS `50%` default, and
- * the effect + its listener are torn down on unmount.
+ * tracking (the --mx/--my writer, gated to fine-pointer devices and
+ * SSR-safe) lives in `useSpotlightPointer`, shared with any other element
+ * that wants the same hover language — see Projects' case cards, which
+ * need to stay an `<a>` and so apply the hook directly rather than
+ * wrapping in this div-only component.
  */
 export function SpotlightCard({ icon, title, text }: SpotlightCardProps) {
   const ref = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    if (!matchMedia('(pointer: fine)').matches) return
-    const el = ref.current
-    if (!el) return
-
-    let rafId: number | null = null
-    let x = 0
-    let y = 0
-
-    const onMove = (e: MouseEvent) => {
-      const rect = el.getBoundingClientRect()
-      x = e.clientX - rect.left
-      y = e.clientY - rect.top
-      if (rafId != null) return
-      rafId = requestAnimationFrame(() => {
-        el.style.setProperty('--mx', `${x}px`)
-        el.style.setProperty('--my', `${y}px`)
-        rafId = null
-      })
-    }
-
-    el.addEventListener('mousemove', onMove)
-
-    return () => {
-      el.removeEventListener('mousemove', onMove)
-      if (rafId != null) cancelAnimationFrame(rafId)
-    }
-  }, [])
+  useSpotlightPointer(ref)
 
   return (
     <div ref={ref} className="spotlight-card">

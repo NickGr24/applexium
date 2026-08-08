@@ -1,7 +1,9 @@
+import { useRef } from 'react'
 import { RevealText } from '../components/RevealText'
 import { Section } from '../components/Section'
 import { Seo } from '../components/Seo'
 import { t, useLang, type Lang } from '../i18n'
+import { useSpotlightPointer } from '../motion/useSpotlightPointer'
 import { collectionPageJsonLd } from '../site/jsonld'
 import './projects.css'
 
@@ -25,6 +27,14 @@ import './projects.css'
  * `plate` picks the logo's chip colour, same split as Home's `CLIENTS`
  * marquee: Penița Dreptului's mark is white artwork that needs a dark chip
  * to stay legible, unlike the rest.
+ *
+ * Each card carries the site's spotlight-card hover language (radial
+ * gradient tracking the pointer + a border that lights up on hover, see
+ * `projects.css`'s `.project-card`) via `useSpotlightPointer` directly,
+ * rather than wrapping in `SpotlightCard` itself — that component renders a
+ * fixed icon/title/text `<div>`, but a whole project card has to stay an
+ * `<a>` (it's the link target) and needs an image + tag pill + CTA arrow
+ * `SpotlightCard` has no slots for.
  */
 const CASES = [
   { key: 'dareEu', href: 'https://dare-eu.net/', src: '/dare-eu.webp', plate: 'light' },
@@ -38,9 +48,11 @@ const CASES = [
 function ProjectCard({ item, lang }: { item: (typeof CASES)[number]; lang: Lang }) {
   const mediaClass =
     item.plate === 'dark' ? 'project-card__media photo-hover project-card__media--dark' : 'project-card__media photo-hover'
+  const ref = useRef<HTMLAnchorElement>(null)
+  useSpotlightPointer(ref)
 
   return (
-    <a className="project-card" href={item.href} target="_blank" rel="noopener noreferrer">
+    <a ref={ref} className="project-card" href={item.href} target="_blank" rel="noopener noreferrer">
       <div className={mediaClass}>
         {/* alt="" — the name is already the card's own visible <h3>, right
             below; repeating it here would double the link's accessible
