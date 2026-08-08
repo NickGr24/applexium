@@ -205,10 +205,16 @@
   height: 100%;
 }
 
-/* HeroWorld's poster: the gradient the legacy scene painted when WebGL was
-   unavailable. */
+/* AuroraBackground's poster: the 'static' tier's only frame, and what sits
+   under the OGL canvas until it paints. Echoes the aurora shader's own
+   shape — the fragment shader's `uv.y` term makes the glow brightest near
+   the top of the frame and fade to nothing near the bottom — in the same
+   deep/blue/cyan ramp as `AuroraCanvas`'s `BRAND_COLOR_STOPS`. */
 .scene-poster--hero {
-  background: radial-gradient(70% 60% at 50% 45%, #16306b, #04060d 72%);
+  background:
+    radial-gradient(120% 65% at 22% -6%, rgba(31, 205, 255, 0.4), transparent 58%),
+    radial-gradient(110% 60% at 78% 4%, rgba(36, 94, 254, 0.4), transparent 62%),
+    linear-gradient(180deg, rgba(28, 24, 144, 0.32) 0%, rgba(10, 15, 29, 0.4) 40%, #04060d 78%);
 }
 
 /* ConvergenceScene's poster: the exact background the legacy Emmi hero

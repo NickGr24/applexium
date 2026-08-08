@@ -1,24 +1,19 @@
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { lazy, useLayoutEffect, useRef } from 'react'
+import { useLayoutEffect, useRef } from 'react'
 import { MagneticButton } from '../../components/MagneticButton'
 import { type Lang, localePath, t } from '../../i18n'
 import { useReducedMotion } from '../../motion/useReducedMotion'
-import { HERO_CAMERA } from '../../scenes/heroCamera'
-import { SceneCanvas } from '../../scenes/SceneCanvas'
+import { AuroraBackground } from '../../scenes/AuroraBackground'
 
 gsap.registerPlugin(ScrollTrigger)
 
-// Dynamic import only — keeps `three`/R3F/postprocessing out of this page's
-// chunk. See SceneCanvasInner.tsx for the full reasoning.
-const HeroWorld = lazy(() => import('../../scenes/HeroWorld').then((m) => ({ default: m.HeroWorld })))
-
 /**
  * The hero: a 260vh-tall scroll track with a sticky 100vh stage. One scrubbed
- * ScrollTrigger drives two things at once — the camera's flight down the
- * arcade (written straight into `progressRef`, never into React state, since
- * the scene reads it every frame) and the headline coming apart, its three
- * lines drifting in different directions as they fade.
+ * ScrollTrigger drives two things at once — the aurora's swell (written
+ * straight into `progressRef`, never into React state, since AuroraCanvas
+ * reads it every frame — see its own prop doc) and the headline coming
+ * apart, its three lines drifting in different directions as they fade.
  *
  * Under `prefers-reduced-motion` nothing here runs: `progressRef` stays 0, so
  * the scene — which `graphicsTier()` has already downgraded to `'static'` for
@@ -85,13 +80,11 @@ export function HeroSection({ lang }: { lang: Lang }) {
     <section className="hero" ref={trackRef}>
       <div className="hero__stage">
         <div className="hero__scene">
-          <SceneCanvas
+          <AuroraBackground
             className="scene-canvas"
             poster={<div className="scene-poster scene-poster--hero" aria-hidden="true" />}
-            camera={HERO_CAMERA}
-          >
-            <HeroWorld progressRef={progressRef} />
-          </SceneCanvas>
+            progressRef={progressRef}
+          />
         </div>
 
         <div className="hero__scrim" aria-hidden="true" />

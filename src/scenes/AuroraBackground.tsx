@@ -1,0 +1,98 @@
+import { lazy, Suspense, useEffect, useRef, useState, type ReactNode, type RefObject } from 'react'
+import { graphicsTier, type GraphicsTier } from './graphicsTier'
+
+// Dynamic import only: keeps `ogl` out of whatever chunk imports
+// AuroraBackground. Same split as SceneCanvas/SceneCanvasInner, and the
+// same reason — see AuroraCanvas.tsx's own doc comment for why this scene
+// is a straight OGL port instead of a three.js reinterpretation.
+const AuroraCanvas = lazy(() => import('./AuroraCanvas').then((m) => ({ default: m.AuroraCanvas })))
+
+type AuroraBackgroundProps = {
+  /** Forces a tier instead of auto-detecting via `graphicsTier()`. */
+  tier?: GraphicsTier
+  /** Always-available fallback: shown for the 'static' tier, before the
+   * section nears the viewport, and while the AuroraCanvas chunk is
+   * loading. */
+  poster: ReactNode
+  className?: string
+  /** 0..1 scroll-through-hero progress, forwarded to AuroraCanvas untouched
+   * — see its own prop doc. */
+  progressRef?: RefObject<number>
+}
+
+/**
+ * Lazily mounts the OGL Aurora canvas once its section nears the viewport,
+ * and shows a cheap `poster` everywhere real WebGL would be wasted: SSR,
+ * `prefers-reduced-motion`, missing WebGL2, or simply while far off-screen.
+ * Structurally this is `SceneCanvas` re-derived for a scene that owns its
+ * own renderer instead of living inside an R3F `<Canvas>` — same tier
+ * resolution, same latching IntersectionObserver, same "poster stays
+ * mounted underneath forever" rule that kills the black-flash gap between
+ * "chunk loaded" and "first frame painted" (see SceneCanvas's doc comment
+ * for the full reasoning; it applies unchanged here).
+ *
+ * The one addition: `visible` doesn't gate mounting (only `entered` does,
+ * and it latches) — it's forwarded as `paused` to AuroraCanvas instead, so
+ * OGL's manual rAF loop stops drawing while the hero scrolls out of view
+ * without tearing down and rebuilding the WebGL context, the OGL analogue
+ * of SceneCanvas's `frameloop: 'never'`.
+ */
+export function AuroraBackground({ tier, poster, className, progressRef }: AuroraBackgroundProps) {
+  const [resolvedTier] = useState<GraphicsTier>(() => tier ?? graphicsTier())
+  const [entered, setEntered] = useState(false)
+  const [visible, setVisible] = useState(false)
+  const containerRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    if (resolvedTier === 'static') return
+    const node = containerRef.current
+    if (!node) return
+
+    if (typeof IntersectionObserver === 'undefined') {
+      setEntered(true)
+      setVisible(true)
+      return
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setEntered(true) // latches — once mounted, AuroraCanvas stays mounted
+          setVisible(true)
+        } else {
+          setVisible(false) // paused while merely off-screen, not unmounted
+        }
+      },
+      { rootMargin: '25%' },
+    )
+    observer.observe(node)
+    return () => observer.disconnect()
+  }, [resolvedTier])
+
+  // 'lite' trims amplitude/speed (less GPU work per pixel isn't really the
+  // cost here — the win is a calmer noise field, cheaper to eyeball as
+  // "stable" — and drops dpr to 1) instead of the retina-clamped dpr 'high'
+  // gets; both just parameterize uniforms/renderer options Aurora already
+  // exposed, not shader changes.
+  const lite = resolvedTier === 'lite'
+
+  return (
+    <div ref={containerRef} className={className} style={{ position: 'relative' }}>
+      <div style={{ position: 'absolute', inset: 0 }}>{poster}</div>
+      {resolvedTier !== 'static' && entered && (
+        <div style={{ position: 'absolute', inset: 0 }}>
+          <Suspense fallback={null}>
+            <AuroraCanvas
+              amplitude={lite ? 0.8 : 1.05}
+              speed={lite ? 0.7 : 1.0}
+              blend={0.55}
+              dpr={lite ? 1 : Math.min(typeof window !== 'undefined' ? window.devicePixelRatio || 1 : 1, 2)}
+              progressRef={progressRef}
+              paused={!visible}
+            />
+          </Suspense>
+        </div>
+      )}
+    </div>
+  )
+}
