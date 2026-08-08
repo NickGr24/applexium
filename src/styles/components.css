@@ -154,3 +154,19 @@
   font-size: 0.92rem;
   line-height: 1.6;
 }
+
+/* ---------- SceneCanvas demo poster (Task 8 showcase) ---------- */
+
+.scene-canvas-demo {
+  width: 100%;
+  height: 320px;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.scene-canvas-demo__poster {
+  width: 100%;
+  height: 100%;
+  background: var(--glow);
+  opacity: 0.35;
+}

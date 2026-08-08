@@ -1,3 +1,4 @@
+import { lazy } from 'react'
 import { MagneticButton } from '../components/MagneticButton'
 import { MonoLabel } from '../components/MonoLabel'
 import { RevealText } from '../components/RevealText'
@@ -7,7 +8,12 @@ import { SplitHeading } from '../components/SplitHeading'
 import { SpotlightCard } from '../components/SpotlightCard'
 import { StatCount } from '../components/StatCount'
 import { useLang } from '../i18n'
+import { SceneCanvas } from '../scenes/SceneCanvas'
 import { organizationJsonLd, webSiteJsonLd } from '../site/jsonld'
+
+// Dynamic import so `@react-three/fiber`/`three` never reach this page's own
+// chunk — see TestCube.tsx and SceneCanvasInner.tsx for why.
+const TestCube = lazy(() => import('../scenes/TestCube').then((m) => ({ default: m.TestCube })))
 
 export default function Home() {
   const lang = useLang()
@@ -80,6 +86,20 @@ export default function Home() {
             text="A patra carte verifică layout-ul grilei fără icon — titlul și textul rămân aliniate corect."
           />
         </div>
+      </Section>
+
+      <Section
+        label="GRAPHICS TIER"
+        index="03"
+        title="Un cub care nu se montează decât atunci când ajunge la tine"
+      >
+        <SceneCanvas
+          className="scene-canvas-demo"
+          poster={<div className="scene-canvas-demo__poster" aria-hidden="true" />}
+          camera={{ position: [0, 0, 4] }}
+        >
+          <TestCube />
+        </SceneCanvas>
       </Section>
     </>
   )
