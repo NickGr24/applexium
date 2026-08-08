@@ -1,4 +1,3 @@
-import { lazy, useRef } from 'react'
 import { MagneticButton } from '../components/MagneticButton'
 import { MonoLabel } from '../components/MonoLabel'
 import { RevealText } from '../components/RevealText'
@@ -7,161 +6,166 @@ import { Seo } from '../components/Seo'
 import { SplitHeading } from '../components/SplitHeading'
 import { SpotlightCard } from '../components/SpotlightCard'
 import { StatCount } from '../components/StatCount'
-import { useLang } from '../i18n'
-import { BEAMS_CAMERA } from '../scenes/beamsCamera'
-import { CONVERGENCE_CAMERA } from '../scenes/convergenceCamera'
-import { GALAXY_CAMERA } from '../scenes/galaxyCamera'
-import { HERO_CAMERA } from '../scenes/heroCamera'
-import { SceneCanvas } from '../scenes/SceneCanvas'
+import { localePath, t, useLang, type Lang } from '../i18n'
 import { organizationJsonLd, webSiteJsonLd } from '../site/jsonld'
+import './home.css'
+import { HeroSection } from './home/HeroSection'
+import { IconChart, IconChip, IconCloud, IconCode, IconCog, IconShield } from './home/icons'
+import { Manifesto } from './home/Manifesto'
+import { ProductShowcase } from './home/ProductShowcase'
 
-// Dynamic import so `@react-three/fiber`/`three` never reach this page's own
-// chunk — see SceneCanvasInner.tsx for why.
-const HeroWorld = lazy(() => import('../scenes/HeroWorld').then((m) => ({ default: m.HeroWorld })))
-const ConvergenceScene = lazy(() =>
-  import('../scenes/ConvergenceScene').then((m) => ({ default: m.ConvergenceScene })),
-)
-const BeamsScene = lazy(() => import('../scenes/BeamsScene').then((m) => ({ default: m.BeamsScene })))
-const GalaxyScene = lazy(() => import('../scenes/GalaxyScene').then((m) => ({ default: m.GalaxyScene })))
+/** The six services, in bento order. `key` indexes `home.services.*`; the
+ * 1st and 6th cards are the wide ones (see `.bento` in home.css). */
+const SERVICES = [
+  { key: 'web', Icon: IconCode },
+  { key: 'ai', Icon: IconChip },
+  { key: 'saas', Icon: IconCloud },
+  { key: 'compliance', Icon: IconShield },
+  { key: 'integrations', Icon: IconCog },
+  { key: 'advisory', Icon: IconChart },
+] as const
+
+/** Client logos for the marquee. `plate` picks the chip colour underneath:
+ * most of these are dark artwork that needs a light plate, but Penița
+ * Dreptului's mark and Jurista's wordmark are white and vanish on one —
+ * the same split the legacy site handled with its `logo-dark-bg` class. */
+const CLIENTS = [
+  { src: '/dare-eu.webp', name: 'DARE-EU', plate: 'light' },
+  { src: '/eurobridge.webp', name: 'EUROBRIDGE UA MD', plate: 'light' },
+  { src: '/energiq.webp', name: 'EnergiQ', plate: 'light' },
+  { src: '/cmda.webp', name: 'CMDA', plate: 'light' },
+  { src: '/startitplanet.webp', name: 'StartIT Planet', plate: 'light' },
+  { src: '/penitadreptului.webp', name: 'Penița Dreptului', plate: 'dark' },
+  { src: '/jurista.webp', name: 'Jurista', plate: 'dark' },
+] as const
+
+const CASES = [
+  { key: 'dareEu', href: 'https://dare-eu.net/', src: '/dare-eu.webp' },
+  { key: 'eurobridge', href: 'https://eurobridge-uamd.org/', src: '/eurobridge.webp' },
+  { key: 'energiq', href: 'https://energiq.md/ro/', src: '/energiq.webp' },
+] as const
+
+function ClientLogos({ lang }: { lang: Lang }) {
+  // Two identical passes of the list, the second hidden from assistive tech:
+  // the CSS marquee translates the track by exactly -50%, so the seam lands
+  // where the copy begins and the loop is invisible.
+  const row = (hidden: boolean) => (
+    <ul className="marquee__row" aria-hidden={hidden || undefined}>
+      {CLIENTS.map(({ src, name, plate }) => (
+        <li className={`marquee__item marquee__item--${plate}`} key={`${name}-${hidden}`}>
+          <img src={src} alt={hidden ? '' : name} loading="lazy" decoding="async" />
+        </li>
+      ))}
+    </ul>
+  )
+
+  return (
+    <div className="marquee" aria-label={t(lang, 'home.portfolio.clients')} role="group">
+      <div className="marquee__track">
+        {row(false)}
+        {row(true)}
+      </div>
+    </div>
+  )
+}
 
 export default function Home() {
   const lang = useLang()
-  // Stands in for the real hero scroll progress until Task 14 wires it up.
-  const progressRef = useRef(0)
+
   return (
     <>
       <Seo page="home" lang={lang} jsonLd={[organizationJsonLd(lang), webSiteJsonLd(lang)]} />
 
-      {/* DEV SHOWCASE — удалить в Task 14 */}
-      <section
-        className="container"
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '4rem',
-          paddingBlock: '10rem 6rem',
-        }}
+      <HeroSection lang={lang} />
+
+      <Manifesto lang={lang} />
+
+      <ProductShowcase lang={lang} />
+
+      <Section
+        id="servicii"
+        index="03"
+        label={t(lang, 'home.services.label')}
+        title={t(lang, 'home.services.title')}
       >
-        <MonoLabel index="01">MOTION PRIMITIVES</MonoLabel>
+        <div className="bento">
+          {SERVICES.map(({ key, Icon }) => (
+            <SpotlightCard
+              key={key}
+              icon={<Icon />}
+              title={t(lang, `home.services.${key}.title`)}
+              text={t(lang, `home.services.${key}.text`)}
+            />
+          ))}
+        </div>
+      </Section>
 
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', fontFamily: 'var(--font-display)' }}>
-          <SplitHeading as="h1">Applexium construiește produse digitale</SplitHeading>
-          <SplitHeading as="h2">care se mișcă altfel decât toate celelalte</SplitHeading>
+      <Section
+        id="portofoliu"
+        index="04"
+        label={t(lang, 'home.portfolio.label')}
+        title={t(lang, 'home.portfolio.title')}
+      >
+        <ClientLogos lang={lang} />
+
+        <div className="cases">
+          {CASES.map(({ key, href, src }) => (
+            <a className="case" href={href} target="_blank" rel="noopener noreferrer" key={key}>
+              <div className="case__media photo-hover">
+                <img src={src} alt="" loading="lazy" decoding="async" />
+              </div>
+              <h3 className="case__name">{t(lang, `home.portfolio.${key}.name`)}</h3>
+              <p className="case__text">{t(lang, `home.portfolio.${key}.text`)}</p>
+            </a>
+          ))}
         </div>
 
-        <RevealText>
-          <p style={{ maxWidth: '60ch', color: 'var(--ink-dim)', fontSize: '1.1rem' }}>
-            Acest paragraf verifică RevealText independent de restul componentelor: intră cu un
-            fade discret și o ușoară ridicare pe verticală atunci când ajunge în viewport.
-          </p>
-        </RevealText>
-
-        <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
-          <MagneticButton variant="primary" href="#produse">
-            Vezi proiectele
-          </MagneticButton>
-          <MagneticButton variant="ghost" href="#contacte">
-            Contactează-ne
-          </MagneticButton>
-          <MagneticButton variant="ghost" as="button" onClick={() => console.log('magnetic button clicked')}>
-            Buton nativ
+        <div className="cases__more">
+          <MagneticButton variant="ghost" href={localePath(lang, 'projects')}>
+            {t(lang, 'home.portfolio.all')}
           </MagneticButton>
         </div>
+      </Section>
 
-        <div style={{ display: 'flex', gap: '3rem', flexWrap: 'wrap' }}>
-          <StatCount value={12} suffix="+" label="proiecte livrate" />
-          <StatCount value={8} label="ani experiență" />
-          <StatCount value={97} suffix="%" label="clienți mulțumiți" />
+      <section className="stats container">
+        <MonoLabel index="05">{t(lang, 'home.stats.label')}</MonoLabel>
+        <SplitHeading as="h2" className="stats__title">
+          {t(lang, 'home.stats.title')}
+        </SplitHeading>
+        <div className="stats__row">
+          <StatCount value={3} label={t(lang, 'home.stats.products.label')} />
+          <StatCount
+            value={7}
+            suffix={t(lang, 'home.stats.platforms.suffix')}
+            label={t(lang, 'home.stats.platforms.label')}
+          />
+          <StatCount
+            value={275}
+            suffix={t(lang, 'home.stats.decisions.suffix')}
+            label={t(lang, 'home.stats.decisions.label')}
+          />
+          <StatCount
+            value={11}
+            suffix={t(lang, 'home.stats.questions.suffix')}
+            label={t(lang, 'home.stats.questions.label')}
+          />
         </div>
       </section>
 
-      <Section label="SPOTLIGHT" index="02" title="Cărți care reacționează la cursor">
-        <div className="spotlight-grid">
-          <SpotlightCard
-            icon={<span aria-hidden="true">◆</span>}
-            title="Produse digitale"
-            text="De la idee la lansare: cercetare, design de interacțiune și cod de producție sub același acoperiș."
-          />
-          <SpotlightCard
-            icon={<span aria-hidden="true">▲</span>}
-            title="Automatizări AI"
-            text="Agenți vocali și fluxuri automatizate care preiau munca repetitivă din echipele noastre partenere."
-          />
-          <SpotlightCard
-            icon={<span aria-hidden="true">●</span>}
-            title="Platforme legale"
-            text="Legalia și Precedentia digitalizează procese juridice complexe pentru piața din Moldova."
-          />
-          <SpotlightCard
-            title="Fără icon"
-            text="A patra carte verifică layout-ul grilei fără icon — titlul și textul rămân aliniate corect."
-          />
+      <section className="final">
+        <div className="final__inner container">
+          <MonoLabel index="06">{t(lang, 'home.final.label')}</MonoLabel>
+          <SplitHeading as="h2" className="final__title">
+            {t(lang, 'home.final.title')}
+          </SplitHeading>
+          <RevealText>
+            <p className="final__text">{t(lang, 'home.final.text')}</p>
+          </RevealText>
+          <MagneticButton variant="primary" href={localePath(lang, 'contacts')}>
+            {t(lang, 'home.final.button')}
+          </MagneticButton>
         </div>
-      </Section>
-
-      <Section
-        label="HERO WORLD"
-        index="03"
-        title="Arcada din apă, cu scroll-ul falsificat de un slider"
-      >
-        <SceneCanvas
-          className="scene-canvas-demo"
-          poster={<div className="scene-canvas-demo__poster" aria-hidden="true" />}
-          camera={HERO_CAMERA}
-        >
-          <HeroWorld progressRef={progressRef} />
-        </SceneCanvas>
-        <label className="scene-canvas-demo__scrub">
-          <span>Progres</span>
-          <input
-            type="range"
-            min={0}
-            max={100}
-            step={1}
-            defaultValue={0}
-            aria-label="Progresul camerei prin arcadă"
-            // onInput, and straight into the ref: the scene reads progress
-            // every frame, so a re-render per slider tick would be pure waste.
-            onInput={(event) => {
-              progressRef.current = event.currentTarget.valueAsNumber / 100
-            }}
-          />
-        </label>
-      </Section>
-
-      <Section
-        label="CONVERGENCE"
-        index="04"
-        title="Cinci canale, un singur nucleu — hero-ul Emmi"
-      >
-        <SceneCanvas
-          className="scene-canvas-demo"
-          poster={<div className="scene-canvas-demo__poster--convergence" aria-hidden="true" />}
-          camera={CONVERGENCE_CAMERA}
-        >
-          <ConvergenceScene />
-        </SceneCanvas>
-      </Section>
-
-      <Section label="BEAMS" index="05" title="Coloanele de lumină ale paginii Legalia">
-        <SceneCanvas
-          className="scene-canvas-demo"
-          poster={<div className="scene-canvas-demo__poster--beams" aria-hidden="true" />}
-          camera={BEAMS_CAMERA}
-        >
-          <BeamsScene />
-        </SceneCanvas>
-      </Section>
-
-      <Section label="GALAXY" index="06" title="Câmpul de precedente al paginii Precedentia">
-        <SceneCanvas
-          className="scene-canvas-demo"
-          poster={<div className="scene-canvas-demo__poster--galaxy" aria-hidden="true" />}
-          camera={GALAXY_CAMERA}
-        >
-          <GalaxyScene />
-        </SceneCanvas>
-      </Section>
+      </section>
     </>
   )
 }

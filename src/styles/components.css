@@ -192,47 +192,30 @@
   }
 }
 
-/* ---------- SceneCanvas demo (showcase, dropped in Task 14) ---------- */
+/* ---------- Scenes ----------
+   `.scene-canvas` fills whatever box the page positions for it — SceneCanvas
+   sets `position: relative` inline, so sizing is all a page can hand it.
+   The `.scene-poster--*` gradients are each scene's still fallback: what the
+   'static' tier shows, what sits under a Canvas until its first frame paints,
+   and the backdrop the scene itself renders against. */
 
-.scene-canvas-demo {
-  width: 100%;
-  height: min(82vh, 760px);
-  border-radius: 16px;
-  overflow: hidden;
-}
-
-/* The poster the hero scene falls back to, and the sky it renders against:
-   the same gradient the legacy scene painted when WebGL was unavailable. */
-.scene-canvas-demo__poster {
+.scene-canvas,
+.scene-poster {
   width: 100%;
   height: 100%;
+}
+
+/* HeroWorld's poster: the gradient the legacy scene painted when WebGL was
+   unavailable. */
+.scene-poster--hero {
   background: radial-gradient(70% 60% at 50% 45%, #16306b, #04060d 72%);
-}
-
-.scene-canvas-demo__scrub {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-top: 1.5rem;
-  color: var(--ink-dim);
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.scene-canvas-demo__scrub input {
-  flex: 1;
-  max-width: 420px;
 }
 
 /* ConvergenceScene's poster: the exact background the legacy Emmi hero
    painted behind #emmi-stage (`_legacy/emmi.html`) — Emmi's own vivid/soft/
    light cyan palette over its near-black, not the blue HeroWorld poster
    above. */
-.scene-canvas-demo__poster--convergence {
-  width: 100%;
-  height: 100%;
+.scene-poster--convergence {
   background:
     radial-gradient(ellipse 900px 700px at 10% 20%, rgba(8, 145, 178, 0.35), transparent 70%),
     radial-gradient(ellipse 700px 800px at 80% 50%, rgba(103, 232, 249, 0.2), transparent 70%),
@@ -243,9 +226,7 @@
 /* BeamsScene's poster: Legalia's palette (`_legacy/legalia.html`'s
    `--lg-*`) as a row of soft vertical glows over the shared dark base, a
    flat stand-in for the columns the real scene renders. */
-.scene-canvas-demo__poster--beams {
-  width: 100%;
-  height: 100%;
+.scene-poster--beams {
   background:
     linear-gradient(180deg, rgba(89, 30, 243, 0.32), transparent 55%),
     radial-gradient(ellipse 260px 900px at 20% 55%, rgba(135, 82, 250, 0.4), transparent 70%),
@@ -257,9 +238,7 @@
 /* GalaxyScene's poster: Precedentia's palette (`_legacy/precedentia.html`'s
    `--pr-*`) as a bright core fading through brand green into the indigo
    accent, echoing the real scene's core-to-rim particle gradient. */
-.scene-canvas-demo__poster--galaxy {
-  width: 100%;
-  height: 100%;
+.scene-poster--galaxy {
   background:
     radial-gradient(ellipse 420px 340px at 50% 45%, rgba(224, 255, 233, 0.45), transparent 60%),
     radial-gradient(ellipse 800px 620px at 50% 50%, rgba(9, 225, 172, 0.28), transparent 70%),
