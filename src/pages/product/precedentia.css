@@ -1,0 +1,26 @@
+/* Precedentia product page — chapters below the shared ProductPage hero.
+   Layout primitives (Section, SpotlightCard, RevealText, .spotlight-grid,
+   .stat-grid) come from styles/*.css and product.css; this file only
+   carries what's specific to Precedentia's own content. */
+
+/* `public/precedentia-icon.svg` is already brand green (`--pr-brand`), not
+   a monochrome export like Legalia's wordmark — no invert needed. The base
+   `.product-hero__logo` box-shadow is a plain rectangle sized to the image's
+   own box, which reads oddly behind a mark this small and non-rectangular;
+   swapping it for a `drop-shadow` (follows the SVG's actual alpha, not its
+   bounding box) in the page's own accent keeps the mark legible on the
+   GalaxyScene backdrop without a boxy halo around it. */
+.precedentia-hero-logo {
+  box-shadow: none;
+  filter: drop-shadow(0 0 14px rgb(var(--page-accent-rgb) / 0.55));
+}
+
+.precedentia-about__text {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  max-width: 68ch;
+  color: rgb(237 237 242 / 0.82);
+  font-size: clamp(1rem, 1.1vw, 1.1rem);
+  line-height: 1.65;
+}

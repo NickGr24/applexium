@@ -202,5 +202,129 @@
       "cta1": "Solicită o demonstrație",
       "cta2": "Deschide widgetul live"
     }
+  },
+  "legalia": {
+    "hero": {
+      "label": "PLATFORMĂ DE EDUCAȚIE JURIDICĂ",
+      "title": "Stăpânește dreptul așa cum înveți cel mai bine",
+      "sub": "Legalia transformă întreaga programă de drept într-o călătorie ghidată — teste interactive, lecții video, podcasturi și hărți mentale pentru fiecare subiect, cu feedback instant care îți explică de ce un răspuns e corect. Nu memorezi legea — o înțelegi.",
+      "cta1": "Contactează-ne",
+      "cta2": "Vezi cum funcționează"
+    },
+    "modules": {
+      "label": "MODULE",
+      "title": "O aplicație, un curs complet de drept",
+      "roadmap": {
+        "title": "Traseu ghidat pe discipline",
+        "text": "Fiecare dintre cele 105 discipline se deschide ca un traseu pas cu pas, în stil Duolingo — completezi un nivel ca să-l deblochezi pe următorul, cu progresul vizibil dintr-o privire."
+      },
+      "multimedia": {
+        "title": "Curs multimedia complet",
+        "text": "Aproape fiecare dintre cele 924 de subiecte vine cu propriul podcast, lecție video și hartă mentală — o bibliotecă juridică pe care majoritatea platformelor nu o au."
+      },
+      "quizzes": {
+        "title": "Teste care explică, nu doar notează",
+        "text": "Te-ai blocat la o întrebare? Apasă pentru un indiciu. Ai greșit? Legalia îți arată răspunsul corect și raționamentul, adesea citând articolul exact."
+      },
+      "gamification": {
+        "title": "XP și serii zilnice",
+        "text": "Fiecare test finalizat îți aduce XP și îți alimentează seria zilnică — micile victorii se adună și deblochează realizări care te aduc înapoi."
+      },
+      "leaderboard": {
+        "title": "Clasament și dueluri cu prietenii",
+        "text": "Vezi cum te clasezi global, între prieteni sau pe universități — apoi provoacă un coleg la un duel de test în timp real."
+      },
+      "progress": {
+        "title": "Statistici de progres",
+        "text": "Urmărește-ți acuratețea, activitatea zilnică și disciplinele tale cele mai puternice, ca să știi mereu ce să revizuiești."
+      }
+    },
+    "preview": {
+      "label": "APLICAȚIA",
+      "title": "Cum arată Legalia",
+      "roadmap": "Traseul disciplinelor, pas cu pas",
+      "quiz": "Răspuns de test, cu explicație"
+    },
+    "audiences": {
+      "label": "PENTRU CINE",
+      "title": "Un program pentru fiecare etapă",
+      "item1": "Pregătire pentru Institutul Național al Justiției — 7 discipline, calea către o carieră de judecător sau procuror.",
+      "item2": "Barou și practică juridică — 11 discipline dedicate viitorilor avocați, de la criminalistică la drept notarial și vamal.",
+      "item3": "Programa universitară — întreaga licență în drept, 51 de discipline, de la teoria dreptului până la procedură și drepturile omului.",
+      "item4": "Dreptul afacerilor și dreptul corporativ — 36 de discipline moderne: structurare corporativă, FinTech, ESG, AI în afaceri și fiscalitate internațională."
+    },
+    "facts": {
+      "label": "CIFRE",
+      "title": "O bibliotecă juridică completă",
+      "programs": { "label": "programe de învățare complete" },
+      "disciplines": { "label": "discipline juridice acoperite" },
+      "topics": { "label": "subiecte de studiu" },
+      "questions": { "suffix": ".000+", "label": "întrebări de test" }
+    },
+    "final": {
+      "label": "CONTACT",
+      "title": "Pregătit să înveți dreptul în mod inteligent?",
+      "text": "Discută cu echipa noastră despre Legalia pentru instituția sau universitatea ta — sau descoperă mai jos cum arată aplicația din interior.",
+      "cta1": "Contactează-ne",
+      "cta2": "Vezi cum arată"
+    }
+  },
+  "precedentia": {
+    "hero": {
+      "label": "PLATFORMĂ DE CĂUTARE JURIDICĂ",
+      "title": "Căutare inteligentă în jurisprudența Moldovei și a României",
+      "sub": "Peste 275.000 de hotărâri într-un singur loc — CSJ, Curtea Constituțională, CEDO și Înalta Curte de Casație a României. Cauți după cuvinte-cheie sau descrii pur și simplu situația cu propriile cuvinte, iar AI-ul găsește cazurile potrivite în câteva secunde.",
+      "cta1": "Încearcă Precedentia",
+      "cta2": "Află mai multe"
+    },
+    "about": {
+      "label": "CONCEPT",
+      "title": "Patru instanțe, o singură bară de căutare",
+      "text1": "Precedentia adună jurisprudența Moldovei și a României într-un singur loc — patru instanțe, o singură bară de căutare. Ce însemna ore de răscolit prin arhive durează acum câteva secunde.",
+      "text2": "Cauți după cuvinte-cheie sau descrii situația cu propriile cuvinte — platforma înțelege ce vrei să spui, nu doar ce tastezi. Asistentul AI răspunde la întrebări juridice cu citate exacte din hotărâri reale, iar dacă atașezi o hotărâre, găsește pe loc precedente similare.",
+      "text3": "Toate bazele de date sunt actualizate automat din surse oficiale, asigurând că practicienii au întotdeauna acces la cele mai recente decizii."
+    },
+    "facts": {
+      "label": "CIFRE",
+      "title": "Cea mai completă bază din regiune",
+      "decisions": { "suffix": ".000+", "label": "hotărâri indexate" },
+      "sources": { "label": "instanțe și surse oficiale" },
+      "modes": { "label": "moduri de căutare" }
+    },
+    "features": {
+      "label": "FUNCȚII",
+      "title": "Funcționalitățile platformei",
+      "keyword": {
+        "title": "Căutare după cuvinte-cheie",
+        "text": "Tastezi câteva cuvinte și primești pe loc hotărârile potrivite, din toate cele patru instanțe deodată."
+      },
+      "semantic": {
+        "title": "Căutare cu propriile cuvinte",
+        "text": "Descrie situația așa cum i-ai povesti-o unui coleg — AI-ul înțelege sensul și îți pune primele cele mai relevante cazuri."
+      },
+      "assistant": {
+        "title": "Asistent juridic AI",
+        "text": "Pui o întrebare juridică și primești un răspuns construit pe hotărâri reale — cu citate exacte, niciodată inventat."
+      },
+      "filters": {
+        "title": "Filtre inteligente",
+        "text": "Restrângi rezultatele dintr-un clic: instanță, perioadă, civil sau penal și tipul de document."
+      },
+      "sync": {
+        "title": "Mereu la zi",
+        "text": "Hotărârile noi ajung automat din sursele oficiale ale instanțelor — nu lucrezi niciodată cu informații învechite."
+      },
+      "attach": {
+        "title": "Atașează o hotărâre, găsește precedente",
+        "text": "Încarci o hotărâre sau îi lipești textul — AI-ul o citește și găsește precedente similare, gata de conversație."
+      }
+    },
+    "final": {
+      "label": "CONTACT",
+      "title": "Începe să cercetezi mai inteligent",
+      "text": "Peste 275.000 de hotărâri din Moldova și România, la o căutare distanță. Găsește precedentul care contează pentru cazul tău — în secunde, nu în ore.",
+      "cta1": "Încearcă Precedentia",
+      "cta2": "Contactează-ne"
+    }
   }
 }

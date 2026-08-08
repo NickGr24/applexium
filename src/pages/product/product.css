@@ -93,6 +93,16 @@
   gap: 1rem;
 }
 
+/* Facts chapter — a responsive row of StatCount, shared by any product page
+   that wants a numbers chapter (Legalia, Precedentia). Unlike home's own
+   `.stats__row` (home.css) this carries no top rule of its own — the
+   Section header above it already draws one. */
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 2.5rem 2rem;
+}
+
 /* Lets each product page tint the shared SpotlightCard with its own accent
    instead of the site-wide brand cyan, via `--page-accent` (set inline on
    the page root by ProductPage). */

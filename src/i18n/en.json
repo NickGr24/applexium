@@ -202,5 +202,129 @@
       "cta1": "Request a Demo",
       "cta2": "Open the Live Widget"
     }
+  },
+  "legalia": {
+    "hero": {
+      "label": "LEGAL EDUCATION PLATFORM",
+      "title": "Master law the way you learn best",
+      "sub": "Legalia turns the entire law curriculum into a guided journey — interactive quizzes, video lessons, podcasts and mind maps for every topic, with instant feedback that explains why an answer is right. You don't memorise the law — you understand it.",
+      "cta1": "Contact Us",
+      "cta2": "See It in Action"
+    },
+    "modules": {
+      "label": "MODULES",
+      "title": "One app, a complete law course",
+      "roadmap": {
+        "title": "A guided path per discipline",
+        "text": "Each of the 105 disciplines unfolds as a step-by-step path, Duolingo-style — complete a level to unlock the next, with your progress visible at a glance."
+      },
+      "multimedia": {
+        "title": "A full multimedia course",
+        "text": "Nearly all 924 topics ship with their own podcast, video lesson and mind map — a legal library most platforms simply don't have."
+      },
+      "quizzes": {
+        "title": "Quizzes that explain, not just grade",
+        "text": "Stuck on a question? Tap for a hint. Got it wrong? Legalia shows you the correct answer and the reasoning, often citing the exact article."
+      },
+      "gamification": {
+        "title": "XP and daily streaks",
+        "text": "Every completed quiz rewards XP and feeds your daily streak — small wins add up and unlock achievements that keep you coming back."
+      },
+      "leaderboard": {
+        "title": "Leaderboards and friend duels",
+        "text": "See how you rank globally, among friends, or by university — then challenge a classmate to a real-time quiz duel."
+      },
+      "progress": {
+        "title": "Progress analytics",
+        "text": "Track your accuracy, daily activity and strongest disciplines, so you always know what to revise next."
+      }
+    },
+    "preview": {
+      "label": "THE APP",
+      "title": "What Legalia looks like",
+      "roadmap": "The discipline roadmap, step by step",
+      "quiz": "A quiz answer, with explanation"
+    },
+    "audiences": {
+      "label": "WHO IT'S FOR",
+      "title": "A program for every stage",
+      "item1": "National Institute of Justice prep — 7 disciplines, the path to becoming a judge or prosecutor.",
+      "item2": "Bar & legal practice — 11 disciplines for future attorneys, from criminalistics to notarial and customs law.",
+      "item3": "University curriculum — the full law degree, 51 disciplines, from legal theory to procedure and human rights.",
+      "item4": "Business & corporate law — 36 modern disciplines: corporate structuring, FinTech, ESG, AI in business and international taxation."
+    },
+    "facts": {
+      "label": "NUMBERS",
+      "title": "A complete legal library",
+      "programs": { "label": "complete learning programs" },
+      "disciplines": { "label": "legal disciplines covered" },
+      "topics": { "label": "study topics" },
+      "questions": { "suffix": ",000+", "label": "quiz questions" }
+    },
+    "final": {
+      "label": "CONTACT",
+      "title": "Ready to learn law the smart way?",
+      "text": "Talk to our team about Legalia for your institution or university — or see below what the app looks like from the inside.",
+      "cta1": "Contact Us",
+      "cta2": "See the App"
+    }
+  },
+  "precedentia": {
+    "hero": {
+      "label": "LEGAL SEARCH PLATFORM",
+      "title": "Intelligent search in Moldova and Romania's case law",
+      "sub": "Over 275,000 court decisions in one place — CSJ, Constitutional Court, ECHR, and Romania's High Court of Cassation. Search by keywords or simply describe your situation in your own words, and the AI finds the right cases in seconds.",
+      "cta1": "Try Precedentia",
+      "cta2": "Learn More"
+    },
+    "about": {
+      "label": "CONCEPT",
+      "title": "Four courts, one search bar",
+      "text1": "Precedentia brings the case law of Moldova and Romania together in one place — four courts, one simple search bar. What used to take hours of digging through archives now takes seconds.",
+      "text2": "Search by keywords or describe your situation in your own words — the platform understands what you mean, not just what you type. The AI assistant answers legal questions with exact quotes from real decisions, and you can even attach a ruling to instantly find similar precedents.",
+      "text3": "All databases are automatically updated from official sources, ensuring practitioners always have access to the latest decisions."
+    },
+    "facts": {
+      "label": "NUMBERS",
+      "title": "The most complete database in the region",
+      "decisions": { "suffix": ",000+", "label": "decisions indexed" },
+      "sources": { "label": "courts and official sources" },
+      "modes": { "label": "search modes" }
+    },
+    "features": {
+      "label": "FEATURES",
+      "title": "Platform Features",
+      "keyword": {
+        "title": "Keyword search",
+        "text": "Type a few words and get matching decisions instantly, from all four courts at once."
+      },
+      "semantic": {
+        "title": "Search in your own words",
+        "text": "Describe the situation the way you'd tell it to a colleague — the AI understands the meaning and surfaces the most relevant cases first."
+      },
+      "assistant": {
+        "title": "AI legal assistant",
+        "text": "Ask a legal question and get an answer built on real decisions — with exact quotes, never invented."
+      },
+      "filters": {
+        "title": "Smart filters",
+        "text": "Narrow the results in one click: court, period, civil or criminal, and document type."
+      },
+      "sync": {
+        "title": "Always up to date",
+        "text": "New decisions arrive automatically from the official court sources — you never work with outdated information."
+      },
+      "attach": {
+        "title": "Attach a case, find precedents",
+        "text": "Upload a decision or paste its text — the AI reads it and finds similar precedents, ready for follow-up questions."
+      }
+    },
+    "final": {
+      "label": "CONTACT",
+      "title": "Start Researching Smarter",
+      "text": "Over 275,000 decisions from Moldova and Romania, one search away. Find the precedent that matters for your case — in seconds, not hours.",
+      "cta1": "Try Precedentia",
+      "cta2": "Contact Us"
+    }
   }
 }

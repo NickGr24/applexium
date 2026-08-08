@@ -1,0 +1,63 @@
+/* Legalia product page — chapters below the shared ProductPage hero. Layout
+   primitives (Section, SpotlightCard, RevealText, .spotlight-grid,
+   .stat-grid) come from styles/*.css and product.css; this file only
+   carries what's specific to Legalia's own content. */
+
+/* The hero wordmark (`public/brand/legalia-horizontal.png`) is pure black on
+   transparent — the official monochrome export, not a recoloured asset (see
+   `public/brand/*`). `invert(1)` turns it white for the dark hero, same
+   trick the legacy site used on `.lg-hero-logo`. */
+.legalia-hero-logo {
+  filter: invert(1);
+}
+
+.legalia-audiences__list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  max-width: 62ch;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.legalia-audiences__list li {
+  position: relative;
+  padding-left: 1.6rem;
+  color: rgb(237 237 242 / 0.82);
+  font-size: clamp(1rem, 1.15vw, 1.1rem);
+  line-height: 1.6;
+  text-wrap: pretty;
+}
+
+.legalia-audiences__list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.72em;
+  width: 0.7rem;
+  height: 1px;
+  background: var(--page-accent);
+}
+
+/* App preview — two phone screenshots side by side, `.photo-hover`'s calm
+   scale/brightness hover (no shader distortion, see components.css). Sized
+   by the screenshots' own 588:1040 aspect ratio rather than a fixed pixel
+   box, so they stay crisp at any width the grid gives them. */
+.legalia-preview__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 280px));
+  justify-content: center;
+  gap: 2rem 2.5rem;
+}
+
+.legalia-preview__item {
+  aspect-ratio: 588 / 1040;
+}
+
+.legalia-preview__caption {
+  margin-top: 0.9rem;
+  color: var(--ink-dim);
+  font-size: 0.9rem;
+  text-align: center;
+}

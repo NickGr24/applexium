@@ -5,6 +5,11 @@ import { useReducedMotion } from '../motion/useReducedMotion'
 type MagneticButtonProps = {
   as?: 'a' | 'button'
   href?: string
+  /** For an external destination (e.g. Precedentia's own live app) — passed
+   * straight through to the anchor, same as plain HTML. Both undefined by
+   * default, so existing same-site callers render exactly as before. */
+  target?: string
+  rel?: string
   variant: 'primary' | 'ghost'
   children: React.ReactNode
   onClick?: () => void
@@ -16,7 +21,7 @@ type MagneticButtonProps = {
  * touch visitors, and anyone with prefers-reduced-motion, get a plain
  * static button with no listeners attached.
  */
-export function MagneticButton({ as = 'a', href, variant, children, onClick }: MagneticButtonProps) {
+export function MagneticButton({ as = 'a', href, target, rel, variant, children, onClick }: MagneticButtonProps) {
   const nodeRef = useRef<HTMLAnchorElement | HTMLButtonElement | null>(null)
   const reduced = useReducedMotion()
 
@@ -68,7 +73,7 @@ export function MagneticButton({ as = 'a', href, variant, children, onClick }: M
   }
 
   return (
-    <a ref={setRef} href={href} className={className} onClick={onClick}>
+    <a ref={setRef} href={href} target={target} rel={rel} className={className} onClick={onClick}>
       <span className="magnetic-btn__label">{children}</span>
     </a>
   )
