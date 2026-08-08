@@ -1,0 +1,15 @@
+:root {
+  --bg: #04060d;
+  --bg-raise: #0a0f1d;
+  --ink: #ededf2;
+  --ink-dim: #8b93a7;
+  --brand-deep: #1c1890;
+  --brand-blue: #245efe;
+  --brand-cyan: #1fcdff;
+  --glow: linear-gradient(135deg, var(--brand-deep), var(--brand-blue) 55%, var(--brand-cyan));
+  --font-display: 'Clash Display', system-ui, sans-serif;
+  --font-body: 'General Sans', 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --container: min(92vw, 1440px);
+}
