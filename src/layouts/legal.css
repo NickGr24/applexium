@@ -1,0 +1,219 @@
+/* LegalLayout — a deliberately quiet, typographic shell for the six legal
+   pages (Task 19). No WebGL, no scene canvas, no per-section motion: the
+   coordinator's brief asked for "a clean typographic template" and only
+   RevealText on the page's own heading. Everything below the hero is styled
+   by tag (h2/h3/p/ul/table), not by the legacy `.legal-section`/`.legal-info-box`
+   classNames the content modules still carry (mechanically ported, see
+   `pages/legal/content/*`) — those classes are inert here on purpose. */
+
+.legal-hero {
+  position: relative;
+  padding-block: 9rem 3rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.legal-hero::before {
+  content: '';
+  position: absolute;
+  top: -8%;
+  left: 50%;
+  translate: -50% 0;
+  width: 640px;
+  height: 360px;
+  background: radial-gradient(circle, rgb(36 94 254 / 0.14), rgb(31 205 255 / 0.05) 45%, transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.legal-hero__icon {
+  width: 3rem;
+  height: 3rem;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  border: 1px solid rgb(139 147 167 / 0.25);
+  background: rgb(255 255 255 / 0.04);
+  color: var(--brand-cyan);
+  font-size: 1.15rem;
+  margin-bottom: 0.5rem;
+}
+
+.legal-hero__title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(2rem, 4.4vw, 3.1rem);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  max-width: 20ch;
+}
+
+.legal-hero__subtitle {
+  color: var(--brand-cyan);
+  font-size: clamp(0.95rem, 1.3vw, 1.05rem);
+  max-width: 42ch;
+}
+
+.legal-hero__version {
+  margin-top: 0.25rem;
+}
+
+.legal-body {
+  display: grid;
+  grid-template-columns: minmax(160px, 220px) minmax(0, 1fr);
+  align-items: start;
+  gap: 3.5rem;
+  padding-block: 1rem 7rem;
+}
+
+.legal-toc {
+  position: sticky;
+  top: 7.5rem;
+}
+
+.legal-toc__label {
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.legal-toc ol {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  border-left: 1px solid rgb(139 147 167 / 0.2);
+}
+
+.legal-toc a {
+  display: block;
+  padding-left: 1rem;
+  color: var(--ink-dim);
+  font-size: 0.85rem;
+  line-height: 1.4;
+  text-decoration: none;
+  transition: color 0.25s var(--ease-out);
+}
+
+.legal-toc a:hover,
+.legal-toc a:focus-visible {
+  color: var(--brand-cyan);
+}
+
+.legal-content-column {
+  max-width: 65ch;
+  color: var(--ink-dim);
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.legal-content-column h2 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(1.3rem, 2.2vw, 1.6rem);
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  scroll-margin-top: 6rem;
+}
+
+.legal-content-column h3 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.05rem;
+  color: var(--ink);
+  margin-top: 1.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.legal-content-column p {
+  margin-bottom: 1rem;
+}
+
+.legal-content-column ul {
+  margin: 0 0 1rem;
+  padding-left: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.legal-content-column a {
+  color: var(--brand-cyan);
+  text-decoration-color: rgb(31 205 255 / 0.4);
+}
+
+.legal-content-column a:hover {
+  text-decoration-color: currentColor;
+}
+
+.legal-content-column strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.legal-content-column table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+  font-size: 0.88rem;
+}
+
+.legal-content-column th,
+.legal-content-column td {
+  text-align: left;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid rgb(139 147 167 / 0.2);
+  vertical-align: top;
+}
+
+.legal-content-column th {
+  color: var(--ink);
+  font-weight: 600;
+  background: rgb(255 255 255 / 0.03);
+}
+
+.legal-content-column .legal-info-box {
+  border-left: 2px solid var(--brand-cyan);
+  padding: 0.9rem 1.25rem;
+  margin-bottom: 1.5rem;
+  background: rgb(255 255 255 / 0.02);
+  font-size: 0.92rem;
+}
+
+.legal-content-column .legal-info-box p:last-child {
+  margin-bottom: 0;
+}
+
+.legal-content-column .legal-section-num {
+  display: none;
+}
+
+.legal-content-column .legal-copyright {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgb(139 147 167 / 0.2);
+  font-size: 0.8rem;
+  color: var(--ink-dim);
+}
+
+@media (max-width: 900px) {
+  .legal-hero {
+    padding-block: 7.5rem 2.5rem;
+  }
+
+  .legal-body {
+    grid-template-columns: 1fr;
+    padding-block: 0.5rem 4.5rem;
+  }
+
+  .legal-toc {
+    display: none;
+  }
+}

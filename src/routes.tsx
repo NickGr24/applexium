@@ -1,6 +1,7 @@
 import type { RouteRecord } from 'vite-react-ssg'
 import React from 'react'
 import SiteLayout from './layouts/SiteLayout'
+import type { LegalId } from './site/jsonld'
 import pages from './site/pages.json'
 
 const componentFor: Record<string, React.LazyExoticComponent<React.ComponentType>> = {
@@ -16,6 +17,28 @@ const componentFor: Record<string, React.LazyExoticComponent<React.ComponentType
   contacts: React.lazy(() => import('./pages/Contacts')),
   // остальные страницы добавляются по мере задач; до тех пор — заглушка
 }
+
+// The six legal pages (Task 19) all share one route component, `LegalPage`,
+// parameterised by `id` — so each gets a closure around that id rather than
+// its own file (unlike the product/profile pages, which each have a real
+// per-page file because their content genuinely differs page to page, not
+// just by which id string to look up). `LegalPage` itself lazy-loads the
+// actual ported text per `id`+lang (see `pages/legal/LegalPage.tsx`), so
+// this outer `React.lazy` only pulls in the shared layout/chrome.
+const LEGAL_IDS: LegalId[] = [
+  'accessibility',
+  'ai-ethics',
+  'cookie-policy',
+  'esg',
+  'privacy-policy',
+  'terms-and-conditions',
+]
+for (const id of LEGAL_IDS) {
+  componentFor[id] = React.lazy(() =>
+    import('./pages/legal/LegalPage').then(({ LegalPage }) => ({ default: () => <LegalPage id={id} /> })),
+  )
+}
+
 const Placeholder = () => null
 
 /**

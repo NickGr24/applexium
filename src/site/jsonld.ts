@@ -1,5 +1,5 @@
 import { type Lang, localePath } from '../i18n'
-import { SITE_ORIGIN } from './meta'
+import { pageMeta, SITE_ORIGIN } from './meta'
 
 /**
  * JSON-LD factories, ported from the `<script type="application/ld+json">`
@@ -298,5 +298,42 @@ export function contactPageJsonLd(lang: Lang) {
         knowsLanguage: ['ro', 'en', 'ru'],
       },
     ],
+  }
+}
+
+export type LegalId =
+  | 'accessibility'
+  | 'ai-ethics'
+  | 'cookie-policy'
+  | 'esg'
+  | 'privacy-policy'
+  | 'terms-and-conditions'
+
+/**
+ * The six legal pages (Task 19), each a flat `WebPage` object — matching the
+ * shape most of `_legacy/*.html`'s own JSON-LD blocks use (a couple carry
+ * stray inconsistencies, e.g. `ai-ethics.html`'s `name` keeping the " |
+ * Applexium" suffix that the others drop, or missing/present `@id` — not
+ * worth reproducing here). Like `aboutPageJsonLd`/`collectionPageJsonLd`,
+ * `name`/`description` stay the RO legacy text on *both* language versions;
+ * only `url`/`@id`/`inLanguage`/`publisher.url` vary with `lang`. `name` is
+ * derived from `pageMeta`'s own RO `<title>` by dropping the site-name
+ * suffix every one of the six follows exactly ("X | Applexium"), and
+ * `description` reuses `pageMeta`'s RO description outright — the same text
+ * already verified against `_legacy/*.html`'s own `<meta name="description">`
+ * (see `site/meta.ts`'s doc comment for the two pages expanded there).
+ */
+export function legalPageJsonLd(id: LegalId, lang: Lang) {
+  const url = siteUrl(lang, id)
+  const ro = pageMeta[id].ro
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': `${url}#webpage`,
+    name: ro.title.replace(/ \| Applexium$/, ''),
+    description: ro.description,
+    url,
+    inLanguage: lang,
+    publisher: { '@type': 'Organization', name: 'Applexium', url: siteUrl(lang, '') },
   }
 }
