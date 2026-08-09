@@ -36,11 +36,30 @@ type AuroraBackgroundProps = {
  * OGL's manual rAF loop stops drawing while the hero scrolls out of view
  * without tearing down and rebuilding the WebGL context, the OGL analogue
  * of SceneCanvas's `frameloop: 'never'`.
+ *
+ * `entered` alone used to be enough to start the `AuroraCanvas` dynamic
+ * import (see `canLoad` below for why that's no longer sufficient on its
+ * own): the hero is full-viewport, so its container is intersecting from
+ * the very first layout — `rootMargin: '25%'` fired essentially immediately
+ * on mount, meaning the ~50KB `ogl` chunk started fetching and parsing
+ * *during* the same window as the critical CSS/font/JS the LCP text itself
+ * depends on (measured: this was part of what held home's mobile LCP at
+ * ~3.5s despite the three.js-chunk preload fix in Task 22's main pass — see
+ * that task's report for the before number). `canLoad` adds a second gate,
+ * independent of intersection: don't even attempt the import until
+ * `window`'s `load` event has fired (or immediately, if it already has by
+ * the time this effect runs — true for every client-side route change,
+ * since `load` only ever fires once per real navigation) and, past that, an
+ * idle callback — so the fetch/parse genuinely happens after the critical
+ * path is already settled, not merely "soon". The poster underneath covers
+ * the entire wait either way, same as it always covered the Suspense/first-
+ * frame gap.
  */
 export function AuroraBackground({ tier, poster, className, progressRef }: AuroraBackgroundProps) {
   const [resolvedTier] = useState<GraphicsTier>(() => tier ?? graphicsTier())
   const [entered, setEntered] = useState(false)
   const [visible, setVisible] = useState(false)
+  const [canLoad, setCanLoad] = useState(false)
   const containerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -69,6 +88,38 @@ export function AuroraBackground({ tier, poster, className, progressRef }: Auror
     return () => observer.disconnect()
   }, [resolvedTier])
 
+  useEffect(() => {
+    if (resolvedTier === 'static') return
+
+    // Schedules the actual `setCanLoad(true)` for whenever the browser next
+    // has spare cycles, capped at 2s so a permanently-busy main thread can't
+    // delay the aurora forever. `requestIdleCallback` isn't in Safari; a
+    // short flat delay stands in there — still well after `load`, which is
+    // the gate that actually matters.
+    function scheduleIdle(): () => void {
+      if (typeof requestIdleCallback === 'function') {
+        const idleId = requestIdleCallback(() => setCanLoad(true), { timeout: 2000 })
+        return () => cancelIdleCallback(idleId)
+      }
+      const timeoutId = window.setTimeout(() => setCanLoad(true), 200)
+      return () => window.clearTimeout(timeoutId)
+    }
+
+    if (document.readyState === 'complete') {
+      return scheduleIdle()
+    }
+
+    let cancelIdle: (() => void) | undefined
+    const onLoad = () => {
+      cancelIdle = scheduleIdle()
+    }
+    window.addEventListener('load', onLoad, { once: true })
+    return () => {
+      window.removeEventListener('load', onLoad)
+      cancelIdle?.()
+    }
+  }, [resolvedTier])
+
   // 'lite' trims amplitude/speed (less GPU work per pixel isn't really the
   // cost here — the win is a calmer noise field, cheaper to eyeball as
   // "stable" — and drops dpr to 1) instead of the retina-clamped dpr 'high'
@@ -79,7 +130,7 @@ export function AuroraBackground({ tier, poster, className, progressRef }: Auror
   return (
     <div ref={containerRef} className={className} style={{ position: 'relative' }}>
       <div style={{ position: 'absolute', inset: 0 }}>{poster}</div>
-      {resolvedTier !== 'static' && entered && (
+      {resolvedTier !== 'static' && entered && canLoad && (
         <div style={{ position: 'absolute', inset: 0 }}>
           <Suspense fallback={null}>
             <AuroraCanvas
