@@ -1,0 +1,24 @@
+{
+  "name": "Applexium — Produse digitale, servicii IT și consultanță",
+  "short_name": "Applexium",
+  "description": "Applexium creează produse digitale sigure, oferă servicii IT și consultanță pentru startup-uri din Moldova.",
+  "lang": "ro",
+  "dir": "ltr",
+  "start_url": "/",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "/favicon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#09001B",
+  "background_color": "#09001B",
+  "display": "standalone"
+}
