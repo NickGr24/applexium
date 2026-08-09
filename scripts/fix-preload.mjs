@@ -2,26 +2,13 @@
 // gen-sitemap.mjs, so its dist/en.html -> dist/en/index.html copy picks up
 // the fix too) and before verify-dist.mjs.
 //
-// Rewrites every dist/**/*.html's <link rel="modulepreload"> block to the
-// *actually* minimal set of JS chunks that page needs, replacing
-// vite-react-ssg's own computation (`collectAssets`/`collectModules` in its
-// shared bundle), which is over-broad in a way that matters here — see
-// Task 22's brief and docs/superpowers/plans/2026-08-08-applexium-redesign.md
-// for the ledger entry this closes.
-//
-// JS only, deliberately: an earlier version of this script also recomputed
-// `<link rel="stylesheet">` tags (the manifest's `collectManifestItemAssets`
-// covers `.css` too, in principle the same over-broad walk could pull in
-// extra stylesheets) — but no module in this codebase's dynamicImports graph
-// actually carries its own `.css` (only page-level modules do, and those are
-// always genuinely needed), so there was nothing to fix on the CSS side, and
-// keeping that code only made this script fight `beasties` (Task 22 also
-// added it as a devDependency, purely by being installed — vite-react-ssg
-// auto-detects and runs it, see its own `getBeastiesOrCritters`): beasties
-// turns each page's `<link rel="stylesheet">` into an inlined
-// `<style>` plus a deferred `<link rel="preload" as="style">` swap, and this
-// script blindly re-adding a plain synchronous stylesheet link for the same
-// file undid that entirely (loading the CSS twice, once render-blocking).
+// Rewrites every dist/**/*.html's <link rel="modulepreload"> AND
+// <link rel="stylesheet"> blocks to the *actually* correct set of assets
+// that page needs, replacing vite-react-ssg's own computation
+// (`collectAssets`/`collectModules` in its shared bundle), which is
+// over-broad in a way that matters here — see Task 22's brief and
+// docs/superpowers/plans/2026-08-08-applexium-redesign.md for the ledger
+// entry this closes.
 //
 // # The bug this works around
 //
@@ -30,9 +17,9 @@
 // build's manifest (see `collectModules` in its `node.mjs`). `.dynamicImports`
 // is populated by Rollup from every `import()` expression *syntactically
 // present* in a module — regardless of whether that particular call site
-// ever executes for a given page. Two places in this codebase have a module
-// whose SSR-touched file contains several `import()` calls where only one
-// (or zero) actually fire per page:
+// ever executes for a given page. Three places in this codebase hit this —
+// two found in Task 22's main pass, a third (the CSS side) found afterward
+// while wiring up a critical-CSS defer for the home page (see below):
 //
 //   - `src/pages/legal/LegalPage.tsx` has one `lazy(() => import(...))` per
 //     (legal id x language) — 12 total — in its `CONTENT` lookup table, but
@@ -42,39 +29,56 @@
 //     the same id literally share one `React.lazy()` instance in
 //     `routes.tsx`, so only the first render's tracking mark fires), *all
 //     twelve* content chunks get modulepreloaded — ~153KB raw for one
-//     visible paragraph's worth of legal text. The language that renders
-//     second for a given id gets the opposite bug: since its `LegalPage`
-//     lazy component was already resolved by the first language's render,
-//     its own SSR pass never re-touches `LegalPage.tsx`, so it *loses* the
-//     preload for the shell it does genuinely need (`LegalPage`,
-//     `RevealText`, `jsonld`) as well as its own content chunk.
+//     visible paragraph's worth of legal text.
 //   - `src/scenes/SceneCanvas.tsx` has one `lazy(() => import('./SceneCanvasInner'))`
 //     for the actual R3F `<Canvas>` mount, gated behind an
-//     IntersectionObserver that never fires during SSR (see that file's own
-//     doc comment) — so it never renders server-side on any page. But
-//     `SceneCanvas.tsx` itself *is* statically imported (and thus
-//     SSR-touched) by every page that uses it, so its one dynamicImport
-//     target — `SceneCanvasInner.tsx`, which alone pulls in `three` +
-//     `@react-three/fiber` + `@react-three/postprocessing`, ~880KB raw —
-//     gets modulepreloaded unconditionally, and with it whichever specific
-//     `*Scene.tsx` module the page's own dynamicImports chain also touches.
-//     That's an 880KB parse/compile competing with the actual critical path
-//     on every page with a scene, whether or not the scene is anywhere near
-//     the fold.
+//     IntersectionObserver that never fires during SSR (so it never renders
+//     server-side on any page), but `SceneCanvas.tsx` itself is always
+//     statically imported (and thus SSR-touched) by every page that uses
+//     it, so its one dynamicImport target — ~880KB of three/@react-three/*
+//     — got modulepreloaded unconditionally.
+//   - The *language that renders second* for a given route id gets the
+//     opposite bug, on BOTH the JS and CSS side: since `componentFor[id]`
+//     in `routes.tsx` is one shared `React.lazy()` instance reused for both
+//     the RO and `/en` route of every id (not just the six legal ones —
+//     this applies to every page, `home` included), only whichever
+//     language renders first (RO, since `routes.tsx` lists RO paths before
+//     EN paths) actually re-triggers that route module's SSR-tracking mark.
+//     The second language's SSR pass never re-touches the route module, so
+//     it loses *both* the JS preloads AND the `<link rel="stylesheet">` for
+//     that page's own CSS (e.g. `en.html` shipped with no stylesheet link
+//     for `Home-*.css` at all — confirmed via `dist/.vite/manifest.json`:
+//     `Home.tsx`'s own `.css` field is real, and it's a dynamicImports
+//     target of `index.html`). The page isn't actually broken — Vite's
+//     runtime still injects that CSS via the async JS chunk once it loads,
+//     the same way it would for any lazy-loaded route — but that happens
+//     *after* hydration starts instead of before first paint, a brief
+//     unstyled flash `<link rel="stylesheet">` in the SSR HTML would have
+//     avoided.
 //
 // # The fix
 //
-// Recompute each page's preload set from the same `dist/.vite/manifest.json`,
+// Recompute each page's asset set from the same `dist/.vite/manifest.json`,
 // but only ever walk `.imports` (real, always-executed static edges) —
 // never `.dynamicImports`. The few genuinely-needed dynamic edges (a page's
 // own route chunk; a legal page's own one content chunk) are added
 // explicitly, by name, once, instead of discovered by blindly recursing
 // into a *possible*-imports list. This is naturally symmetric (RO and EN
-// both get computed the same way, so the EN under-preload gap closes too)
-// and naturally excludes every lazy scene chunk from every page's preload
-// list (they were never in anyone's explicit "needed now" set to begin
-// with), which is the fix for ledger items T19/T8 both — same root cause,
-// per the brief's own hint.
+// both get computed the same way, so the EN under-preload gap closes for
+// both JS and CSS) and naturally excludes every lazy scene chunk from every
+// page's preload list.
+//
+// CSS note: an earlier version of this script deliberately did *not* touch
+// `<link rel="stylesheet">`, on the (incomplete) theory that no module in
+// the over-broad dynamicImports walk carries its own `.css` — true for the
+// legal content chunks and the scene chunks, but not for page-level route
+// modules themselves (`Home.tsx`, `emmi.tsx`, ...), which is exactly the
+// gap this version closes. That earlier version also existed to avoid
+// fighting `beasties` (tried as a devDependency for critical-CSS inlining,
+// then rejected — see vite.config.ts and Task 22's report). Since beasties
+// isn't installed, there's nothing to conflict with here; if it's ever
+// reintroduced, its own stylesheet rewriting and this script's would need
+// reconciling again.
 import { readFileSync, writeFileSync, existsSync } from 'node:fs'
 import { join } from 'node:path'
 import pages from '../src/site/pages.json' with { type: 'json' }
@@ -95,18 +99,18 @@ function resolve(srcPath) {
 }
 
 // Walks `.imports` only — real ES module static edges, always executed —
-// collecting every reached chunk's own `.file`. Deliberately never touches
-// `.dynamicImports`; see file header. JS only — see file header for why
-// `.css` isn't collected here.
-function staticClosure(srcPaths, jsFiles = new Set(), seen = new Set()) {
+// collecting every reached chunk's own `.file` (JS) and `.css` list.
+// Deliberately never touches `.dynamicImports`; see file header.
+function staticClosure(srcPaths, jsFiles = new Set(), cssFiles = new Set(), seen = new Set()) {
   for (const srcPath of srcPaths) {
     if (seen.has(srcPath)) continue
     seen.add(srcPath)
     const entry = resolve(srcPath)
     jsFiles.add(entry.file)
-    staticClosure(entry.imports ?? [], jsFiles, seen)
+    for (const css of entry.css ?? []) cssFiles.add(css)
+    staticClosure(entry.imports ?? [], jsFiles, cssFiles, seen)
   }
-  return jsFiles
+  return { jsFiles, cssFiles }
 }
 
 // Every page shares this one bootstrap: `index.html`'s own static imports
@@ -122,7 +126,7 @@ const BOOTSTRAP = staticClosure(['index.html', 'node_modules/react-dom/client.js
 // `index.html`'s own output (`app-*.js`) is already loaded via the real
 // `<script type="module">` tag every page ships — modulepreloading it too
 // would just be a harmless but pointless duplicate link for the same file.
-BOOTSTRAP.delete(resolve('index.html').file)
+BOOTSTRAP.jsFiles.delete(resolve('index.html').file)
 
 // Mirrors `componentFor` in `src/routes.tsx`: the module each page id's
 // route actually lazy-imports. Kept as a flat table (like gen-sitemap.mjs
@@ -163,29 +167,33 @@ function distFileFor(lang, slug) {
   return slug === '' ? join(DIST, 'en.html') : join(DIST, 'en', `${slug}.html`)
 }
 
-function computePreloadSet(id, lang) {
+function computeAssetSet(id, lang) {
   const entries = [ENTRY_FOR_ID[id]]
   if (LEGAL_IDS.has(id)) entries.push(`src/pages/legal/content/${id}.${lang}.tsx`)
-  const jsFiles = new Set(BOOTSTRAP)
-  staticClosure(entries, jsFiles)
-  return jsFiles
+  const jsFiles = new Set(BOOTSTRAP.jsFiles)
+  const cssFiles = new Set(BOOTSTRAP.cssFiles)
+  staticClosure(entries, jsFiles, cssFiles)
+  return { jsFiles, cssFiles }
 }
 
-function renderLinks(jsFiles) {
-  return [...jsFiles].map((f) => `<link rel="modulepreload" crossorigin="" href="/${f}">`).join('')
+function renderLinks({ jsFiles, cssFiles }) {
+  const js = [...jsFiles].map((f) => `<link rel="modulepreload" crossorigin="" href="/${f}">`)
+  const css = [...cssFiles].map((f) => `<link rel="stylesheet" href="/${f}" crossorigin="">`)
+  return [...js, ...css].join('')
 }
 
 // The entry script tag (`<script type="module" ... src="...">`) stays
-// untouched — only the modulepreload links that follow it are replaced.
-// CSS `<link>` tags (stylesheet, or beasties' preload-as-style swap) are
-// never touched — see file header.
+// untouched — only the modulepreload/stylesheet links that follow it are
+// replaced.
 const MODULEPRELOAD_RE = /<link rel="modulepreload"[^>]*>/g
+const STYLESHEET_RE = /<link rel="stylesheet"[^>]*>/g
 const ENTRY_SCRIPT_RE = /<script type="module"[^>]*><\/script>/
 
 function fixHtml(html, id, lang) {
   const before = html
   html = html.replace(MODULEPRELOAD_RE, '')
-  const links = renderLinks(computePreloadSet(id, lang))
+  html = html.replace(STYLESHEET_RE, '')
+  const links = renderLinks(computeAssetSet(id, lang))
   const match = ENTRY_SCRIPT_RE.exec(html)
   if (!match) throw new Error(`fix-preload: no entry <script type="module"> found for ${id}/${lang}`)
   const insertAt = match.index + match[0].length
@@ -212,4 +220,4 @@ for (const p of pages) {
 }
 
 if (process.exitCode) process.exit(1)
-console.log(`fix-preload: rewrote modulepreload links in ${filesFixed} file(s)`)
+console.log(`fix-preload: rewrote modulepreload/stylesheet links in ${filesFixed} file(s)`)

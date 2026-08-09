@@ -49,6 +49,15 @@ const countOf = (haystack, needle) => haystack.split(needle).length - 1
 if (!Array.isArray(pages) || pages.length === 0) fail('src/site/pages.json has no pages')
 
 for (const p of pages) {
+  // Task 22: RO and EN of the same page must ship the same *number* of
+  // <link rel="stylesheet"> (the live ones swapped in via the preload+onload
+  // trick on the home page, or plain links everywhere else) — a mismatch
+  // means the vite-react-ssg asymmetry that dropped Home.css's stylesheet
+  // link from en.html (componentFor[id]'s shared React.lazy() instance only
+  // re-triggers SSR-tracking for whichever language renders first) has
+  // regressed. Compared once both languages of this page have been read.
+  const stylesheetCountByLang = {}
+
   for (const lang of ['ro', 'en']) {
     const file = distFileFor(lang, p.slug)
     if (!existsSync(file)) {
@@ -56,6 +65,14 @@ for (const p of pages) {
       continue
     }
     const html = readFileSync(file, 'utf8')
+    // Counts both plain `<link rel="stylesheet">` (every page — includes the
+    // home page's own <noscript> fallback) and its preload-then-swap variant
+    // (`rel="preload" ... as="style"`, home page only) — both are "this page
+    // loads this CSS file" signals, just phrased differently depending on
+    // whether inline-critical-css.mjs touched this file.
+    const plainLinks = html.match(/<link rel="stylesheet"[^>]*>/g) ?? []
+    const preloadStyleLinks = html.match(/<link rel="preload"[^>]*as="style"[^>]*>/g) ?? []
+    stylesheetCountByLang[lang] = plainLinks.length + preloadStyleLinks.length
 
     // Anchored on "<html lang=" rather than the brief's bare `lang="${lang}"`:
     // the latter is a substring of `hreflang="ro"`/`hreflang="en"`, which
@@ -100,6 +117,15 @@ for (const p of pages) {
       // The shared shell (LegalPage/RevealText) must be preloaded for BOTH
       // languages of every id — this is exactly the asymmetry T19 flagged.
       if (!preloadHrefs.some((h) => h.includes('/LegalPage-'))) fail(`${file}: missing LegalPage shell modulepreload`)
+    }
+  }
+
+  if (stylesheetCountByLang.ro !== undefined && stylesheetCountByLang.en !== undefined) {
+    if (stylesheetCountByLang.ro !== stylesheetCountByLang.en) {
+      fail(
+        `${p.id}: RO/EN stylesheet-link count mismatch (ro=${stylesheetCountByLang.ro}, en=${stylesheetCountByLang.en}) — ` +
+          'one language is likely missing its own page CSS (the componentFor[id] shared-lazy-instance asymmetry, see fix-preload.mjs)',
+      )
     }
   }
 }
