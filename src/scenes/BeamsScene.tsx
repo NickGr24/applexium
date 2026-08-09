@@ -3,11 +3,12 @@ import { Bloom, EffectComposer } from '@react-three/postprocessing'
 import { useEffect, useMemo, useRef } from 'react'
 import { AdditiveBlending, Color, type Mesh, PlaneGeometry, ShaderMaterial } from 'three'
 import { BEAMS_CAMERA } from './beamsCamera'
+import { frameLerp } from './frameLerp'
 import { useSceneTier } from './SceneCanvasInner'
 
 /* Legalia's product scene: a row of strict, vertical light columns — read
- * as "the colonnade of justice" distilled to pure light, rather than the
- * literal stone arches `HeroWorld` already owns.
+ * as "the colonnade of justice" distilled to pure light rather than
+ * literal stone arches.
  *
  * Ported from React Bits' `Beams` (`reactbits get_component Beams`), which
  * displaces a stack of merged planes with 3D Perlin noise and lights them
@@ -23,11 +24,12 @@ import { useSceneTier } from './SceneCanvasInner'
  * layered under a sinusoidal brightness "breath" per column. Everything
  * else is dropped in favour of an unlit, additive `ShaderMaterial`, the
  * same recipe every other glow in this codebase already uses
- * (`ConvergenceScene`'s `Stream`/`Core`, `HeroWorld`'s `Doorway`), instead
- * of a physically-lit material and a directional light.
+ * (`ConvergenceScene`'s `Stream`/`Core`), instead of a physically-lit
+ * material and a directional light.
  */
 
-/** Matches the page background, same rationale as `HeroWorld`'s FOG_COLOR. */
+/** Matches the page background — see `ConvergenceScene.tsx`'s own
+ * `FOG_COLOR` for the rebrand history behind this exact value. */
 const FOG_COLOR = '#04060d'
 
 /** Legalia's palette (`_legacy/legalia.html`'s `--lg-*`). `HIGHLIGHT` is
@@ -179,14 +181,15 @@ function Beam({ def, geometry }: BeamProps) {
 /** Cursor parallax, `high` tier only — same shape as `ConvergenceScene`'s
  * `CameraRig`: always settles back on `BEAMS_CAMERA.position`. */
 function CameraRig({ parallax }: { parallax: boolean }) {
-  useFrame((state) => {
+  useFrame((state, delta) => {
     const { camera, pointer } = state
     const [x0, y0, z0] = BEAMS_CAMERA.position
     const targetX = parallax ? x0 + pointer.x * 1.1 : x0
     const targetY = parallax ? y0 + pointer.y * 0.5 : y0
 
-    camera.position.x += (targetX - camera.position.x) * 0.05
-    camera.position.y += (targetY - camera.position.y) * 0.05
+    const k = frameLerp(0.05, delta)
+    camera.position.x += (targetX - camera.position.x) * k
+    camera.position.y += (targetY - camera.position.y) * k
     camera.position.z = z0
     camera.lookAt(0, 0, -6)
   })

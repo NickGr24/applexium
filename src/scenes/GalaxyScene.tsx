@@ -11,6 +11,7 @@ import {
   type PointsMaterial as PointsMaterialType,
   SRGBColorSpace,
 } from 'three'
+import { frameLerp } from './frameLerp'
 import { GALAXY_CAMERA } from './galaxyCamera'
 import { useSceneTier, type SceneTier } from './SceneCanvasInner'
 
@@ -196,14 +197,15 @@ function GalaxyField({ tier }: { tier: SceneTier }) {
 /** Cursor parallax, `high` tier only — same shape as `ConvergenceScene`'s
  * `CameraRig`: always settles back on `GALAXY_CAMERA.position`. */
 function CameraRig({ parallax }: { parallax: boolean }) {
-  useFrame((state) => {
+  useFrame((state, delta) => {
     const { camera, pointer } = state
     const [x0, y0, z0] = GALAXY_CAMERA.position
     const targetX = parallax ? x0 + pointer.x * 1.4 : x0
     const targetY = parallax ? y0 + pointer.y * 0.8 : y0
 
-    camera.position.x += (targetX - camera.position.x) * 0.05
-    camera.position.y += (targetY - camera.position.y) * 0.05
+    const k = frameLerp(0.05, delta)
+    camera.position.x += (targetX - camera.position.x) * k
+    camera.position.y += (targetY - camera.position.y) * k
     camera.position.z = z0
     camera.lookAt(0, 0, 0)
   })

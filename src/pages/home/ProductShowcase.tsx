@@ -154,6 +154,16 @@ export function ProductShowcase({ lang }: { lang: Lang }) {
           // On lite only the active slide gets a live canvas — see the note
           // above for why the tier is passed as a key as well as a prop.
           const slideTier: GraphicsTier = tier === 'lite' && i !== active ? 'static' : tier
+          // On `high`, all three scenes stay mounted and rendering the whole
+          // time (that's what makes the cross-fade a dissolve rather than a
+          // cut) — three simultaneous WebGL contexts with Bloom's
+          // EffectComposer each. Pausing the inactive two outright would
+          // freeze them mid-fade the moment they're about to become active
+          // again, so instead only their device-pixel-ratio is trimmed to 1
+          // (from the tier's own `[1, 1.75]`) — same frame rate, same
+          // cross-fade, meaningfully less fill-rate/GPU cost for the two
+          // scenes that aren't actually being looked at.
+          const slideDpr = tier === 'high' && i !== active ? 1 : undefined
           return (
             <div className="showcase__slide" key={id}>
               <div className="showcase__scene">
@@ -163,6 +173,7 @@ export function ProductShowcase({ lang }: { lang: Lang }) {
                   className="scene-canvas"
                   poster={<div className={`scene-poster scene-poster--${poster}`} aria-hidden="true" />}
                   camera={camera}
+                  dpr={slideDpr}
                 >
                   <Scene />
                 </SceneCanvas>

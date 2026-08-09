@@ -182,6 +182,14 @@ export function AuroraCanvas({
   pausedRef.current = paused
 
   const ctnDom = useRef<HTMLDivElement>(null)
+  // `update` (defined inside the effect below, since it closes over the
+  // renderer/program/mesh that effect creates) and the id of whichever
+  // frame is currently scheduled — read from the second effect further
+  // down so it can restart the rAF chain once `paused` flips back to
+  // false. See that effect's own comment for why a restart hook is needed
+  // at all instead of just always rescheduling.
+  const updateRef = useRef<((t: number) => void) | null>(null)
+  const animateIdRef = useRef(0)
 
   useEffect(() => {
     const ctn = ctnDom.current
@@ -237,14 +245,16 @@ export function AuroraCanvas({
     const mesh = new Mesh(gl, { geometry, program })
     ctn.appendChild(gl.canvas)
 
-    let animateId = 0
     const update = (t: number) => {
-      animateId = requestAnimationFrame(update)
-
-      // Offscreen: keep the rAF chain alive (cheap — one callback, no GPU
-      // work) so it resumes on its own the moment `paused` flips back, but
-      // skip the uniform math and the draw call themselves.
+      // Offscreen: stop the rAF chain entirely instead of skipping just the
+      // uniform math and draw call — `requestAnimationFrame` still fires on
+      // a backgrounded/offscreen tab (throttled, not free), and this scene
+      // can sit paused for most of a visit (below-the-fold sections of the
+      // hero track, or a backgrounded tab). The chain is restarted by the
+      // effect below the moment `paused` flips back to false; nothing here
+      // needs to keep polling for that on its own.
       if (pausedRef.current) return
+      animateIdRef.current = requestAnimationFrame(update)
 
       const current = propsRef.current
       const progress = progressRef?.current ?? 0
@@ -260,12 +270,18 @@ export function AuroraCanvas({
       })
       renderer.render({ scene: mesh })
     }
-    animateId = requestAnimationFrame(update)
+    updateRef.current = update
+    // Respect an already-paused initial prop rather than always starting —
+    // AuroraBackground only mounts this component once its own
+    // IntersectionObserver has already fired at least once, so in practice
+    // `paused` is false here, but this keeps the effect honest either way.
+    if (!pausedRef.current) animateIdRef.current = requestAnimationFrame(update)
 
     resize()
 
     return () => {
-      cancelAnimationFrame(animateId)
+      cancelAnimationFrame(animateIdRef.current)
+      updateRef.current = null
       window.removeEventListener('resize', resize)
       if (ctn && gl.canvas.parentNode === ctn) {
         ctn.removeChild(gl.canvas)
@@ -277,6 +293,18 @@ export function AuroraCanvas({
     // it's likewise only meant to be set once, from the resolved tier.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [amplitude, dpr])
+
+  // Restarts the rAF chain the instant `paused` flips back to false. The
+  // main effect above intentionally does not depend on `paused` (that
+  // would tear down and rebuild the whole WebGL context on every
+  // pause/resume, not just start/stop a loop), so `update` itself stops
+  // rescheduling itself while paused (see its own comment) and nothing else
+  // would ever kick it awake again without this.
+  useEffect(() => {
+    if (paused || !updateRef.current) return
+    cancelAnimationFrame(animateIdRef.current)
+    animateIdRef.current = requestAnimationFrame(updateRef.current)
+  }, [paused])
 
   return <div ref={ctnDom} style={{ width: '100%', height: '100%' }} />
 }

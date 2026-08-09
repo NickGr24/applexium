@@ -16,6 +16,7 @@ import {
   Vector3,
 } from 'three'
 import { CONVERGENCE_CAMERA } from './convergenceCamera'
+import { frameLerp } from './frameLerp'
 import { useSceneTier, type SceneTier } from './SceneCanvasInner'
 
 /* Emmi's hero scene: five particle streams, one per channel, converging on
@@ -30,13 +31,13 @@ import { useSceneTier, type SceneTier } from './SceneCanvasInner'
  * fading to violet, WhatsApp green, Telegram blue) and renders it with
  * camera-facing instanced sprites instead of canvas `drawImage` calls.
  *
- * Unlike `HeroWorld`, this scene owns its whole timeline — no scroll
- * progress comes in from the page, it just runs. `<ConvergenceScene />`
- * takes no props.
+ * This scene owns its whole timeline — no scroll progress comes in from the
+ * page, it just runs. `<ConvergenceScene />` takes no props.
  */
 
-/** Matches the page background, same rationale as `HeroWorld`'s `FOG_COLOR`:
- * the rebrand moved the dark background from #071116 (still visible as
+/** Matches the page background — same FOG_COLOR every scene in this
+ * directory shares (`BeamsScene.tsx`, `GalaxyScene.tsx`): the rebrand moved
+ * the dark background from #071116 (still visible as
  * `--em-deeper` in the legacy Emmi page) to #04060d, and fog has to agree
  * with the canvas backdrop or the scene shows a seam against it. */
 const FOG_COLOR = '#04060d'
@@ -341,20 +342,20 @@ function Core({ tier }: { tier: SceneTier }) {
 }
 
 /**
- * Cursor parallax, `high` tier only — same smoothing constant and the same
- * shape as `HeroWorld`'s `CameraRig`, minus the scroll dolly this scene has
- * no progress to drive. The camera always settles back on `CONVERGENCE_
- * CAMERA.position`, looking at the core at the origin.
+ * Cursor parallax, `high` tier only — same shape as `BeamsScene`'s and
+ * `GalaxyScene`'s own `CameraRig`. The camera always settles back on
+ * `CONVERGENCE_CAMERA.position`, looking at the core at the origin.
  */
 function CameraRig({ parallax }: { parallax: boolean }) {
-  useFrame((state) => {
+  useFrame((state, delta) => {
     const { camera, pointer } = state
     const [x0, y0, z0] = CONVERGENCE_CAMERA.position
     const targetX = parallax ? x0 + pointer.x * 0.6 : x0
     const targetY = parallax ? y0 + pointer.y * 0.35 : y0
 
-    camera.position.x += (targetX - camera.position.x) * 0.05
-    camera.position.y += (targetY - camera.position.y) * 0.05
+    const k = frameLerp(0.05, delta)
+    camera.position.x += (targetX - camera.position.x) * k
+    camera.position.y += (targetY - camera.position.y) * k
     camera.position.z = z0
     camera.lookAt(0, 0, 0)
   })
@@ -363,8 +364,8 @@ function CameraRig({ parallax }: { parallax: boolean }) {
 }
 
 /**
- * Renders inside a `<SceneCanvas camera={CONVERGENCE_CAMERA}>`. Unlike
- * `HeroWorld`, takes no props — the whole scene is driven by its own clock.
+ * Renders inside a `<SceneCanvas camera={CONVERGENCE_CAMERA}>`. Takes no
+ * props — the whole scene is driven by its own clock.
  */
 export function ConvergenceScene() {
   const tier = useSceneTier()

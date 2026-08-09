@@ -17,6 +17,13 @@ type SceneCanvasProps = {
   poster: ReactNode
   className?: string
   camera?: CanvasProps['camera']
+  /** Overrides the tier's own default device-pixel-ratio (`[1, 1.75]` on
+   * `high`, flat `1` otherwise). For a caller that mounts more than one
+   * live Canvas at once on `high` — ProductShowcase runs all three product
+   * scenes simultaneously so they can cross-fade — trimming the *inactive*
+   * ones down to `1` cuts their fill-rate cost without pausing their
+   * frameloop (which would freeze the cross-fade itself). */
+  dpr?: CanvasProps['dpr']
   children?: ReactNode
 }
 
@@ -49,7 +56,7 @@ type SceneCanvasProps = {
  * until the scene paints over it, and it doubles as the scene's intended
  * backdrop for any part of the frame the scene itself leaves transparent.
  */
-export function SceneCanvas({ tier, poster, className, camera, children }: SceneCanvasProps) {
+export function SceneCanvas({ tier, poster, className, camera, dpr, children }: SceneCanvasProps) {
   const [resolvedTier] = useState<GraphicsTier>(() => tier ?? graphicsTier())
   const [entered, setEntered] = useState(false)
   const [frameloop, setFrameloop] = useState<'always' | 'never'>('never')
@@ -91,7 +98,7 @@ export function SceneCanvas({ tier, poster, className, camera, children }: Scene
             <SceneCanvasInner
               tier={resolvedTier}
               camera={camera}
-              dpr={resolvedTier === 'high' ? [1, 1.75] : 1}
+              dpr={dpr ?? (resolvedTier === 'high' ? [1, 1.75] : 1)}
               frameloop={frameloop}
             >
               {children}
