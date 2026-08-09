@@ -770,7 +770,7 @@ Expected: узнаваемая аркада (сравнить с `_directions/LI
 2. **Манифест** — `Section` без заголовка: один `<p>` `clamp(1.6rem, 3.4vw, 3rem)`, слова обёрнуты в спаны, opacity 0.25→1 по scrub (текст манифеста: взять вводный абзац секции сервисов из `_legacy/index.html`).
 3. **Продукты** — три экрана с pin: контейнер `300vh`, ScrollTrigger pin + snap по третям; фон кроссфейдится между `ConvergenceScene`/`BeamsScene`/`GalaxyScene` (все три смонтированы, opacity через GSAP; на lite — только активная, на static — постеры-градиенты); контент: mono-лейбл (`AGENT AI MULTICANAL` / `PLATFORMĂ JURIDICĂ` / `CĂUTARE PRECEDENTE` — из соответствующих `_legacy/*.html`), имя продукта `clamp(3rem, 8vw, 7rem)`, 2–3 факта, `MagneticButton ghost` → страница продукта.
 4. **Сервисы** — `Section index="04" label="SERVICII"`: bento-сетка `SpotlightCard` (2-1-1-2) из карточек текущей секции services (`_legacy/index.html` — заголовки, описания, иконки Font Awesome заменить на инлайн-SVG lucide-стиля или юникод-глифы mono).
-5. **Портфолио** — `Section`: горизонтальная лента логотипов клиентов (`public/*.webp`: cmda, dare-eu, energiq, eurobridge, jurista, penitadreptului, startitplanet + ondimp если используется) с бесконечным CSS-marquee (пауза на hover) + `DistortImage` для 2–3 крупных кейсов; ссылка на `/projects`.
+5. **Портфолио** — `Section`: горизонтальная лента логотипов клиентов (`public/*.webp`: cmda, dare-eu, energiq, eurobridge, jurista, penitadreptului, startitplanet + ondimp если используется) с бесконечным CSS-marquee (пауза на hover); для крупных кейсов — спокойный CSS-ховер (scale ≤1.06 + brightness), БЕЗ шейдер-искажений (решение пользователя: DistortImage на фото запрещён); ссылка на `/projects`.
 6. **Цифры** — ряд `StatCount` (значения из `_legacy/index.html`, секция stats).
 7. **CTA-финал** — полноэкранная секция: фон — нижняя часть градиента хиро (`radial-gradient` + зерно), `SplitHeading` с CTA-фразой из футера текущего сайта, `MagneticButton` primary → contacts.
 
@@ -817,7 +817,7 @@ Expected: узнаваемая аркада (сравнить с `_directions/LI
 - Create: `src/pages/Team.tsx`, `src/pages/profile/Profile.tsx`, `src/pages/profile/{mircea,nichita,diana}.tsx`
 - Modify: словари, `componentFor`
 
-- [ ] **Step 1:** Team: заголовок-Section, сетка `DistortImage`-карточек (фото `mirceaursu.webp`, `nikitagriu.webp`, `dianatatar.webp`), имя Clash Display + роль mono; данные из `_legacy/team.html`.
+- [ ] **Step 1:** Team: заголовок-Section, сетка карточек с фото (`public/team/*.webp`) со спокойным CSS-ховером (scale ≤1.06 + brightness/оверлей, БЕЗ шейдер-искажений — решение пользователя), имя Clash Display + роль mono; данные из `_legacy/team.html`.
 - [ ] **Step 2:** `Profile.tsx` — редакционный шаблон: крупное имя, роль, mono-факты (опыт, специализация), био-абзацы `RevealText`, ссылки (LinkedIn и пр.); три файла данных из `_legacy/{mircea-ursu,nichita-griu,diana-tatar}.html`.
 - [ ] **Step 3: Проверка + Commit** — `git add -A && git commit -m "Team grid and profile pages"`
 
@@ -829,7 +829,7 @@ Expected: узнаваемая аркада (сравнить с `_directions/LI
 - Create: `src/pages/Projects.tsx`, `src/pages/Contacts.tsx`
 - Modify: словари, `componentFor`
 
-- [ ] **Step 1:** Projects: сетка кейсов из `_legacy/projects.html` (лого + описание), `DistortImage`/SpotlightCard, без сцены. Страница остаётся вне sitemap (уже так в манифесте).
+- [ ] **Step 1:** Projects: сетка кейсов из `_legacy/projects.html` (лого + описание), SpotlightCard + спокойный CSS-ховер на изображениях (БЕЗ шейдер-искажений — решение пользователя), без сцены. Страница остаётся вне sitemap (уже так в манифесте).
 - [ ] **Step 2:** Contacts: split-макет — слева крупный заголовок + контакты (из `_legacy/contacts.html`), справа форма `action="https://formspree.io/f/mkoqzdlo" method="POST"` с теми же полями/`name`-атрибутами, что в `_legacy/contacts.html`; поля с плавающими лейблами, фокус — подчёркивание `--glow`; состояние отправки: перехват submit → `fetch` на Formspree → инлайн «мультяшное» подтверждение (галочка-анимация GSAP) / ошибка с фолбэком на обычный submit.
 - [ ] **Step 3: Проверка** (обе страницы, оба языка, mobile; отправка формы с тестовыми данными НЕ выполняется — только валидация разметки `action`/`name`) **+ Commit** — `git add -A && git commit -m "Projects and contacts pages"`
 
