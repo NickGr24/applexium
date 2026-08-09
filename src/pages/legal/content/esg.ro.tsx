@@ -17,7 +17,7 @@ export default function EsgRo() {
               </p>
       <div className="esg-pillars">
       <div className="esg-pillar env-card">
-      <div className="esg-pillar-icon env"><i className="fas fa-globe-europe"></i></div>
+      <div className="esg-pillar-icon env"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5" /><path d="M3.5 12h17M12 3.5c2.4 2.3 3.7 5.3 3.7 8.5S14.4 18.7 12 21c-2.4-2.3-3.7-5.3-3.7-8.5S9.6 5.8 12 3.5Z" /></svg></div>
       <h3>Mediu</h3>
       <span className="esg-pillar-tag env">Environmental</span>
       <p>Suntem o companie digital-first, fără producție fizică sau flotă proprie. Impactul direct de mediu este redus — dar îl gestionăm activ, nu îl ignorăm.</p>
@@ -30,7 +30,7 @@ export default function EsgRo() {
       <div className="esg-services-link"><span>Servicii legate:</span> ESG Reporting, AI Governance Advisory</div>
       </div>
       <div className="esg-pillar soc-card">
-      <div className="esg-pillar-icon soc"><i className="fas fa-hand-holding-heart"></i></div>
+      <div className="esg-pillar-icon soc"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M12 7.8c-1.3-1.7-4-.8-4 1.2 0 1.7 1.8 2.9 4 4.6 2.2-1.7 4-2.9 4-4.6 0-2-2.7-2.9-4-1.2Z" /><path d="M4 14.8c0-1 .8-1.8 1.8-1.8H7c.5 0 1 .2 1.4.5l1.7 1.3c.4.3.9.5 1.4.5h4.7a1.3 1.3 0 1 1 0 2.7h-4" /><path d="M4 14.8V20M16.2 17.6h1.7a1.3 1.3 0 1 0 0-2.7" /></svg></div>
       <h3>Social</h3>
       <span className="esg-pillar-tag soc">Social</span>
       <p>Produsele digitale pe care le construim trebuie să fie accesibile tuturor — indiferent de capacitățile fizice sau cognitive ale utilizatorului. Angajamentul social nu se oprește la interfață.</p>
@@ -44,7 +44,7 @@ export default function EsgRo() {
       <div className="esg-services-link"><span>Servicii legate:</span> Accessibility Compliance, Legal Education Platforms</div>
       </div>
       <div className="esg-pillar gov-card">
-      <div className="esg-pillar-icon gov"><i className="fas fa-landmark"></i></div>
+      <div className="esg-pillar-icon gov"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M3.5 9.5 12 4.5l8.5 5" /><path d="M4 9.5h16" /><path d="M6 20.5v-8M9.5 20.5v-8M14.5 20.5v-8M18 20.5v-8" /><path d="M4.5 20.5h15" /></svg></div>
       <h3>Guvernanță</h3>
       <span className="esg-pillar-tag gov">Governance</span>
       <p>Transparența nu este un slogan — este o practică verificabilă. Toate politicile noastre sunt publice, versionate și auditabile.</p>

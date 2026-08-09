@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react'
+import type { ComponentType, ReactNode } from 'react'
 import { useEffect, useRef, useState } from 'react'
 import { RevealText } from '../components/RevealText'
 import { useLang, t } from '../i18n'
@@ -21,9 +21,10 @@ function slugify(text: string, index: number): string {
 }
 
 type LegalLayoutProps = {
-  /** Font Awesome glyph class, e.g. `'fa-universal-access'` — matches the
-   * icon already used for this document on the legacy `.legal-hero-icon`. */
-  icon: string
+  /** Inline-SVG glyph component for this document's hero (see
+   * `pages/legal/icons.tsx`) — the new stack doesn't load Font Awesome, so
+   * this replaces the `fa-*` class the legacy `.legal-hero-icon` used. */
+  icon: ComponentType
   title: string
   subtitle: string
   version: string
@@ -43,7 +44,7 @@ type LegalLayoutProps = {
  * mount. Deliberately has no scene canvas, no per-paragraph scroll reveals,
  * no WebGL — this is a typographic template, not another product hero.
  */
-export function LegalLayout({ icon, title, subtitle, version, children }: LegalLayoutProps) {
+export function LegalLayout({ icon: Icon, title, subtitle, version, children }: LegalLayoutProps) {
   const lang = useLang()
   const reduced = useReducedMotion()
   const contentRef = useRef<HTMLDivElement>(null)
@@ -76,7 +77,7 @@ export function LegalLayout({ icon, title, subtitle, version, children }: LegalL
     <article className="legal-page">
       <header className="legal-hero container">
         <div className="legal-hero__icon" aria-hidden="true">
-          <i className={`fas ${icon}`} />
+          <Icon />
         </div>
         <RevealText>
           <h1 className="legal-hero__title">{title}</h1>

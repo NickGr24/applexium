@@ -1,8 +1,16 @@
-import { lazy, Suspense, type ComponentType, type LazyExoticComponent } from 'react'
+import type { ComponentType } from 'react'
 import { LegalLayout } from '../../layouts/LegalLayout'
 import { Seo } from '../../components/Seo'
 import { type Lang, useLang } from '../../i18n'
 import { legalPageJsonLd, type LegalId } from '../../site/jsonld'
+import {
+  IconAccessibility,
+  IconBrain,
+  IconCookie,
+  IconLeaf,
+  IconShieldHalf,
+  IconFileContract,
+} from './icons'
 
 export type { LegalId }
 
@@ -11,14 +19,14 @@ export type { LegalId }
  * `.legal-hero` block. Not the same string as `pageMeta`'s `<title>` (that
  * one carries the " | Applexium" SEO suffix); kept as its own small table
  * since it's markup the hero renders directly, not metadata. */
-const LEGAL: Record<LegalId, { icon: string; ro: { title: string; subtitle: string }; en: { title: string; subtitle: string } }> = {
+const LEGAL: Record<LegalId, { icon: ComponentType; ro: { title: string; subtitle: string }; en: { title: string; subtitle: string } }> = {
   accessibility: {
-    icon: 'fa-universal-access',
+    icon: IconAccessibility,
     ro: { title: 'Declarație de Accesibilitate', subtitle: 'Declarație de Accesibilitate' },
     en: { title: 'Accessibility Statement', subtitle: 'Accessibility Statement' },
   },
   'ai-ethics': {
-    icon: 'fa-brain',
+    icon: IconBrain,
     ro: {
       title: 'Declarație de etică AI',
       subtitle: 'Declarație privind principiile etice și utilizarea responsabilă a IA',
@@ -29,22 +37,22 @@ const LEGAL: Record<LegalId, { icon: string; ro: { title: string; subtitle: stri
     },
   },
   'cookie-policy': {
-    icon: 'fa-cookie-bite',
+    icon: IconCookie,
     ro: { title: 'Politica de Cookie-uri', subtitle: 'Politica de Cookie-uri · Informații privind utilizarea cookie-urilor' },
     en: { title: 'Cookie Policy', subtitle: 'Cookie Policy · Information on the use of cookies' },
   },
   esg: {
-    icon: 'fa-leaf',
+    icon: IconLeaf,
     ro: { title: 'Declarație ESG', subtitle: 'Mediu · Social · Guvernanță' },
     en: { title: 'ESG Statement', subtitle: 'Environmental · Social · Governance' },
   },
   'privacy-policy': {
-    icon: 'fa-shield-halved',
+    icon: IconShieldHalf,
     ro: { title: 'Politica de confidențialitate', subtitle: 'Politica de Confidențialitate · Protecția datelor cu caracter personal' },
     en: { title: 'Privacy Policy', subtitle: 'Privacy Policy · Personal Data Protection' },
   },
   'terms-and-conditions': {
-    icon: 'fa-file-contract',
+    icon: IconFileContract,
     ro: { title: 'Termeni și condiții', subtitle: 'Termeni și Condiții de Utilizare' },
     en: { title: 'Terms & Conditions', subtitle: 'Terms and Conditions of Use' },
   },
@@ -56,48 +64,35 @@ const VERSION: Record<Lang, string> = {
   en: 'Version 1.0 • April 2026',
 }
 
-// One `React.lazy` per content module, created once at module scope (not
-// inside the component — a fresh `lazy()` on every render would remount and
-// re-suspend the content on every re-render) so each of the twelve ported
-// texts ships as its own chunk instead of riding along in LegalPage's own
-// chunk or each other's. See the brief: "юридический текст не должен
-// попадать в общий чанк".
-const CONTENT: Record<string, LazyExoticComponent<ComponentType>> = {
-  'accessibility.ro': lazy(() => import('./content/accessibility.ro')),
-  'accessibility.en': lazy(() => import('./content/accessibility.en')),
-  'ai-ethics.ro': lazy(() => import('./content/ai-ethics.ro')),
-  'ai-ethics.en': lazy(() => import('./content/ai-ethics.en')),
-  'cookie-policy.ro': lazy(() => import('./content/cookie-policy.ro')),
-  'cookie-policy.en': lazy(() => import('./content/cookie-policy.en')),
-  'esg.ro': lazy(() => import('./content/esg.ro')),
-  'esg.en': lazy(() => import('./content/esg.en')),
-  'privacy-policy.ro': lazy(() => import('./content/privacy-policy.ro')),
-  'privacy-policy.en': lazy(() => import('./content/privacy-policy.en')),
-  'terms-and-conditions.ro': lazy(() => import('./content/terms-and-conditions.ro')),
-  'terms-and-conditions.en': lazy(() => import('./content/terms-and-conditions.en')),
-}
-
 /**
- * Shared route component for all six legal pages — picks its content module
- * by `id` + the current URL's language (see `useLang`), so the same
- * component instance serves both the RO and `/en/` route for a given `id`
- * (mirrors every other page in this codebase, e.g. `mircea-ursu.tsx`).
- * Wired into `componentFor` in `routes.tsx` via one closure per id, since a
- * route `Component` takes no props of its own.
+ * Shared route component for all six legal pages. `Content` (one of the
+ * twelve modules under `./content/`) is resolved by `routes.tsx` *before*
+ * this component is ever rendered — not looked up here behind its own
+ * `React.lazy`+`<Suspense>`, which is what this used to do. That nested
+ * runtime Suspense looked equivalent but wasn't: `vite-react-ssg`'s static
+ * build renders each page with `renderToPipeableStream`, and a component
+ * that genuinely suspends mid-render doesn't come back as inlined HTML —
+ * React commits to its streaming "swap" format (a `<template id="B:0">`
+ * placeholder plus a `$RC` script that moves the real markup over), which
+ * only ever runs once client JS hydrates. Prerendered output that depends
+ * on that script had the actual legal text missing entirely with JS off —
+ * confirmed on 5 of the 6 legal pages in this build, reproducibly. The
+ * *route-level* `React.lazy` in `routes.tsx` (the same mechanism every
+ * other page already uses) doesn't have this problem: `vite-react-ssg`
+ * resolves route modules during route matching, before rendering starts,
+ * so nothing suspends inside the render tree at all. See `legalComponent`
+ * in `routes.tsx`.
  */
-export function LegalPage({ id }: { id: LegalId }) {
+export function LegalPage({ id, Content }: { id: LegalId; Content: ComponentType }) {
   const lang = useLang()
   const meta = LEGAL[id]
-  const Content = CONTENT[`${id}.${lang}`]
 
   return (
     <>
       <Seo page={id} lang={lang} jsonLd={[legalPageJsonLd(id, lang)]} />
 
       <LegalLayout icon={meta.icon} title={meta[lang].title} subtitle={meta[lang].subtitle} version={VERSION[lang]}>
-        <Suspense fallback={null}>
-          <Content />
-        </Suspense>
+        <Content />
       </LegalLayout>
     </>
   )

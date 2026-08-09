@@ -15,16 +15,13 @@ const componentFor: Record<string, React.LazyExoticComponent<React.ComponentType
   'diana-tatar': React.lazy(() => import('./pages/profile/diana-tatar')),
   projects: React.lazy(() => import('./pages/Projects')),
   contacts: React.lazy(() => import('./pages/Contacts')),
-  // остальные страницы добавляются по мере задач; до тех пор — заглушка
 }
 
 // The six legal pages (Task 19) all share one route component, `LegalPage`,
 // parameterised by `id` — so each gets a closure around that id rather than
 // its own file (unlike the product/profile pages, which each have a real
 // per-page file because their content genuinely differs page to page, not
-// just by which id string to look up). `LegalPage` itself lazy-loads the
-// actual ported text per `id`+lang (see `pages/legal/LegalPage.tsx`), so
-// this outer `React.lazy` only pulls in the shared layout/chrome.
+// just by which id string to look up).
 const LEGAL_IDS: LegalId[] = [
   'accessibility',
   'ai-ethics',
@@ -33,13 +30,50 @@ const LEGAL_IDS: LegalId[] = [
   'privacy-policy',
   'terms-and-conditions',
 ]
-for (const id of LEGAL_IDS) {
-  componentFor[id] = React.lazy(() =>
-    import('./pages/legal/LegalPage').then(({ LegalPage }) => ({ default: () => <LegalPage id={id} /> })),
-  )
+const LEGAL_ID_SET = new Set<string>(LEGAL_IDS)
+
+// One content-module importer per `id.lang` — kept here as raw `import()`
+// factories, not wrapped in their own `React.lazy`, so `legalComponent`
+// below can resolve a page's shell *and* its text as a single route-level
+// lazy import (see that function's comment, and `LegalPage.tsx`'s, for why
+// a second, nested `React.lazy`+`<Suspense>` around just the content broke
+// the static build's no-JS output). Literal specifiers, not a templated
+// path, so Rollup can still split each of the twelve ported texts into its
+// own chunk.
+const LEGAL_CONTENT: Record<string, () => Promise<{ default: React.ComponentType }>> = {
+  'accessibility.ro': () => import('./pages/legal/content/accessibility.ro'),
+  'accessibility.en': () => import('./pages/legal/content/accessibility.en'),
+  'ai-ethics.ro': () => import('./pages/legal/content/ai-ethics.ro'),
+  'ai-ethics.en': () => import('./pages/legal/content/ai-ethics.en'),
+  'cookie-policy.ro': () => import('./pages/legal/content/cookie-policy.ro'),
+  'cookie-policy.en': () => import('./pages/legal/content/cookie-policy.en'),
+  'esg.ro': () => import('./pages/legal/content/esg.ro'),
+  'esg.en': () => import('./pages/legal/content/esg.en'),
+  'privacy-policy.ro': () => import('./pages/legal/content/privacy-policy.ro'),
+  'privacy-policy.en': () => import('./pages/legal/content/privacy-policy.en'),
+  'terms-and-conditions.ro': () => import('./pages/legal/content/terms-and-conditions.ro'),
+  'terms-and-conditions.en': () => import('./pages/legal/content/terms-and-conditions.en'),
 }
 
-const Placeholder = () => null
+/**
+ * One `React.lazy` per (id, lang) legal route — resolves the shared
+ * `LegalPage` shell module *and* this page's specific content module
+ * together, as one promise, before route matching hands off to rendering.
+ * `vite-react-ssg` awaits route-level lazy components ahead of the render
+ * pass (proven: none of the other 26 routes built via `componentFor` show
+ * the streaming-placeholder problem), unlike a `React.lazy` mounted from
+ * inside the render tree via `<Suspense>`, which is what `LegalPage` used
+ * to do internally and which the static build couldn't reliably inline.
+ */
+function legalComponent(id: LegalId, lang: 'ro' | 'en') {
+  return React.lazy(async () => {
+    const [{ LegalPage }, contentModule] = await Promise.all([
+      import('./pages/legal/LegalPage'),
+      LEGAL_CONTENT[`${id}.${lang}`](),
+    ])
+    return { default: () => <LegalPage id={id} Content={contentModule.default} /> }
+  })
+}
 
 /**
  * Builds the page routes for one language prefix ('' for RO at the root,
@@ -49,8 +83,9 @@ const Placeholder = () => null
  * itself is a real page, not an index of anything.
  */
 function pageRoutes(prefix: string): RouteRecord[] {
+  const lang: 'ro' | 'en' = prefix === 'en' ? 'en' : 'ro'
   return pages.map((p): RouteRecord => {
-    const Component = componentFor[p.id] ?? Placeholder
+    const Component = LEGAL_ID_SET.has(p.id) ? legalComponent(p.id as LegalId, lang) : componentFor[p.id]
     if (!prefix && p.slug === '') {
       return { index: true, Component }
     }
