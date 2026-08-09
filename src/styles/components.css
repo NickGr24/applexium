@@ -181,7 +181,7 @@
    Calm replacement for the shader-distortion hover this codebase used to
    run on faces (team/portfolio photography) — retired per explicit product
    decision: warping a person's face on hover reads as a bug, not a flourish.
-   Wrap a photo in `.photo-hover`, give the `<img>` inside no extra class:
+   Wrap a photo in `.photo-hover`, give the img element inside no extra class:
    overflow-hidden + rounded corners on the wrapper, a plain scale + brightness
    lift on the image, pointer-only so touch never gets a stuck hover state. */
 
