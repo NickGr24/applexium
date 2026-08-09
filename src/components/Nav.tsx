@@ -2,7 +2,21 @@ import gsap from 'gsap'
 import { useEffect, useRef, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { type Lang, localePath, t, useLang } from '../i18n'
+import { useLenis } from '../motion/LenisProvider'
 import { useReducedMotion } from '../motion/useReducedMotion'
+
+// Viewport width minus the html element's own content width, i.e. the
+// scrollbar's footprint — cached at module scope since it can't change
+// during a session (it's a platform/browser-chrome constant, not something
+// that varies per element) and every open of the mobile menu would
+// otherwise force the same layout read again.
+let cachedScrollbarWidth: number | null = null
+function scrollbarWidth(): number {
+  if (cachedScrollbarWidth === null) {
+    cachedScrollbarWidth = window.innerWidth - document.documentElement.clientWidth
+  }
+  return cachedScrollbarWidth
+}
 
 type NavLink =
   | { kind: 'anchor'; hash: string; label: string }
@@ -34,6 +48,7 @@ export function Nav() {
   const lang = useLang()
   const location = useLocation()
   const reducedMotion = useReducedMotion()
+  const lenis = useLenis()
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const itemRefs = useRef<(HTMLAnchorElement | null)[]>([])
@@ -50,9 +65,24 @@ export function Nav() {
     setMenuOpen(false)
   }, [location.pathname])
 
+  // Locks the page behind the mobile overlay: `overflow: hidden` (the
+  // `.nav-menu-open` rule in layout.css) plus a right-padding compensation
+  // for the scrollbar's width so content doesn't shift sideways the instant
+  // it disappears, and Lenis paused so a trackpad/wheel scroll over the
+  // overlay can't smooth-scroll the page underneath it (native `overflow:
+  // hidden` alone stops the browser's own scroll, but Lenis intercepts wheel
+  // events itself and would keep animating the page scroll position even
+  // while the html element can't visibly move).
   useEffect(() => {
-    document.documentElement.classList.toggle('nav-menu-open', menuOpen)
-  }, [menuOpen])
+    const html = document.documentElement
+    html.classList.toggle('nav-menu-open', menuOpen)
+    if (menuOpen) {
+      html.style.setProperty('--scrollbar-comp', `${scrollbarWidth()}px`)
+      lenis?.stop()
+    } else {
+      lenis?.start()
+    }
+  }, [menuOpen, lenis])
 
   useEffect(() => {
     if (!menuOpen) return
@@ -75,7 +105,11 @@ export function Nav() {
     <header className={`nav${scrolled ? ' nav--scrolled' : ''}`}>
       <div className="nav__bar container">
         <Link to={localePath(lang, '')} className="nav__logo" aria-label="Applexium">
-          <img src="/brand/applexium-horizontal.png" alt="Applexium" />
+          {/* Above-the-fold on every page, in the fixed nav that's visible
+              from the very first frame — fetchPriority hints the browser to
+              fetch it ahead of same-priority discovered-later resources
+              instead of at the default priority an <img> otherwise gets. */}
+          <img src="/brand/applexium-horizontal.png" alt="Applexium" fetchPriority="high" />
         </Link>
 
         <nav className="nav__links" aria-label={t(lang, 'nav.primary')}>

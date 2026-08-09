@@ -10,6 +10,16 @@
 
 /* ---------- Nav ---------- */
 
+/* Scroll-lock behind the open mobile menu overlay — set on <html> by Nav's
+   own effect alongside Lenis stop()/start() (native overflow:hidden alone
+   doesn't stop Lenis's own wheel-driven smooth scroll). --scrollbar-comp is
+   written by that same effect, right-padding the page by exactly the
+   scrollbar's width so removing it doesn't shift content sideways. */
+html.nav-menu-open {
+  overflow: hidden;
+  padding-right: var(--scrollbar-comp, 0px);
+}
+
 .nav {
   position: fixed;
   inset-inline: 0;
@@ -53,6 +63,14 @@
 .nav__logo img {
   height: 30px;
   width: auto;
+  /* Lets the browser reserve the right-sized box from CSS alone, before
+   * /brand/applexium-horizontal.png's bytes ever arrive — `width: auto`
+   * with only a fixed `height` has no way to know the rendered width until
+   * the image loads otherwise, which is exactly the "Unsized image
+   * element" CLS culprit Lighthouse flagged on `.footer__brand img` below
+   * (same file, same pattern, both fixed the same way). 1751×434 is the
+   * PNG's real pixel size. */
+  aspect-ratio: 1751 / 434;
   filter: invert(1);
 }
 
@@ -206,6 +224,12 @@
   background: var(--bg-raise);
   border-top: 1px solid rgba(237, 237, 242, 0.08);
   padding-block: 4rem 2.5rem;
+  /* Last element on every page (SiteLayout renders it after <Outlet>), so
+   * this is always safe re: the one pinned ScrollTrigger in this codebase
+   * (ProductShowcase's `.showcase`, home-page only) — see the fuller
+   * reasoning on `.section` in components.css. */
+  content-visibility: auto;
+  contain-intrinsic-size: auto 480px;
 }
 
 .footer__grid {
@@ -217,6 +241,11 @@
 .footer__brand img {
   height: 24px;
   width: auto;
+  /* Confirmed by Lighthouse (Task 22 audit) as this page family's entire
+   * CLS score: without this, the browser lays this out at 0 width until the
+   * image loads, then reflows the footer around its real width — see
+   * `.nav__logo img`'s identical fix above for the full reasoning. */
+  aspect-ratio: 1751 / 434;
   filter: invert(1);
 }
 
