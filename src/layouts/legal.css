@@ -115,6 +115,17 @@
   line-height: 1.75;
 }
 
+/* The TOC is built client-side from the content's own `<h2>`s (see
+   LegalLayout) and only rendered once `toc.length > 0`, so pre-rendered
+   HTML and no-JS visitors never get it — and pages with no `<h2>` at all
+   (esg) never do either, even with JS. Without this rule the content
+   column would fall into `.legal-body`'s first (160-220px) track instead
+   of spanning both, leaving the article stuck in a narrow strip. */
+.legal-content-column:only-child {
+  grid-column: 1 / -1;
+  justify-self: center;
+}
+
 .legal-content-column h2 {
   font-family: var(--font-display);
   font-weight: 500;
