@@ -52,6 +52,34 @@ import { degToRad } from 'three/src/math/MathUtils.js'
  *    already relied on for the old three.js scenes, so no new pause
  *    mechanism was needed the way OGL's Aurora/Threads/Galaxy required
  *    one).
+ *
+ * Balance fix round (post-review — coordinator rejected the first cutover:
+ * beams read as a solid saturated-purple wall filling the whole viewport,
+ * mono label/subhead/logo all lost contrast against it, unlike Emmi's/
+ * Precedentia's "dark base + glowing accents" siblings). All changes below
+ * are still prop/config values the component already exposed, or a
+ * hardcoded literal promoted the same way `beamColor`/`background`/
+ * `ambientIntensity` were — no shader string or animation-math line
+ * touched:
+ *  - `beamColor` default deepened from the original vivid `#591EF3` to a
+ *    near-black violet `#1a0b3d` — this uniform is the material's *base*
+ *    diffuse across the whole surface, not a highlight, so keeping it
+ *    vivid meant the beams were saturated purple even unlit.
+ *  - `lightIntensity` is a new prop, promoted from a hardcoded
+ *    `<directionalLight intensity={1}>` literal (default `0.55`) — at
+ *    intensity 1, `lightColor`'s vivid `#CD83FF` re-lit the whole beam
+ *    surface as bright as the diffuse colour itself instead of reading as
+ *    a rim highlight on the noise ridges.
+ *  - `ambientIntensity` default lowered again, `0.35 → 0.22`.
+ *  - `beamSpacing` default raised, `0.7 → 1.3`; `beamWidth` narrowed,
+ *    `2 → 1.6`; `beamNumber` lowered, `10 → 8` (`BeamsRBBackground`'s
+ *    `lite` tier follows, `6 → 4`) — more dark page background between
+ *    columns, not just a hairline gap.
+ *  - Camera pulled back again, `z=26 → 30` — at the new narrower/
+ *    more-spaced geometry this keeps the whole beam block inside the
+ *    frustum with real dark margin past the outermost beams on both
+ *    edges, on every viewport re-tested (1440×900 down to 390×844),
+ *    instead of the block running edge-to-edge as it did at `z=26`.
  */
 
 function extendMaterial(
@@ -277,9 +305,9 @@ const PlaneNoise = forwardRef<THREE.Mesh, MergedPlanesProps>((props, ref) => (
 ))
 PlaneNoise.displayName = 'PlaneNoise'
 
-type DirLightProps = { position: [number, number, number]; color: string }
+type DirLightProps = { position: [number, number, number]; color: string; intensity: number }
 
-const DirLight = ({ position, color }: DirLightProps) => {
+const DirLight = ({ position, color, intensity }: DirLightProps) => {
   const dir = useRef<THREE.DirectionalLight>(null)
   useEffect(() => {
     if (!dir.current) return
@@ -293,12 +321,21 @@ const DirLight = ({ position, color }: DirLightProps) => {
     dir.current.shadow.bias = -0.004
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
-  return <directionalLight ref={dir} color={color} intensity={1} position={position} />
+  return <directionalLight ref={dir} color={color} intensity={intensity} position={position} />
 }
 
-/** Legalia's palette (`BeamsScene.tsx`'s own `VIVID`/`LIGHT`) — see file
- * header for which prop each feeds. */
-const LEGALIA_VIVID = '#591EF3'
+/** Legalia's palette — darkened base + dim highlight tuning (fix round,
+ * see file header's "Balance fix" note): `LEGALIA_VIVID` used to be
+ * `BeamsScene.tsx`'s own vivid `#591EF3`, which is the material's *base*
+ * diffuse colour lit across the whole beam surface, not an occasional
+ * highlight — at full vividness it read as a solid saturated-purple wall
+ * rather than "dark base + glowing accents" like Emmi/Precedentia's own
+ * scenes. Deepened to a near-black violet so the beams sit close to the
+ * page background at rest; `LEGALIA_LIGHT` (the directional light's
+ * colour) stays vivid but its *intensity* is turned down (see
+ * `lightIntensity` below) so it paints rim highlights on the noise ridges
+ * instead of flooding the whole surface. */
+const LEGALIA_VIVID = '#1a0b3d'
 const LEGALIA_LIGHT = '#CD83FF'
 /** Matches every other scene's `FOG_COLOR`/page background. */
 const LEGALIA_BG = '#04060d'
@@ -314,6 +351,13 @@ export interface BeamsRBCanvasProps {
    * read as its own beam instead of one solid wall. */
   beamSpacing?: number
   lightColor?: string
+  /** Promoted from a hardcoded `<directionalLight intensity={1}>` literal —
+   * fix round (see file header's "Balance fix" note). At the stock
+   * intensity, `lightColor`'s vivid `#CD83FF` doesn't read as a highlight,
+   * it re-lights the whole surface as bright as the diffuse colour itself
+   * — turning the light down is what lets `beamColor`'s darker base show
+   * through as the beam's resting tone. */
+  lightIntensity?: number
   /** Promoted from a hardcoded literal — see file header. */
   beamColor?: string
   /** Promoted from a hardcoded literal — see file header. */
@@ -344,14 +388,15 @@ export interface BeamsRBCanvasProps {
  * whole module and hands it `dpr`/`paused`.
  */
 export function BeamsRBCanvas({
-  beamWidth = 2,
+  beamWidth = 1.6,
   beamHeight = 16,
-  beamNumber = 10,
-  beamSpacing = 0.7,
+  beamNumber = 8,
+  beamSpacing = 1.3,
   lightColor = LEGALIA_LIGHT,
+  lightIntensity = 0.55,
   beamColor = LEGALIA_VIVID,
   background = LEGALIA_BG,
-  ambientIntensity = 0.35,
+  ambientIntensity = 0.22,
   speed = 2,
   noiseIntensity = 1.75,
   scale = 0.2,
@@ -428,17 +473,20 @@ export function BeamsRBCanvas({
           height={beamHeight}
           spacing={beamSpacing}
         />
-        <DirLight color={lightColor} position={[0, 3, 10]} />
+        <DirLight color={lightColor} intensity={lightIntensity} position={[0, 3, 10]} />
       </group>
       <ambientLight intensity={ambientIntensity} />
       <color attach="background" args={[background]} />
-      {/* Pulled back from the stock demo's z=20: at beamNumber=10/width=2/
-          spacing=0.7 the block is ~24 world units wide, which needs more
-          room than the stock camera's frustum to leave real page background
-          visible past the outermost beams (see file header — spacing/count/
-          camera together are what turn the stock "solid ribbed wall" read
-          into individual glowing columns). */}
-      <PerspectiveCamera makeDefault position={[0, 0, 26]} fov={30} />
+      {/* Pulled back from the stock demo's z=20, and further again in the
+          balance fix round: at beamNumber=8/width=1.6/spacing=1.3 the block
+          is ~20.6 world units wide, and z=30 (up from the first pass's 26)
+          keeps that narrower than the camera's own frustum on every tested
+          viewport — wide enough that real dark page background shows past
+          the outermost beams instead of the block running edge-to-edge
+          (see file header — spacing/count/camera together are what turn the
+          stock "solid ribbed wall" read into individual glowing columns
+          with visible dark gaps on both sides, not just between them). */}
+      <PerspectiveCamera makeDefault position={[0, 0, 30]} fov={30} />
     </Canvas>
   )
 }

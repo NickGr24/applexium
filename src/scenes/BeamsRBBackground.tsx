@@ -114,7 +114,7 @@ export function BeamsRBBackground({ tier, poster, className, dpr }: BeamsRBBackg
         <div style={{ position: 'absolute', inset: 0 }}>
           <Suspense fallback={null}>
             <BeamsRBCanvas
-              beamNumber={lite ? 6 : 10}
+              beamNumber={lite ? 4 : 8}
               dpr={dpr ?? (lite ? 1 : [1, 1.75])}
               paused={!visible}
             />
