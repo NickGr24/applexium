@@ -1,36 +1,40 @@
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { lazy, useLayoutEffect, useRef, useState, type ComponentType } from 'react'
+import { useLayoutEffect, useRef, useState, type ComponentType, type ReactNode } from 'react'
 import { MagneticButton } from '../../components/MagneticButton'
 import { MonoLabel } from '../../components/MonoLabel'
 import { type Lang, localePath, t } from '../../i18n'
 import { useReducedMotion } from '../../motion/useReducedMotion'
-import { BEAMS_CAMERA } from '../../scenes/beamsCamera'
-import { CONVERGENCE_CAMERA } from '../../scenes/convergenceCamera'
-import { GALAXY_CAMERA } from '../../scenes/galaxyCamera'
+import { BeamsRBBackground } from '../../scenes/BeamsRBBackground'
+import { GalaxyRBBackground } from '../../scenes/GalaxyRBBackground'
 import { graphicsTier, type GraphicsTier } from '../../scenes/graphicsTier'
-import { SceneCanvas } from '../../scenes/SceneCanvas'
+import { ThreadsBackground } from '../../scenes/ThreadsBackground'
 
 gsap.registerPlugin(ScrollTrigger)
 
-const ConvergenceScene = lazy(() =>
-  import('../../scenes/ConvergenceScene').then((m) => ({ default: m.ConvergenceScene })),
-)
-const BeamsScene = lazy(() => import('../../scenes/BeamsScene').then((m) => ({ default: m.BeamsScene })))
-const GalaxyScene = lazy(() => import('../../scenes/GalaxyScene').then((m) => ({ default: m.GalaxyScene })))
+/** The shape every `*Background` wrapper in `src/scenes/` shares
+ * (`ThreadsBackground`/`BeamsRBBackground`/`GalaxyRBBackground`, and
+ * `AuroraBackground` on the hero) — `tier`/`dpr` are what let this file
+ * force a slide down to a poster-only tier or trim an inactive slide's
+ * pixel ratio without each background needing a bespoke prop shape. */
+type BackgroundComponent = ComponentType<{
+  tier?: GraphicsTier
+  poster: ReactNode
+  className?: string
+  dpr?: number
+}>
 
 type Showcase = {
   /** Doubles as the i18n key under `home.products.*` and the page slug. */
   id: 'emmi' | 'legalia' | 'precedentia'
   poster: string
-  camera: typeof CONVERGENCE_CAMERA
-  Scene: ComponentType
+  Background: BackgroundComponent
 }
 
 const SHOWCASES: Showcase[] = [
-  { id: 'emmi', poster: 'convergence', camera: CONVERGENCE_CAMERA, Scene: ConvergenceScene },
-  { id: 'legalia', poster: 'beams', camera: BEAMS_CAMERA, Scene: BeamsScene },
-  { id: 'precedentia', poster: 'galaxy', camera: GALAXY_CAMERA, Scene: GalaxyScene },
+  { id: 'emmi', poster: 'convergence', Background: ThreadsBackground },
+  { id: 'legalia', poster: 'beams', Background: BeamsRBBackground },
+  { id: 'precedentia', poster: 'galaxy', Background: GalaxyRBBackground },
 ]
 
 /** Where each slide hands over to the next, as a fraction of the pinned
@@ -50,26 +54,27 @@ const FADE = 0.1
  * two always travel together.
  *
  * How much 3D actually mounts depends on the tier:
- * - `high` — all three scenes mounted at once, GSAP cross-fades between them,
- *   which is the only way the swap can be a dissolve rather than a cut.
- * - `lite` — only the active slide gets a live scene; the other two fall back
- *   to their poster. The tier is fed to `SceneCanvas` as a `key` as well as a
- *   prop, because `SceneCanvas` resolves its tier once in a `useState`
- *   initialiser: without the key the downgrade would never take effect, and
+ * - `high` — all three backgrounds mounted at once, GSAP cross-fades between
+ *   them, which is the only way the swap can be a dissolve rather than a cut.
+ * - `lite` — only the active slide gets a live background; the other two
+ *   fall back to their poster. The tier is fed to each `*Background` as a
+ *   `key` as well as a prop, because every one of them resolves its tier
+ *   once in a `useState` initialiser (same shape `AuroraBackground` uses on
+ *   the hero): without the key the downgrade would never take effect, and
  *   with it the canvas is genuinely unmounted rather than merely hidden.
- * - `static` (SSR, no WebGL2, reduced motion) — posters only, no Canvas ever.
+ * - `static` (SSR, no WebGL2, reduced motion) — posters only, no canvas ever.
  *
  * The markup does not change between tiers, which is what lets the
- * pre-rendered HTML hydrate cleanly: `SceneCanvas` emits the same wrapper +
- * poster for every tier, and only mounts a Canvas later, from its own
- * IntersectionObserver.
+ * pre-rendered HTML hydrate cleanly: every `*Background` emits the same
+ * wrapper + poster for every tier, and only mounts its real canvas later,
+ * from its own IntersectionObserver.
  */
 export function ProductShowcase({ lang }: { lang: Lang }) {
   const trackRef = useRef<HTMLElement>(null)
   const stageRef = useRef<HTMLDivElement>(null)
   const reduced = useReducedMotion()
-  // Resolved once, like SceneCanvas does it, so the value can't change
-  // mid-scroll and unmount a canvas under the visitor.
+  // Resolved once, like every `*Background` does it, so the value can't
+  // change mid-scroll and unmount a canvas under the visitor.
   const [tier] = useState<GraphicsTier>(() => graphicsTier())
   const [active, setActive] = useState(0)
 
@@ -150,33 +155,31 @@ export function ProductShowcase({ lang }: { lang: Lang }) {
           <MonoLabel index="02">{t(lang, 'home.products.label')}</MonoLabel>
         </div>
 
-        {SHOWCASES.map(({ id, poster, camera, Scene }, i) => {
+        {SHOWCASES.map(({ id, poster, Background }, i) => {
           // On lite only the active slide gets a live canvas — see the note
           // above for why the tier is passed as a key as well as a prop.
           const slideTier: GraphicsTier = tier === 'lite' && i !== active ? 'static' : tier
-          // On `high`, all three scenes stay mounted and rendering the whole
-          // time (that's what makes the cross-fade a dissolve rather than a
-          // cut) — three simultaneous WebGL contexts with Bloom's
-          // EffectComposer each. Pausing the inactive two outright would
-          // freeze them mid-fade the moment they're about to become active
-          // again, so instead only their device-pixel-ratio is trimmed to 1
-          // (from the tier's own `[1, 1.75]`) — same frame rate, same
+          // On `high`, all three backgrounds stay mounted and rendering the
+          // whole time (that's what makes the cross-fade a dissolve rather
+          // than a cut) — three simultaneous WebGL contexts. Pausing the
+          // inactive two outright would freeze them mid-fade the moment
+          // they're about to become active again, so instead only their
+          // device-pixel-ratio is trimmed to 1 (from the tier's own default —
+          // `[1, 1.75]` for Beams' R3F Canvas, `min(devicePixelRatio, 2)` for
+          // Threads/Galaxy's OGL renderers) — same frame rate, same
           // cross-fade, meaningfully less fill-rate/GPU cost for the two
           // scenes that aren't actually being looked at.
           const slideDpr = tier === 'high' && i !== active ? 1 : undefined
           return (
             <div className="showcase__slide" key={id}>
               <div className="showcase__scene">
-                <SceneCanvas
+                <Background
                   key={slideTier}
                   tier={slideTier}
                   className="scene-canvas"
                   poster={<div className={`scene-poster scene-poster--${poster}`} aria-hidden="true" />}
-                  camera={camera}
                   dpr={slideDpr}
-                >
-                  <Scene />
-                </SceneCanvas>
+                />
               </div>
 
               <div className="showcase__scrim" aria-hidden="true" />

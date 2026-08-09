@@ -159,10 +159,13 @@ export interface AuroraCanvasProps {
    * the aurora swells gently while the visitor scrolls through the hero
    * track. Omit to leave amplitude at its static value. */
   progressRef?: RefObject<number>
-  /** True while the container isn't intersecting the viewport. Skips the
-   * `renderer.render()` call (but keeps the rAF chain alive so it resumes
-   * on its own) — the OGL equivalent of `SceneCanvas`'s `frameloop:
-   * 'never'` for the R3F scenes. */
+  /** True while the container isn't intersecting the viewport. Stops the
+   * rAF chain entirely (see `update()`'s own comment below for why —
+   * skipping only the draw call isn't enough) — the OGL equivalent of R3F's
+   * `frameloop: 'never'` (what `BeamsRBBackground` uses instead, since it
+   * mounts a real `<Canvas>` rather than a raw OGL renderer). Every sibling
+   * OGL scene in this directory (`ThreadsCanvas`, `GalaxyRBCanvas`) mirrors
+   * this exact fix. */
   paused?: boolean
 }
 

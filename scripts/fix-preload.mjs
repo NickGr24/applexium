@@ -30,13 +30,17 @@
 //     `routes.tsx`, so only the first render's tracking mark fires), *all
 //     twelve* content chunks get modulepreloaded — ~153KB raw for one
 //     visible paragraph's worth of legal text.
-//   - `src/scenes/SceneCanvas.tsx` has one `lazy(() => import('./SceneCanvasInner'))`
-//     for the actual R3F `<Canvas>` mount, gated behind an
-//     IntersectionObserver that never fires during SSR (so it never renders
-//     server-side on any page), but `SceneCanvas.tsx` itself is always
-//     statically imported (and thus SSR-touched) by every page that uses
-//     it, so its one dynamicImport target — ~880KB of three/@react-three/*
-//     — got modulepreloaded unconditionally.
+//   - Each `src/scenes/*Background.tsx` wrapper (`AuroraBackground`,
+//     `ThreadsBackground`, `BeamsRBBackground`, `GalaxyRBBackground` — see
+//     Task 16b, which replaced the original example here,
+//     `SceneCanvas.tsx`/`SceneCanvasInner.tsx`, with a verbatim React Bits
+//     port per product) has one `lazy(() => import('./XCanvas'))` for its
+//     actual WebGL mount, gated behind an IntersectionObserver that never
+//     fires during SSR (so it never renders server-side on any page), but
+//     the wrapper itself is always statically imported (and thus
+//     SSR-touched) by every page that uses it, so its one dynamicImport
+//     target — `ogl` or three/@react-three/* — got modulepreloaded
+//     unconditionally.
 //   - The *language that renders second* for a given route id gets the
 //     opposite bug, on BOTH the JS and CSS side: since `componentFor[id]`
 //     in `routes.tsx` is one shared `React.lazy()` instance reused for both

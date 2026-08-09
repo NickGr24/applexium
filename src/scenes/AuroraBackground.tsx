@@ -2,9 +2,12 @@ import { lazy, Suspense, useEffect, useRef, useState, type ReactNode, type RefOb
 import { graphicsTier, type GraphicsTier } from './graphicsTier'
 
 // Dynamic import only: keeps `ogl` out of whatever chunk imports
-// AuroraBackground. Same split as SceneCanvas/SceneCanvasInner, and the
-// same reason — see AuroraCanvas.tsx's own doc comment for why this scene
-// is a straight OGL port instead of a three.js reinterpretation.
+// AuroraBackground. Same split every `*Background`/`*Canvas` pair in this
+// directory uses (`ThreadsBackground`/`ThreadsCanvas`,
+// `GalaxyRBBackground`/`GalaxyRBCanvas`, `BeamsRBBackground`/
+// `BeamsRBCanvas`) — see AuroraCanvas.tsx's own doc comment for why this
+// scene in particular is a straight OGL port instead of a three.js
+// reinterpretation.
 const AuroraCanvas = lazy(() => import('./AuroraCanvas').then((m) => ({ default: m.AuroraCanvas })))
 
 type AuroraBackgroundProps = {
@@ -24,18 +27,21 @@ type AuroraBackgroundProps = {
  * Lazily mounts the OGL Aurora canvas once its section nears the viewport,
  * and shows a cheap `poster` everywhere real WebGL would be wasted: SSR,
  * `prefers-reduced-motion`, missing WebGL2, or simply while far off-screen.
- * Structurally this is `SceneCanvas` re-derived for a scene that owns its
- * own renderer instead of living inside an R3F `<Canvas>` — same tier
- * resolution, same latching IntersectionObserver, same "poster stays
- * mounted underneath forever" rule that kills the black-flash gap between
- * "chunk loaded" and "first frame painted" (see SceneCanvas's doc comment
- * for the full reasoning; it applies unchanged here).
+ * Same tier resolution, same latching IntersectionObserver, same "poster
+ * stays mounted underneath forever" rule that kills the black-flash gap
+ * between "chunk loaded" and "first frame painted" every sibling
+ * `*Background` in this directory shares (the reasoning used to live on
+ * `SceneCanvas`, the R3F equivalent this migration deleted once nothing
+ * used it — see `ThreadsBackground.tsx`/`GalaxyRBBackground.tsx` for the
+ * two other OGL scenes built the same way, or `BeamsRBBackground.tsx` for
+ * the one that stayed on R3F).
  *
  * The one addition: `visible` doesn't gate mounting (only `entered` does,
  * and it latches) — it's forwarded as `paused` to AuroraCanvas instead, so
  * OGL's manual rAF loop stops drawing while the hero scrolls out of view
  * without tearing down and rebuilding the WebGL context, the OGL analogue
- * of SceneCanvas's `frameloop: 'never'`.
+ * of R3F's `frameloop: 'never'` (what `BeamsRBBackground` uses instead,
+ * since it mounts a real `<Canvas>`).
  *
  * `entered` alone used to be enough to start the `AuroraCanvas` dynamic
  * import (see `canLoad` below for why that's no longer sufficient on its

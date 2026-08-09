@@ -1,4 +1,4 @@
-import { lazy, type ReactNode } from 'react'
+import type { ReactNode } from 'react'
 import { MagneticButton } from '../../components/MagneticButton'
 import { MonoLabel } from '../../components/MonoLabel'
 import { RevealText } from '../../components/RevealText'
@@ -8,15 +8,10 @@ import { SplitHeading } from '../../components/SplitHeading'
 import { SpotlightCard } from '../../components/SpotlightCard'
 import { StatCount } from '../../components/StatCount'
 import { localePath, t, useLang, type Lang } from '../../i18n'
-import { GALAXY_CAMERA } from '../../scenes/galaxyCamera'
+import { GalaxyRBBackground } from '../../scenes/GalaxyRBBackground'
 import { softwareApplicationJsonLd } from '../../site/jsonld'
 import { ProductPage } from './ProductPage'
 import './precedentia.css'
-
-// Dynamic import only — see emmi.tsx for why (keeps three/R3F/postprocessing
-// out of this page's own chunk; SceneCanvas already wraps whatever `scene`
-// it's handed in its own Suspense boundary).
-const GalaxyScene = lazy(() => import('../../scenes/GalaxyScene').then(m => ({ default: m.GalaxyScene })))
 
 // Precedentia's own palette (`_legacy/precedentia.html`'s `--pr-brand`) —
 // the page's single "local accent", per ProductPage's `accent` prop.
@@ -193,9 +188,12 @@ export default function Precedentia() {
       <Seo page="precedentia" lang={lang} jsonLd={[softwareApplicationJsonLd('precedentia', lang)]} />
 
       <ProductPage
-        scene={<GalaxyScene />}
-        poster={<div className="scene-poster scene-poster--galaxy" aria-hidden="true" />}
-        camera={GALAXY_CAMERA}
+        background={
+          <GalaxyRBBackground
+            className="scene-canvas"
+            poster={<div className="scene-poster scene-poster--galaxy" aria-hidden="true" />}
+          />
+        }
         accent={ACCENT}
         hero={{
           logo: (

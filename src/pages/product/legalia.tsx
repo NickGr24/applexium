@@ -1,4 +1,4 @@
-import { lazy, type ReactNode } from 'react'
+import type { ReactNode } from 'react'
 import { MagneticButton } from '../../components/MagneticButton'
 import { MonoLabel } from '../../components/MonoLabel'
 import { RevealText } from '../../components/RevealText'
@@ -8,15 +8,10 @@ import { SplitHeading } from '../../components/SplitHeading'
 import { SpotlightCard } from '../../components/SpotlightCard'
 import { StatCount } from '../../components/StatCount'
 import { localePath, t, useLang, type Lang } from '../../i18n'
-import { BEAMS_CAMERA } from '../../scenes/beamsCamera'
+import { BeamsRBBackground } from '../../scenes/BeamsRBBackground'
 import { softwareApplicationJsonLd } from '../../site/jsonld'
 import { ProductPage } from './ProductPage'
 import './legalia.css'
-
-// Dynamic import only — see emmi.tsx for why (keeps three/R3F/postprocessing
-// out of this page's own chunk; SceneCanvas already wraps whatever `scene`
-// it's handed in its own Suspense boundary).
-const BeamsScene = lazy(() => import('../../scenes/BeamsScene').then(m => ({ default: m.BeamsScene })))
 
 // Legalia's own palette (`_legacy/legalia.html`'s `--lg-vivid`) — the page's
 // single "local accent", per ProductPage's `accent` prop.
@@ -211,9 +206,12 @@ export default function Legalia() {
       <Seo page="legalia" lang={lang} jsonLd={[softwareApplicationJsonLd('legalia', lang)]} />
 
       <ProductPage
-        scene={<BeamsScene />}
-        poster={<div className="scene-poster scene-poster--beams" aria-hidden="true" />}
-        camera={BEAMS_CAMERA}
+        background={
+          <BeamsRBBackground
+            className="scene-canvas"
+            poster={<div className="scene-poster scene-poster--beams" aria-hidden="true" />}
+          />
+        }
         accent={ACCENT}
         hero={{
           logo: (

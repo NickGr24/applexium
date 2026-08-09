@@ -94,15 +94,20 @@ for (const p of pages) {
     if (html.includes('voiceagent-widget-root'))
       fail(`${file}: unexpected "voiceagent-widget-root" in SSR output (widget only ever attaches client-side)`)
 
-    // Task 22 regression guards for scripts/fix-preload.mjs: the R3F/three
-    // stack (SceneCanvasInner and every *Scene.tsx it drags in) must never
-    // be modulepreloaded — it's mounted lazily, well after LCP, by
-    // SceneCanvas's own IntersectionObserver, never during SSR (see that
-    // file's doc comment). A modulepreload here means the over-broad
-    // vite-react-ssg preload collection this script works around (see its
-    // own header comment) has regressed.
+    // Task 22 regression guards for scripts/fix-preload.mjs, updated by
+    // Task 16b when the three.js reinterpretations (SceneCanvasInner and
+    // every *Scene.tsx it mounted — ConvergenceScene/BeamsScene/GalaxyScene)
+    // were replaced by verbatim React Bits ports, each lazy-loaded through
+    // its own *Canvas chunk (OGL: AuroraCanvas/ThreadsCanvas/GalaxyRBCanvas;
+    // R3F: BeamsRBCanvas, which owns its own <Canvas> instead of going
+    // through a shared SceneCanvasInner — see BeamsRBCanvas.tsx's own doc
+    // comment). None of these must ever be modulepreloaded — each is
+    // mounted lazily, well after LCP, by its own *Background wrapper's
+    // IntersectionObserver, never during SSR. A modulepreload here means the
+    // over-broad vite-react-ssg preload collection this script works around
+    // (see its own header comment) has regressed.
     const preloadHrefs = [...html.matchAll(/<link rel="modulepreload"[^>]*href="([^"]+)"/g)].map((m) => m[1])
-    for (const heavy of ['SceneCanvasInner-', 'ConvergenceScene-', 'BeamsScene-', 'GalaxyScene-']) {
+    for (const heavy of ['AuroraCanvas-', 'ThreadsCanvas-', 'BeamsRBCanvas-', 'GalaxyRBCanvas-']) {
       if (preloadHrefs.some((h) => h.includes(`/${heavy}`)))
         fail(`${file}: modulepreloads a lazy scene chunk (${heavy}*) — should only load after intersection`)
     }

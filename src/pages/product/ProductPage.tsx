@@ -1,8 +1,6 @@
-import type { CanvasProps } from '@react-three/fiber'
 import type { CSSProperties, ReactNode } from 'react'
 import { MonoLabel } from '../../components/MonoLabel'
 import { SplitHeading } from '../../components/SplitHeading'
-import { SceneCanvas } from '../../scenes/SceneCanvas'
 import './product.css'
 
 type ProductPageHero = {
@@ -26,17 +24,14 @@ type ProductPageHero = {
 }
 
 type ProductPageProps = {
-  /** The product's own hero scene, already behind `React.lazy` in the page
-   * that owns it (see `emmi.tsx`, pattern borrowed from `ProductShowcase`).
-   * Passed as an element rather than imported here, so `ProductPage` itself
-   * never pulls `three`/R3F into a chunk shared by every product page. */
-  scene: ReactNode
-  /** Poster shown until the scene's first frame paints — SSR, reduced
-   * motion, low-tier devices, or simply before `SceneCanvas` has mounted
-   * Canvas. One of the `.scene-poster--*` variants in `components.css`. */
-  poster: ReactNode
-  /** Camera the scene is framed for, forwarded straight to `SceneCanvas`. */
-  camera?: CanvasProps['camera']
+  /** The product's own hero background — a finished `*Background` element
+   * (`ThreadsBackground` for Emmi, `BeamsRBBackground` for Legalia,
+   * `GalaxyRBBackground` for Precedentia), already carrying its own
+   * `poster`/`className`. Built by the page that owns it (see `emmi.tsx`),
+   * not imported here, so `ProductPage` itself never pulls `ogl`/`three`/R3F
+   * into a chunk shared by every product page — each `*Background` wrapper
+   * lazy-loads its own heavy chunk internally. */
+  background: ReactNode
   /** This product's own accent, as a hex colour (e.g. Emmi's `--em-vivid`).
    * Exposed to CSS as `--page-accent` (the colour) and `--page-accent-rgb`
    * (its "r g b" triple, for `rgb(var(--page-accent-rgb) / alpha)` — the
@@ -60,25 +55,21 @@ function hexToRgbTriple(hex: string): string {
 }
 
 /**
- * Shared shell for every product page: a full-viewport hero (scene + mono
- * label + headline + subhead + CTAs) followed by whatever chapters the
+ * Shared shell for every product page: a full-viewport hero (background +
+ * mono label + headline + subhead + CTAs) followed by whatever chapters the
  * product itself supplies. Mirrors the shape of the home page's own
- * `HeroSection`, minus its scroll-driven camera dolly — a product's hero
- * scene is self-contained (see `ConvergenceScene`'s own doc comment for why
- * Emmi's in particular has no scroll progress coming in), so this is one
- * static stage, not a pinned scroll track.
+ * `HeroSection` (which builds its own `AuroraBackground` the same way each
+ * product page builds its own `*Background`), minus its scroll-driven
+ * amplitude swell — a product's hero background is self-contained, so this
+ * is one static stage, not a pinned scroll track.
  */
-export function ProductPage({ scene, poster, camera, accent, hero, chapters }: ProductPageProps) {
+export function ProductPage({ background, accent, hero, chapters }: ProductPageProps) {
   const style = { '--page-accent': accent, '--page-accent-rgb': hexToRgbTriple(accent) } as CSSProperties
 
   return (
     <div className="product-page" style={style}>
       <section className="product-hero">
-        <div className="product-hero__scene">
-          <SceneCanvas className="scene-canvas" poster={poster} camera={camera}>
-            {scene}
-          </SceneCanvas>
-        </div>
+        <div className="product-hero__scene">{background}</div>
 
         <div className="product-hero__scrim" aria-hidden="true" />
 

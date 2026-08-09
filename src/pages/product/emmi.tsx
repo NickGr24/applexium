@@ -1,4 +1,4 @@
-import { lazy, useCallback, useEffect, type ReactNode } from 'react'
+import { useCallback, useEffect, type ReactNode } from 'react'
 import { MagneticButton } from '../../components/MagneticButton'
 import { MonoLabel } from '../../components/MonoLabel'
 import { RevealText } from '../../components/RevealText'
@@ -7,18 +7,10 @@ import { Seo } from '../../components/Seo'
 import { SplitHeading } from '../../components/SplitHeading'
 import { SpotlightCard } from '../../components/SpotlightCard'
 import { localePath, t, useLang, type Lang } from '../../i18n'
-import { CONVERGENCE_CAMERA } from '../../scenes/convergenceCamera'
+import { ThreadsBackground } from '../../scenes/ThreadsBackground'
 import { softwareApplicationJsonLd } from '../../site/jsonld'
 import { ProductPage } from './ProductPage'
 import './emmi.css'
-
-// Dynamic import only — keeps `three`/R3F/postprocessing out of this page's
-// own chunk. See ProductShowcase.tsx (home page) for the same pattern, and
-// SceneCanvasInner.tsx for why the Suspense boundary doesn't need to live
-// here: SceneCanvas already wraps whatever `scene` it's handed.
-const ConvergenceScene = lazy(() =>
-  import('../../scenes/ConvergenceScene').then(m => ({ default: m.ConvergenceScene })),
-)
 
 // Emmi's own palette (`_legacy/emmi.html`'s `--em-vivid`) — the page's
 // single "local accent", per ProductPage's `accent` prop.
@@ -47,9 +39,11 @@ const ICON_BASE = {
 
 /** Generic outline glyphs, not brand marks — same rationale as
  * `home/icons.tsx`. The three messaging channels share one speech-bubble
- * shape, told apart by the same colours `ConvergenceScene`'s five streams
- * already use for them (phone dialer green, Instagram pink, WhatsApp green,
- * Telegram blue), so the row echoes the hero it sits under. */
+ * shape, told apart by each channel's own recognizable brand tint (phone
+ * dialer green, Instagram pink, WhatsApp green, Telegram blue) — the same
+ * five colours the old `ConvergenceScene` hero used to paint its five
+ * converging streams, kept here as the row's own palette even though the
+ * hero itself is now `ThreadsBackground`'s single-colour cyan line field. */
 function PhoneIcon({ color }: { color?: string }) {
   return (
     <svg {...ICON_BASE} style={color ? { color } : undefined}>
@@ -79,8 +73,10 @@ function BubbleIcon({ color }: { color: string }) {
 
 type ChannelKey = 'phone' | 'web' | 'instagram' | 'whatsapp' | 'telegram'
 
-// Colours match ConvergenceScene's STREAMS array exactly (see that file),
-// so the row ties visually back to the hero's five converging streams.
+// Colours are each channel's own real-world brand tint — see the
+// PhoneIcon/BubbleIcon doc comment above for the history (they used to
+// double as ConvergenceScene's per-stream colours too, before this page's
+// hero moved to ThreadsBackground).
 const CHANNELS: { key: ChannelKey; icon: ReactNode }[] = [
   { key: 'phone', icon: <PhoneIcon color="#34c759" /> },
   { key: 'web', icon: <WebIcon /> },
@@ -238,9 +234,12 @@ export default function Emmi() {
       <Seo page="emmi" lang={lang} jsonLd={[softwareApplicationJsonLd('emmi', lang)]} />
 
       <ProductPage
-        scene={<ConvergenceScene />}
-        poster={<div className="scene-poster scene-poster--convergence" aria-hidden="true" />}
-        camera={CONVERGENCE_CAMERA}
+        background={
+          <ThreadsBackground
+            className="scene-canvas"
+            poster={<div className="scene-poster scene-poster--convergence" aria-hidden="true" />}
+          />
+        }
         accent={ACCENT}
         hero={{
           logo: (
