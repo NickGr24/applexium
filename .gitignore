@@ -3,3 +3,6 @@ dist/
 .vite-react-ssg-temp*/
 *.local
 .DS_Store
+screenshots/
+.superpowers/
+.impeccable/
