@@ -81,6 +81,28 @@
 
 .section {
   padding-block: 6rem;
+  /* Clears the fixed .nav bar on an anchor jump (e.g. Nav's "servicii" link,
+   * `#servicii` from another page) so the section header doesn't land
+   * hidden underneath it — same fix, same value as legal.css's h2 rule for
+   * the TOC's own anchor jumps. */
+  scroll-margin-top: 6rem;
+  /* Skips layout/paint for this section's subtree while it's far off-screen
+   * — cheaper initial render on every page that uses <Section>. Safe with
+   * respect to the one `pin:` ScrollTrigger in this codebase
+   * (ProductShowcase's `.showcase`, home.css): every `.section` on the home
+   * page renders *after* `.showcase` in document order, and that pin's
+   * start/end are computed from its own trigger (itself, `top top` /
+   * `bottom bottom`) — nothing measures a `.section`'s position to place
+   * it. Do not add `content-visibility` to anything that sits *before* a
+   * pinned trigger without re-checking that same reasoning; content-
+   * visibility:auto's own off-screen size approximation could throw off a
+   * pin's start position if the pin's trigger measurement depends on that
+   * earlier element's real layout height. `auto 700px` is a rough guess for
+   * the very first (never-yet-rendered) estimate only — the `auto` keyword
+   * has the browser remember the section's real height after it first
+   * renders for real, so this number only matters before that. */
+  content-visibility: auto;
+  contain-intrinsic-size: auto 700px;
 }
 
 .section__header {
@@ -219,8 +241,8 @@
 
 /* ConvergenceScene's poster: the exact background the legacy Emmi hero
    painted behind #emmi-stage (`_legacy/emmi.html`) — Emmi's own vivid/soft/
-   light cyan palette over its near-black, not the blue HeroWorld poster
-   above. */
+   light cyan palette over its near-black, not the blue hero poster
+   above (`.scene-poster--hero`). */
 .scene-poster--convergence {
   background:
     radial-gradient(ellipse 900px 700px at 10% 20%, rgba(8, 145, 178, 0.35), transparent 70%),

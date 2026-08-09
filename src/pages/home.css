@@ -146,6 +146,9 @@
 .showcase {
   position: relative;
   height: 300vh;
+  /* Same fix as .section in components.css: clears the fixed .nav bar when
+   * landing here via Nav's "produse" anchor link from another page. */
+  scroll-margin-top: 6rem;
 }
 
 .showcase__stage {
@@ -381,6 +384,11 @@
   flex-direction: column;
   gap: 2rem;
   padding-block: 6rem;
+  /* Below-the-fold, after ProductShowcase's pinned .showcase in document
+   * order — safe to skip off-screen rendering, same reasoning as .section
+   * in components.css. */
+  content-visibility: auto;
+  contain-intrinsic-size: auto 420px;
 }
 
 .stats__title {
@@ -412,6 +420,13 @@
     radial-gradient(55% 42% at 50% 106%, rgb(31 205 255 / 0.22), transparent 68%),
     radial-gradient(85% 62% at 50% 128%, rgb(36 94 254 / 0.34), transparent 72%),
     var(--bg);
+  /* Last section on the page, well after ProductShowcase's pin — safe, same
+   * reasoning as .section in components.css. `min-height: 100vh` above
+   * already fixes this element's own size regardless of content-visibility,
+   * so there's no collapse risk here even before the `auto` estimate below
+   * is ever corrected. */
+  content-visibility: auto;
+  contain-intrinsic-size: auto 100vh;
 }
 
 .final__inner {
