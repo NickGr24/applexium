@@ -17,7 +17,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite-react-ssg build && node scripts/gen-sitemap.mjs && node scripts/verify-dist.mjs",
+    "build": "vite-react-ssg build && node scripts/fix-preload.mjs && node scripts/gen-sitemap.mjs && node scripts/verify-dist.mjs",
     "test": "vitest run",
     "preview": "vite preview"
   },

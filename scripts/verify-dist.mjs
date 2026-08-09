@@ -7,6 +7,15 @@ import pages from '../src/site/pages.json' with { type: 'json' }
 
 const SITE_ORIGIN = 'https://applexium.com'
 
+const legalIds = new Set([
+  'accessibility',
+  'ai-ethics',
+  'cookie-policy',
+  'esg',
+  'privacy-policy',
+  'terms-and-conditions',
+])
+
 const fail = (msg) => {
   console.error(`verify-dist: ${msg}`)
   process.exitCode = 1
@@ -67,6 +76,31 @@ for (const p of pages) {
     // Confirmed by inspection of the actual build output for all 32 pages.
     if (html.includes('voiceagent-widget-root'))
       fail(`${file}: unexpected "voiceagent-widget-root" in SSR output (widget only ever attaches client-side)`)
+
+    // Task 22 regression guards for scripts/fix-preload.mjs: the R3F/three
+    // stack (SceneCanvasInner and every *Scene.tsx it drags in) must never
+    // be modulepreloaded — it's mounted lazily, well after LCP, by
+    // SceneCanvas's own IntersectionObserver, never during SSR (see that
+    // file's doc comment). A modulepreload here means the over-broad
+    // vite-react-ssg preload collection this script works around (see its
+    // own header comment) has regressed.
+    const preloadHrefs = [...html.matchAll(/<link rel="modulepreload"[^>]*href="([^"]+)"/g)].map((m) => m[1])
+    for (const heavy of ['SceneCanvasInner-', 'ConvergenceScene-', 'BeamsScene-', 'GalaxyScene-']) {
+      if (preloadHrefs.some((h) => h.includes(`/${heavy}`)))
+        fail(`${file}: modulepreloads a lazy scene chunk (${heavy}*) — should only load after intersection`)
+    }
+
+    if (legalIds.has(p.id)) {
+      // Exactly this page's own content chunk, never a sibling id/language's.
+      const contentPreloads = preloadHrefs.filter((h) => /\/(accessibility|ai-ethics|cookie-policy|esg|privacy-policy|terms-and-conditions)\.(ro|en)-/.test(h))
+      const own = contentPreloads.filter((h) => h.includes(`/${p.id}.${lang}-`))
+      if (own.length !== 1) fail(`${file}: expected exactly one modulepreload for ${p.id}.${lang}'s own content chunk, found ${own.length}`)
+      if (contentPreloads.length !== own.length)
+        fail(`${file}: modulepreloads ${contentPreloads.length - own.length} sibling legal content chunk(s) it doesn't need`)
+      // The shared shell (LegalPage/RevealText) must be preloaded for BOTH
+      // languages of every id — this is exactly the asymmetry T19 flagged.
+      if (!preloadHrefs.some((h) => h.includes('/LegalPage-'))) fail(`${file}: missing LegalPage shell modulepreload`)
+    }
   }
 }
 
