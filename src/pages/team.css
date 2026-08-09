@@ -27,11 +27,11 @@
   border-radius: 16px;
 }
 
-/* The whole card is the link target (per Task 17 brief) — an explicit ring
-   on top of the browser default, since a block-level <a> otherwise only
-   gets a thin outline hugging its (large, irregular) content box. */
+/* The whole card is the link target (per Task 17 brief) — color/width come
+   from global.css's default :focus-visible ring; this large, irregular
+   content box just needs more offset and a slightly rounder radius than
+   the 3px default hugs. */
 .team-card:focus-visible {
-  outline: 2px solid var(--brand-cyan);
   outline-offset: 6px;
   border-radius: 18px;
 }

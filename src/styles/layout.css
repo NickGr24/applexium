@@ -143,6 +143,7 @@ html.nav-menu-open {
   padding: 0;
   background: transparent;
   border: none;
+  border-radius: 8px;
   cursor: pointer;
 }
 

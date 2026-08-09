@@ -119,10 +119,8 @@
   transform: translateY(-2px);
 }
 
-.profile-link:focus-visible {
-  outline: 2px solid var(--brand-cyan);
-  outline-offset: 3px;
-}
+/* No :focus-visible rule needed — global.css's default (2px solid
+   brand-cyan, 3px offset) already matches this pill exactly. */
 
 /* ---------- Chips ----------
    Reused by both the tech-stack pills (nichita-griu) and the brand tags

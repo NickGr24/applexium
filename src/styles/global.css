@@ -38,9 +38,53 @@ select {
   font: inherit;
 }
 
+/* `<button>` keeps native OS theming (macOS/WebKit in particular) until
+   `appearance` is reset — including a platform focus ring that renders
+   outside the CSS box model, so it ignores `outline: none` entirely and
+   would otherwise survive the focus-ring rule below untouched. Every
+   `.magnetic-btn`/`.nav__toggle`/etc. already repaints its own background
+   and border, so losing the native look costs nothing here. */
+button {
+  appearance: none;
+}
+
 ::selection {
   background: var(--brand-blue);
   color: var(--ink);
+}
+
+/* ---------- Focus ring (site-wide) ----------
+   One focus treatment for every interactive element, defined once so no
+   page or component has to reinvent it: nothing shows on a plain `:focus`
+   (covers mouse clicks, and WebKit's older habit of ringing on click too),
+   and a single brand-cyan ring shows only on `:focus-visible` (real
+   keyboard navigation). Before this rule the browser's own default outline
+   (a pale blue-white "auto" ring, unrelated to the brand palette) was the
+   only focus indicator most buttons and links had — it doesn't match the
+   site's rounded-pill language, so on a `.magnetic-btn`/`.lang-btn` it sat
+   as a mismatched extra frame right on top of the pill's own border/glow,
+   and in this codebase's own Chromium build it was confirmed to still
+   render after a plain mouse click on a `<button>` (no `:focus-visible`
+   gating existed anywhere to prevent that).
+   Outline needs no border-radius of its own — modern browsers already clip
+   `outline` to whatever border-radius the focused element itself carries,
+   so a 999px pill gets a pill-shaped ring for free.
+   Components with unusually large or irregular focus targets (whole-card
+   links) may still override `outline-offset` — see team.css, projects.css,
+   and profile/diana-tatar.css's `.work-item` / profile/nichita-griu.css's
+   `.product-card` — but never the color or width, which stay owned here. */
+a,
+button,
+[tabindex] {
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+}
+
+a:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--brand-cyan);
+  outline-offset: 3px;
 }
 
 .container {

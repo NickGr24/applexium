@@ -51,9 +51,9 @@
   border-color: rgb(31 205 255 / 0.4);
 }
 
-/* Whole card is the link target, same ring treatment as `.team-card`. */
+/* Whole card is the link target, same ring treatment as `.team-card` —
+   color/width come from global.css's default :focus-visible ring. */
 .project-card:focus-visible {
-  outline: 2px solid var(--brand-cyan);
   outline-offset: 6px;
   border-radius: 18px;
 }

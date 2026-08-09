@@ -28,8 +28,9 @@
   border-color: rgb(31 205 255 / 0.4);
 }
 
+/* Color/width come from global.css's default :focus-visible ring; a card
+   this size just needs a bit more breathing room than the 3px default. */
 .product-card:focus-visible {
-  outline: 2px solid var(--brand-cyan);
   outline-offset: 4px;
 }
 
