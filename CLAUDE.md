@@ -9,6 +9,7 @@ The marketing site for `applexium.com` — a Moldovan software company. It is a 
 - Repo: `github.com/NickGr24/applexium`
 - Hosting: GitHub Pages with custom domain via `dist/CNAME` (copied from `public/CNAME` at build time) — `applexium.com`
 - Deploy: `.github/workflows/deploy.yml` runs on every push to `main` — `npm ci && npm test && npm run build`, then uploads `dist/` as a Pages artifact. **GitHub → Settings → Pages → Source must be set to "GitHub Actions"**, not "Deploy from a branch" — the old static-site setup pointed at `main` directly, and that mode ignores this workflow entirely.
+- **TEMPORARY (2026-08-09): Actions are locked by a GitHub billing issue**, so Pages currently deploys from the **`gh-pages` branch** (legacy mode), which holds a built `dist/` snapshot plus `.nojekyll`. Until billing is fixed: to deploy, run `npm run build`, copy `dist/` contents onto the `gh-pages` branch, commit, push. A push to `main` alone does NOT update the live site right now. Once billing is resolved: switch Pages → Source back to "GitHub Actions" and delete this paragraph and the `gh-pages` branch. Warning that caused an outage: in branch mode Pages needs `CNAME` at the published root — publishing raw `main` (where CNAME lives in `public/`) detached the applexium.com domain.
 - This replaced an earlier plain-HTML/CSS/JS static site (Python-generated `/en/`, hand-written `style.css`/`script.js`). That version now lives only in git history (see the redesign's plan/spec under `docs/superpowers/`), not in this tree.
 
 ## Common workflows
