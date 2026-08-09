@@ -7,6 +7,18 @@ import { useReducedMotion } from './useReducedMotion'
 type Phase = 'idle' | 'cover' | 'reveal'
 
 /**
+ * Cancellation handle for one `scrollToRouteTarget` retry chain — created
+ * fresh per effect run (one per navigation) in `PageTransition` below, and
+ * torn down in that effect's own cleanup. Without this, a chain still
+ * mid-retry when a *second* navigation starts before the first target ever
+ * appears (e.g. two hash links clicked in quick succession, faster than the
+ * ~1s retry budget) would keep polling with the *first* navigation's stale
+ * hash and could scroll the second page out from under the visitor once its
+ * own target finally mounts.
+ */
+type ScrollToken = { cancelled: boolean; timeoutId: ReturnType<typeof setTimeout> | null }
+
+/**
  * Scrolls to the new location's #hash target once the shutter's midpoint
  * hides the viewport, or snaps to the top when there is no hash. A plain
  * full page load already lands on a #hash target for free (the browser's
@@ -20,7 +32,8 @@ type Phase = 'idle' | 'cover' | 'reveal'
  * lazy route chunk that hasn't resolved yet the instant the shutter's
  * midpoint fires.
  */
-function scrollToRouteTarget(hash: string, attempt = 0) {
+function scrollToRouteTarget(hash: string, token: ScrollToken, attempt = 0) {
+  if (token.cancelled) return
   if (!hash) {
     window.scrollTo(0, 0)
     return
@@ -33,8 +46,13 @@ function scrollToRouteTarget(hash: string, attempt = 0) {
   }
   // ~1s of retries (20 x 50ms) before giving up quietly — a stale/typo'd
   // hash just leaves scroll wherever the shutter left it, rather than
-  // polling forever.
-  if (attempt < 20) window.setTimeout(() => scrollToRouteTarget(hash, attempt + 1), 50)
+  // polling forever. The scheduled id is stashed on the token so the owning
+  // effect's cleanup can clear it outright, not just rely on the
+  // `cancelled` check above (which still stops it from *doing* anything,
+  // but leaves a dead timer ticking otherwise).
+  if (attempt < 20) {
+    token.timeoutId = setTimeout(() => scrollToRouteTarget(hash, token, attempt + 1), 50)
+  }
 }
 
 /**
@@ -58,9 +76,19 @@ export function PageTransition({ children }: { children: React.ReactNode }) {
       return
     }
 
+    // Fresh per navigation (per effect run) — see ScrollToken's own doc
+    // comment for why a still-pending retry chain from a *previous*
+    // navigation needs to be cancellable rather than left to run to
+    // completion against a now-stale hash.
+    const scrollToken: ScrollToken = { cancelled: false, timeoutId: null }
+    const cancelScroll = () => {
+      scrollToken.cancelled = true
+      if (scrollToken.timeoutId !== null) clearTimeout(scrollToken.timeoutId)
+    }
+
     if (reducedMotion) {
-      scrollToRouteTarget(hash)
-      return
+      scrollToRouteTarget(hash, scrollToken)
+      return cancelScroll
     }
 
     const overlay = overlayRef.current
@@ -73,7 +101,7 @@ export function PageTransition({ children }: { children: React.ReactNode }) {
     tl.set(overlay, { transformOrigin: 'bottom' })
       .to(overlay, { scaleY: 1, duration: 0.45, ease: easeOut })
       .call(() => {
-        scrollToRouteTarget(hash)
+        scrollToRouteTarget(hash, scrollToken)
         setPhase('reveal')
       })
       .set(overlay, { transformOrigin: 'top' })
@@ -81,6 +109,7 @@ export function PageTransition({ children }: { children: React.ReactNode }) {
 
     return () => {
       tl.kill()
+      cancelScroll()
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [key])
