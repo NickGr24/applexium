@@ -1,5 +1,6 @@
 import gsap from 'gsap'
 import { useEffect, useRef } from 'react'
+import { Link } from 'react-router-dom'
 import { useReducedMotion } from '../motion/useReducedMotion'
 
 type MagneticButtonProps = {
@@ -69,6 +70,25 @@ export function MagneticButton({ as = 'a', href, target, rel, variant, children,
       <button ref={setRef} type="button" className={className} onClick={onClick}>
         <span className="magnetic-btn__label">{children}</span>
       </button>
+    )
+  }
+
+  // A same-site path (leading "/", including a path+hash combo like
+  // "/#servicii") goes through react-router's <Link> so the SPA's own
+  // page-transition shutter and client-side routing handle it — a plain
+  // <a href="/contacts"> triggers a full browser navigation instead, which
+  // used to skip the shutter entirely for every internal CTA. A bare
+  // "#servicii" (no leading slash, i.e. an in-page anchor on whatever page
+  // is already showing) is left as a plain <a>: it never causes a full
+  // navigation on its own, so there's nothing to fix, and <Link> has no
+  // special same-page-hash behaviour over a plain anchor anyway.
+  const internal = href?.startsWith('/') ?? false
+
+  if (internal) {
+    return (
+      <Link ref={setRef} to={href!} target={target} rel={rel} className={className} onClick={onClick}>
+        <span className="magnetic-btn__label">{children}</span>
+      </Link>
     )
   }
 
