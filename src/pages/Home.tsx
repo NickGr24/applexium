@@ -28,15 +28,18 @@ const SERVICES = [
 /** Client logos for the marquee. `plate` picks the chip colour underneath:
  * most of these are dark artwork that needs a light plate, but Penița
  * Dreptului's mark and Jurista's wordmark are white and vanish on one —
- * the same split the legacy site handled with its `logo-dark-bg` class. */
+ * the same split the legacy site handled with its `logo-dark-bg` class.
+ * `tall` marks square artwork (CMDA's stacked seal, Penița's feather):
+ * at the wordmark height it reads as a speck, so those chips render the
+ * image taller (see `.marquee__item--tall` in home.css). */
 const CLIENTS = [
-  { src: '/dare-eu.webp', name: 'DARE-EU', plate: 'light' },
-  { src: '/eurobridge.webp', name: 'EUROBRIDGE UA MD', plate: 'light' },
-  { src: '/energiq.webp', name: 'EnergiQ', plate: 'light' },
-  { src: '/cmda.webp', name: 'CMDA', plate: 'light' },
-  { src: '/startitplanet.webp', name: 'StartIT Planet', plate: 'light' },
-  { src: '/penitadreptului.webp', name: 'Penița Dreptului', plate: 'dark' },
-  { src: '/jurista.webp', name: 'Jurista', plate: 'dark' },
+  { src: '/dare-eu.webp', name: 'DARE-EU', plate: 'light', tall: false },
+  { src: '/eurobridge.webp', name: 'EUROBRIDGE UA MD', plate: 'light', tall: false },
+  { src: '/energiq.webp', name: 'EnergiQ', plate: 'light', tall: false },
+  { src: '/cmda.webp', name: 'CMDA', plate: 'light', tall: true },
+  { src: '/startitplanet.webp', name: 'StartIT Planet', plate: 'light', tall: false },
+  { src: '/penitadreptului.webp', name: 'Penița Dreptului', plate: 'dark', tall: true },
+  { src: '/jurista.webp', name: 'Jurista', plate: 'dark', tall: false },
 ] as const
 
 const CASES = [
@@ -51,8 +54,11 @@ function ClientLogos({ lang }: { lang: Lang }) {
   // where the copy begins and the loop is invisible.
   const row = (hidden: boolean) => (
     <ul className="marquee__row" aria-hidden={hidden || undefined}>
-      {CLIENTS.map(({ src, name, plate }) => (
-        <li className={`marquee__item marquee__item--${plate}`} key={`${name}-${hidden}`}>
+      {CLIENTS.map(({ src, name, plate, tall }) => (
+        <li
+          className={`marquee__item marquee__item--${plate}${tall ? ' marquee__item--tall' : ''}`}
+          key={`${name}-${hidden}`}
+        >
           <img src={src} alt={hidden ? '' : name} loading="lazy" decoding="async" />
         </li>
       ))}

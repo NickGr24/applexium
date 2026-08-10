@@ -291,12 +291,18 @@
   list-style: none;
 }
 
+/* Fixed height, variable width: every logo renders at the same visual
+   weight (the img's fixed height below), and the chip hugs it. A fixed
+   200px width + percentage max-height was the old scheme — but percentage
+   caps don't resolve inside an auto-sized grid track, so square marks
+   (CMDA, Penița) rendered at natural ratio and poured out of the chip. */
 .marquee__item {
-  display: grid;
-  place-items: center;
-  width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 88px;
-  padding: 0.9rem 1.1rem;
+  min-width: 148px;
+  padding: 0 1.4rem;
   border-radius: 14px;
 }
 
@@ -310,11 +316,17 @@
 }
 
 .marquee__item img {
-  max-width: 100%;
-  max-height: 100%;
+  height: 42px;
   width: auto;
-  height: auto;
+  max-width: 240px;
   object-fit: contain;
+}
+
+/* Square artwork (CMDA's seal carries its own internal whitespace, Penița's
+   feather is a lone mark): the wordmark height above shrinks them to a
+   speck, so they get more of the chip's height instead. */
+.marquee__item--tall img {
+  height: 64px;
 }
 
 @keyframes marquee-scroll {
@@ -347,12 +359,19 @@
   aspect-ratio: 16 / 9;
   background: var(--bg-raise);
   border: 1px solid rgb(139 147 167 / 0.15);
+  /* Registers this box as the img's query container: the cqw caps below
+     resolve against its width, unlike percentage max-height, which grid
+     silently drops when the track is auto-sized. */
+  container-type: inline-size;
 }
 
 .case .case__media img {
-  width: 76%;
+  width: auto;
   height: auto;
-  max-height: 62%;
+  max-width: 76cqw;
+  /* 34cqw ≈ 60% of the 16/9 box height — square marks stay a chip, not
+     a slab, while wide wordmarks never reach this cap. */
+  max-height: 34cqw;
   object-fit: contain;
   padding: 0.9rem 1.1rem;
   border-radius: 10px;
@@ -488,9 +507,18 @@
   }
 
   .marquee__item {
-    width: 148px;
     height: 68px;
-    padding: 0.7rem 0.85rem;
+    min-width: 116px;
+    padding: 0 1rem;
+  }
+
+  .marquee__item img {
+    height: 32px;
+    max-width: 180px;
+  }
+
+  .marquee__item--tall img {
+    height: 48px;
   }
 
   /* Two columns at 390px leave ~160px per figure, and the mono digits'

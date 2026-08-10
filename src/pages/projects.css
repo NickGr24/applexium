@@ -64,6 +64,9 @@
   aspect-ratio: 16 / 9;
   background: var(--bg-raise);
   border: 1px solid rgb(139 147 167 / 0.15);
+  /* Query container for the cqw caps below — percentage max-height doesn't
+     resolve inside an auto-sized grid track (same fix as `.case__media`). */
+  container-type: inline-size;
 }
 
 /* Two ancestor classes beat `.photo-hover img`'s own `object-fit: cover` on
@@ -72,9 +75,12 @@
    `projects.css` merely being imported after `components.css`. Logos need
    `contain`, not `cover`: cropping a wordmark is never the right zoom. */
 .project-card .project-card__media img {
-  width: 76%;
+  width: auto;
   height: auto;
-  max-height: 62%;
+  max-width: 76cqw;
+  /* Square marks (CMDA, Penița) hug this cap instead of ballooning into a
+     near-full-bleed plate; wide wordmarks stop at max-width first. */
+  max-height: 34cqw;
   object-fit: contain;
   padding: 0.9rem 1.1rem;
   border-radius: 10px;

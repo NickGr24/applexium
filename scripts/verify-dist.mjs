@@ -87,6 +87,15 @@ for (const p of pages) {
     if (countOf(html, 'application/ld+json') < 1) fail(`${file}: no JSON-LD`)
     if (countOf(html, 'rel="canonical"') < 1) fail(`${file}: no canonical`)
 
+    // Browsers only scan the first 1024 bytes for a <meta charset> before
+    // falling back to encoding sniffing (a re-parse risk with the Romanian
+    // diacritics in every title/description). fix-preload.mjs hoists the tag
+    // to the head's first position — this guards that hoist.
+    const charsetAt = html.search(/<meta charset/i)
+    if (charsetAt === -1) fail(`${file}: no <meta charset>`)
+    else if (Buffer.byteLength(html.slice(0, charsetAt), 'utf8') > 1024 - '<meta charset="UTF-8">'.length)
+      fail(`${file}: <meta charset> outside the first 1024 bytes (at byte offset ${charsetAt})`)
+
     // The Emmi live-widget FAB (#voiceagent-widget-root) is injected into
     // the DOM at runtime by the externally-hosted widget.js (see emmi.tsx) —
     // it never appears in SSR markup, on emmi.html or anywhere else.

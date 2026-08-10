@@ -183,7 +183,11 @@ function computeAssetSet(id, lang) {
 function renderLinks({ jsFiles, cssFiles }) {
   const js = [...jsFiles].map((f) => `<link rel="modulepreload" crossorigin="" href="/${f}">`)
   const css = [...cssFiles].map((f) => `<link rel="stylesheet" href="/${f}" crossorigin="">`)
-  return [...js, ...css].join('')
+  // Stylesheets first: they render-block first paint, while modulepreloads
+  // only warm hydration. Listing ~20 JS preloads ahead of the CSS let them
+  // win the connection race and measurably delayed FCP/LCP (a ~1.1s LCP hit
+  // in a Slow-4G/HTTP1.1 trace; smaller but real over GitHub Pages' h2).
+  return [...css, ...js].join('')
 }
 
 // The entry script tag (`<script type="module" ... src="...">`) stays
@@ -192,9 +196,17 @@ function renderLinks({ jsFiles, cssFiles }) {
 const MODULEPRELOAD_RE = /<link rel="modulepreload"[^>]*>/g
 const STYLESHEET_RE = /<link rel="stylesheet"[^>]*>/g
 const ENTRY_SCRIPT_RE = /<script type="module"[^>]*><\/script>/
+const CHARSET_RE = /<meta charset[^>]*>/i
 
 function fixHtml(html, id, lang) {
   const before = html
+  // vite-react-ssg prepends the whole Head-managed (data-rh) block to <head>,
+  // pushing the template's own <meta charset> past the 1024-byte window
+  // browsers scan before falling back to encoding sniffing — with Romanian
+  // diacritics in the title/description that sit in front of it. Hoist it
+  // back to the very first position in <head>.
+  const charset = CHARSET_RE.exec(html)?.[0]
+  if (charset) html = html.replace(CHARSET_RE, '').replace('<head>', `<head>${charset}`)
   html = html.replace(MODULEPRELOAD_RE, '')
   html = html.replace(STYLESHEET_RE, '')
   const links = renderLinks(computeAssetSet(id, lang))
