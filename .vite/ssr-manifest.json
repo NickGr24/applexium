@@ -270,12 +270,12 @@
     "/assets/Contacts-oshCJfhB.css"
   ],
   "src/pages/Home.tsx": [
-    "/assets/Home-Z7iyf1i4.js",
-    "/assets/Home-f3Z_pjv9.css"
+    "/assets/Home-DZg4WJwf.js",
+    "/assets/Home-BioDHBo1.css"
   ],
   "src/pages/Projects.tsx": [
-    "/assets/Projects-sAcY-oKD.js",
-    "/assets/Projects-D2n_cWdo.css"
+    "/assets/Projects-i-Ht5_Gv.js",
+    "/assets/Projects-CmoD1xxe.css"
   ],
   "src/pages/Team.tsx": [
     "/assets/Team-CbPd4sy2.js",
@@ -286,24 +286,24 @@
     "/assets/Contacts-oshCJfhB.css"
   ],
   "src/pages/home.css": [
-    "/assets/Home-Z7iyf1i4.js",
-    "/assets/Home-f3Z_pjv9.css"
+    "/assets/Home-DZg4WJwf.js",
+    "/assets/Home-BioDHBo1.css"
   ],
   "src/pages/home/HeroSection.tsx": [
-    "/assets/Home-Z7iyf1i4.js",
-    "/assets/Home-f3Z_pjv9.css"
+    "/assets/Home-DZg4WJwf.js",
+    "/assets/Home-BioDHBo1.css"
   ],
   "src/pages/home/Manifesto.tsx": [
-    "/assets/Home-Z7iyf1i4.js",
-    "/assets/Home-f3Z_pjv9.css"
+    "/assets/Home-DZg4WJwf.js",
+    "/assets/Home-BioDHBo1.css"
   ],
   "src/pages/home/ProductShowcase.tsx": [
-    "/assets/Home-Z7iyf1i4.js",
-    "/assets/Home-f3Z_pjv9.css"
+    "/assets/Home-DZg4WJwf.js",
+    "/assets/Home-BioDHBo1.css"
   ],
   "src/pages/home/icons.tsx": [
-    "/assets/Home-Z7iyf1i4.js",
-    "/assets/Home-f3Z_pjv9.css"
+    "/assets/Home-DZg4WJwf.js",
+    "/assets/Home-BioDHBo1.css"
   ],
   "src/pages/legal/LegalPage.tsx": [
     "/assets/LegalPage-Ckt5nmj0.js",
@@ -414,8 +414,8 @@
     "/assets/Profile-XqqJ5jyX.css"
   ],
   "src/pages/projects.css": [
-    "/assets/Projects-sAcY-oKD.js",
-    "/assets/Projects-D2n_cWdo.css"
+    "/assets/Projects-i-Ht5_Gv.js",
+    "/assets/Projects-CmoD1xxe.css"
   ],
   "src/pages/team.css": [
     "/assets/Team-CbPd4sy2.js",
@@ -423,8 +423,8 @@
   ],
   "src/routes.tsx": [],
   "src/scenes/AuroraBackground.tsx": [
-    "/assets/Home-Z7iyf1i4.js",
-    "/assets/Home-f3Z_pjv9.css"
+    "/assets/Home-DZg4WJwf.js",
+    "/assets/Home-BioDHBo1.css"
   ],
   "src/scenes/AuroraCanvas.tsx": [
     "/assets/AuroraCanvas-DtYnqHC9.js"

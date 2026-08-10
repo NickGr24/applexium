@@ -213,7 +213,7 @@
     ]
   },
   "index.html": {
-    "file": "assets/app-BNx6PyKY.js",
+    "file": "assets/app-BY-WrWKw.js",
     "name": "app",
     "src": "index.html",
     "isEntry": true,
@@ -287,7 +287,7 @@
     ]
   },
   "src/pages/Home.tsx": {
-    "file": "assets/Home-Z7iyf1i4.js",
+    "file": "assets/Home-DZg4WJwf.js",
     "name": "Home",
     "src": "src/pages/Home.tsx",
     "isDynamicEntry": true,
@@ -312,11 +312,11 @@
       "src/scenes/AuroraCanvas.tsx"
     ],
     "css": [
-      "assets/Home-f3Z_pjv9.css"
+      "assets/Home-BioDHBo1.css"
     ]
   },
   "src/pages/Projects.tsx": {
-    "file": "assets/Projects-sAcY-oKD.js",
+    "file": "assets/Projects-i-Ht5_Gv.js",
     "name": "Projects",
     "src": "src/pages/Projects.tsx",
     "isDynamicEntry": true,
@@ -331,7 +331,7 @@
       "_useSpotlightPointer-BYpQ45P0.js"
     ],
     "css": [
-      "assets/Projects-D2n_cWdo.css"
+      "assets/Projects-CmoD1xxe.css"
     ]
   },
   "src/pages/Team.tsx": {
