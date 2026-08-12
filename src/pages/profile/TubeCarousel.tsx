@@ -7,6 +7,10 @@ import { useReducedMotion } from '../../motion/useReducedMotion'
 
 gsap.registerPlugin(ScrollTrigger)
 
+/** Must match `.tube__viewport`'s `perspective` in mircea-ursu.css — the
+ * ring radius is clamped against it below. */
+const PERSPECTIVE = 1000
+
 /**
  * Professional path — six stops, chronological.
  *
@@ -72,7 +76,15 @@ export function TubeCarousel({ lang }: { lang: Lang }) {
     // stops overlapped into one unreadable pile.
     const place = () => {
       const itemWidth = items[0]?.offsetWidth ?? 0
-      const radius = Math.max(Math.min(viewport.clientWidth, window.innerHeight) * 0.42, itemWidth * 0.82)
+      const radius = Math.min(
+        // Hard ceiling, and the reason this isn't just a max(): the item
+        // box is the full container width, so on a 1440px screen the floor
+        // below wanted a 1086px radius. At z ≥ PERSPECTIVE an item sits at
+        // or behind the eye and its projection explodes off-screen — the
+        // section rendered blank.
+        PERSPECTIVE * 0.42,
+        Math.max(Math.min(viewport.clientWidth, window.innerHeight) * 0.42, itemWidth * 0.82),
+      )
       items.forEach((item, i) => {
         const angle = (i * spacing * Math.PI) / 180
         const x = Math.sin(angle) * radius

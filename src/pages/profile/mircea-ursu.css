@@ -180,15 +180,26 @@
   border-radius: 18px;
 }
 
+/* The ring's front item is scaled up by perspective (~1.4x at the phone
+   radius), so text laid out at full item width overflows the screen —
+   "Consilier al secretarului de stat" ran off both edges. Capping the
+   measure lets it wrap inside the projected item instead. */
+.tube__org,
+.tube__role {
+  max-width: 76%;
+}
+
 .tube__org {
   font-family: var(--font-display);
   font-weight: 500;
   font-size: clamp(1.5rem, 3.2vw, 2.4rem);
   color: var(--ink);
+  text-wrap: balance;
 }
 
 .tube__role {
   color: var(--brand-cyan);
+  line-height: 1.6;
 }
 
 /* ---------- 3D cylinder wheel (education) ----------
@@ -230,6 +241,11 @@
   backface-visibility: hidden;
 }
 
+.cylinder__degree,
+.cylinder__field {
+  max-width: 76%;
+}
+
 .cylinder__degree {
   font-family: var(--font-display);
   font-weight: 500;
@@ -239,6 +255,7 @@
 
 .cylinder__field {
   color: var(--brand-cyan);
+  line-height: 1.6;
 }
 
 @media (max-width: 720px) {
@@ -249,6 +266,25 @@
   .timeline-item {
     flex-direction: column;
     text-align: center;
+  }
+}
+
+/* On a phone the front item is both scaled up by perspective and tilted
+   12°, and the two multiply: the measure that fits on desktop still ran
+   past both screen edges. Tightening it (and the mono tracking, which is
+   what makes these labels so wide) keeps the longest role — "Consilier al
+   secretarului de stat" — inside the viewport. */
+@media (max-width: 620px) {
+  .tube__org,
+  .tube__role,
+  .cylinder__degree,
+  .cylinder__field {
+    max-width: 62%;
+  }
+
+  .tube__role,
+  .cylinder__field {
+    letter-spacing: 0.08em;
   }
 }
 

@@ -7,6 +7,9 @@ import { useReducedMotion } from '../../motion/useReducedMotion'
 
 gsap.registerPlugin(ScrollTrigger)
 
+/** Must match `.cylinder__viewport`'s `perspective` in mircea-ursu.css. */
+const PERSPECTIVE = 1000
+
 /** Academic background — the same four degrees the flat grid carried. */
 export const EDUCATION = ['phd', 'llm1', 'llm2', 'llb'] as const
 
@@ -34,7 +37,11 @@ export function CylinderWheel({ lang }: { lang: Lang }) {
     // wide enough that a phone doesn't stack them on top of each other.
     const place = () => {
       const itemHeight = items[0]?.offsetHeight ?? 0
-      const radius = Math.max(Math.min(viewport.clientWidth, window.innerHeight) * 0.42, itemHeight * 1.6)
+      const radius = Math.min(
+        // Same camera-plane ceiling the tube documents.
+        PERSPECTIVE * 0.42,
+        Math.max(Math.min(viewport.clientWidth, window.innerHeight) * 0.42, itemHeight * 1.6),
+      )
       items.forEach((item, i) => {
         const angle = (i * spacing * Math.PI) / 180
         const y = Math.sin(angle) * radius
