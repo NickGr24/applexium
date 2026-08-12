@@ -213,7 +213,7 @@
     ]
   },
   "index.html": {
-    "file": "assets/app-BY-WrWKw.js",
+    "file": "assets/app-DmM_kE-3.js",
     "name": "app",
     "src": "index.html",
     "isEntry": true,
@@ -562,19 +562,21 @@
     ]
   },
   "src/pages/profile/mircea-ursu.tsx": {
-    "file": "assets/mircea-ursu-Bd8abb3g.js",
+    "file": "assets/mircea-ursu-T4YbokoD.js",
     "name": "mircea-ursu",
     "src": "src/pages/profile/mircea-ursu.tsx",
     "isDynamicEntry": true,
     "imports": [
+      "_rolldown-runtime-hePW80VL.js",
       "_jsx-runtime-NZYk81nU.js",
+      "_react-CwJFpaho.js",
       "_pages-D90V61GQ.js",
       "_jsonld-BELvWStD.js",
       "_Section-BHPr179e.js",
       "_Profile-D06613_b.js"
     ],
     "css": [
-      "assets/mircea-ursu-CvyKBWYU.css"
+      "assets/mircea-ursu-EMTd0tCg.css"
     ]
   },
   "src/pages/profile/nichita-griu.tsx": {
