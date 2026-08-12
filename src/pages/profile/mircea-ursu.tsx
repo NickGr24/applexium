@@ -2,13 +2,10 @@ import { Section } from '../../components/Section'
 import { Seo } from '../../components/Seo'
 import { localePath, t, useLang } from '../../i18n'
 import { personJsonLd } from '../../site/jsonld'
+import { CylinderWheel, EDUCATION } from './CylinderWheel'
 import { Profile } from './Profile'
 import { EXPERIENCE, TubeCarousel } from './TubeCarousel'
 import './mircea-ursu.css'
-
-/** Academic background, ported from the legacy `.cylinder__text__item` list
- * (same four degrees, same order). */
-const EDUCATION = ['phd', 'llm1', 'llm2', 'llb'] as const
 
 export default function MirceaUrsu() {
   const lang = useLang()
@@ -55,18 +52,7 @@ export default function MirceaUrsu() {
               label={t(lang, 'profiles.mircea.education.label')}
               title={t(lang, 'profiles.mircea.education.title')}
             >
-              <div className="education-grid">
-                {EDUCATION.map(key => (
-                  <div key={key} className="education-card">
-                    <div className="education-card__degree">
-                      {t(lang, `profiles.mircea.education.${key}.degree`)}
-                    </div>
-                    <div className="education-card__field mono-label">
-                      {t(lang, `profiles.mircea.education.${key}.field`)}
-                    </div>
-                  </div>
-                ))}
-              </div>
+              <CylinderWheel lang={lang} />
             </Section>
           </>
         }
