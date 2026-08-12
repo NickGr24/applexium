@@ -93,6 +93,92 @@
   color: var(--ink);
 }
 
+/* ---------- 3D tube carousel (experience) ----------
+   Codrops 3D Text Scroll, tube variant — the legacy page's own effect.
+   A 250vh track with a sticky viewport; item/ring transforms are written
+   inline by TubeCarousel.tsx. Only rendered when motion is allowed —
+   reduced-motion/SSR get `.timeline` above instead. */
+
+.tube {
+  height: 250vh;
+}
+
+.tube__viewport {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  perspective: 1000px;
+  overflow: hidden;
+}
+
+.tube__ring {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  transform-style: preserve-3d;
+  transform-origin: center center;
+}
+
+.tube__item {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.9rem;
+  text-align: center;
+  backface-visibility: hidden;
+}
+
+/* Light plate, not the timeline's translucent chip: Government's seal and
+   Payall's mark are dark artwork that vanishes on 6% white over the page's
+   dark ground — same split the home marquee's `--light` plates solve. */
+.tube__logo {
+  display: grid;
+  place-items: center;
+  width: clamp(64px, 9vw, 92px);
+  height: clamp(64px, 9vw, 92px);
+  border-radius: 16px;
+  overflow: hidden;
+  background: rgb(255 255 255 / 0.9);
+}
+
+.tube__logo img {
+  max-width: 72%;
+  max-height: 72%;
+  object-fit: contain;
+}
+
+.tube__logo--plain {
+  background: none;
+  border: none;
+}
+
+.tube__logo--plain img {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.tube__org {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(1.5rem, 3.2vw, 2.4rem);
+  color: var(--ink);
+}
+
+.tube__role {
+  color: var(--brand-cyan);
+}
+
 @media (max-width: 720px) {
   .education-grid {
     grid-template-columns: repeat(2, 1fr);

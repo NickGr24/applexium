@@ -3,27 +3,11 @@ import { Seo } from '../../components/Seo'
 import { localePath, t, useLang } from '../../i18n'
 import { personJsonLd } from '../../site/jsonld'
 import { Profile } from './Profile'
+import { EXPERIENCE, TubeCarousel } from './TubeCarousel'
 import './mircea-ursu.css'
 
-/** Professional path, ported from `_legacy/mircea-ursu.html`'s 3D
- * `.tube__text__item` carousel — same six stops, same order, flattened
- * into a plain list (no rotating-carousel primitive exists in this design
- * system, and none of Task 17's available primitives call for one).
- * `plain: true` mirrors the legacy `.exp-logo.no-bg` modifier: those three
- * logos (Applexium, Jurista, MAIB) already sit on their own light ground,
- * so the wrapper skips the translucent chip background the other three
- * (Government, Startup MD, Payall) get. */
-const EXPERIENCE = [
-  { key: 'applexium', logo: '/logos/applexium-logo.jpg', plain: true },
-  { key: 'jurista', logo: '/logos/jurista-logo.jpg', plain: true },
-  { key: 'government', logo: '/logos/government-logo.svg', plain: false },
-  { key: 'startupmd', logo: '/logos/startup-md-logo.webp', plain: false },
-  { key: 'banking', logo: '/logos/maib-bank-logo.svg', plain: true },
-  { key: 'payall', logo: '/logos/payall-logo.svg', plain: false },
-] as const
-
 /** Academic background, ported from the legacy `.cylinder__text__item` list
- * (same four degrees, same order), flattened the same way as EXPERIENCE. */
+ * (same four degrees, same order). */
 const EDUCATION = ['phd', 'llm1', 'llm2', 'llb'] as const
 
 export default function MirceaUrsu() {
@@ -63,23 +47,7 @@ export default function MirceaUrsu() {
               label={t(lang, 'profiles.mircea.experience.label')}
               title={t(lang, 'profiles.mircea.experience.title')}
             >
-              <ol className="timeline">
-                {EXPERIENCE.map(item => (
-                  <li key={item.key} className="timeline-item">
-                    <div className={`timeline-item__logo${item.plain ? ' timeline-item__logo--plain' : ''}`}>
-                      <img src={item.logo} alt="" loading="lazy" decoding="async" />
-                    </div>
-                    <div>
-                      <div className="timeline-item__org">
-                        {t(lang, `profiles.mircea.experience.${item.key}.org`)}
-                      </div>
-                      <div className="timeline-item__role mono-label">
-                        {t(lang, `profiles.mircea.experience.${item.key}.role`)}
-                      </div>
-                    </div>
-                  </li>
-                ))}
-              </ol>
+              <TubeCarousel lang={lang} />
             </Section>
 
             <Section
