@@ -1,0 +1,583 @@
+/* Home page only — hero track, pinned product showcases, bento services,
+   client marquee, stats and the closing CTA. Shared chrome (nav, footer,
+   section header, spotlight cards, scene posters) lives in styles/*.css. */
+
+/* ---------- 1. Hero ---------- */
+
+/* 140vh of scroll track for a 100vh stage: the aurora has no camera to fly,
+   so the extra 40vh is only there to give the headline room to dissolve —
+   see HeroSection's timeline, which stretches that dissolve across nearly
+   the whole track so the screen is never left bare before the manifesto
+   picks up. Under reduced motion the track collapses to a single screen
+   (bottom of this file) — no scrub runs, so there would be nothing to
+   scroll through. */
+.hero {
+  position: relative;
+  height: 140vh;
+}
+
+.hero__stage {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  /* svh where supported: on mobile Safari the collapsing toolbar changes vh
+     mid-scroll, which makes a sticky full-height stage jump. */
+  height: 100svh;
+  overflow: hidden;
+}
+
+.hero__scene {
+  position: absolute;
+  inset: 0;
+}
+
+/* Darkens the top (so the fixed nav keeps its contrast) and the bottom (so the
+   buttons sit on ink rather than on the water). Permanent — both jobs outlast
+   the copy. */
+.hero__scrim {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgb(4 6 13 / 0.72), rgb(4 6 13 / 0) 28%),
+    radial-gradient(120% 70% at 50% 100%, rgb(4 6 13 / 0.8), rgb(4 6 13 / 0) 62%);
+}
+
+/* The copy's own backing: a soft pool over the middle of the frame, where the
+   doorway's light column runs up behind the subtitle. Separate from the scrim
+   above because it is scrubbed away with the copy — held for the whole track
+   it would flatten the deepest part of the flight, which is the one stretch
+   with no text on it to protect. */
+.hero__scrim--copy {
+  position: absolute;
+  inset: 0;
+  /* A band plus a pool, not a pool alone: a lone radial narrow enough to sit
+     behind the copy has an iso-line the eye can find, and on a phone — where
+     the ellipse is cut off by the viewport sides — it reads as a rectangle
+     behind the paragraph. The band carries most of the darkening and has no
+     lateral edge at all. */
+  background:
+    radial-gradient(58% 44% at 50% 47%, rgb(4 6 13 / 0.36), rgb(4 6 13 / 0) 82%),
+    linear-gradient(180deg, rgb(4 6 13 / 0) 6%, rgb(4 6 13 / 0.34) 44%, rgb(4 6 13 / 0) 84%);
+  will-change: opacity;
+}
+
+.hero__copy {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 1.75rem;
+}
+
+.hero__title {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(2.1rem, 5.8vw, 5.6rem);
+  line-height: 0.98;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+
+.hero__line {
+  display: block;
+  will-change: transform, opacity;
+}
+
+.hero__sub {
+  max-width: 48ch;
+  color: rgb(237 237 242 / 0.76);
+  font-size: clamp(1rem, 1.15vw, 1.15rem);
+  line-height: 1.6;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.hero__scroll {
+  position: absolute;
+  bottom: 2.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: rgb(237 237 242 / 0.5);
+}
+
+.hero__scroll::after {
+  content: '';
+  width: 1px;
+  height: 2rem;
+  background: linear-gradient(180deg, rgb(237 237 242 / 0.5), transparent);
+}
+
+/* ---------- 2. Manifesto ---------- */
+
+.manifesto {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  padding-block: 11rem 9rem;
+}
+
+.manifesto__text {
+  max-width: 32ch;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1.6rem, 3.4vw, 3rem);
+  line-height: 1.22;
+  letter-spacing: -0.015em;
+}
+
+/* ---------- 3. Product showcases ---------- */
+
+/* Three screens of scroll for one pinned stage. GSAP pins `.showcase__stage`
+   with `pinSpacing: false` precisely because this height already exists. */
+.showcase {
+  position: relative;
+  height: 300vh;
+  /* Same fix as .section in components.css: clears the fixed .nav bar when
+   * landing here via Nav's "produse" anchor link from another page. */
+  scroll-margin-top: 6rem;
+}
+
+.showcase__stage {
+  position: relative;
+  height: 100vh;
+  height: 100svh;
+  overflow: hidden;
+}
+
+.showcase__index {
+  position: absolute;
+  z-index: 3;
+  top: 6.5rem;
+  left: 0;
+  right: 0;
+}
+
+.showcase__slide {
+  position: absolute;
+  inset: 0;
+}
+
+.showcase__scene {
+  position: absolute;
+  inset: 0;
+}
+
+/* Reading side first: the copy sits left, so the scrim is heaviest there and
+   clears entirely on the right where the scene does the talking. */
+.showcase__scrim {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgb(4 6 13 / 0.9) 0%, rgb(4 6 13 / 0.55) 46%, rgb(4 6 13 / 0) 78%),
+    linear-gradient(180deg, rgb(4 6 13 / 0.55), rgb(4 6 13 / 0) 26%);
+}
+
+.showcase__panel {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1.4rem;
+  will-change: transform;
+}
+
+.showcase__label {
+  color: var(--brand-cyan);
+}
+
+.showcase__name {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(3rem, 8vw, 7rem);
+  line-height: 0.92;
+  letter-spacing: -0.03em;
+}
+
+.showcase__facts {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  max-width: 44ch;
+  color: rgb(237 237 242 / 0.74);
+  font-size: clamp(0.95rem, 1.1vw, 1.05rem);
+  line-height: 1.5;
+}
+
+.showcase__facts li {
+  position: relative;
+  padding-left: 1.5rem;
+  /* Two-line facts otherwise strand a single word on the second line. */
+  text-wrap: pretty;
+}
+
+.showcase__facts li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.72em;
+  width: 0.6rem;
+  height: 1px;
+  background: var(--brand-cyan);
+}
+
+/* ---------- 4. Services bento ---------- */
+
+.bento {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+
+/* 2-1-1 over 1-1-2: the two wide cards sit at opposite corners so the grid
+   reads as a bento rather than as a table with a merged cell. */
+.bento > :nth-child(1),
+.bento > :nth-child(6) {
+  grid-column: span 2;
+}
+
+.bento .spotlight-card__icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* ---------- 5. Portfolio ---------- */
+
+.marquee {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 4rem;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+}
+
+.marquee__track {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 46s linear infinite;
+}
+
+.marquee:hover .marquee__track {
+  animation-play-state: paused;
+}
+
+.marquee__row {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  /* Half the gap on each side, so the seam between the two passes spaces
+     exactly like every other gap and the loop point is invisible. */
+  padding-inline: 0.625rem;
+  margin: 0;
+  list-style: none;
+}
+
+.marquee__item {
+  display: grid;
+  place-items: center;
+  width: 200px;
+  height: 88px;
+  padding: 0.9rem 1.1rem;
+  border-radius: 14px;
+}
+
+.marquee__item--light {
+  background: rgb(255 255 255 / 0.9);
+}
+
+.marquee__item--dark {
+  background: rgb(20 26 44 / 0.95);
+  border: 1px solid rgb(237 237 242 / 0.1);
+}
+
+.marquee__item img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+@keyframes marquee-scroll {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.cases {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.case {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  color: inherit;
+  text-decoration: none;
+}
+
+/* A dark card with the logo floating on its own light chip, rather than one
+   big white plate: these are colour logos that need a light ground to stay
+   legible, but three full-bleed white rectangles would be the loudest thing
+   on the page. Same chip treatment as the marquee above. */
+.case__media {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 16 / 9;
+  background: var(--bg-raise);
+  border: 1px solid rgb(139 147 167 / 0.15);
+}
+
+.case .case__media img {
+  width: 76%;
+  height: auto;
+  max-height: 62%;
+  object-fit: contain;
+  padding: 0.9rem 1.1rem;
+  border-radius: 10px;
+  background: rgb(255 255 255 / 0.92);
+}
+
+.case__name {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
+.case__text {
+  color: var(--ink-dim);
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.cases__more {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+}
+
+/* ---------- 6. Stats ---------- */
+
+.stats {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding-block: 6rem;
+  /* Below-the-fold, after ProductShowcase's pinned .showcase in document
+   * order — safe to skip off-screen rendering, same reasoning as .section
+   * in components.css. */
+  content-visibility: auto;
+  contain-intrinsic-size: auto 420px;
+}
+
+.stats__title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 500;
+}
+
+.stats__row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2.5rem 2rem;
+  padding-top: 3rem;
+  border-top: 1px solid rgb(139 147 167 / 0.2);
+}
+
+/* ---------- 7. Closing CTA ---------- */
+
+/* Closes the loop with the hero: the same brand glow, seen from below the
+   horizon this time, with the global grain still sitting over both. */
+.final {
+  position: relative;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  overflow: hidden;
+  background:
+    radial-gradient(55% 42% at 50% 106%, rgb(31 205 255 / 0.22), transparent 68%),
+    radial-gradient(85% 62% at 50% 128%, rgb(36 94 254 / 0.34), transparent 72%),
+    var(--bg);
+  /* Last section on the page, well after ProductShowcase's pin — safe, same
+   * reasoning as .section in components.css. `min-height: 100vh` above
+   * already fixes this element's own size regardless of content-visibility,
+   * so there's no collapse risk here even before the `auto` estimate below
+   * is ever corrected. */
+  content-visibility: auto;
+  contain-intrinsic-size: auto 100vh;
+}
+
+.final__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  padding-block: 8rem;
+}
+
+.final__title {
+  max-width: 16ch;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(2.5rem, 6.5vw, 5.5rem);
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.final__text {
+  max-width: 46ch;
+  color: var(--ink-dim);
+  line-height: 1.6;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 900px) {
+  .bento {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cases {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stats__row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 620px) {
+  .manifesto {
+    padding-block: 7rem 5rem;
+  }
+
+  .manifesto__text {
+    max-width: none;
+  }
+
+  .bento,
+  .cases {
+    grid-template-columns: 1fr;
+  }
+
+  .bento > :nth-child(1),
+  .bento > :nth-child(6) {
+    grid-column: span 1;
+  }
+
+  .marquee__item {
+    width: 148px;
+    height: 68px;
+    padding: 0.7rem 0.85rem;
+  }
+
+  /* Two columns at 390px leave ~160px per figure, and the mono digits'
+     shared advance width makes "275.000+" wider than that at the shared
+     clamp's floor — it pushed the whole document sideways. */
+  .stats .stat-count__value {
+    font-size: 1.9rem;
+  }
+
+  .showcase__index {
+    top: 5.5rem;
+  }
+
+  .showcase__panel {
+    gap: 1.1rem;
+    /* Clear of the section index above and the scroll-out below. */
+    padding-block: 7rem 3rem;
+  }
+
+  /* The copy runs the full width here, so the scrim can't clear to one
+     side the way it does on desktop — it veils the whole frame instead,
+     lightest through the middle where the scene has its own centre. */
+  .showcase__scrim {
+    background: linear-gradient(
+      180deg,
+      rgb(4 6 13 / 0.82),
+      rgb(4 6 13 / 0.5) 42%,
+      rgb(4 6 13 / 0.82)
+    );
+  }
+
+  .hero__copy {
+    gap: 1.4rem;
+  }
+
+  .hero__actions .magnetic-btn {
+    padding-inline: 1.5rem;
+  }
+}
+
+/* ---------- Reduced motion ----------
+   No dolly, no pin, no cross-fade: the hero becomes one still screen and the
+   three showcases become three ordinary stacked blocks, each still carrying
+   its own poster behind it. Done in CSS rather than by branching the markup
+   so the server output and the hydrated tree stay identical. */
+
+@media (prefers-reduced-motion: reduce) {
+  .hero {
+    height: 100vh;
+    height: 100svh;
+  }
+
+  .showcase {
+    height: auto;
+  }
+
+  .showcase__stage {
+    height: auto;
+    overflow: visible;
+  }
+
+  .showcase__index {
+    position: static;
+    padding-top: 6rem;
+  }
+
+  .showcase__slide {
+    position: relative;
+    inset: auto;
+    min-height: 72vh;
+  }
+
+  /* Nothing is moving and nothing is cross-fading, so the scrim only has to
+     keep the copy legible — it can stop flattening the poster behind it. */
+  .showcase__scrim {
+    background: linear-gradient(90deg, rgb(4 6 13 / 0.72) 0%, rgb(4 6 13 / 0.25) 58%, rgb(4 6 13 / 0) 84%);
+  }
+
+  .showcase__panel {
+    padding-block: 4.5rem;
+  }
+
+  .marquee {
+    overflow-x: auto;
+  }
+
+  .marquee__track {
+    animation: none;
+  }
+}

@@ -1,0 +1,26 @@
+# Applexium
+
+> Applexium (legal entity SCALELAW SOLUTIONS SRL, IDNO 1025600064372, Chișinău, Republic of Moldova) is a software studio that builds digital products, IT services and regulatory consulting for institutions and businesses. It ships its own SaaS products alongside client platforms, and pairs engineering with the legal and compliance work those platforms require.
+
+## Pages
+- [Home](https://applexium.com/): services, own products, client portfolio and team. English version at /en.
+- [Services](https://applexium.com/services): web and mobile development, AI tools and conversational agents, SaaS and EdTech platforms, compliance by design, API integration and maintenance, legal and regulatory consulting.
+- [Portfolio](https://applexium.com/projects): client implementations.
+- [Team](https://applexium.com/team): Mircea Ursu (co-founder, CEO), Nichita Griu (co-founder, CTO), Diana Tatar (CMO).
+- [Contact](https://applexium.com/contacts): info@applexium.com, +373 78 76 87 65, Mihai Viteazul 2a, Chișinău.
+
+## Own products
+- [Emmi](https://applexium.com/emmi): multi-channel conversational AI agent. One agent across five channels — phone, website widget, Instagram, WhatsApp and Telegram. Sub-second voice response, 24/7, Romanian and Russian by voice (English and Ukrainian in chat), answering from the customer's own documents.
+- [Legalia](https://applexium.com/legalia): legal-education platform for Moldova. 105 legal disciplines, 924 study topics, each with podcast, video lesson and mind map; interactive tests with feedback explaining the correct answer.
+- [Precedentia](https://applexium.com/precedentia) — live at https://precedentia.md/: AI legal search engine covering four courts (Supreme Court of Justice and Constitutional Court of Moldova, the European Court of Human Rights, and Romania's High Court of Cassation and Justice), with keyword search, natural-language semantic search and an AI legal assistant.
+
+## Client platforms built by Applexium
+- https://cmda.md/ — Chișinău Municipal Centre for Entrepreneurship Development.
+- https://dare-eu.net/ — DARE-EU cross-border disaster response project (Interreg NEXT Black Sea Basin).
+- https://eurobridge-uamd.org/ — EUroBRIDGE_UA_MD Moldova–Ukraine cross-border cooperation programme.
+- https://penitadreptului.md/ — Romanian-language criminal-procedure law portal.
+- https://dianatatar.com/ — designer portfolio.
+
+## Key facts
+- Founded 2025-10-30. Registered office: Mihai Viteazul 2a, Chișinău, Republic of Moldova.
+- Working languages: Romanian, English, Russian. Areas served: Moldova and the EU.

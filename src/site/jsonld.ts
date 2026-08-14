@@ -47,6 +47,17 @@ export function organizationJsonLd(lang: Lang) {
     identifier: { '@type': 'PropertyValue', name: 'IDNO', value: '1025600064372' },
     areaServed: ['MD', 'EU'],
     knowsLanguage: ['ro', 'en', 'ru'],
+    // Precedentia publishes this exact @id on its own domain, so the two
+    // properties resolve to one node in an entity graph rather than to two
+    // unrelated companies that happen to share a legal name.
+    subOrganization: [
+      {
+        '@type': 'Organization',
+        '@id': 'https://precedentia.md/#organization',
+        name: 'Precedentia',
+        url: 'https://precedentia.md/',
+      },
+    ],
   }
 }
 
@@ -74,6 +85,13 @@ const softwareApplicationSource: Record<
     description: string
     /** 'page' = follows the visited page's language (matches legacy ro/en split); a fixed array = independent of page language (e.g. Emmi's spoken languages). */
     inLanguage: 'page' | string[]
+    /**
+     * Capabilities an answer engine can quote, each one stated verbatim on the
+     * product page itself — structured data may only restate visible content.
+     */
+    featureList: string[]
+    /** The product's own domain, where it has one distinct from this site. */
+    sameAs?: string[]
   }
 > = {
   emmi: {
@@ -83,6 +101,13 @@ const softwareApplicationSource: Record<
     description:
       'Emmi este un AI conversațional multi-canal care răspunde la apeluri telefonice, chat web și mesaje pe Instagram, WhatsApp și Telegram în română și rusă, bazat pe propriile tale documente, disponibil 24/7.',
     inLanguage: ['ro', 'ru'],
+    featureList: [
+      'Cinci canale: telefon, widget web, Instagram, WhatsApp și Telegram',
+      'Timp de răspuns la voce sub o secundă',
+      'Română și rusă la voce; engleză și ucraineană în chat',
+      'Răspunde pe baza documentelor încărcate de client',
+      'Disponibil 24/7',
+    ],
   },
   legalia: {
     name: 'Legalia',
@@ -91,6 +116,13 @@ const softwareApplicationSource: Record<
     description:
       'O platformă de educație juridică creată pentru Moldova, care ajută utilizatorii să înțeleagă legislația prin cursuri structurate și teste interactive.',
     inLanguage: 'page',
+    featureList: [
+      '105 discipline juridice',
+      '924 de subiecte de studiu',
+      'Traseu ghidat pas cu pas pe fiecare disciplină',
+      'Podcast, lecție video și hartă mentală pentru aproape fiecare subiect',
+      'Teste interactive cu feedback care explică răspunsul corect',
+    ],
   },
   precedentia: {
     name: 'Precedentia',
@@ -99,6 +131,14 @@ const softwareApplicationSource: Record<
     description:
       'Motor de căutare juridică bazat pe AI pentru jurisprudența Moldovei și României — acoperind Curtea Supremă de Justiție, Curtea Constituțională, CEDO și ÎCCJ, cu căutare după cuvinte-cheie, căutare semantică, asistent juridic AI și API public.',
     inLanguage: 'page',
+    featureList: [
+      'Peste 275.000 de hotărâri din Moldova și România',
+      'Patru instanțe: CSJ, Curtea Constituțională, CEDO și ÎCCJ',
+      'Căutare full-text după cuvinte-cheie',
+      'Căutare semantică în limbaj natural',
+      'Asistent juridic AI',
+    ],
+    sameAs: ['https://precedentia.md/'],
   },
 }
 
@@ -108,12 +148,16 @@ export function softwareApplicationJsonLd(id: SoftwareAppId, lang: Lang) {
   return {
     '@context': 'https://schema.org',
     '@type': 'SoftwareApplication',
+    '@id': `${url}#software`,
     name: src.name,
     applicationCategory: src.applicationCategory,
     operatingSystem: src.operatingSystem,
     description: src.description,
     url,
     inLanguage: src.inLanguage === 'page' ? lang : src.inLanguage,
+    featureList: src.featureList,
+    ...(src.sameAs ? { sameAs: src.sameAs } : {}),
+    provider: { '@id': `${siteUrl(lang, '')}#organization` },
     publisher: { '@type': 'Organization', name: 'Applexium', url: siteUrl(lang, '') },
   }
 }
