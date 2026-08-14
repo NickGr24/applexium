@@ -23,38 +23,38 @@
     "/assets/BeamsRBCanvas-D1rp1ROR.js"
   ],
   "node_modules/@remix-run/router/dist/router.js": [
-    "/assets/pages-D90V61GQ.js"
+    "/assets/pages-kY3lXtNw.js"
   ],
   "node_modules/gsap/CSSPlugin.js": [
-    "/assets/pages-D90V61GQ.js"
+    "/assets/pages-kY3lXtNw.js"
   ],
   "node_modules/gsap/DrawSVGPlugin.js": [
-    "/assets/Contacts-BJFslY1R.js",
+    "/assets/Contacts-YSVbfX4X.js",
     "/assets/Contacts-oshCJfhB.css"
   ],
   "node_modules/gsap/Observer.js": [
-    "/assets/pages-D90V61GQ.js"
+    "/assets/pages-kY3lXtNw.js"
   ],
   "node_modules/gsap/ScrambleTextPlugin.js": [
-    "/assets/SplitHeading-CGbOEKHn.js"
+    "/assets/SplitHeading-8hCRi5S7.js"
   ],
   "node_modules/gsap/ScrollTrigger.js": [
-    "/assets/pages-D90V61GQ.js"
+    "/assets/pages-kY3lXtNw.js"
   ],
   "node_modules/gsap/SplitText.js": [
-    "/assets/SplitHeading-CGbOEKHn.js"
+    "/assets/SplitHeading-8hCRi5S7.js"
   ],
   "node_modules/gsap/gsap-core.js": [
-    "/assets/pages-D90V61GQ.js"
+    "/assets/pages-kY3lXtNw.js"
   ],
   "node_modules/gsap/index.js": [
-    "/assets/pages-D90V61GQ.js"
+    "/assets/pages-kY3lXtNw.js"
   ],
   "node_modules/gsap/utils/strings.js": [
-    "/assets/SplitHeading-CGbOEKHn.js"
+    "/assets/SplitHeading-8hCRi5S7.js"
   ],
   "node_modules/invariant/browser.js": [
-    "/assets/pages-D90V61GQ.js"
+    "/assets/pages-kY3lXtNw.js"
   ],
   "node_modules/its-fine/dist/index.js": [
     "/assets/BeamsRBCanvas-D1rp1ROR.js"
@@ -118,13 +118,13 @@
     "/assets/Triangle-CaGRA7Eq.js"
   ],
   "node_modules/prop-types/factoryWithThrowingShims.js": [
-    "/assets/pages-D90V61GQ.js"
+    "/assets/pages-kY3lXtNw.js"
   ],
   "node_modules/prop-types/index.js": [
-    "/assets/pages-D90V61GQ.js"
+    "/assets/pages-kY3lXtNw.js"
   ],
   "node_modules/prop-types/lib/ReactPropTypesSecret.js": [
-    "/assets/pages-D90V61GQ.js"
+    "/assets/pages-kY3lXtNw.js"
   ],
   "node_modules/react-dom/cjs/react-dom-client.production.js": [
     "/assets/client-wSn0-S-e.js"
@@ -139,13 +139,13 @@
     "/assets/react-dom-DX3XddaT.js"
   ],
   "node_modules/react-fast-compare/index.js": [
-    "/assets/pages-D90V61GQ.js"
+    "/assets/pages-kY3lXtNw.js"
   ],
   "node_modules/react-router-dom/dist/index.js": [
-    "/assets/dist-sIvpjLY1.js"
+    "/assets/dist-C8aV0Umg.js"
   ],
   "node_modules/react-router/dist/index.js": [
-    "/assets/pages-D90V61GQ.js"
+    "/assets/pages-kY3lXtNw.js"
   ],
   "node_modules/react-use-measure/dist/index.js": [
     "/assets/BeamsRBCanvas-D1rp1ROR.js"
@@ -169,7 +169,7 @@
     "/assets/scheduler-CRHRhCRR.js"
   ],
   "node_modules/shallowequal/index.js": [
-    "/assets/pages-D90V61GQ.js"
+    "/assets/pages-kY3lXtNw.js"
   ],
   "node_modules/suspend-react/index.js": [
     "/assets/BeamsRBCanvas-D1rp1ROR.js"
@@ -199,10 +199,10 @@
   "node_modules/vite-react-ssg/dist/shared/vite-react-ssg.BhGKpaqQ.mjs": [],
   "node_modules/vite-react-ssg/dist/shared/vite-react-ssg.C1RTs5UA.mjs": [],
   "node_modules/vite-react-ssg/dist/shared/vite-react-ssg.CoMLbIiW.mjs": [
-    "/assets/jsonld-CRtwFH5t.js"
+    "/assets/jsonld-hEeTHbcK.js"
   ],
   "node_modules/vite-react-ssg/node_modules/react-helmet-async/lib/index.module.js": [
-    "/assets/pages-D90V61GQ.js"
+    "/assets/pages-kY3lXtNw.js"
   ],
   "node_modules/zustand/esm/traditional.mjs": [
     "/assets/BeamsRBCanvas-D1rp1ROR.js"
@@ -211,48 +211,56 @@
     "/assets/BeamsRBCanvas-D1rp1ROR.js"
   ],
   "src/components/Cursor.tsx": [],
+  "src/components/Faq.tsx": [
+    "/assets/Home-D1gSlSMm.js",
+    "/assets/Home-DCFnl6xh.css"
+  ],
   "src/components/Footer.tsx": [],
   "src/components/MagneticButton.tsx": [
-    "/assets/graphicsTier-BUwG5e6X.js"
+    "/assets/graphicsTier-DRJdYXlS.js"
   ],
   "src/components/MonoLabel.tsx": [
-    "/assets/SplitHeading-CGbOEKHn.js"
+    "/assets/SplitHeading-8hCRi5S7.js"
   ],
   "src/components/Nav.tsx": [],
   "src/components/RevealText.tsx": [
-    "/assets/RevealText-BAml4YpL.js"
+    "/assets/RevealText-CYz9Sj-q.js"
   ],
   "src/components/Section.tsx": [
-    "/assets/Section-BHPr179e.js"
+    "/assets/Section-DD0o6QQi.js"
   ],
   "src/components/Seo.tsx": [
-    "/assets/jsonld-CRtwFH5t.js"
+    "/assets/jsonld-hEeTHbcK.js"
   ],
   "src/components/SplitHeading.tsx": [
-    "/assets/SplitHeading-CGbOEKHn.js"
+    "/assets/SplitHeading-8hCRi5S7.js"
   ],
   "src/components/SpotlightCard.tsx": [
     "/assets/SpotlightCard-9iHSlijp.js"
   ],
   "src/components/StatCount.tsx": [
-    "/assets/StatCount-K4PsIuOM.js"
+    "/assets/StatCount-BiMx_VnV.js"
+  ],
+  "src/components/faq.css": [
+    "/assets/Home-D1gSlSMm.js",
+    "/assets/Home-DCFnl6xh.css"
   ],
   "src/i18n/en.json": [
-    "/assets/pages-D90V61GQ.js"
+    "/assets/pages-kY3lXtNw.js"
   ],
   "src/i18n/index.ts": [
-    "/assets/pages-D90V61GQ.js"
+    "/assets/pages-kY3lXtNw.js"
   ],
   "src/i18n/ro.json": [
-    "/assets/pages-D90V61GQ.js"
+    "/assets/pages-kY3lXtNw.js"
   ],
   "src/layouts/LegalLayout.tsx": [
-    "/assets/LegalPage-DyZ1-ww3.js",
+    "/assets/LegalPage-BWc-PxX4.js",
     "/assets/LegalPage-Wbncw_pe.css"
   ],
   "src/layouts/SiteLayout.tsx": [],
   "src/layouts/legal.css": [
-    "/assets/LegalPage-DyZ1-ww3.js",
+    "/assets/LegalPage-BWc-PxX4.js",
     "/assets/LegalPage-Wbncw_pe.css"
   ],
   "src/main.tsx": [],
@@ -260,57 +268,57 @@
   "src/motion/PageTransition.tsx": [],
   "src/motion/ease.ts": [],
   "src/motion/refreshScrollTriggers.ts": [
-    "/assets/mircea-ursu-CXx6ZaJW.js",
+    "/assets/mircea-ursu-TMsvNVv7.js",
     "/assets/mircea-ursu-BzHYTzRl.css"
   ],
   "src/motion/useReducedMotion.ts": [
-    "/assets/pages-D90V61GQ.js"
+    "/assets/pages-kY3lXtNw.js"
   ],
   "src/motion/useSpotlightPointer.ts": [
     "/assets/useSpotlightPointer-BYpQ45P0.js"
   ],
   "src/pages/Contacts.tsx": [
-    "/assets/Contacts-BJFslY1R.js",
+    "/assets/Contacts-YSVbfX4X.js",
     "/assets/Contacts-oshCJfhB.css"
   ],
   "src/pages/Home.tsx": [
-    "/assets/Home-B-J_9VJF.js",
-    "/assets/Home-BioDHBo1.css"
+    "/assets/Home-D1gSlSMm.js",
+    "/assets/Home-DCFnl6xh.css"
   ],
   "src/pages/Projects.tsx": [
-    "/assets/Projects-DTWJByR5.js",
+    "/assets/Projects-D4TtMypY.js",
     "/assets/Projects-CmoD1xxe.css"
   ],
   "src/pages/Team.tsx": [
-    "/assets/Team-B_nHSL9X.js",
+    "/assets/Team-FyDdNTIC.js",
     "/assets/Team-C8QPtkA8.css"
   ],
   "src/pages/contacts.css": [
-    "/assets/Contacts-BJFslY1R.js",
+    "/assets/Contacts-YSVbfX4X.js",
     "/assets/Contacts-oshCJfhB.css"
   ],
   "src/pages/home.css": [
-    "/assets/Home-B-J_9VJF.js",
-    "/assets/Home-BioDHBo1.css"
+    "/assets/Home-D1gSlSMm.js",
+    "/assets/Home-DCFnl6xh.css"
   ],
   "src/pages/home/HeroSection.tsx": [
-    "/assets/Home-B-J_9VJF.js",
-    "/assets/Home-BioDHBo1.css"
+    "/assets/Home-D1gSlSMm.js",
+    "/assets/Home-DCFnl6xh.css"
   ],
   "src/pages/home/Manifesto.tsx": [
-    "/assets/Home-B-J_9VJF.js",
-    "/assets/Home-BioDHBo1.css"
+    "/assets/Home-D1gSlSMm.js",
+    "/assets/Home-DCFnl6xh.css"
   ],
   "src/pages/home/ProductShowcase.tsx": [
-    "/assets/Home-B-J_9VJF.js",
-    "/assets/Home-BioDHBo1.css"
+    "/assets/Home-D1gSlSMm.js",
+    "/assets/Home-DCFnl6xh.css"
   ],
   "src/pages/home/icons.tsx": [
-    "/assets/Home-B-J_9VJF.js",
-    "/assets/Home-BioDHBo1.css"
+    "/assets/Home-D1gSlSMm.js",
+    "/assets/Home-DCFnl6xh.css"
   ],
   "src/pages/legal/LegalPage.tsx": [
-    "/assets/LegalPage-DyZ1-ww3.js",
+    "/assets/LegalPage-BWc-PxX4.js",
     "/assets/LegalPage-Wbncw_pe.css"
   ],
   "src/pages/legal/content/accessibility.en.tsx": [
@@ -350,126 +358,129 @@
     "/assets/terms-and-conditions.ro-C1sSDC4n.js"
   ],
   "src/pages/legal/icons.tsx": [
-    "/assets/LegalPage-DyZ1-ww3.js",
+    "/assets/LegalPage-BWc-PxX4.js",
     "/assets/LegalPage-Wbncw_pe.css"
   ],
   "src/pages/product/ProductPage.tsx": [
-    "/assets/ProductPage-CyNit_KM.js",
+    "/assets/ProductPage-BPageR3N.js",
     "/assets/ProductPage-B6dxaIv-.css"
   ],
   "src/pages/product/emmi.css": [
-    "/assets/emmi-DR9d9eqp.js",
+    "/assets/emmi-Ccm_D2gq.js",
     "/assets/emmi-Ll2EXz_6.css"
   ],
   "src/pages/product/emmi.tsx": [
-    "/assets/emmi-DR9d9eqp.js",
+    "/assets/emmi-Ccm_D2gq.js",
     "/assets/emmi-Ll2EXz_6.css"
   ],
   "src/pages/product/legalia.css": [
-    "/assets/legalia-ozchjVa5.js",
+    "/assets/legalia-9AykrCDT.js",
     "/assets/legalia-C73WHICZ.css"
   ],
   "src/pages/product/legalia.tsx": [
-    "/assets/legalia-ozchjVa5.js",
+    "/assets/legalia-9AykrCDT.js",
     "/assets/legalia-C73WHICZ.css"
   ],
   "src/pages/product/precedentia.css": [
-    "/assets/precedentia-Dt3JYI-g.js",
+    "/assets/precedentia-W_Dgyw-E.js",
     "/assets/precedentia-C16CFYgr.css"
   ],
   "src/pages/product/precedentia.tsx": [
-    "/assets/precedentia-Dt3JYI-g.js",
+    "/assets/precedentia-W_Dgyw-E.js",
     "/assets/precedentia-C16CFYgr.css"
   ],
   "src/pages/product/product.css": [
-    "/assets/ProductPage-CyNit_KM.js",
+    "/assets/ProductPage-BPageR3N.js",
     "/assets/ProductPage-B6dxaIv-.css"
   ],
   "src/pages/profile/CylinderWheel.tsx": [
-    "/assets/mircea-ursu-CXx6ZaJW.js",
+    "/assets/mircea-ursu-TMsvNVv7.js",
     "/assets/mircea-ursu-BzHYTzRl.css"
   ],
   "src/pages/profile/Profile.tsx": [
-    "/assets/Profile-D06613_b.js",
+    "/assets/Profile-DdSRKkgI.js",
     "/assets/Profile-XqqJ5jyX.css"
   ],
   "src/pages/profile/TubeCarousel.tsx": [
-    "/assets/mircea-ursu-CXx6ZaJW.js",
+    "/assets/mircea-ursu-TMsvNVv7.js",
     "/assets/mircea-ursu-BzHYTzRl.css"
   ],
   "src/pages/profile/diana-tatar.css": [
-    "/assets/diana-tatar-DvBHyHgm.js",
+    "/assets/diana-tatar-p-1WVeGq.js",
     "/assets/diana-tatar-CkYKc_xV.css"
   ],
   "src/pages/profile/diana-tatar.tsx": [
-    "/assets/diana-tatar-DvBHyHgm.js",
+    "/assets/diana-tatar-p-1WVeGq.js",
     "/assets/diana-tatar-CkYKc_xV.css"
   ],
   "src/pages/profile/mircea-ursu.css": [
-    "/assets/mircea-ursu-CXx6ZaJW.js",
+    "/assets/mircea-ursu-TMsvNVv7.js",
     "/assets/mircea-ursu-BzHYTzRl.css"
   ],
   "src/pages/profile/mircea-ursu.tsx": [
-    "/assets/mircea-ursu-CXx6ZaJW.js",
+    "/assets/mircea-ursu-TMsvNVv7.js",
     "/assets/mircea-ursu-BzHYTzRl.css"
   ],
   "src/pages/profile/nichita-griu.css": [
-    "/assets/nichita-griu-uz5thgxR.js",
+    "/assets/nichita-griu-o7bTwn4U.js",
     "/assets/nichita-griu-BS7bIkub.css"
   ],
   "src/pages/profile/nichita-griu.tsx": [
-    "/assets/nichita-griu-uz5thgxR.js",
+    "/assets/nichita-griu-o7bTwn4U.js",
     "/assets/nichita-griu-BS7bIkub.css"
   ],
   "src/pages/profile/profile.css": [
-    "/assets/Profile-D06613_b.js",
+    "/assets/Profile-DdSRKkgI.js",
     "/assets/Profile-XqqJ5jyX.css"
   ],
   "src/pages/projects.css": [
-    "/assets/Projects-DTWJByR5.js",
+    "/assets/Projects-D4TtMypY.js",
     "/assets/Projects-CmoD1xxe.css"
   ],
   "src/pages/team.css": [
-    "/assets/Team-B_nHSL9X.js",
+    "/assets/Team-FyDdNTIC.js",
     "/assets/Team-C8QPtkA8.css"
   ],
   "src/routes.tsx": [],
   "src/scenes/AuroraBackground.tsx": [
-    "/assets/Home-B-J_9VJF.js",
-    "/assets/Home-BioDHBo1.css"
+    "/assets/Home-D1gSlSMm.js",
+    "/assets/Home-DCFnl6xh.css"
   ],
   "src/scenes/AuroraCanvas.tsx": [
     "/assets/AuroraCanvas-DtYnqHC9.js"
   ],
   "src/scenes/BeamsRBBackground.tsx": [
-    "/assets/BeamsRBBackground-CebuSpew.js"
+    "/assets/BeamsRBBackground-CvxPLZmL.js"
   ],
   "src/scenes/BeamsRBCanvas.tsx": [
     "/assets/BeamsRBCanvas-D1rp1ROR.js"
   ],
   "src/scenes/GalaxyRBBackground.tsx": [
-    "/assets/GalaxyRBBackground-BOBjOEn1.js"
+    "/assets/GalaxyRBBackground-CfKYPWlG.js"
   ],
   "src/scenes/GalaxyRBCanvas.tsx": [
     "/assets/GalaxyRBCanvas-BBzz-1UN.js"
   ],
   "src/scenes/ThreadsBackground.tsx": [
-    "/assets/ThreadsBackground-BFeV0alC.js"
+    "/assets/ThreadsBackground-k7b8_WvW.js"
   ],
   "src/scenes/ThreadsCanvas.tsx": [
     "/assets/ThreadsCanvas-B7DXtd-l.js"
   ],
   "src/scenes/graphicsTier.ts": [
-    "/assets/graphicsTier-BUwG5e6X.js"
+    "/assets/graphicsTier-DRJdYXlS.js"
+  ],
+  "src/site/faq.ts": [
+    "/assets/jsonld-hEeTHbcK.js"
   ],
   "src/site/jsonld.ts": [
-    "/assets/jsonld-CRtwFH5t.js"
+    "/assets/jsonld-hEeTHbcK.js"
   ],
   "src/site/meta.ts": [
-    "/assets/jsonld-CRtwFH5t.js"
+    "/assets/jsonld-hEeTHbcK.js"
   ],
   "src/site/pages.json": [
-    "/assets/pages-D90V61GQ.js"
+    "/assets/pages-kY3lXtNw.js"
   ],
   "src/styles/components.css": [],
   "src/styles/fonts.css": [],
