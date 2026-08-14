@@ -213,7 +213,7 @@
     ]
   },
   "index.html": {
-    "file": "assets/app-Dx7yj7jQ.js",
+    "file": "assets/app-BJdDhOn_.js",
     "name": "app",
     "src": "index.html",
     "isEntry": true,
@@ -253,7 +253,7 @@
       "src/pages/legal/LegalPage.tsx"
     ],
     "css": [
-      "assets/app-B1exOsFv.css"
+      "assets/app-Cf5knCQt.css"
     ]
   },
   "node_modules/react-dom/client.js": {
