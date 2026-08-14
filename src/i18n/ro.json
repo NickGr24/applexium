@@ -22,8 +22,13 @@
       "esg": "Declarație ESG"
     }
   },
-  "legal": { "toc": "Cuprins" },
-  "cta": { "consult": "Programează o consultație", "explore": "Explorează serviciile" },
+  "legal": {
+    "toc": "Cuprins"
+  },
+  "cta": {
+    "consult": "Programează o consultație",
+    "explore": "Explorează serviciile"
+  },
   "home": {
     "hero": {
       "line1": "Produse digitale,",
@@ -112,10 +117,51 @@
     "stats": {
       "label": "CIFRE",
       "title": "Munca noastră, în cifre",
-      "products": { "label": "produse proprii în producție" },
-      "platforms": { "suffix": "+", "label": "platforme livrate clienților" },
-      "decisions": { "suffix": ".000+", "label": "hotărâri indexate în Precedentia" },
-      "questions": { "suffix": ".000+", "label": "întrebări de test în Legalia" }
+      "products": {
+        "label": "produse proprii în producție"
+      },
+      "platforms": {
+        "suffix": "+",
+        "label": "platforme livrate clienților"
+      },
+      "decisions": {
+        "suffix": ".000+",
+        "label": "hotărâri indexate în Precedentia"
+      },
+      "questions": {
+        "suffix": ".000+",
+        "label": "întrebări de test în Legalia"
+      }
+    },
+    "faq": {
+      "label": "ÎNTREBĂRI",
+      "title": "Ce se întreabă cel mai des",
+      "items": [
+        {
+          "q": "Ce face Applexium?",
+          "a": "Construim produse digitale și oferim servicii IT pentru instituții și afaceri: platforme web și mobile, agenți AI conversaționali, produse SaaS și EdTech, integrări API și mentenanță — împreună cu consultanța juridică și de reglementare care vine odată cu ele."
+        },
+        {
+          "q": "Ce produse proprii are Applexium?",
+          "a": "Trei: Emmi, agent AI conversațional care răspunde pe telefon, pe site, pe Instagram, WhatsApp și Telegram; Legalia, platformă de educație juridică cu 105 discipline și 924 de subiecte de studiu; și Precedentia, motor de căutare în jurisprudența Moldovei și a României."
+        },
+        {
+          "q": "Pentru cine ați construit platforme?",
+          "a": "Pentru instituții publice și companii. Printre livrări: site-ul Centrului Municipal pentru Dezvoltarea Antreprenoriatului din Chișinău, platforma programului transfrontalier EUroBRIDGE_UA_MD, platforma proiectului DARE-EU finanțat prin Interreg NEXT Black Sea Basin, și portalul juridic Penița Dreptului."
+        },
+        {
+          "q": "Oferiți și consultanță juridică, nu doar dezvoltare?",
+          "a": "Da. Applexium combină dezvoltarea software cu consultanța juridică și de reglementare, iar conformitatea este tratată din faza de proiectare — nu adăugată la final."
+        },
+        {
+          "q": "În ce limbi lucrați?",
+          "a": "Română, engleză și rusă. Livrăm interfețe multilingve, inclusiv în ucraineană atunci când proiectul o cere."
+        },
+        {
+          "q": "Unde se află Applexium și cum poate fi contactat?",
+          "a": "În Chișinău, Republica Moldova, pe strada Mihai Viteazul 2a. Ne scrii la info@applexium.com sau ne suni la +373 78 76 87 65. Entitatea juridică este SCALELAW SOLUTIONS SRL, IDNO 1025600064372."
+        }
+      ]
     },
     "final": {
       "label": "CONTACT",
@@ -257,10 +303,19 @@
     "facts": {
       "label": "CIFRE",
       "title": "O bibliotecă juridică completă",
-      "programs": { "label": "programe de învățare complete" },
-      "disciplines": { "label": "discipline juridice acoperite" },
-      "topics": { "label": "subiecte de studiu" },
-      "questions": { "suffix": ".000+", "label": "întrebări de test" }
+      "programs": {
+        "label": "programe de învățare complete"
+      },
+      "disciplines": {
+        "label": "discipline juridice acoperite"
+      },
+      "topics": {
+        "label": "subiecte de studiu"
+      },
+      "questions": {
+        "suffix": ".000+",
+        "label": "întrebări de test"
+      }
     },
     "final": {
       "label": "CONTACT",
@@ -288,9 +343,16 @@
     "facts": {
       "label": "CIFRE",
       "title": "Cea mai completă bază din regiune",
-      "decisions": { "suffix": ".000+", "label": "hotărâri indexate" },
-      "sources": { "label": "instanțe și surse oficiale" },
-      "modes": { "label": "moduri de căutare" }
+      "decisions": {
+        "suffix": ".000+",
+        "label": "hotărâri indexate"
+      },
+      "sources": {
+        "label": "instanțe și surse oficiale"
+      },
+      "modes": {
+        "label": "moduri de căutare"
+      }
     },
     "features": {
       "label": "FUNCȚII",
@@ -372,20 +434,50 @@
       "experience": {
         "label": "EXPERIENȚĂ",
         "title": "Traseul profesional",
-        "applexium": { "org": "Applexium", "role": "Co-fondator și CEO" },
-        "jurista": { "org": "Jurista", "role": "Consultanță în dreptul afacerilor" },
-        "government": { "org": "Guvern", "role": "Consilier al secretarului de stat" },
-        "startupmd": { "org": "Startup MD", "role": "Servicii juridice" },
-        "banking": { "org": "Sector bancar", "role": "Consultanță de conformitate" },
-        "payall": { "org": "Payall", "role": "Servicii AML" }
+        "applexium": {
+          "org": "Applexium",
+          "role": "Co-fondator și CEO"
+        },
+        "jurista": {
+          "org": "Jurista",
+          "role": "Consultanță în dreptul afacerilor"
+        },
+        "government": {
+          "org": "Guvern",
+          "role": "Consilier al secretarului de stat"
+        },
+        "startupmd": {
+          "org": "Startup MD",
+          "role": "Servicii juridice"
+        },
+        "banking": {
+          "org": "Sector bancar",
+          "role": "Consultanță de conformitate"
+        },
+        "payall": {
+          "org": "Payall",
+          "role": "Servicii AML"
+        }
       },
       "education": {
         "label": "STUDII",
         "title": "Formare academică",
-        "phd": { "degree": "Doctorand", "field": "Economie și management" },
-        "llm1": { "degree": "LL.M.", "field": "Diplomație" },
-        "llm2": { "degree": "LL.M.", "field": "Drept economic" },
-        "llb": { "degree": "LL.B.", "field": "Licență în drept" }
+        "phd": {
+          "degree": "Doctorand",
+          "field": "Economie și management"
+        },
+        "llm1": {
+          "degree": "LL.M.",
+          "field": "Diplomație"
+        },
+        "llm2": {
+          "degree": "LL.M.",
+          "field": "Drept economic"
+        },
+        "llb": {
+          "degree": "LL.B.",
+          "field": "Licență în drept"
+        }
       }
     },
     "nichita": {
@@ -497,11 +589,26 @@
       "work": {
         "label": "PORTOFOLIU",
         "title": "Lucrări selectate",
-        "decoratii": { "title": "Decorații.md", "cat": "Decor urban · Rebranding" },
-        "ooNutrition": { "title": "OO.Nutrition", "cat": "Concept de produs · Prezentare de brand" },
-        "centrulSportiv": { "title": "Centrul Sportiv Național", "cat": "Brand book · Flyere · Reviste" },
-        "bloomin": { "title": "BloomIn și Fine Digital", "cat": "Direcție creativă · Social + Print" },
-        "vectorAcademy": { "title": "Vector Academy — conținut AI", "cat": "Video · Static · Moodboards" }
+        "decoratii": {
+          "title": "Decorații.md",
+          "cat": "Decor urban · Rebranding"
+        },
+        "ooNutrition": {
+          "title": "OO.Nutrition",
+          "cat": "Concept de produs · Prezentare de brand"
+        },
+        "centrulSportiv": {
+          "title": "Centrul Sportiv Național",
+          "cat": "Brand book · Flyere · Reviste"
+        },
+        "bloomin": {
+          "title": "BloomIn și Fine Digital",
+          "cat": "Direcție creativă · Social + Print"
+        },
+        "vectorAcademy": {
+          "title": "Vector Academy — conținut AI",
+          "cat": "Video · Static · Moodboards"
+        }
       },
       "brands": {
         "label": "COLABORĂRI",
@@ -565,10 +672,23 @@
     },
     "form": {
       "heading": "Trimite-ne un mesaj",
-      "fullName": { "label": "Nume complet", "placeholder": "Ion Popescu" },
-      "email": { "label": "Email de serviciu", "placeholder": "tu@companie.com" },
-      "companyName": { "label": "Numele companiei", "optional": "(Opțional)", "placeholder": "Compania Ta SRL" },
-      "message": { "label": "Mesaj", "placeholder": "Spune-ne despre proiectul tău..." },
+      "fullName": {
+        "label": "Nume complet",
+        "placeholder": "Ion Popescu"
+      },
+      "email": {
+        "label": "Email de serviciu",
+        "placeholder": "tu@companie.com"
+      },
+      "companyName": {
+        "label": "Numele companiei",
+        "optional": "(Opțional)",
+        "placeholder": "Compania Ta SRL"
+      },
+      "message": {
+        "label": "Mesaj",
+        "placeholder": "Spune-ne despre proiectul tău..."
+      },
       "submit": "Trimite mesajul",
       "sending": "Se trimite...",
       "successTitle": "Mesaj trimis!",

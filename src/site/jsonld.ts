@@ -1,4 +1,5 @@
 import { type Lang, localePath } from '../i18n'
+import { faqItems } from './faq'
 import { pageMeta, SITE_ORIGIN } from './meta'
 
 /**
@@ -58,6 +59,23 @@ export function organizationJsonLd(lang: Lang) {
         url: 'https://precedentia.md/',
       },
     ],
+  }
+}
+
+export function faqPageJsonLd(lang: Lang) {
+  const url = siteUrl(lang, '')
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    '@id': `${url}#faq`,
+    inLanguage: lang,
+    isPartOf: { '@id': `${url}#website` },
+    about: { '@id': `${url}#organization` },
+    mainEntity: faqItems(lang).map(({ q, a }) => ({
+      '@type': 'Question',
+      name: q,
+      acceptedAnswer: { '@type': 'Answer', text: a },
+    })),
   }
 }
 

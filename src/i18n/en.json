@@ -22,8 +22,13 @@
       "esg": "ESG Statement"
     }
   },
-  "legal": { "toc": "On this page" },
-  "cta": { "consult": "Schedule a Consultation", "explore": "Explore Services" },
+  "legal": {
+    "toc": "On this page"
+  },
+  "cta": {
+    "consult": "Schedule a Consultation",
+    "explore": "Explore Services"
+  },
   "home": {
     "hero": {
       "line1": "Digital products,",
@@ -112,10 +117,51 @@
     "stats": {
       "label": "NUMBERS",
       "title": "Our work, in numbers",
-      "products": { "label": "own products in production" },
-      "platforms": { "suffix": "+", "label": "platforms delivered for clients" },
-      "decisions": { "suffix": ",000+", "label": "decisions indexed in Precedentia" },
-      "questions": { "suffix": ",000+", "label": "quiz questions in Legalia" }
+      "products": {
+        "label": "own products in production"
+      },
+      "platforms": {
+        "suffix": "+",
+        "label": "platforms delivered for clients"
+      },
+      "decisions": {
+        "suffix": ",000+",
+        "label": "decisions indexed in Precedentia"
+      },
+      "questions": {
+        "suffix": ",000+",
+        "label": "quiz questions in Legalia"
+      }
+    },
+    "faq": {
+      "label": "QUESTIONS",
+      "title": "What people ask most",
+      "items": [
+        {
+          "q": "What does Applexium do?",
+          "a": "We build digital products and provide IT services for institutions and businesses: web and mobile platforms, conversational AI agents, SaaS and EdTech products, API integration and maintenance — together with the legal and regulatory work that comes with them."
+        },
+        {
+          "q": "Which products does Applexium own?",
+          "a": "Three: Emmi, a conversational AI agent answering on the phone, on your website, and on Instagram, WhatsApp and Telegram; Legalia, a legal-education platform with 105 disciplines and 924 study topics; and Precedentia, a case-law search engine for Moldova and Romania."
+        },
+        {
+          "q": "Who have you built platforms for?",
+          "a": "Public institutions and companies. Deliveries include the site of the Municipal Centre for Entrepreneurship Development in Chișinău, the platform for the EUroBRIDGE_UA_MD cross-border programme, the platform for the DARE-EU project funded under Interreg NEXT Black Sea Basin, and the Penița Dreptului legal portal."
+        },
+        {
+          "q": "Do you provide legal consulting as well as development?",
+          "a": "Yes. Applexium pairs software development with legal and regulatory consulting, and compliance is handled from the design stage rather than bolted on at the end."
+        },
+        {
+          "q": "Which languages do you work in?",
+          "a": "Romanian, English and Russian. We ship multilingual interfaces, including Ukrainian where a project calls for it."
+        },
+        {
+          "q": "Where is Applexium based and how do I get in touch?",
+          "a": "In Chișinău, Republic of Moldova, at Mihai Viteazul 2a. Write to info@applexium.com or call +373 78 76 87 65. The legal entity is SCALELAW SOLUTIONS SRL, IDNO 1025600064372."
+        }
+      ]
     },
     "final": {
       "label": "CONTACT",
@@ -257,10 +303,19 @@
     "facts": {
       "label": "NUMBERS",
       "title": "A complete legal library",
-      "programs": { "label": "complete learning programs" },
-      "disciplines": { "label": "legal disciplines covered" },
-      "topics": { "label": "study topics" },
-      "questions": { "suffix": ",000+", "label": "quiz questions" }
+      "programs": {
+        "label": "complete learning programs"
+      },
+      "disciplines": {
+        "label": "legal disciplines covered"
+      },
+      "topics": {
+        "label": "study topics"
+      },
+      "questions": {
+        "suffix": ",000+",
+        "label": "quiz questions"
+      }
     },
     "final": {
       "label": "CONTACT",
@@ -288,9 +343,16 @@
     "facts": {
       "label": "NUMBERS",
       "title": "The most complete database in the region",
-      "decisions": { "suffix": ",000+", "label": "decisions indexed" },
-      "sources": { "label": "courts and official sources" },
-      "modes": { "label": "search modes" }
+      "decisions": {
+        "suffix": ",000+",
+        "label": "decisions indexed"
+      },
+      "sources": {
+        "label": "courts and official sources"
+      },
+      "modes": {
+        "label": "search modes"
+      }
     },
     "features": {
       "label": "FEATURES",
@@ -372,20 +434,50 @@
       "experience": {
         "label": "EXPERIENCE",
         "title": "Professional path",
-        "applexium": { "org": "Applexium", "role": "Co-Founder & CEO" },
-        "jurista": { "org": "Jurista", "role": "Business Law Advisory" },
-        "government": { "org": "Government", "role": "State Secretary Advisor" },
-        "startupmd": { "org": "Startup MD", "role": "Legal Services" },
-        "banking": { "org": "Banking", "role": "Compliance Advisory" },
-        "payall": { "org": "Payall", "role": "AML Services" }
+        "applexium": {
+          "org": "Applexium",
+          "role": "Co-Founder & CEO"
+        },
+        "jurista": {
+          "org": "Jurista",
+          "role": "Business Law Advisory"
+        },
+        "government": {
+          "org": "Government",
+          "role": "State Secretary Advisor"
+        },
+        "startupmd": {
+          "org": "Startup MD",
+          "role": "Legal Services"
+        },
+        "banking": {
+          "org": "Banking",
+          "role": "Compliance Advisory"
+        },
+        "payall": {
+          "org": "Payall",
+          "role": "AML Services"
+        }
       },
       "education": {
         "label": "EDUCATION",
         "title": "Academic background",
-        "phd": { "degree": "PHD Candidate", "field": "Economics & Management" },
-        "llm1": { "degree": "LL.M.", "field": "Diplomacy" },
-        "llm2": { "degree": "LL.M.", "field": "Economic Law" },
-        "llb": { "degree": "LL.B.", "field": "Bachelor of Laws" }
+        "phd": {
+          "degree": "PHD Candidate",
+          "field": "Economics & Management"
+        },
+        "llm1": {
+          "degree": "LL.M.",
+          "field": "Diplomacy"
+        },
+        "llm2": {
+          "degree": "LL.M.",
+          "field": "Economic Law"
+        },
+        "llb": {
+          "degree": "LL.B.",
+          "field": "Bachelor of Laws"
+        }
       }
     },
     "nichita": {
@@ -497,11 +589,26 @@
       "work": {
         "label": "PORTFOLIO",
         "title": "Selected Work",
-        "decoratii": { "title": "Decorații.md", "cat": "Urban decor · Rebranding" },
-        "ooNutrition": { "title": "OO.Nutrition", "cat": "Product concept · Brand presentation" },
-        "centrulSportiv": { "title": "Centrul Sportiv Național", "cat": "Brand book · Flyers · Magazines" },
-        "bloomin": { "title": "BloomIn & Fine Digital", "cat": "Creative direction · Social + Print" },
-        "vectorAcademy": { "title": "Vector Academy — AI content", "cat": "Video · Static · Moodboards" }
+        "decoratii": {
+          "title": "Decorații.md",
+          "cat": "Urban decor · Rebranding"
+        },
+        "ooNutrition": {
+          "title": "OO.Nutrition",
+          "cat": "Product concept · Brand presentation"
+        },
+        "centrulSportiv": {
+          "title": "Centrul Sportiv Național",
+          "cat": "Brand book · Flyers · Magazines"
+        },
+        "bloomin": {
+          "title": "BloomIn & Fine Digital",
+          "cat": "Creative direction · Social + Print"
+        },
+        "vectorAcademy": {
+          "title": "Vector Academy — AI content",
+          "cat": "Video · Static · Moodboards"
+        }
       },
       "brands": {
         "label": "WORKED WITH",
@@ -565,10 +672,23 @@
     },
     "form": {
       "heading": "Send Us a Message",
-      "fullName": { "label": "Full Name", "placeholder": "John Doe" },
-      "email": { "label": "Work Email", "placeholder": "you@company.com" },
-      "companyName": { "label": "Company Name", "optional": "(Optional)", "placeholder": "Your Company Inc." },
-      "message": { "label": "Message", "placeholder": "Tell us about your project..." },
+      "fullName": {
+        "label": "Full Name",
+        "placeholder": "John Doe"
+      },
+      "email": {
+        "label": "Work Email",
+        "placeholder": "you@company.com"
+      },
+      "companyName": {
+        "label": "Company Name",
+        "optional": "(Optional)",
+        "placeholder": "Your Company Inc."
+      },
+      "message": {
+        "label": "Message",
+        "placeholder": "Tell us about your project..."
+      },
       "submit": "Send Message",
       "sending": "Sending...",
       "successTitle": "Message sent!",

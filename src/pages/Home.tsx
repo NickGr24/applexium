@@ -1,3 +1,4 @@
+import { Faq } from '../components/Faq'
 import { MagneticButton } from '../components/MagneticButton'
 import { MonoLabel } from '../components/MonoLabel'
 import { RevealText } from '../components/RevealText'
@@ -7,7 +8,8 @@ import { SplitHeading } from '../components/SplitHeading'
 import { SpotlightCard } from '../components/SpotlightCard'
 import { StatCount } from '../components/StatCount'
 import { localePath, t, useLang, type Lang } from '../i18n'
-import { organizationJsonLd, webSiteJsonLd } from '../site/jsonld'
+import { faqItems } from '../site/faq'
+import { faqPageJsonLd, organizationJsonLd, webSiteJsonLd } from '../site/jsonld'
 import './home.css'
 import { HeroSection } from './home/HeroSection'
 import { IconChart, IconChip, IconCloud, IconCode, IconCog, IconShield } from './home/icons'
@@ -80,7 +82,11 @@ export default function Home() {
 
   return (
     <>
-      <Seo page="home" lang={lang} jsonLd={[organizationJsonLd(lang), webSiteJsonLd(lang)]} />
+      <Seo
+        page="home"
+        lang={lang}
+        jsonLd={[organizationJsonLd(lang), webSiteJsonLd(lang), faqPageJsonLd(lang)]}
+      />
 
       <HeroSection lang={lang} />
 
@@ -158,9 +164,18 @@ export default function Home() {
         </div>
       </section>
 
+      <Section
+        id="intrebari"
+        index="06"
+        label={t(lang, 'home.faq.label')}
+        title={t(lang, 'home.faq.title')}
+      >
+        <Faq items={faqItems(lang)} />
+      </Section>
+
       <section className="final">
         <div className="final__inner container">
-          <MonoLabel index="06">{t(lang, 'home.final.label')}</MonoLabel>
+          <MonoLabel index="07">{t(lang, 'home.final.label')}</MonoLabel>
           <SplitHeading as="h2" className="final__title">
             {t(lang, 'home.final.title')}
           </SplitHeading>

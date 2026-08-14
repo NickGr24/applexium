@@ -1,0 +1,90 @@
+.faq {
+  max-width: 900px;
+}
+
+.faq__item {
+  border-bottom: 1px solid rgb(237 237 242 / 10%);
+}
+
+.faq__item:first-child {
+  border-top: 1px solid rgb(237 237 242 / 10%);
+}
+
+.faq__q {
+  margin: 0;
+  font-size: inherit;
+}
+
+.faq__btn {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 26px 0;
+  font-family: var(--font-display);
+  font-size: clamp(17px, 2vw, 21px);
+  font-weight: 500;
+  line-height: 1.35;
+  color: var(--ink);
+  text-align: left;
+  cursor: pointer;
+  background: none;
+  border: 0;
+  transition: color 0.3s var(--ease-out);
+}
+
+.faq__btn:hover {
+  color: var(--brand-cyan);
+}
+
+.faq__btn:focus-visible {
+  outline: 2px solid var(--brand-blue);
+  outline-offset: 4px;
+}
+
+.faq__icon {
+  flex: 0 0 auto;
+  color: var(--ink-dim);
+  transition:
+    transform 0.35s var(--ease-out),
+    color 0.3s var(--ease-out);
+}
+
+.faq__item.is-open .faq__icon {
+  color: var(--brand-cyan);
+  transform: rotate(180deg);
+}
+
+/* 0fr -> 1fr gives the browser two interpolable track sizes, so the answer
+   animates to its natural height without measuring it or capping it with a
+   max-height that would clip the longer answers. */
+.faq__a {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.35s var(--ease-out);
+}
+
+.faq__item.is-open .faq__a {
+  grid-template-rows: 1fr;
+}
+
+.faq__a-inner {
+  overflow: hidden;
+}
+
+.faq__a p {
+  max-width: 70ch;
+  margin: 0;
+  padding: 0 0 26px;
+  font-size: 15.5px;
+  line-height: 1.7;
+  color: var(--ink-dim);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .faq__a,
+  .faq__icon {
+    transition: none;
+  }
+}
