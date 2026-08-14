@@ -29,7 +29,7 @@
     "/assets/pages-D90V61GQ.js"
   ],
   "node_modules/gsap/DrawSVGPlugin.js": [
-    "/assets/Contacts-D1okSUCt.js",
+    "/assets/Contacts-BJFslY1R.js",
     "/assets/Contacts-oshCJfhB.css"
   ],
   "node_modules/gsap/Observer.js": [
@@ -199,7 +199,7 @@
   "node_modules/vite-react-ssg/dist/shared/vite-react-ssg.BhGKpaqQ.mjs": [],
   "node_modules/vite-react-ssg/dist/shared/vite-react-ssg.C1RTs5UA.mjs": [],
   "node_modules/vite-react-ssg/dist/shared/vite-react-ssg.CoMLbIiW.mjs": [
-    "/assets/jsonld-BELvWStD.js"
+    "/assets/jsonld-CRtwFH5t.js"
   ],
   "node_modules/vite-react-ssg/node_modules/react-helmet-async/lib/index.module.js": [
     "/assets/pages-D90V61GQ.js"
@@ -226,7 +226,7 @@
     "/assets/Section-BHPr179e.js"
   ],
   "src/components/Seo.tsx": [
-    "/assets/jsonld-BELvWStD.js"
+    "/assets/jsonld-CRtwFH5t.js"
   ],
   "src/components/SplitHeading.tsx": [
     "/assets/SplitHeading-CGbOEKHn.js"
@@ -247,12 +247,12 @@
     "/assets/pages-D90V61GQ.js"
   ],
   "src/layouts/LegalLayout.tsx": [
-    "/assets/LegalPage-Ckt5nmj0.js",
+    "/assets/LegalPage-DyZ1-ww3.js",
     "/assets/LegalPage-Wbncw_pe.css"
   ],
   "src/layouts/SiteLayout.tsx": [],
   "src/layouts/legal.css": [
-    "/assets/LegalPage-Ckt5nmj0.js",
+    "/assets/LegalPage-DyZ1-ww3.js",
     "/assets/LegalPage-Wbncw_pe.css"
   ],
   "src/main.tsx": [],
@@ -260,7 +260,7 @@
   "src/motion/PageTransition.tsx": [],
   "src/motion/ease.ts": [],
   "src/motion/refreshScrollTriggers.ts": [
-    "/assets/mircea-ursu-Dwu9kUXG.js",
+    "/assets/mircea-ursu-CXx6ZaJW.js",
     "/assets/mircea-ursu-BzHYTzRl.css"
   ],
   "src/motion/useReducedMotion.ts": [
@@ -270,47 +270,47 @@
     "/assets/useSpotlightPointer-BYpQ45P0.js"
   ],
   "src/pages/Contacts.tsx": [
-    "/assets/Contacts-D1okSUCt.js",
+    "/assets/Contacts-BJFslY1R.js",
     "/assets/Contacts-oshCJfhB.css"
   ],
   "src/pages/Home.tsx": [
-    "/assets/Home-DZg4WJwf.js",
+    "/assets/Home-B-J_9VJF.js",
     "/assets/Home-BioDHBo1.css"
   ],
   "src/pages/Projects.tsx": [
-    "/assets/Projects-i-Ht5_Gv.js",
+    "/assets/Projects-DTWJByR5.js",
     "/assets/Projects-CmoD1xxe.css"
   ],
   "src/pages/Team.tsx": [
-    "/assets/Team-CbPd4sy2.js",
+    "/assets/Team-B_nHSL9X.js",
     "/assets/Team-C8QPtkA8.css"
   ],
   "src/pages/contacts.css": [
-    "/assets/Contacts-D1okSUCt.js",
+    "/assets/Contacts-BJFslY1R.js",
     "/assets/Contacts-oshCJfhB.css"
   ],
   "src/pages/home.css": [
-    "/assets/Home-DZg4WJwf.js",
+    "/assets/Home-B-J_9VJF.js",
     "/assets/Home-BioDHBo1.css"
   ],
   "src/pages/home/HeroSection.tsx": [
-    "/assets/Home-DZg4WJwf.js",
+    "/assets/Home-B-J_9VJF.js",
     "/assets/Home-BioDHBo1.css"
   ],
   "src/pages/home/Manifesto.tsx": [
-    "/assets/Home-DZg4WJwf.js",
+    "/assets/Home-B-J_9VJF.js",
     "/assets/Home-BioDHBo1.css"
   ],
   "src/pages/home/ProductShowcase.tsx": [
-    "/assets/Home-DZg4WJwf.js",
+    "/assets/Home-B-J_9VJF.js",
     "/assets/Home-BioDHBo1.css"
   ],
   "src/pages/home/icons.tsx": [
-    "/assets/Home-DZg4WJwf.js",
+    "/assets/Home-B-J_9VJF.js",
     "/assets/Home-BioDHBo1.css"
   ],
   "src/pages/legal/LegalPage.tsx": [
-    "/assets/LegalPage-Ckt5nmj0.js",
+    "/assets/LegalPage-DyZ1-ww3.js",
     "/assets/LegalPage-Wbncw_pe.css"
   ],
   "src/pages/legal/content/accessibility.en.tsx": [
@@ -350,7 +350,7 @@
     "/assets/terms-and-conditions.ro-C1sSDC4n.js"
   ],
   "src/pages/legal/icons.tsx": [
-    "/assets/LegalPage-Ckt5nmj0.js",
+    "/assets/LegalPage-DyZ1-ww3.js",
     "/assets/LegalPage-Wbncw_pe.css"
   ],
   "src/pages/product/ProductPage.tsx": [
@@ -358,27 +358,27 @@
     "/assets/ProductPage-B6dxaIv-.css"
   ],
   "src/pages/product/emmi.css": [
-    "/assets/emmi-B3FtKlu6.js",
+    "/assets/emmi-DR9d9eqp.js",
     "/assets/emmi-Ll2EXz_6.css"
   ],
   "src/pages/product/emmi.tsx": [
-    "/assets/emmi-B3FtKlu6.js",
+    "/assets/emmi-DR9d9eqp.js",
     "/assets/emmi-Ll2EXz_6.css"
   ],
   "src/pages/product/legalia.css": [
-    "/assets/legalia-BfgkvSwv.js",
+    "/assets/legalia-ozchjVa5.js",
     "/assets/legalia-C73WHICZ.css"
   ],
   "src/pages/product/legalia.tsx": [
-    "/assets/legalia-BfgkvSwv.js",
+    "/assets/legalia-ozchjVa5.js",
     "/assets/legalia-C73WHICZ.css"
   ],
   "src/pages/product/precedentia.css": [
-    "/assets/precedentia-zWHRpRqN.js",
+    "/assets/precedentia-Dt3JYI-g.js",
     "/assets/precedentia-C16CFYgr.css"
   ],
   "src/pages/product/precedentia.tsx": [
-    "/assets/precedentia-zWHRpRqN.js",
+    "/assets/precedentia-Dt3JYI-g.js",
     "/assets/precedentia-C16CFYgr.css"
   ],
   "src/pages/product/product.css": [
@@ -386,7 +386,7 @@
     "/assets/ProductPage-B6dxaIv-.css"
   ],
   "src/pages/profile/CylinderWheel.tsx": [
-    "/assets/mircea-ursu-Dwu9kUXG.js",
+    "/assets/mircea-ursu-CXx6ZaJW.js",
     "/assets/mircea-ursu-BzHYTzRl.css"
   ],
   "src/pages/profile/Profile.tsx": [
@@ -394,31 +394,31 @@
     "/assets/Profile-XqqJ5jyX.css"
   ],
   "src/pages/profile/TubeCarousel.tsx": [
-    "/assets/mircea-ursu-Dwu9kUXG.js",
+    "/assets/mircea-ursu-CXx6ZaJW.js",
     "/assets/mircea-ursu-BzHYTzRl.css"
   ],
   "src/pages/profile/diana-tatar.css": [
-    "/assets/diana-tatar-y17zlESG.js",
+    "/assets/diana-tatar-DvBHyHgm.js",
     "/assets/diana-tatar-CkYKc_xV.css"
   ],
   "src/pages/profile/diana-tatar.tsx": [
-    "/assets/diana-tatar-y17zlESG.js",
+    "/assets/diana-tatar-DvBHyHgm.js",
     "/assets/diana-tatar-CkYKc_xV.css"
   ],
   "src/pages/profile/mircea-ursu.css": [
-    "/assets/mircea-ursu-Dwu9kUXG.js",
+    "/assets/mircea-ursu-CXx6ZaJW.js",
     "/assets/mircea-ursu-BzHYTzRl.css"
   ],
   "src/pages/profile/mircea-ursu.tsx": [
-    "/assets/mircea-ursu-Dwu9kUXG.js",
+    "/assets/mircea-ursu-CXx6ZaJW.js",
     "/assets/mircea-ursu-BzHYTzRl.css"
   ],
   "src/pages/profile/nichita-griu.css": [
-    "/assets/nichita-griu-CTvg4kBh.js",
+    "/assets/nichita-griu-uz5thgxR.js",
     "/assets/nichita-griu-BS7bIkub.css"
   ],
   "src/pages/profile/nichita-griu.tsx": [
-    "/assets/nichita-griu-CTvg4kBh.js",
+    "/assets/nichita-griu-uz5thgxR.js",
     "/assets/nichita-griu-BS7bIkub.css"
   ],
   "src/pages/profile/profile.css": [
@@ -426,16 +426,16 @@
     "/assets/Profile-XqqJ5jyX.css"
   ],
   "src/pages/projects.css": [
-    "/assets/Projects-i-Ht5_Gv.js",
+    "/assets/Projects-DTWJByR5.js",
     "/assets/Projects-CmoD1xxe.css"
   ],
   "src/pages/team.css": [
-    "/assets/Team-CbPd4sy2.js",
+    "/assets/Team-B_nHSL9X.js",
     "/assets/Team-C8QPtkA8.css"
   ],
   "src/routes.tsx": [],
   "src/scenes/AuroraBackground.tsx": [
-    "/assets/Home-DZg4WJwf.js",
+    "/assets/Home-B-J_9VJF.js",
     "/assets/Home-BioDHBo1.css"
   ],
   "src/scenes/AuroraCanvas.tsx": [
@@ -463,10 +463,10 @@
     "/assets/graphicsTier-BUwG5e6X.js"
   ],
   "src/site/jsonld.ts": [
-    "/assets/jsonld-BELvWStD.js"
+    "/assets/jsonld-CRtwFH5t.js"
   ],
   "src/site/meta.ts": [
-    "/assets/jsonld-BELvWStD.js"
+    "/assets/jsonld-CRtwFH5t.js"
   ],
   "src/site/pages.json": [
     "/assets/pages-D90V61GQ.js"
