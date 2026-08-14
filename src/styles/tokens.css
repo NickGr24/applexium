@@ -7,6 +7,13 @@
   --brand-blue: #245efe;
   --brand-cyan: #1fcdff;
   --glow: linear-gradient(135deg, var(--brand-deep), var(--brand-blue) 55%, var(--brand-cyan));
+
+  /* CTA fill. --glow opens on --brand-deep, and on a wide, short button the
+     135deg axis lands that near-navy stop in the top-left corner as a dark
+     patch instead of a sweep. This runs blue -> cyan on a near-horizontal axis
+     with the cyan stop past the right edge, so the fill never reaches the palest
+     part of the ramp, where white lettering starts losing contrast. */
+  --glow-cta: linear-gradient(100deg, var(--brand-blue), var(--brand-cyan) 150%);
   --font-display: 'Clash Display', system-ui, sans-serif;
   --font-body: 'General Sans', 'Inter', system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', ui-monospace, monospace;

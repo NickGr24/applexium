@@ -27,7 +27,7 @@
 
 .magnetic-btn--primary {
   color: var(--ink);
-  background: var(--glow);
+  background: var(--glow-cta);
   border: 1px solid transparent;
   box-shadow: 0 0 40px rgb(36 94 254 / 0.35);
   transition: box-shadow 0.3s var(--ease-out);
