@@ -1,6 +1,6 @@
 {
-  "_BeamsRBBackground-CvxPLZmL.js": {
-    "file": "assets/BeamsRBBackground-CvxPLZmL.js",
+  "_BeamsRBBackground-DiMY5L9q.js": {
+    "file": "assets/BeamsRBBackground-DiMY5L9q.js",
     "name": "BeamsRBBackground",
     "imports": [
       "_rolldown-runtime-hePW80VL.js",
@@ -13,8 +13,8 @@
       "src/scenes/BeamsRBCanvas.tsx"
     ]
   },
-  "_GalaxyRBBackground-CfKYPWlG.js": {
-    "file": "assets/GalaxyRBBackground-CfKYPWlG.js",
+  "_GalaxyRBBackground-CNTw6--x.js": {
+    "file": "assets/GalaxyRBBackground-CNTw6--x.js",
     "name": "GalaxyRBBackground",
     "imports": [
       "_rolldown-runtime-hePW80VL.js",
@@ -110,8 +110,8 @@
       "_pages-kY3lXtNw.js"
     ]
   },
-  "_ThreadsBackground-k7b8_WvW.js": {
-    "file": "assets/ThreadsBackground-k7b8_WvW.js",
+  "_ThreadsBackground-OY81m7LZ.js": {
+    "file": "assets/ThreadsBackground-OY81m7LZ.js",
     "name": "ThreadsBackground",
     "imports": [
       "_rolldown-runtime-hePW80VL.js",
@@ -213,7 +213,7 @@
     ]
   },
   "index.html": {
-    "file": "assets/app-BJdDhOn_.js",
+    "file": "assets/app-Bh_bytug.js",
     "name": "app",
     "src": "index.html",
     "isEntry": true,
@@ -253,7 +253,7 @@
       "src/pages/legal/LegalPage.tsx"
     ],
     "css": [
-      "assets/app-Cf5knCQt.css"
+      "assets/app-CZeek2tb.css"
     ]
   },
   "node_modules/react-dom/client.js": {
@@ -287,7 +287,7 @@
     ]
   },
   "src/pages/Home.tsx": {
-    "file": "assets/Home-D1gSlSMm.js",
+    "file": "assets/Home-pWs72Squ.js",
     "name": "Home",
     "src": "src/pages/Home.tsx",
     "isDynamicEntry": true,
@@ -304,15 +304,15 @@
       "_Section-DD0o6QQi.js",
       "_SpotlightCard-9iHSlijp.js",
       "_StatCount-BiMx_VnV.js",
-      "_BeamsRBBackground-CvxPLZmL.js",
-      "_GalaxyRBBackground-CfKYPWlG.js",
-      "_ThreadsBackground-k7b8_WvW.js"
+      "_BeamsRBBackground-DiMY5L9q.js",
+      "_GalaxyRBBackground-CNTw6--x.js",
+      "_ThreadsBackground-OY81m7LZ.js"
     ],
     "dynamicImports": [
       "src/scenes/AuroraCanvas.tsx"
     ],
     "css": [
-      "assets/Home-DCFnl6xh.css"
+      "assets/Home-DSNMQ1fF.css"
     ]
   },
   "src/pages/Projects.tsx": {
@@ -477,7 +477,7 @@
     ]
   },
   "src/pages/product/emmi.tsx": {
-    "file": "assets/emmi-Ccm_D2gq.js",
+    "file": "assets/emmi-r7dvLCEz.js",
     "name": "emmi",
     "src": "src/pages/product/emmi.tsx",
     "isDynamicEntry": true,
@@ -492,7 +492,7 @@
       "_graphicsTier-DRJdYXlS.js",
       "_Section-DD0o6QQi.js",
       "_SpotlightCard-9iHSlijp.js",
-      "_ThreadsBackground-k7b8_WvW.js",
+      "_ThreadsBackground-OY81m7LZ.js",
       "_ProductPage-BPageR3N.js"
     ],
     "css": [
@@ -500,7 +500,7 @@
     ]
   },
   "src/pages/product/legalia.tsx": {
-    "file": "assets/legalia-9AykrCDT.js",
+    "file": "assets/legalia-nne4CByW.js",
     "name": "legalia",
     "src": "src/pages/product/legalia.tsx",
     "isDynamicEntry": true,
@@ -514,7 +514,7 @@
       "_Section-DD0o6QQi.js",
       "_SpotlightCard-9iHSlijp.js",
       "_StatCount-BiMx_VnV.js",
-      "_BeamsRBBackground-CvxPLZmL.js",
+      "_BeamsRBBackground-DiMY5L9q.js",
       "_ProductPage-BPageR3N.js"
     ],
     "css": [
@@ -522,7 +522,7 @@
     ]
   },
   "src/pages/product/precedentia.tsx": {
-    "file": "assets/precedentia-W_Dgyw-E.js",
+    "file": "assets/precedentia-DArM0reO.js",
     "name": "precedentia",
     "src": "src/pages/product/precedentia.tsx",
     "isDynamicEntry": true,
@@ -536,7 +536,7 @@
       "_Section-DD0o6QQi.js",
       "_SpotlightCard-9iHSlijp.js",
       "_StatCount-BiMx_VnV.js",
-      "_GalaxyRBBackground-CfKYPWlG.js",
+      "_GalaxyRBBackground-CNTw6--x.js",
       "_ProductPage-BPageR3N.js"
     ],
     "css": [
@@ -598,7 +598,7 @@
     ]
   },
   "src/scenes/AuroraCanvas.tsx": {
-    "file": "assets/AuroraCanvas-DtYnqHC9.js",
+    "file": "assets/AuroraCanvas-CJXxiOVb.js",
     "name": "AuroraCanvas",
     "src": "src/scenes/AuroraCanvas.tsx",
     "isDynamicEntry": true,
@@ -610,7 +610,7 @@
     ]
   },
   "src/scenes/BeamsRBCanvas.tsx": {
-    "file": "assets/BeamsRBCanvas-D1rp1ROR.js",
+    "file": "assets/BeamsRBCanvas-jncniUav.js",
     "name": "BeamsRBCanvas",
     "src": "src/scenes/BeamsRBCanvas.tsx",
     "isDynamicEntry": true,
@@ -622,7 +622,7 @@
     ]
   },
   "src/scenes/GalaxyRBCanvas.tsx": {
-    "file": "assets/GalaxyRBCanvas-BBzz-1UN.js",
+    "file": "assets/GalaxyRBCanvas-C4nEOvBh.js",
     "name": "GalaxyRBCanvas",
     "src": "src/scenes/GalaxyRBCanvas.tsx",
     "isDynamicEntry": true,
@@ -634,7 +634,7 @@
     ]
   },
   "src/scenes/ThreadsCanvas.tsx": {
-    "file": "assets/ThreadsCanvas-B7DXtd-l.js",
+    "file": "assets/ThreadsCanvas-BprnMd-F.js",
     "name": "ThreadsCanvas",
     "src": "src/scenes/ThreadsCanvas.tsx",
     "isDynamicEntry": true,

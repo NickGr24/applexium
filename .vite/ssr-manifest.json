@@ -8,19 +8,19 @@
   ],
   "index.html": [],
   "node_modules/@babel/runtime/helpers/esm/extends.js": [
-    "/assets/BeamsRBCanvas-D1rp1ROR.js"
+    "/assets/BeamsRBCanvas-jncniUav.js"
   ],
   "node_modules/@react-three/drei/core/Fbo.js": [
-    "/assets/BeamsRBCanvas-D1rp1ROR.js"
+    "/assets/BeamsRBCanvas-jncniUav.js"
   ],
   "node_modules/@react-three/drei/core/PerspectiveCamera.js": [
-    "/assets/BeamsRBCanvas-D1rp1ROR.js"
+    "/assets/BeamsRBCanvas-jncniUav.js"
   ],
   "node_modules/@react-three/fiber/dist/events-156d8d12.esm.js": [
-    "/assets/BeamsRBCanvas-D1rp1ROR.js"
+    "/assets/BeamsRBCanvas-jncniUav.js"
   ],
   "node_modules/@react-three/fiber/dist/react-three-fiber.esm.js": [
-    "/assets/BeamsRBCanvas-D1rp1ROR.js"
+    "/assets/BeamsRBCanvas-jncniUav.js"
   ],
   "node_modules/@remix-run/router/dist/router.js": [
     "/assets/pages-kY3lXtNw.js"
@@ -57,7 +57,7 @@
     "/assets/pages-kY3lXtNw.js"
   ],
   "node_modules/its-fine/dist/index.js": [
-    "/assets/BeamsRBCanvas-D1rp1ROR.js"
+    "/assets/BeamsRBCanvas-jncniUav.js"
   ],
   "node_modules/lenis/dist/lenis.mjs": [],
   "node_modules/ogl/src/core/Geometry.js": [
@@ -148,7 +148,7 @@
     "/assets/pages-kY3lXtNw.js"
   ],
   "node_modules/react-use-measure/dist/index.js": [
-    "/assets/BeamsRBCanvas-D1rp1ROR.js"
+    "/assets/BeamsRBCanvas-jncniUav.js"
   ],
   "node_modules/react/cjs/react-jsx-runtime.production.js": [
     "/assets/jsx-runtime-NZYk81nU.js"
@@ -172,28 +172,28 @@
     "/assets/pages-kY3lXtNw.js"
   ],
   "node_modules/suspend-react/index.js": [
-    "/assets/BeamsRBCanvas-D1rp1ROR.js"
+    "/assets/BeamsRBCanvas-jncniUav.js"
   ],
   "node_modules/three/build/three.core.js": [
-    "/assets/BeamsRBCanvas-D1rp1ROR.js"
+    "/assets/BeamsRBCanvas-jncniUav.js"
   ],
   "node_modules/three/build/three.module.js": [
-    "/assets/BeamsRBCanvas-D1rp1ROR.js"
+    "/assets/BeamsRBCanvas-jncniUav.js"
   ],
   "node_modules/three/src/math/MathUtils.js": [
-    "/assets/BeamsRBCanvas-D1rp1ROR.js"
+    "/assets/BeamsRBCanvas-jncniUav.js"
   ],
   "node_modules/use-sync-external-store/cjs/use-sync-external-store-shim.production.js": [
-    "/assets/BeamsRBCanvas-D1rp1ROR.js"
+    "/assets/BeamsRBCanvas-jncniUav.js"
   ],
   "node_modules/use-sync-external-store/cjs/use-sync-external-store-shim/with-selector.production.js": [
-    "/assets/BeamsRBCanvas-D1rp1ROR.js"
+    "/assets/BeamsRBCanvas-jncniUav.js"
   ],
   "node_modules/use-sync-external-store/shim/index.js": [
-    "/assets/BeamsRBCanvas-D1rp1ROR.js"
+    "/assets/BeamsRBCanvas-jncniUav.js"
   ],
   "node_modules/use-sync-external-store/shim/with-selector.js": [
-    "/assets/BeamsRBCanvas-D1rp1ROR.js"
+    "/assets/BeamsRBCanvas-jncniUav.js"
   ],
   "node_modules/vite-react-ssg/dist/index.mjs": [],
   "node_modules/vite-react-ssg/dist/shared/vite-react-ssg.BhGKpaqQ.mjs": [],
@@ -205,15 +205,15 @@
     "/assets/pages-kY3lXtNw.js"
   ],
   "node_modules/zustand/esm/traditional.mjs": [
-    "/assets/BeamsRBCanvas-D1rp1ROR.js"
+    "/assets/BeamsRBCanvas-jncniUav.js"
   ],
   "node_modules/zustand/esm/vanilla.mjs": [
-    "/assets/BeamsRBCanvas-D1rp1ROR.js"
+    "/assets/BeamsRBCanvas-jncniUav.js"
   ],
   "src/components/Cursor.tsx": [],
   "src/components/Faq.tsx": [
-    "/assets/Home-D1gSlSMm.js",
-    "/assets/Home-DCFnl6xh.css"
+    "/assets/Home-pWs72Squ.js",
+    "/assets/Home-DSNMQ1fF.css"
   ],
   "src/components/Footer.tsx": [],
   "src/components/MagneticButton.tsx": [
@@ -242,8 +242,8 @@
     "/assets/StatCount-BiMx_VnV.js"
   ],
   "src/components/faq.css": [
-    "/assets/Home-D1gSlSMm.js",
-    "/assets/Home-DCFnl6xh.css"
+    "/assets/Home-pWs72Squ.js",
+    "/assets/Home-DSNMQ1fF.css"
   ],
   "src/i18n/en.json": [
     "/assets/pages-kY3lXtNw.js"
@@ -282,8 +282,8 @@
     "/assets/Contacts-oshCJfhB.css"
   ],
   "src/pages/Home.tsx": [
-    "/assets/Home-D1gSlSMm.js",
-    "/assets/Home-DCFnl6xh.css"
+    "/assets/Home-pWs72Squ.js",
+    "/assets/Home-DSNMQ1fF.css"
   ],
   "src/pages/Projects.tsx": [
     "/assets/Projects-D4TtMypY.js",
@@ -298,24 +298,28 @@
     "/assets/Contacts-oshCJfhB.css"
   ],
   "src/pages/home.css": [
-    "/assets/Home-D1gSlSMm.js",
-    "/assets/Home-DCFnl6xh.css"
+    "/assets/Home-pWs72Squ.js",
+    "/assets/Home-DSNMQ1fF.css"
   ],
   "src/pages/home/HeroSection.tsx": [
-    "/assets/Home-D1gSlSMm.js",
-    "/assets/Home-DCFnl6xh.css"
+    "/assets/Home-pWs72Squ.js",
+    "/assets/Home-DSNMQ1fF.css"
   ],
   "src/pages/home/Manifesto.tsx": [
-    "/assets/Home-D1gSlSMm.js",
-    "/assets/Home-DCFnl6xh.css"
+    "/assets/Home-pWs72Squ.js",
+    "/assets/Home-DSNMQ1fF.css"
   ],
   "src/pages/home/ProductShowcase.tsx": [
-    "/assets/Home-D1gSlSMm.js",
-    "/assets/Home-DCFnl6xh.css"
+    "/assets/Home-pWs72Squ.js",
+    "/assets/Home-DSNMQ1fF.css"
   ],
   "src/pages/home/icons.tsx": [
-    "/assets/Home-D1gSlSMm.js",
-    "/assets/Home-DCFnl6xh.css"
+    "/assets/Home-pWs72Squ.js",
+    "/assets/Home-DSNMQ1fF.css"
+  ],
+  "src/pages/home/showcaseLive.ts": [
+    "/assets/Home-pWs72Squ.js",
+    "/assets/Home-DSNMQ1fF.css"
   ],
   "src/pages/legal/LegalPage.tsx": [
     "/assets/LegalPage-BWc-PxX4.js",
@@ -366,27 +370,27 @@
     "/assets/ProductPage-B6dxaIv-.css"
   ],
   "src/pages/product/emmi.css": [
-    "/assets/emmi-Ccm_D2gq.js",
+    "/assets/emmi-r7dvLCEz.js",
     "/assets/emmi-Ll2EXz_6.css"
   ],
   "src/pages/product/emmi.tsx": [
-    "/assets/emmi-Ccm_D2gq.js",
+    "/assets/emmi-r7dvLCEz.js",
     "/assets/emmi-Ll2EXz_6.css"
   ],
   "src/pages/product/legalia.css": [
-    "/assets/legalia-9AykrCDT.js",
+    "/assets/legalia-nne4CByW.js",
     "/assets/legalia-C73WHICZ.css"
   ],
   "src/pages/product/legalia.tsx": [
-    "/assets/legalia-9AykrCDT.js",
+    "/assets/legalia-nne4CByW.js",
     "/assets/legalia-C73WHICZ.css"
   ],
   "src/pages/product/precedentia.css": [
-    "/assets/precedentia-W_Dgyw-E.js",
+    "/assets/precedentia-DArM0reO.js",
     "/assets/precedentia-C16CFYgr.css"
   ],
   "src/pages/product/precedentia.tsx": [
-    "/assets/precedentia-W_Dgyw-E.js",
+    "/assets/precedentia-DArM0reO.js",
     "/assets/precedentia-C16CFYgr.css"
   ],
   "src/pages/product/product.css": [
@@ -443,29 +447,29 @@
   ],
   "src/routes.tsx": [],
   "src/scenes/AuroraBackground.tsx": [
-    "/assets/Home-D1gSlSMm.js",
-    "/assets/Home-DCFnl6xh.css"
+    "/assets/Home-pWs72Squ.js",
+    "/assets/Home-DSNMQ1fF.css"
   ],
   "src/scenes/AuroraCanvas.tsx": [
-    "/assets/AuroraCanvas-DtYnqHC9.js"
+    "/assets/AuroraCanvas-CJXxiOVb.js"
   ],
   "src/scenes/BeamsRBBackground.tsx": [
-    "/assets/BeamsRBBackground-CvxPLZmL.js"
+    "/assets/BeamsRBBackground-DiMY5L9q.js"
   ],
   "src/scenes/BeamsRBCanvas.tsx": [
-    "/assets/BeamsRBCanvas-D1rp1ROR.js"
+    "/assets/BeamsRBCanvas-jncniUav.js"
   ],
   "src/scenes/GalaxyRBBackground.tsx": [
-    "/assets/GalaxyRBBackground-CfKYPWlG.js"
+    "/assets/GalaxyRBBackground-CNTw6--x.js"
   ],
   "src/scenes/GalaxyRBCanvas.tsx": [
-    "/assets/GalaxyRBCanvas-BBzz-1UN.js"
+    "/assets/GalaxyRBCanvas-C4nEOvBh.js"
   ],
   "src/scenes/ThreadsBackground.tsx": [
-    "/assets/ThreadsBackground-k7b8_WvW.js"
+    "/assets/ThreadsBackground-OY81m7LZ.js"
   ],
   "src/scenes/ThreadsCanvas.tsx": [
-    "/assets/ThreadsCanvas-B7DXtd-l.js"
+    "/assets/ThreadsCanvas-BprnMd-F.js"
   ],
   "src/scenes/graphicsTier.ts": [
     "/assets/graphicsTier-DRJdYXlS.js"
