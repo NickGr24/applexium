@@ -463,7 +463,7 @@ export function BeamsRBCanvas({
   )
 
   return (
-    <Canvas dpr={dpr ?? [1, 2]} frameloop={paused ? 'never' : 'always'}>
+    <Canvas className="scene-canvas__layer" dpr={dpr ?? [1, 2]} frameloop={paused ? 'never' : 'always'}>
       <group rotation={[0, 0, degToRad(rotation)]}>
         <PlaneNoise
           ref={meshRef}

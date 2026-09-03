@@ -309,5 +309,5 @@ export function AuroraCanvas({
     animateIdRef.current = requestAnimationFrame(updateRef.current)
   }, [paused])
 
-  return <div ref={ctnDom} style={{ width: '100%', height: '100%' }} />
+  return <div ref={ctnDom} className="scene-canvas__layer" style={{ width: '100%', height: '100%' }} />
 }

@@ -9,19 +9,19 @@ import { BeamsRBBackground } from '../../scenes/BeamsRBBackground'
 import { GalaxyRBBackground } from '../../scenes/GalaxyRBBackground'
 import { graphicsTier, type GraphicsTier } from '../../scenes/graphicsTier'
 import { ThreadsBackground } from '../../scenes/ThreadsBackground'
+import { FADE, HANDOVER, liveSlides } from './showcaseLive'
 
 gsap.registerPlugin(ScrollTrigger)
 
 /** The shape every `*Background` wrapper in `src/scenes/` shares
  * (`ThreadsBackground`/`BeamsRBBackground`/`GalaxyRBBackground`, and
- * `AuroraBackground` on the hero) — `tier`/`dpr` are what let this file
- * force a slide down to a poster-only tier or trim an inactive slide's
- * pixel ratio without each background needing a bespoke prop shape. */
+ * `AuroraBackground` on the hero) — `tier` is what lets this file force a
+ * slide down to a poster-only tier without each background needing a
+ * bespoke prop shape. */
 type BackgroundComponent = ComponentType<{
   tier?: GraphicsTier
   poster: ReactNode
   className?: string
-  dpr?: number
 }>
 
 type Showcase = {
@@ -37,32 +37,32 @@ const SHOWCASES: Showcase[] = [
   { id: 'precedentia', poster: 'galaxy', Background: GalaxyRBBackground },
 ]
 
-/** Where each slide hands over to the next, as a fraction of the pinned
- * scroll. The windows are narrow and centred between the snap points (0, 0.5,
- * 1) so each product holds still for most of its third and the swap happens
- * while the reader is already moving. */
-const HANDOVER = [
-  { out: 0, in: 1, at: 0.22 },
-  { out: 1, in: 2, at: 0.68 },
-]
-const FADE = 0.1
+const sameSlides = (a: number[], b: number[]) => a.length === b.length && a.every((v, i) => v === b[i])
 
 /**
- * The three product showcases: one 300vh track, a stage pinned across it, and
- * three full-screen slides that cross-fade at the thirds. Each slide is a
- * scene (the product's own background world) plus its panel of copy, so the
- * two always travel together.
+ * The three product showcases: one 300vh track, a sticky stage across it, and
+ * three full-screen slides that cross-fade at the thirds (hand-over points
+ * and fade length live in showcaseLive.ts, shared with the mounting logic).
+ * Each slide is a scene (the product's own background world) plus its panel
+ * of copy, so the two always travel together.
  *
- * How much 3D actually mounts depends on the tier:
- * - `high` — all three backgrounds mounted at once, GSAP cross-fades between
- *   them, which is the only way the swap can be a dissolve rather than a cut.
- * - `lite` — only the active slide gets a live background; the other two
- *   fall back to their poster. The tier is fed to each `*Background` as a
- *   `key` as well as a prop, because every one of them resolves its tier
- *   once in a `useState` initialiser (same shape `AuroraBackground` uses on
- *   the hero): without the key the downgrade would never take effect, and
- *   with it the canvas is genuinely unmounted rather than merely hidden.
- * - `static` (SSR, no WebGL2, reduced motion) — posters only, no canvas ever.
+ * How much 3D actually mounts is the same on every tier since the 2026-09
+ * audit: only the slide the reader is on has a live canvas, plus the
+ * incoming one from shortly before a hand-over until its fade ends
+ * (`liveSlides()`, unit-tested). The other slides show their poster.
+ * Mounting all three at once on `high` used to be what made the swap a
+ * dissolve, but it meant four simultaneous WebGL contexts (with the hero)
+ * and a three.js init mid-scroll on any machine with ≥5 cores and a mouse,
+ * including slow ones. The dissolve survives because every `*Canvas` fades
+ * in over its poster (`.scene-canvas__layer`), so a swap reads as
+ * canvas → poster → canvas rather than a cut.
+ *
+ * The tier is fed to each `*Background` as a `key` as well as a prop,
+ * because every one of them resolves its tier once in a `useState`
+ * initialiser (same shape `AuroraBackground` uses on the hero): without the
+ * key a downgrade would never take effect, and with it the canvas is
+ * genuinely unmounted rather than merely hidden. `static` (SSR, no WebGL2,
+ * reduced motion) never mounts a canvas at all.
  *
  * The markup does not change between tiers, which is what lets the
  * pre-rendered HTML hydrate cleanly: every `*Background` emits the same
@@ -76,7 +76,9 @@ export function ProductShowcase({ lang }: { lang: Lang }) {
   // Resolved once, like every `*Background` does it, so the value can't
   // change mid-scroll and unmount a canvas under the visitor.
   const [tier] = useState<GraphicsTier>(() => graphicsTier())
-  const [active, setActive] = useState(0)
+  // Indices of the slides that currently get a live canvas — see
+  // `liveSlides()`. Starts as the first slide alone.
+  const [live, setLive] = useState<number[]>([0])
 
   useLayoutEffect(() => {
     if (reduced) return
@@ -97,10 +99,13 @@ export function ProductShowcase({ lang }: { lang: Lang }) {
           trigger: track,
           start: 'top top',
           end: 'bottom bottom',
-          // The track already carries the 300vh; pinSpacing would add a
-          // second copy of it and leave a blank screen after the last slide.
-          pin: stage,
-          pinSpacing: false,
+          // No `pin`: the stage is `position: sticky` in CSS (home.css),
+          // exactly like the hero's. GSAP's pin toggles `position: fixed`
+          // at both ends of the track, and Chrome's layout-instability API
+          // reports each toggle as a full-viewport shift — the 2026-09
+          // audit measured CLS ≈ 2.0 on this page from those two moments
+          // alone, invisible to Lighthouse (which never scrolls) but not to
+          // real visitors. Sticky is excluded from that accounting.
           scrub: 0.4,
           snap: {
             snapTo: [0, 0.5, 1],
@@ -113,8 +118,8 @@ export function ProductShowcase({ lang }: { lang: Lang }) {
             inertia: false,
           },
           onUpdate: (self) => {
-            const index = self.progress < 0.27 ? 0 : self.progress < 0.73 ? 1 : 2
-            setActive((current) => (current === index ? current : index))
+            const next = liveSlides(self.progress).live
+            setLive((current) => (sameSlides(current, next) ? current : next))
           },
         },
       })
@@ -156,20 +161,13 @@ export function ProductShowcase({ lang }: { lang: Lang }) {
         </div>
 
         {SHOWCASES.map(({ id, poster, Background }, i) => {
-          // On lite only the active slide gets a live canvas — see the note
-          // above for why the tier is passed as a key as well as a prop.
-          const slideTier: GraphicsTier = tier === 'lite' && i !== active ? 'static' : tier
-          // On `high`, all three backgrounds stay mounted and rendering the
-          // whole time (that's what makes the cross-fade a dissolve rather
-          // than a cut) — three simultaneous WebGL contexts. Pausing the
-          // inactive two outright would freeze them mid-fade the moment
-          // they're about to become active again, so instead only their
-          // device-pixel-ratio is trimmed to 1 (from the tier's own default —
-          // `[1, 1.75]` for Beams' R3F Canvas, `min(devicePixelRatio, 2)` for
-          // Threads/Galaxy's OGL renderers) — same frame rate, same
-          // cross-fade, meaningfully less fill-rate/GPU cost for the two
-          // scenes that aren't actually being looked at.
-          const slideDpr = tier === 'high' && i !== active ? 1 : undefined
+          // Only live slides get a canvas — see the note above for why the
+          // tier is passed as a key as well as a prop. Nothing else about a
+          // mounted canvas is ever changed from here: the OGL scenes rebuild
+          // their WebGL context when `dpr` (or any other effect dependency)
+          // changes, so the old "trim inactive slides to dpr 1" trick cost a
+          // full context rebuild on every hand-over.
+          const slideTier: GraphicsTier = live.includes(i) ? tier : 'static'
           return (
             <div className="showcase__slide" key={id}>
               <div className="showcase__scene">
@@ -178,7 +176,6 @@ export function ProductShowcase({ lang }: { lang: Lang }) {
                   tier={slideTier}
                   className="scene-canvas"
                   poster={<div className={`scene-poster scene-poster--${poster}`} aria-hidden="true" />}
-                  dpr={slideDpr}
                 />
               </div>
 

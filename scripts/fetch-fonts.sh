@@ -10,9 +10,11 @@ echo "$css" | grep -oE '(https:)?//[^)]+\.woff2' | sort -u | while read -r url; 
   esac
   curl -s -A "Mozilla/5.0" --max-time 20 "$url" -o "public/fonts/$(basename "$url")"
 done
-# JetBrains Mono (Regular, Medium) из официального репозитория
-for w in Regular Medium; do
-  curl -sL "https://github.com/JetBrains/JetBrainsMono/raw/master/fonts/webfonts/JetBrainsMono-$w.woff2" \
-    -o "public/fonts/JetBrainsMono-$w.woff2"
-done
+# JetBrains Mono из официального репозитория — только Medium: это
+# единственное начертание, которое сайт использует (моно-подписи), текст с
+# font-weight 400 браузер рендерит тем же файлом без синтеза. Полный файл
+# ~92 KB, поэтому сразу режем до нужных глифов (см. subset-fonts.sh).
+curl -sL "https://github.com/JetBrains/JetBrainsMono/raw/master/fonts/webfonts/JetBrainsMono-Medium.woff2" \
+  -o "public/fonts/JetBrainsMono-Medium.woff2"
+"$(dirname "$0")/subset-fonts.sh"
 ls -la public/fonts

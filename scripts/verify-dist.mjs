@@ -65,6 +65,11 @@ for (const p of pages) {
       continue
     }
     const html = readFileSync(file, 'utf8')
+    // `aria-pressed` is only valid on button-role elements; the language
+    // switcher is a pair of links, so the current one must be marked with
+    // `aria-current` instead. Lighthouse's `aria-allowed-attr` failed every
+    // page on this until the 2026-09 perf/a11y pass.
+    if (html.includes('aria-pressed=')) fail(`${file}: aria-pressed on a link (use aria-current)`)
     // Counts both plain `<link rel="stylesheet">` (every page — includes the
     // home page's own <noscript> fallback) and its preload-then-swap variant
     // (`rel="preload" ... as="style"`, home page only) — both are "this page

@@ -244,9 +244,20 @@ export interface GalaxyRBCanvasProps {
 const PRECEDENTIA_HUE_SHIFT = 165
 const PRECEDENTIA_SATURATION = 0.5
 
+// Module-level defaults on purpose: both arrays sit in the main effect's
+// dependency list below (ported verbatim from React Bits), so an inline
+// `= [0.5, 0.5]` default would be a *new* array on every render and re-run
+// the effect — tearing down and rebuilding the whole WebGL context every
+// time the parent re-rendered, e.g. on each `paused` toggle from
+// GalaxyRBBackground's IntersectionObserver. Caught by the 2026-09 audit
+// (a fresh webgl2 context appeared on every scroll past the hero) and
+// pinned by tests/scenes.test.tsx.
+const DEFAULT_FOCAL: [number, number] = [0.5, 0.5]
+const DEFAULT_ROTATION: [number, number] = [1.0, 0.0]
+
 export function GalaxyRBCanvas({
-  focal = [0.5, 0.5],
-  rotation = [1.0, 0.0],
+  focal = DEFAULT_FOCAL,
+  rotation = DEFAULT_ROTATION,
   starSpeed = 0.5,
   density = 1,
   hueShift = PRECEDENTIA_HUE_SHIFT,
@@ -426,5 +437,5 @@ export function GalaxyRBCanvas({
     animateIdRef.current = requestAnimationFrame(updateRef.current)
   }, [paused])
 
-  return <div ref={ctnDom} style={{ width: '100%', height: '100%' }} />
+  return <div ref={ctnDom} className="scene-canvas__layer" style={{ width: '100%', height: '100%' }} />
 }

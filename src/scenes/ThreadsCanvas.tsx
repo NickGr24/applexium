@@ -300,5 +300,5 @@ export function ThreadsCanvas({
     animationFrameId.current = requestAnimationFrame(updateRef.current)
   }, [paused])
 
-  return <div ref={containerRef} style={{ width: '100%', height: '100%' }} />
+  return <div ref={containerRef} className="scene-canvas__layer" style={{ width: '100%', height: '100%' }} />
 }

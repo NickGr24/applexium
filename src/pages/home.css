@@ -152,7 +152,11 @@
 }
 
 .showcase__stage {
-  position: relative;
+  /* Sticky, not GSAP-pinned: see the ScrollTrigger config in
+     ProductShowcase.tsx for why (each pin/unpin registered as a
+     full-viewport layout shift). Same mechanism as .hero__stage. */
+  position: sticky;
+  top: 0;
   height: 100vh;
   height: 100svh;
   overflow: hidden;

@@ -40,6 +40,18 @@ html.nav-menu-open {
   border-bottom-color: rgba(237, 237, 242, 0.08);
 }
 
+/* Touch devices: a fixed bar with backdrop-filter re-blurs everything
+   under it on every scrolled frame, which is a well-known jank source on
+   low-end phones. A slightly more opaque flat fill reads almost the same
+   and costs nothing. */
+@media (pointer: coarse) {
+  .nav--scrolled {
+    background: rgba(4, 6, 13, 0.92);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+}
+
 .nav__bar {
   display: flex;
   align-items: center;

@@ -127,7 +127,7 @@ export function Nav() {
                 key={l}
                 to={localePath(l, slug)}
                 hrefLang={l}
-                aria-pressed={l === lang}
+                aria-current={l === lang ? 'true' : undefined}
                 className={`lang-btn${l === lang ? ' lang-btn--active' : ''}`}
               >
                 {l.toUpperCase()}

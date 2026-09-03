@@ -227,6 +227,24 @@
   height: 100%;
 }
 
+/* Every *Canvas's own root element: the live scene fades in over its poster
+   instead of popping. Covers the gap between "chunk resolved" and "first
+   WebGL frame painted", and it is what lets ProductShowcase swap a slide
+   from poster to canvas mid-scroll without a visible cut. No reduced-motion
+   gate is needed: under prefers-reduced-motion no canvas ever mounts. */
+.scene-canvas__layer {
+  animation: scene-fade-in 0.7s var(--ease-out) both;
+}
+
+@keyframes scene-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 /* AuroraBackground's poster: the 'static' tier's only frame, and what sits
    under the OGL canvas until it paints. Echoes the aurora shader's own
    shape — the fragment shader's `uv.y` term makes the glow brightest near

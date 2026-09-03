@@ -69,22 +69,26 @@ export function ThreadsBackground({ tier, poster, className, dpr }: ThreadsBackg
   useEffect(() => {
     if (resolvedTier === 'static') return
 
-    function scheduleIdle(): () => void {
+    function scheduleIdle(timeout: number): () => void {
       if (typeof requestIdleCallback === 'function') {
-        const idleId = requestIdleCallback(() => setCanLoad(true), { timeout: 2000 })
+        const idleId = requestIdleCallback(() => setCanLoad(true), { timeout })
         return () => cancelIdleCallback(idleId)
       }
       const timeoutId = window.setTimeout(() => setCanLoad(true), 200)
       return () => window.clearTimeout(timeoutId)
     }
 
+    // Already past `load` (a client-side route change, or a showcase slide
+    // just brought live mid-scroll): the critical path settled long ago, so
+    // only a short idle wait is worth having. The 2s cap below is what made
+    // a showcase hand-over sit on its poster for most of the cross-fade.
     if (document.readyState === 'complete') {
-      return scheduleIdle()
+      return scheduleIdle(300)
     }
 
     let cancelIdle: (() => void) | undefined
     const onLoad = () => {
-      cancelIdle = scheduleIdle()
+      cancelIdle = scheduleIdle(2000)
     }
     window.addEventListener('load', onLoad, { once: true })
     return () => {

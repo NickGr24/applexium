@@ -41,14 +41,11 @@
   font-display: swap;
 }
 
-/* JetBrains Mono — mono labels */
-@font-face {
-  font-family: 'JetBrains Mono';
-  src: url('/fonts/JetBrainsMono-Regular.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
+/* JetBrains Mono — mono labels. One weight only, subset to Latin + Romanian
+   by scripts/subset-fonts.sh (~15 KB instead of 2 × 92 KB): every mono
+   element on the site is small UI text, and text asking for weight 400
+   simply renders with this 500 face — browsers only synthesise bold when
+   the requested weight is ≥600, so nothing gets faux-bolded. */
 @font-face {
   font-family: 'JetBrains Mono';
   src: url('/fonts/JetBrainsMono-Medium.woff2') format('woff2');

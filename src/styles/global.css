@@ -104,7 +104,12 @@ button:focus-visible,
 body::after {
   content: '';
   position: fixed;
-  inset: -100%;
+  /* Oversized so the `grain` translate (up to ±25% of the element) never
+     exposes an edge: 200% × 200% is the smallest size that covers a 25%
+     shift on every side. It used to be 300% × 300% (inset: -100%), i.e. a
+     composited layer nine viewports large — 2.25× more GPU memory than
+     this for no visual difference. */
+  inset: -50%;
   pointer-events: none;
   z-index: 9999;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='128' height='128'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='128' height='128' filter='url(%23n)' opacity='0.6'/%3E%3C/svg%3E");
@@ -139,7 +144,10 @@ body::after {
     transform: translate(0%, 15%);
   }
   80% {
-    transform: translate(3%, 35%);
+    /* Capped at 25% like every other step: the overlay's oversize margin
+       (see `inset` on body::after) only covers shifts up to a quarter of
+       its own size. */
+    transform: translate(3%, 25%);
   }
   90% {
     transform: translate(-10%, 10%);
@@ -149,5 +157,15 @@ body::after {
 @media (prefers-reduced-motion: reduce) {
   body::after {
     animation: none;
+  }
+}
+
+/* Touch devices skip the grain entirely: at 5% opacity it is barely
+   perceptible on a phone, but as a fixed, animated, full-screen layer it is
+   alpha-blended over every frame of every scroll — measurable jank on
+   low-end Android for no visible gain. */
+@media (pointer: coarse) {
+  body::after {
+    display: none;
   }
 }
