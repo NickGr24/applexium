@@ -28,7 +28,7 @@
     "/assets/pages-xWbkJcRJ.js"
   ],
   "../../.cache/applexium-deps/node_modules/gsap/DrawSVGPlugin.js": [
-    "/assets/Contacts-CPX-X6V0.js",
+    "/assets/Contacts-DoHEu61y.js",
     "/assets/Contacts-oshCJfhB.css"
   ],
   "../../.cache/applexium-deps/node_modules/gsap/Observer.js": [
@@ -198,7 +198,7 @@
   "../../.cache/applexium-deps/node_modules/vite-react-ssg/dist/shared/vite-react-ssg.BhGKpaqQ.mjs": [],
   "../../.cache/applexium-deps/node_modules/vite-react-ssg/dist/shared/vite-react-ssg.C1RTs5UA.mjs": [],
   "../../.cache/applexium-deps/node_modules/vite-react-ssg/dist/shared/vite-react-ssg.CoMLbIiW.mjs": [
-    "/assets/jsonld-BfwC9wt4.js"
+    "/assets/jsonld-DAqT84Et.js"
   ],
   "../../.cache/applexium-deps/node_modules/vite-react-ssg/node_modules/react-helmet-async/lib/index.module.js": [
     "/assets/pages-xWbkJcRJ.js"
@@ -211,12 +211,12 @@
   ],
   "index.html": [],
   "src/components/CaseCard.tsx": [
-    "/assets/CaseCard-CVzo96jD.js"
+    "/assets/CaseCard-DibLAEd0.js"
   ],
   "src/components/Cursor.tsx": [],
   "src/components/EmmiWidget.tsx": [],
   "src/components/Faq.tsx": [
-    "/assets/Home-CEEBBD5I.js",
+    "/assets/Home-C7NZNSzk.js",
     "/assets/Home-BOocIjgY.css",
     "/assets/cases-0YQ7ChvI.css"
   ],
@@ -235,7 +235,7 @@
     "/assets/Section-CDe1MDJb.js"
   ],
   "src/components/Seo.tsx": [
-    "/assets/jsonld-BfwC9wt4.js"
+    "/assets/jsonld-DAqT84Et.js"
   ],
   "src/components/SplitHeading.tsx": [
     "/assets/SplitHeading-BYBdLpfG.js"
@@ -247,7 +247,7 @@
     "/assets/StatCount-CM61tO6N.js"
   ],
   "src/components/faq.css": [
-    "/assets/Home-CEEBBD5I.js",
+    "/assets/Home-C7NZNSzk.js",
     "/assets/Home-BOocIjgY.css",
     "/assets/cases-0YQ7ChvI.css"
   ],
@@ -261,12 +261,12 @@
     "/assets/pages-xWbkJcRJ.js"
   ],
   "src/layouts/LegalLayout.tsx": [
-    "/assets/LegalPage-BtgQpCAW.js",
+    "/assets/LegalPage-DEf-rvOh.js",
     "/assets/LegalPage-Wbncw_pe.css"
   ],
   "src/layouts/SiteLayout.tsx": [],
   "src/layouts/legal.css": [
-    "/assets/LegalPage-BtgQpCAW.js",
+    "/assets/LegalPage-DEf-rvOh.js",
     "/assets/LegalPage-Wbncw_pe.css"
   ],
   "src/main.tsx": [],
@@ -274,7 +274,7 @@
   "src/motion/PageTransition.tsx": [],
   "src/motion/ease.ts": [],
   "src/motion/refreshScrollTriggers.ts": [
-    "/assets/mircea-ursu-DEVernpB.js",
+    "/assets/mircea-ursu-CmZKiFPN.js",
     "/assets/mircea-ursu-BzHYTzRl.css"
   ],
   "src/motion/useReducedMotion.ts": [
@@ -284,71 +284,71 @@
     "/assets/useSpotlightPointer-BYpQ45P0.js"
   ],
   "src/pages/Contacts.tsx": [
-    "/assets/Contacts-CPX-X6V0.js",
+    "/assets/Contacts-DoHEu61y.js",
     "/assets/Contacts-oshCJfhB.css"
   ],
   "src/pages/Home.tsx": [
-    "/assets/Home-CEEBBD5I.js",
+    "/assets/Home-C7NZNSzk.js",
     "/assets/Home-BOocIjgY.css",
     "/assets/cases-0YQ7ChvI.css"
   ],
   "src/pages/NotFound.tsx": [
-    "/assets/NotFound-DsVtfsYJ.js",
+    "/assets/NotFound-Cc1nkgST.js",
     "/assets/trust-rHh9wpsq.css"
   ],
   "src/pages/Projects.tsx": [
-    "/assets/Projects-BOAy8BE8.js",
+    "/assets/Projects-7iporFqn.js",
     "/assets/Projects-B5JxnvgU.css",
     "/assets/cases-0YQ7ChvI.css"
   ],
   "src/pages/Team.tsx": [
-    "/assets/Team-_SX1vGm0.js",
+    "/assets/Team-BYceQjKK.js",
     "/assets/Team-C8QPtkA8.css"
   ],
   "src/pages/Trust.tsx": [
-    "/assets/Trust-BQHIWzz4.js",
+    "/assets/Trust-Bqo9rtWv.js",
     "/assets/trust-rHh9wpsq.css"
   ],
   "src/pages/cases/CasePage.tsx": [
-    "/assets/CasePage-BYePkKFV.js",
+    "/assets/CasePage-asis9M1C.js",
     "/assets/cases-0YQ7ChvI.css"
   ],
   "src/pages/contacts.css": [
-    "/assets/Contacts-CPX-X6V0.js",
+    "/assets/Contacts-DoHEu61y.js",
     "/assets/Contacts-oshCJfhB.css"
   ],
   "src/pages/home.css": [
-    "/assets/Home-CEEBBD5I.js",
+    "/assets/Home-C7NZNSzk.js",
     "/assets/Home-BOocIjgY.css",
     "/assets/cases-0YQ7ChvI.css"
   ],
   "src/pages/home/HeroSection.tsx": [
-    "/assets/Home-CEEBBD5I.js",
+    "/assets/Home-C7NZNSzk.js",
     "/assets/Home-BOocIjgY.css",
     "/assets/cases-0YQ7ChvI.css"
   ],
   "src/pages/home/Manifesto.tsx": [
-    "/assets/Home-CEEBBD5I.js",
+    "/assets/Home-C7NZNSzk.js",
     "/assets/Home-BOocIjgY.css",
     "/assets/cases-0YQ7ChvI.css"
   ],
   "src/pages/home/ProductShowcase.tsx": [
-    "/assets/Home-CEEBBD5I.js",
+    "/assets/Home-C7NZNSzk.js",
     "/assets/Home-BOocIjgY.css",
     "/assets/cases-0YQ7ChvI.css"
   ],
   "src/pages/home/icons.tsx": [
-    "/assets/Home-CEEBBD5I.js",
+    "/assets/Home-C7NZNSzk.js",
     "/assets/Home-BOocIjgY.css",
     "/assets/cases-0YQ7ChvI.css"
   ],
   "src/pages/home/showcaseLive.ts": [
-    "/assets/Home-CEEBBD5I.js",
+    "/assets/Home-C7NZNSzk.js",
     "/assets/Home-BOocIjgY.css",
     "/assets/cases-0YQ7ChvI.css"
   ],
   "src/pages/legal/LegalPage.tsx": [
-    "/assets/LegalPage-BtgQpCAW.js",
+    "/assets/LegalPage-DEf-rvOh.js",
     "/assets/LegalPage-Wbncw_pe.css"
   ],
   "src/pages/legal/content/accessibility.en.tsx": [
@@ -388,7 +388,7 @@
     "/assets/terms-and-conditions.ro-C1sSDC4n.js"
   ],
   "src/pages/legal/icons.tsx": [
-    "/assets/LegalPage-BtgQpCAW.js",
+    "/assets/LegalPage-DEf-rvOh.js",
     "/assets/LegalPage-Wbncw_pe.css"
   ],
   "src/pages/product/ProductPage.tsx": [
@@ -396,27 +396,27 @@
     "/assets/ProductPage-B6dxaIv-.css"
   ],
   "src/pages/product/emmi.css": [
-    "/assets/emmi-C8t7dybK.js",
+    "/assets/emmi-n89b5REQ.js",
     "/assets/emmi-Ll2EXz_6.css"
   ],
   "src/pages/product/emmi.tsx": [
-    "/assets/emmi-C8t7dybK.js",
+    "/assets/emmi-n89b5REQ.js",
     "/assets/emmi-Ll2EXz_6.css"
   ],
   "src/pages/product/legalia.css": [
-    "/assets/legalia-CWtP5_y6.js",
+    "/assets/legalia-DFOaehwk.js",
     "/assets/legalia-C73WHICZ.css"
   ],
   "src/pages/product/legalia.tsx": [
-    "/assets/legalia-CWtP5_y6.js",
+    "/assets/legalia-DFOaehwk.js",
     "/assets/legalia-C73WHICZ.css"
   ],
   "src/pages/product/precedentia.css": [
-    "/assets/precedentia-BcfFWpBs.js",
+    "/assets/precedentia-B4J883oH.js",
     "/assets/precedentia-C16CFYgr.css"
   ],
   "src/pages/product/precedentia.tsx": [
-    "/assets/precedentia-BcfFWpBs.js",
+    "/assets/precedentia-B4J883oH.js",
     "/assets/precedentia-C16CFYgr.css"
   ],
   "src/pages/product/product.css": [
@@ -424,7 +424,7 @@
     "/assets/ProductPage-B6dxaIv-.css"
   ],
   "src/pages/profile/CylinderWheel.tsx": [
-    "/assets/mircea-ursu-DEVernpB.js",
+    "/assets/mircea-ursu-CmZKiFPN.js",
     "/assets/mircea-ursu-BzHYTzRl.css"
   ],
   "src/pages/profile/Profile.tsx": [
@@ -432,31 +432,31 @@
     "/assets/Profile-XqqJ5jyX.css"
   ],
   "src/pages/profile/TubeCarousel.tsx": [
-    "/assets/mircea-ursu-DEVernpB.js",
+    "/assets/mircea-ursu-CmZKiFPN.js",
     "/assets/mircea-ursu-BzHYTzRl.css"
   ],
   "src/pages/profile/diana-tatar.css": [
-    "/assets/diana-tatar-JoA3eRit.js",
+    "/assets/diana-tatar-BzDueViY.js",
     "/assets/diana-tatar-CkYKc_xV.css"
   ],
   "src/pages/profile/diana-tatar.tsx": [
-    "/assets/diana-tatar-JoA3eRit.js",
+    "/assets/diana-tatar-BzDueViY.js",
     "/assets/diana-tatar-CkYKc_xV.css"
   ],
   "src/pages/profile/mircea-ursu.css": [
-    "/assets/mircea-ursu-DEVernpB.js",
+    "/assets/mircea-ursu-CmZKiFPN.js",
     "/assets/mircea-ursu-BzHYTzRl.css"
   ],
   "src/pages/profile/mircea-ursu.tsx": [
-    "/assets/mircea-ursu-DEVernpB.js",
+    "/assets/mircea-ursu-CmZKiFPN.js",
     "/assets/mircea-ursu-BzHYTzRl.css"
   ],
   "src/pages/profile/nichita-griu.css": [
-    "/assets/nichita-griu-D6fehcvF.js",
+    "/assets/nichita-griu-WYBYQXKs.js",
     "/assets/nichita-griu-BS7bIkub.css"
   ],
   "src/pages/profile/nichita-griu.tsx": [
-    "/assets/nichita-griu-D6fehcvF.js",
+    "/assets/nichita-griu-WYBYQXKs.js",
     "/assets/nichita-griu-BS7bIkub.css"
   ],
   "src/pages/profile/profile.css": [
@@ -464,17 +464,17 @@
     "/assets/Profile-XqqJ5jyX.css"
   ],
   "src/pages/projects.css": [
-    "/assets/Projects-BOAy8BE8.js",
+    "/assets/Projects-7iporFqn.js",
     "/assets/Projects-B5JxnvgU.css",
     "/assets/cases-0YQ7ChvI.css"
   ],
   "src/pages/team.css": [
-    "/assets/Team-_SX1vGm0.js",
+    "/assets/Team-BYceQjKK.js",
     "/assets/Team-C8QPtkA8.css"
   ],
   "src/routes.tsx": [],
   "src/scenes/AuroraBackground.tsx": [
-    "/assets/Home-CEEBBD5I.js",
+    "/assets/Home-C7NZNSzk.js",
     "/assets/Home-BOocIjgY.css",
     "/assets/cases-0YQ7ChvI.css"
   ],
@@ -503,10 +503,10 @@
     "/assets/graphicsTier-LfDSMfjw.js"
   ],
   "src/site/cases.ts": [
-    "/assets/jsonld-BfwC9wt4.js"
+    "/assets/jsonld-DAqT84Et.js"
   ],
   "src/site/clients.ts": [
-    "/assets/Home-CEEBBD5I.js",
+    "/assets/Home-C7NZNSzk.js",
     "/assets/Home-BOocIjgY.css",
     "/assets/cases-0YQ7ChvI.css"
   ],
@@ -514,19 +514,19 @@
     "/assets/company-vorQ8XPH.js"
   ],
   "src/site/faq.ts": [
-    "/assets/jsonld-BfwC9wt4.js"
+    "/assets/jsonld-DAqT84Et.js"
   ],
   "src/site/jsonld.ts": [
-    "/assets/jsonld-BfwC9wt4.js"
+    "/assets/jsonld-DAqT84Et.js"
   ],
   "src/site/meta.ts": [
-    "/assets/jsonld-BfwC9wt4.js"
+    "/assets/jsonld-DAqT84Et.js"
   ],
   "src/site/pages.json": [
     "/assets/pages-xWbkJcRJ.js"
   ],
   "src/site/testimonials.ts": [
-    "/assets/Home-CEEBBD5I.js",
+    "/assets/Home-C7NZNSzk.js",
     "/assets/Home-BOocIjgY.css",
     "/assets/cases-0YQ7ChvI.css"
   ],
