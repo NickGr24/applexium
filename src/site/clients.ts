@@ -24,6 +24,9 @@ export type ClientLogo = {
 }
 
 export const CLIENTS: ClientLogo[] = [
+  // Flagship Emmi client; logo taken from inj-new.cloud on 2026-09-04 (dark
+  // artwork, square seal — light plate, tall chip).
+  { src: '/inj.webp', name: 'Institutul Național al Justiției', plate: 'light', tall: true, hero: true, heroSrc: '/logos/hero/inj.webp', w: 120, h: 120 },
   { src: '/dare-eu.webp', name: 'DARE-EU', plate: 'light', tall: false, hero: true, heroSrc: '/logos/hero/dare-eu.webp', w: 260, h: 47 },
   { src: '/eurobridge.webp', name: 'EUROBRIDGE UA MD', plate: 'light', tall: false, hero: true, heroSrc: '/logos/hero/eurobridge.webp', w: 260, h: 54 },
   { src: '/energiq.webp', name: 'EnergiQ', plate: 'light', tall: false, hero: true, heroSrc: '/logos/hero/energiq.webp', w: 260, h: 80 },
