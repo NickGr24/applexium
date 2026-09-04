@@ -1,0 +1,1 @@
+var e={name:`SCALELAW SOLUTIONS SRL`,idno:`1025600064372`,address:`Mihai Viteazul 2a, Chișinău, Republica Moldova`,email:`info@applexium.com`,phone:`+373 78 76 87 65`};export{e as t};
