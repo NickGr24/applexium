@@ -1,0 +1,173 @@
+/* "Încredere și date" page (src/pages/Trust.tsx): the one page procurement
+   reads before a first call. Calm, dense, no scene — facts in a two-column
+   list, the legal identity set in mono, one CTA. */
+
+.trust-hero {
+  padding-block: 9.5rem 3rem;
+  display: grid;
+  gap: 1.5rem;
+}
+
+.trust-hero__title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(2rem, 4.6vw, 4rem);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  max-width: 20ch;
+  text-wrap: balance;
+}
+
+.trust-hero__intro {
+  max-width: 62ch;
+  color: rgb(237 237 242 / 0.78);
+  font-size: clamp(1.02rem, 1.2vw, 1.15rem);
+  line-height: 1.6;
+}
+
+.trust-items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr));
+  gap: 0 3rem;
+}
+
+.trust-items li {
+  display: grid;
+  gap: 0.5rem;
+  padding-block: 1.6rem;
+  border-top: 1px solid rgba(237, 237, 242, 0.1);
+}
+
+.trust-items h3 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.2rem;
+  letter-spacing: -0.01em;
+}
+
+.trust-items p {
+  color: rgb(237 237 242 / 0.78);
+  line-height: 1.6;
+  max-width: 52ch;
+}
+
+.trust-compliance {
+  display: grid;
+  gap: 1.25rem;
+  max-width: 62ch;
+}
+
+.trust-compliance p {
+  color: rgb(237 237 242 / 0.8);
+  line-height: 1.6;
+}
+
+.trust-compliance ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.trust-compliance a {
+  display: inline-block;
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid rgba(237, 237, 242, 0.14);
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: border-color 0.3s var(--ease-out);
+}
+
+.trust-compliance a:hover {
+  border-color: var(--brand-cyan);
+}
+
+.trust-entity {
+  display: grid;
+  gap: 0.75rem;
+  max-width: 62ch;
+  color: rgb(237 237 242 / 0.8);
+  line-height: 1.6;
+}
+
+.trust-entity__id {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+}
+
+.trust-entity a {
+  color: var(--brand-cyan);
+  text-decoration: none;
+}
+
+.trust-entity a:hover {
+  text-decoration: underline;
+}
+
+.trust-cta {
+  display: grid;
+  gap: 1.25rem;
+  justify-items: start;
+  padding: 3rem 0 6rem;
+}
+
+.trust-cta__title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  letter-spacing: -0.015em;
+  max-width: 22ch;
+  text-wrap: balance;
+}
+
+.trust-cta__text {
+  max-width: 50ch;
+  color: rgb(237 237 242 / 0.78);
+}
+
+@media (max-width: 720px) {
+  .trust-hero {
+    padding-top: 7.5rem;
+  }
+}
+
+/* ---------- 404 ---------- */
+
+.not-found {
+  min-height: 70vh;
+  display: grid;
+  align-content: center;
+  gap: 1.5rem;
+  padding-block: 9rem 6rem;
+}
+
+.not-found__title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(2.2rem, 5vw, 4.5rem);
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.not-found__text {
+  max-width: 48ch;
+  color: rgb(237 237 242 / 0.78);
+}
+
+.not-found__links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}

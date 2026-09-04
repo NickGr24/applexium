@@ -376,3 +376,11 @@ html.nav-menu-open {
     transition: none;
   }
 }
+
+/* Legal identity under the copyright line (2026-09 audit, item 7):
+   procurement verifies the entity behind a site before a first call. */
+.footer__entity {
+  margin-top: 0.5rem;
+  color: rgb(237 237 242 / 0.5);
+  line-height: 1.6;
+}

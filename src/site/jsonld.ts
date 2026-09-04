@@ -1,6 +1,8 @@
-import { type Lang, localePath } from '../i18n'
+import { type Lang, localePath, t } from '../i18n'
+import { type CaseKey, caseByKey } from './cases'
 import { faqItems } from './faq'
 import { pageMeta, SITE_ORIGIN } from './meta'
+import pages from './pages.json'
 
 /**
  * JSON-LD factories, ported from the `<script type="application/ld+json">`
@@ -304,16 +306,46 @@ export function aboutPageJsonLd(lang: Lang) {
  */
 export function collectionPageJsonLd(lang: Lang) {
   const url = siteUrl(lang, 'projects')
+  const m = pageMeta.projects[lang]
   return {
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
     '@id': `${url}#collectionpage`,
     url,
-    name: 'Inovațiile noastre interne',
-    description:
-      'Un portofoliu de produse digitale și proiecte pentru clienți dezvoltate de Applexium pentru întreprinderea modernă.',
+    name: m.title.replace(/ \| Applexium$/, ''),
+    description: m.description,
     inLanguage: lang,
     publisher: { '@type': 'Organization', name: 'Applexium', url: siteUrl(lang, '') },
+  }
+}
+
+/**
+ * Plain `WebPage` for pages whose structured data has nothing more specific
+ * to say (trust page, 404): name/description come from the page's own
+ * meta, so the two can never disagree.
+ */
+export function webPageJsonLd(id: string, lang: Lang) {
+  const slug = pages.find((p) => p.id === id)!.slug
+  const url = siteUrl(lang, slug)
+  const m = pageMeta[id][lang]
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': `${url}#webpage`,
+    url,
+    name: m.title.replace(/ \| Applexium$/, ''),
+    description: m.description,
+    inLanguage: lang,
+    publisher: { '@type': 'Organization', name: 'Applexium', url: siteUrl(lang, '') },
+  }
+}
+
+/** A case study is a `WebPage` about the client organisation it describes. */
+export function caseStudyJsonLd(key: CaseKey, lang: Lang) {
+  const study = caseByKey(key)!
+  return {
+    ...webPageJsonLd(`case-${key}`, lang),
+    about: { '@type': 'Organization', name: t(lang, `cases.${key}.client`), url: study.href },
   }
 }
 

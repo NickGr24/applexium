@@ -62,9 +62,10 @@ const urlEntry = (lang, slug) => {
 }
 
 // Two <url> entries per page (RO + EN), each carrying xhtml:link alternates
-// to both language versions plus x-default — every page is excluded except
-// `projects` (inSitemap: false — orphaned placeholder content, per
-// CLAUDE.md's bilingual-system section).
+// to both language versions plus x-default — every page with
+// `inSitemap: true`. Only the 404 page is excluded; `projects` rejoined the
+// sitemap in the 2026-09 audit once it started listing the real case
+// studies (it used to be an orphaned placeholder).
 const body = sitemapPages.flatMap((p) => [urlEntry('ro', p.slug), urlEntry('en', p.slug)]).join('\n')
 
 const xml = `<?xml version="1.0" encoding="UTF-8"?>

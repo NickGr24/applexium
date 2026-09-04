@@ -1,12 +1,13 @@
 import { Link } from 'react-router-dom'
 import { localePath, t, useLang } from '../i18n'
+import { LEGAL_ENTITY } from '../site/company'
 
 // Locale-invariant facts (same in RO and EN), mirroring the constants already
 // duplicated across src/site/jsonld.ts — not translation strings, so they
 // live here rather than in the i18n dictionaries.
 const CONTACT = {
-  email: 'info@applexium.com',
-  phone: '+373 78 76 87 65',
+  email: LEGAL_ENTITY.email,
+  phone: LEGAL_ENTITY.phone,
   address: 'Mihai Viteazul 2a, Chișinău, Moldova',
 }
 
@@ -25,6 +26,10 @@ export function Footer() {
           </Link>
           <p className="footer__copy mono-label">
             © {year} Applexium. {t(lang, 'footer.rights')}
+          </p>
+          {/* verify-dist asserts "IDNO <number>" on every page. */}
+          <p className="footer__entity mono-label">
+            {`${t(lang, 'footer.operatedBy')} ${LEGAL_ENTITY.name} · IDNO ${LEGAL_ENTITY.idno}`}
           </p>
         </div>
 
@@ -57,6 +62,9 @@ export function Footer() {
         <nav className="footer__col" aria-label={t(lang, 'footer.legal.heading')}>
           <span className="mono-label">{t(lang, 'footer.legal.heading')}</span>
           <ul>
+            <li>
+              <Link to={localePath(lang, 'incredere')}>{t(lang, 'footer.legal.trust')}</Link>
+            </li>
             <li>
               <Link to={localePath(lang, 'terms-and-conditions')}>{t(lang, 'footer.legal.terms')}</Link>
             </li>

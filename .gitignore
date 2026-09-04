@@ -1,3 +1,4 @@
+node_modules
 node_modules/
 dist/
 .vite-react-ssg-temp*/
@@ -6,3 +7,7 @@ dist/
 screenshots/
 .superpowers/
 .impeccable/
+
+# iCloud Drive never syncs or evicts *.nosync folders; node_modules is a symlink to it
+node_modules.nosync
+.wrangler

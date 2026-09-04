@@ -1,0 +1,15 @@
+{
+  // Cloudflare Pages project configuration (2026-09 audit, item 10).
+  // `npm run deploy` builds dist/ and uploads it with `wrangler pages deploy`
+  // (direct upload — no GitHub Actions minutes involved). First-time setup:
+  //   npx wrangler login
+  //   npx wrangler pages project create applexium --production-branch main
+  // then `npm run deploy`. The custom domain (applexium.com) is attached in
+  // the dashboard once the domain's nameservers point at Cloudflare — a
+  // non-Cloudflare zone cannot CNAME to a Pages project (Cloudflare error
+  // 1001), so the zone has to move from Hostinger's dns-parking first.
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "applexium",
+  "pages_build_output_dir": "./dist",
+  "compatibility_date": "2026-09-01"
+}

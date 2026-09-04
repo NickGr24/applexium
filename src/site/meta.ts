@@ -116,14 +116,14 @@ export const pageMeta: Record<string, Record<Lang, PageMetaEntry>> = {
   },
   projects: {
     ro: {
-      title: 'Applexium — Inovațiile noastre interne',
+      title: 'Proiecte și studii de caz | Applexium',
       description:
-        'Descoperă produsele digitale puternice și personalizate dezvoltate de Applexium pentru a aduce eficiență și creștere întreprinderii moderne.',
+        'Studii de caz din instituții publice și programe europene — INJ, EUroBRIDGE UA-MD, CMDA — și celelalte platforme livrate clienților de Applexium.',
     },
     en: {
-      title: 'Applexium - Our In-House Innovations',
+      title: 'Projects and case studies | Applexium',
       description:
-        'Discover the powerful, custom digital products Applexium builds to bring efficiency and growth to the modern enterprise.',
+        'Case studies from public institutions and EU programmes — INJ, EUroBRIDGE UA-MD, CMDA — and the other platforms Applexium delivered to clients.',
     },
   },
   contacts: {
@@ -201,6 +201,67 @@ export const pageMeta: Record<string, Record<Lang, PageMetaEntry>> = {
     en: {
       title: 'Terms & Conditions | Applexium',
       description: 'Terms and conditions of use for the applexium.com website.',
+    },
+  },
+  // 2026-09 audit: case studies (item 2), trust page (item 7), 404 (item 10).
+  'case-inj': {
+    ro: {
+      title: 'Studiu de caz: Emmi la Institutul Național al Justiției | Applexium',
+      description:
+        'Cum răspunde Emmi la mii de solicitări ale cursanților și candidaților INJ, în română, rusă și engleză, numai din documentele oficiale ale institutului.',
+    },
+    en: {
+      title: 'Case study: Emmi at the National Institute of Justice | Applexium',
+      description:
+        "How Emmi answers thousands of enquiries from INJ trainees and candidates in Romanian, Russian and English, using only the institute's official documents.",
+    },
+  },
+  'case-eurobridge': {
+    ro: {
+      title: 'Studiu de caz: platforma EUroBRIDGE UA-MD | Applexium',
+      description:
+        'Platforma programului de cooperare transfrontalieră Moldova–Ucraina și agentul Emmi care răspunde solicitanților în română, rusă, engleză și ucraineană.',
+    },
+    en: {
+      title: 'Case study: the EUroBRIDGE UA-MD platform | Applexium',
+      description:
+        'The platform of the Moldova–Ukraine cross-border programme and the Emmi agent that answers applicants in Romanian, Russian, English and Ukrainian.',
+    },
+  },
+  'case-cmda': {
+    ro: {
+      title: 'Studiu de caz: CMDA, site municipal cu agent AI | Applexium',
+      description:
+        'Site-ul Centrului Municipal pentru Dezvoltarea Antreprenoriatului din Chișinău și Emmi, care răspunde antreprenorilor în română și rusă din documentele centrului.',
+    },
+    en: {
+      title: 'Case study: CMDA, a municipal site with an AI agent | Applexium',
+      description:
+        "The site of Chișinău's Municipal Centre for Entrepreneurship Development and Emmi, answering entrepreneurs in Romanian and Russian from the centre's documents.",
+    },
+  },
+  trust: {
+    ro: {
+      title: 'Încredere și date: unde stau datele clienților | Applexium',
+      description:
+        'Găzduire în UE, izolare pe client, retenție configurabilă, protecție la prompt injection, DPA la cerere: cum tratează Applexium datele din Emmi, Legalia și Precedentia.',
+    },
+    en: {
+      title: "Trust & data: where clients' data lives | Applexium",
+      description:
+        'EU hosting, per-client isolation, configurable retention, prompt-injection protection, DPA on request: how Applexium handles the data in Emmi, Legalia and Precedentia.',
+    },
+  },
+  'not-found': {
+    ro: {
+      title: 'Pagina nu a fost găsită | Applexium',
+      description:
+        'Adresa cerută nu există pe applexium.com. Continuă de pe pagina principală, din produse sau din pagina de contact.',
+    },
+    en: {
+      title: 'Page not found | Applexium',
+      description:
+        'The requested address does not exist on applexium.com. Continue from the home page, the products or the contact page.',
     },
   },
 }

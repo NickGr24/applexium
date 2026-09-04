@@ -1,0 +1,341 @@
+/* Case-study pages (src/pages/cases/CasePage.tsx) and the case cards shared
+   by Home's portfolio section and /projects. Same register as the product
+   pages: dark ground, mono labels, one accent glow, cards only where a card
+   means "a separate object". */
+
+/* ---------- Hero ---------- */
+
+.case-hero {
+  padding-block: 9.5rem 4rem;
+  display: grid;
+  gap: 2rem;
+}
+
+.case-hero__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--ink-dim);
+  text-decoration: none;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.case-hero__back:hover {
+  color: var(--ink);
+}
+
+.case-hero__title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(2rem, 4.6vw, 4.2rem);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  max-width: 22ch;
+  text-wrap: balance;
+}
+
+.case-hero__summary {
+  max-width: 62ch;
+  color: rgb(237 237 242 / 0.78);
+  font-size: clamp(1.05rem, 1.3vw, 1.25rem);
+  line-height: 1.6;
+}
+
+/* Client / sector / year as one row of label-value pairs, not three cards. */
+.case-hero__facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(237, 237, 242, 0.1);
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+}
+
+.case-hero__facts li {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.case-hero__facts .mono-label {
+  color: var(--ink-dim);
+}
+
+.case-hero__facts a {
+  color: var(--brand-cyan);
+  text-decoration: none;
+}
+
+.case-hero__facts a:hover {
+  text-decoration: underline;
+}
+
+/* ---------- Body ---------- */
+
+.case-body {
+  display: grid;
+  gap: 5rem;
+  padding-block: 2rem 6rem;
+}
+
+.case-block {
+  display: grid;
+  grid-template-columns: minmax(0, 14rem) minmax(0, 1fr);
+  gap: 2rem 4rem;
+  align-items: start;
+}
+
+.case-block__title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.5rem;
+  letter-spacing: -0.01em;
+}
+
+.case-block__text {
+  max-width: 60ch;
+  color: rgb(237 237 242 / 0.8);
+  line-height: 1.65;
+}
+
+.case-block__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.9rem;
+  max-width: 62ch;
+}
+
+.case-block__list li {
+  display: grid;
+  grid-template-columns: 1.25rem 1fr;
+  gap: 0.75rem;
+  color: rgb(237 237 242 / 0.86);
+  line-height: 1.55;
+}
+
+.case-block__list li::before {
+  content: '';
+  height: 1px;
+  margin-top: 0.8em;
+  background: var(--brand-cyan);
+  opacity: 0.8;
+}
+
+/* Results: only rendered when the client supplied numbers. */
+.case-metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+  gap: 2rem 3rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.case-metrics__value {
+  font-family: var(--font-mono);
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+  color: var(--ink);
+}
+
+.case-metrics__label {
+  display: block;
+  margin-top: 0.6rem;
+  color: var(--ink-dim);
+}
+
+/* Testimonial: a quotation, not a card. */
+.case-quote {
+  margin: 0;
+  max-width: 60ch;
+  display: grid;
+  gap: 1.25rem;
+}
+
+.case-quote p {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1.3rem, 2vw, 1.8rem);
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+
+.case-quote footer {
+  display: grid;
+  gap: 0.2rem;
+  color: var(--ink-dim);
+}
+
+.case-quote footer b {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.case-cta {
+  display: grid;
+  gap: 1.25rem;
+  justify-items: start;
+  padding: 3rem 0 0;
+  border-top: 1px solid rgba(237, 237, 242, 0.1);
+}
+
+.case-cta__title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  letter-spacing: -0.015em;
+  max-width: 24ch;
+  text-wrap: balance;
+}
+
+.case-cta__text {
+  max-width: 56ch;
+  color: rgb(237 237 242 / 0.78);
+}
+
+@media (max-width: 720px) {
+  .case-hero {
+    padding-top: 7.5rem;
+  }
+  .case-block {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .case-body {
+    gap: 3.5rem;
+  }
+}
+
+/* ---------- Case cards (Home portfolio + /projects) ---------- */
+
+.case-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+  gap: 1.25rem;
+}
+
+.case-card {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 1rem;
+  padding: 1.5rem;
+  border-radius: 18px;
+  background: rgba(237, 237, 242, 0.03);
+  border: 1px solid rgba(237, 237, 242, 0.08);
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.3s var(--ease-out), background-color 0.3s var(--ease-out);
+}
+
+.case-card:hover {
+  border-color: rgba(31, 205, 255, 0.45);
+  background: rgba(237, 237, 242, 0.05);
+}
+
+.case-card__head {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.case-card__logo {
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 12px;
+  background: #f4f5f8;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.case-card__logo img {
+  width: 82%;
+  height: 82%;
+  object-fit: contain;
+}
+
+/* Text fallback when a client has no logo file in the repo yet. */
+.case-card__logo--initials {
+  background: rgba(31, 205, 255, 0.12);
+  color: var(--brand-cyan);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+}
+
+.case-card__client {
+  font-weight: 500;
+  line-height: 1.25;
+}
+
+.case-card__sector {
+  display: block;
+  margin-top: 0.2rem;
+  color: var(--ink-dim);
+  font-size: 0.72rem;
+}
+
+.case-card__title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.25rem;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.case-card__cta {
+  color: var(--brand-cyan);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ---------- Testimonials (Home) ---------- */
+
+.testimonials {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  gap: 2rem 3rem;
+}
+
+.testimonial {
+  margin: 0;
+  display: grid;
+  gap: 1rem;
+}
+
+.testimonial p {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 1.2rem;
+  line-height: 1.4;
+}
+
+.testimonial footer {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  color: var(--ink-dim);
+}
+
+.testimonial footer img {
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.testimonial footer b {
+  display: block;
+  color: var(--ink);
+  font-weight: 500;
+}

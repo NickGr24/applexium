@@ -4,8 +4,9 @@
 
 ## Pages
 - [Home](https://applexium.com/): services, own products, client portfolio and team. English version at /en.
-- [Services](https://applexium.com/services): web and mobile development, AI tools and conversational agents, SaaS and EdTech platforms, compliance by design, API integration and maintenance, legal and regulatory consulting.
-- [Portfolio](https://applexium.com/projects): client implementations.
+- [Services](https://applexium.com/#servicii): web and mobile development, AI tools and conversational agents, SaaS and EdTech platforms, compliance by design, API integration and maintenance, legal and regulatory consulting.
+- [Projects and case studies](https://applexium.com/projects): client implementations, with three case studies — [Emmi at the National Institute of Justice](https://applexium.com/proiecte/inj), [the EUroBRIDGE UA-MD programme platform](https://applexium.com/proiecte/eurobridge), [CMDA, a municipal site with an AI agent](https://applexium.com/proiecte/cmda).
+- [Trust & data](https://applexium.com/incredere): EU hosting, per-client data isolation, configurable retention, export and deletion on request, prompt-injection screening, DPA on request; legal entity SCALELAW SOLUTIONS SRL, IDNO 1025600064372.
 - [Team](https://applexium.com/team): Mircea Ursu (co-founder, CEO), Nichita Griu (co-founder, CTO), Diana Tatar (CMO).
 - [Contact](https://applexium.com/contacts): info@applexium.com, +373 78 76 87 65, Mihai Viteazul 2a, Chișinău.
 

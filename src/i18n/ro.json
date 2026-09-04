@@ -19,8 +19,10 @@
       "cookies": "Politica de cookie-uri",
       "aiEthics": "Declarație de etică AI",
       "accessibility": "Declarație de accesibilitate",
-      "esg": "Declarație ESG"
-    }
+      "esg": "Declarație ESG",
+      "trust": "Încredere și date"
+    },
+    "operatedBy": "Operat de"
   },
   "legal": {
     "toc": "Cuprins"
@@ -31,13 +33,14 @@
   },
   "home": {
     "hero": {
-      "line1": "Produse digitale,",
-      "line2": "servicii IT și consultanță",
-      "line3": "pentru instituții și afaceri",
-      "sub": "Platforme, agenți AI și produse SaaS — livrate împreună cu partea juridică și de reglementare care vine odată cu ele.",
+      "line1": "Agentul AI care lucrează deja",
+      "line2": "în instituțiile publice din Moldova.",
+      "line3": "Și juriștii care îl mențin conform.",
+      "sub": "Platforme, agenți AI și produse SaaS pentru instituții și afaceri — livrate împreună cu partea juridică și de reglementare: GDPR, AI Act, conformitate prin design.",
       "primary": "Programează o consultație",
       "ghost": "Explorează serviciile",
-      "scroll": "Derulează"
+      "scroll": "Derulează",
+      "trusted": "Au încredere în noi"
     },
     "manifesto": {
       "label": "MANIFEST",
@@ -112,7 +115,8 @@
       "energiq": {
         "name": "EnergiQ",
         "text": "Platformă de soluții și servicii energetice"
-      }
+      },
+      "caseCta": "Citește studiul de caz"
     },
     "stats": {
       "label": "CIFRE",
@@ -168,6 +172,10 @@
       "title": "Pregătit să-ți construiești viitorul?",
       "text": "Spune-ne despre proiectul tău, iar echipa noastră îți va răspunde în scurt timp.",
       "button": "Programează o consultație"
+    },
+    "testimonials": {
+      "label": "REFERINȚE",
+      "title": "Ce spun clienții"
     }
   },
   "emmi": {
@@ -625,8 +633,8 @@
   },
   "projects": {
     "label": "PORTOFOLIU",
-    "title": "Inovațiile noastre interne",
-    "intro": "Descoperă produsele digitale puternice și personalizate pe care le-am construit pentru a aduce eficiență și creștere întreprinderii moderne.",
+    "title": "Proiecte și studii de caz",
+    "intro": "Studiile de caz descriu ce am construit pentru instituții publice și programe europene și cum lucrează Emmi în fiecare dintre ele. Mai jos, celelalte platforme livrate clienților.",
     "viewProject": "Vezi proiectul",
     "cases": {
       "dareEu": {
@@ -659,7 +667,9 @@
         "text": "Platformă edtech pentru învățarea IT",
         "tag": "Platformă educațională"
       }
-    }
+    },
+    "casesLabel": "Studii de caz",
+    "othersLabel": "Alte platforme livrate"
   },
   "contacts": {
     "label": "CONTACT",
@@ -696,5 +706,123 @@
       "successReset": "Trimite alt mesaj",
       "error": "Ceva nu a mers bine. Te redirecționăm pentru a trimite mesajul direct."
     }
+  },
+  "cases": {
+    "common": {
+      "label": "STUDIU DE CAZ",
+      "client": "Client",
+      "sector": "Sector",
+      "year": "An",
+      "context": "Context",
+      "built": "Ce am construit",
+      "results": "Rezultate",
+      "quote": "Ce spune clientul",
+      "visit": "Vezi platforma",
+      "back": "Toate proiectele",
+      "ctaTitle": "Vrei un rezultat asemănător pentru instituția ta?",
+      "ctaText": "Spune-ne ce întrebări primești acum de la cetățeni sau clienți și îți arătăm cum ar răspunde Emmi la ele."
+    },
+    "inj": {
+      "client": "Institutul Național al Justiției",
+      "sector": "Justiție · instituție publică",
+      "title": "Un singur agent pentru mii de solicitări, în trei limbi",
+      "summary": "INJ pregătește judecătorii, procurorii și candidații la aceste funcții și primește mii de întrebări de la cursanți, candidați și public, în română, rusă și engleză. Emmi răspunde din documentele oficiale ale institutului și predă echipei ceea ce nu poate rezolva singură.",
+      "context": "Un institut cu programe de formare inițială și continuă, calendare de admitere și cerințe care se schimbă de la an la an. Aceleași întrebări reveneau zilnic, în trei limbi, iar fiecare răspuns trebuia să fie exact cel din regulamente.",
+      "built": [
+        "Agent Emmi care răspunde exclusiv din documentele și regulamentele INJ, fără răspunsuri inventate",
+        "Română, rusă și engleză, cu limba detectată din întrebarea fiecărei persoane",
+        "Bază de cunoștințe administrată de echipa institutului, cu istoricul fiecărei modificări",
+        "Predarea conversației către un coleg atunci când răspunsul nu există în documente",
+        "Raport săptămânal cu întrebările la care agentul nu a putut răspunde, pentru completarea bazei"
+      ]
+    },
+    "eurobridge": {
+      "client": "EUroBRIDGE UA-MD",
+      "sector": "Program de cooperare transfrontalieră UE",
+      "title": "Platforma unui program de granturi Moldova–Ucraina, cu suport în patru limbi",
+      "summary": "Programul de cooperare transfrontalieră dintre Moldova și Ucraina avea nevoie de o platformă pentru solicitanți din două țări și de un punct de contact care să răspundă în limba fiecăruia. Applexium a construit platforma eurobridge-uamd.org și a conectat Emmi pentru întrebări în română, rusă, engleză și ucraineană.",
+      "context": "Solicitanți din două țări, cu întrebări despre eligibilitate, termene și documente, în patru limbi. O echipă mică de program, care nu putea răspunde la toate în timp util și nici nu putea greși în răspunsuri.",
+      "built": [
+        "Platforma programului, cu documentele, anunțurile și paginile lui în mai multe limbi",
+        "Emmi conectată pe site pentru întrebările solicitanților, în română, rusă, engleză și ucraineană",
+        "Răspunsuri numai din ghidurile și documentele oficiale ale programului",
+        "Predare către echipa programului pentru cazurile care cer o decizie"
+      ]
+    },
+    "cmda": {
+      "client": "Centrul Municipal pentru Dezvoltarea Antreprenoriatului",
+      "sector": "Administrație municipală · antreprenoriat",
+      "title": "Un site municipal care răspunde antreprenorilor, nu doar îi informează",
+      "summary": "CMDA sprijină antreprenorii din Chișinău cu programe, instruiri și consultanță. Applexium a construit site-ul cmda.md, iar Emmi răspunde întrebărilor antreprenorilor din documentele centrului, în română și rusă.",
+      "context": "Programe cu criterii și termene proprii, întrebări repetate despre înscriere și eligibilitate, și o echipă care preferă să lucreze cu antreprenorii, nu să răspundă la aceleași e-mailuri.",
+      "built": [
+        "Site-ul instituției, cmda.md: programe, evenimente și resurse pentru antreprenori",
+        "Emmi pe site, în română și rusă, cu răspunsuri din documentele și regulamentele centrului",
+        "Bază de cunoștințe pe care echipa CMDA o actualizează singură, din propriul panou",
+        "Predare către un consultant al centrului când întrebarea cere o discuție"
+      ]
+    }
+  },
+  "trust": {
+    "label": "ÎNCREDERE ȘI DATE",
+    "title": "Unde stau datele și cine le poate atinge",
+    "intro": "Tot ce urmează este valabil pentru Emmi, Legalia și Precedentia, precum și pentru platformele pe care le construim pentru clienți. Fără nume de furnizori: descriem ce se întâmplă cu datele, nu din ce este făcută infrastructura.",
+    "items": {
+      "hosting": {
+        "title": "Găzduire în Uniunea Europeană",
+        "text": "Aplicațiile și bazele de date sunt găzduite în Uniunea Europeană și construite să meargă non-stop."
+      },
+      "isolation": {
+        "title": "Fiecare client, separat",
+        "text": "Datele fiecărui client sunt izolate la nivel de bază de date. Niciun agent nu poate vedea documentele sau conversațiile altui client."
+      },
+      "ownership": {
+        "title": "Documentele rămân ale tale",
+        "text": "Emmi răspunde numai din documentele și linkurile încărcate de client. Baza de cunoștințe este editată de echipa clientului, cu istoricul fiecărei modificări: cine, ce și când."
+      },
+      "retention": {
+        "title": "Retenție configurabilă, ștergere la cerere",
+        "text": "Perioada de păstrare a conversațiilor și înregistrărilor se setează per client. La cerere, exportăm sau ștergem datele, conform GDPR."
+      },
+      "guardrails": {
+        "title": "Protecție la intrare",
+        "text": "Mesajele primite sunt verificate împotriva încercărilor de manipulare a agentului (prompt injection), iar datele personale din conversații pot fi mascate."
+      },
+      "channels": {
+        "title": "Conexiuni oficiale, trafic criptat",
+        "text": "Telefonul, site-ul, Instagram, WhatsApp și Telegram sunt conectate prin interfețele oficiale ale fiecărei platforme, cu trafic criptat în tranzit."
+      },
+      "access": {
+        "title": "Acces controlat de client",
+        "text": "Fiecare client își administrează agentul din propriul panou: bază de cunoștințe, istoricul conversațiilor, leaduri, canale și analize."
+      },
+      "dpa": {
+        "title": "DPA și subprocesatori",
+        "text": "Semnăm un acord de prelucrare a datelor (DPA) cu fiecare client care îl solicită. Lista subprocesatorilor este pusă la dispoziție în cadrul acordului."
+      }
+    },
+    "compliance": {
+      "title": "Cadrul de conformitate",
+      "text": "GDPR și AI Act sunt tratate din faza de arhitectură, nu după lansare, aceeași practică pe care o oferim clienților ca serviciu de conformitate prin design. Angajamentele publice ale companiei:"
+    },
+    "entity": {
+      "title": "Cine răspunde",
+      "text": "Site-ul și produsele sunt operate de",
+      "contact": "Pentru DPA, chestionare de securitate sau solicitări privind datele:"
+    },
+    "cta": {
+      "title": "Ai un chestionar de securitate de completat?",
+      "text": "Trimite-ni-l. Răspundem punct cu punct, cu documentele aferente.",
+      "button": "Scrie-ne"
+    }
+  },
+  "notFound": {
+    "label": "404",
+    "title": "Pagina asta nu există",
+    "text": "Linkul poate fi vechi sau greșit. Iată de unde poți continua:",
+    "home": "Pagina principală",
+    "products": "Produse",
+    "contact": "Contact",
+    "otherLang": "English version"
   }
 }

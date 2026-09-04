@@ -97,7 +97,15 @@ if (!existsSync(MANIFEST_PATH)) {
 const manifest = JSON.parse(readFileSync(MANIFEST_PATH, 'utf8'))
 
 function resolve(srcPath) {
-  const entry = manifest[srcPath]
+  let entry = manifest[srcPath]
+  if (!entry && srcPath.startsWith('node_modules/')) {
+    // When node_modules is a symlink (see CLAUDE.md's TEMPORARY iCloud note),
+    // Vite keys dependency modules by their real path, e.g.
+    // "../../.cache/applexium-deps/node_modules/react-dom/client.js" — match on the
+    // path suffix so the same lookup works with and without the symlink.
+    const key = Object.keys(manifest).find((k) => k.endsWith(`/${srcPath}`))
+    if (key) entry = manifest[key]
+  }
   if (!entry) throw new Error(`fix-preload: no manifest entry for "${srcPath}" — did a source file move?`)
   return entry
 }
@@ -149,6 +157,13 @@ const ENTRY_FOR_ID = {
   'diana-tatar': 'src/pages/profile/diana-tatar.tsx',
   projects: 'src/pages/Projects.tsx',
   contacts: 'src/pages/Contacts.tsx',
+  // Three case studies share one route module (parameterised by id, like
+  // the legal pages) — 2026-09 audit, item 2.
+  'case-inj': 'src/pages/cases/CasePage.tsx',
+  'case-eurobridge': 'src/pages/cases/CasePage.tsx',
+  'case-cmda': 'src/pages/cases/CasePage.tsx',
+  trust: 'src/pages/Trust.tsx',
+  'not-found': 'src/pages/NotFound.tsx',
   accessibility: 'src/pages/legal/LegalPage.tsx',
   'ai-ethics': 'src/pages/legal/LegalPage.tsx',
   'cookie-policy': 'src/pages/legal/LegalPage.tsx',

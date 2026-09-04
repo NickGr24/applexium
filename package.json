@@ -18,7 +18,8 @@
     "dev": "vite",
     "build": "vite-react-ssg build && node scripts/fix-preload.mjs && node scripts/gen-sitemap.mjs && node scripts/verify-dist.mjs",
     "test": "vitest run",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "npm run build && npx --yes wrangler pages deploy dist --project-name applexium"
   },
   "devDependencies": {
     "@types/react": "^19.2.18",

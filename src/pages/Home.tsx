@@ -1,3 +1,4 @@
+import { CaseCard } from '../components/CaseCard'
 import { Faq } from '../components/Faq'
 import { MagneticButton } from '../components/MagneticButton'
 import { MonoLabel } from '../components/MonoLabel'
@@ -8,8 +9,12 @@ import { SplitHeading } from '../components/SplitHeading'
 import { SpotlightCard } from '../components/SpotlightCard'
 import { StatCount } from '../components/StatCount'
 import { localePath, t, useLang, type Lang } from '../i18n'
+import { CASES } from '../site/cases'
+import { CLIENTS } from '../site/clients'
 import { faqItems } from '../site/faq'
 import { faqPageJsonLd, organizationJsonLd, webSiteJsonLd } from '../site/jsonld'
+import { TESTIMONIALS } from '../site/testimonials'
+import './cases.css'
 import './home.css'
 import { HeroSection } from './home/HeroSection'
 import { IconChart, IconChip, IconCloud, IconCode, IconCog, IconShield } from './home/icons'
@@ -25,29 +30,6 @@ const SERVICES = [
   { key: 'compliance', Icon: IconShield },
   { key: 'integrations', Icon: IconCog },
   { key: 'advisory', Icon: IconChart },
-] as const
-
-/** Client logos for the marquee. `plate` picks the chip colour underneath:
- * most of these are dark artwork that needs a light plate, but Penița
- * Dreptului's mark and Jurista's wordmark are white and vanish on one —
- * the same split the legacy site handled with its `logo-dark-bg` class.
- * `tall` marks square artwork (CMDA's stacked seal, Penița's feather):
- * at the wordmark height it reads as a speck, so those chips render the
- * image taller (see `.marquee__item--tall` in home.css). */
-const CLIENTS = [
-  { src: '/dare-eu.webp', name: 'DARE-EU', plate: 'light', tall: false },
-  { src: '/eurobridge.webp', name: 'EUROBRIDGE UA MD', plate: 'light', tall: false },
-  { src: '/energiq.webp', name: 'EnergiQ', plate: 'light', tall: false },
-  { src: '/cmda.webp', name: 'CMDA', plate: 'light', tall: true },
-  { src: '/startitplanet.webp', name: 'StartIT Planet', plate: 'light', tall: false },
-  { src: '/penitadreptului.webp', name: 'Penița Dreptului', plate: 'dark', tall: true },
-  { src: '/jurista.webp', name: 'Jurista', plate: 'dark', tall: false },
-] as const
-
-const CASES = [
-  { key: 'dareEu', href: 'https://dare-eu.net/', src: '/dare-eu.webp' },
-  { key: 'eurobridge', href: 'https://eurobridge-uamd.org/', src: '/eurobridge.webp' },
-  { key: 'energiq', href: 'https://energiq.md/ro/', src: '/energiq.webp' },
 ] as const
 
 function ClientLogos({ lang }: { lang: Lang }) {
@@ -120,15 +102,13 @@ export default function Home() {
       >
         <ClientLogos lang={lang} />
 
-        <div className="cases">
-          {CASES.map(({ key, href, src }) => (
-            <a className="case" href={href} target="_blank" rel="noopener noreferrer" key={key}>
-              <div className="case__media photo-hover">
-                <img src={src} alt="" loading="lazy" decoding="async" />
-              </div>
-              <h3 className="case__name">{t(lang, `home.portfolio.${key}.name`)}</h3>
-              <p className="case__text">{t(lang, `home.portfolio.${key}.text`)}</p>
-            </a>
+        {/* The three case studies (2026-09 audit, item 2) replaced the old
+            external-link cards: the same clients, but now each card opens a
+            page with context, what was built, and — once the client supplies
+            them — results and a quote. */}
+        <div className="case-cards">
+          {CASES.map((item) => (
+            <CaseCard key={item.key} item={item} lang={lang} />
           ))}
         </div>
 
@@ -138,6 +118,28 @@ export default function Home() {
           </MagneticButton>
         </div>
       </Section>
+
+      {/* Named testimonials (2026-09 audit, item 2). Renders nothing until
+          src/site/testimonials.ts has real, signed-off quotes; when it
+          does, renumber the sections below (stats becomes 06, and so on). */}
+      {TESTIMONIALS.length > 0 && (
+        <Section id="referinte" index="05" label={t(lang, 'home.testimonials.label')} title={t(lang, 'home.testimonials.title')}>
+          <div className="testimonials">
+            {TESTIMONIALS.map((item) => (
+              <blockquote className="testimonial" key={item.author}>
+                <p>“{t(lang, item.quote)}”</p>
+                <footer>
+                  {item.photo && <img src={item.photo} alt="" loading="lazy" decoding="async" />}
+                  <span>
+                    <b>{item.author}</b>
+                    {item.role}, {item.org}
+                  </span>
+                </footer>
+              </blockquote>
+            ))}
+          </div>
+        </Section>
+      )}
 
       <section className="stats container">
         <MonoLabel index="05">{t(lang, 'home.stats.label')}</MonoLabel>

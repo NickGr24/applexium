@@ -1,4 +1,4 @@
-import { useCallback, useEffect, type ReactNode } from 'react'
+import { useCallback, type ReactNode } from 'react'
 import { MagneticButton } from '../../components/MagneticButton'
 import { MonoLabel } from '../../components/MonoLabel'
 import { RevealText } from '../../components/RevealText'
@@ -16,14 +16,10 @@ import './emmi.css'
 // single "local accent", per ProductPage's `accent` prop.
 const ACCENT = '#0891B2'
 
-// Emmi live-demo widget — agent: emmi-demo on the Applexium organisation.
-// Values are load-bearing, not decorative: don't change `data-agent-id`
-// without coordinating with the Emmi backend, and bump the `?v=` query
-// whenever the widget loader's own behaviour changes (phones cache
-// widget.js aggressively otherwise). Ported verbatim from the loader tag
-// already live on `_legacy/emmi.html`.
-const WIDGET_SRC = 'https://app.emmi-agent.com/widget.js?v=2026062301'
-const WIDGET_AGENT_ID = '06da5340-328a-4a41-a307-f52c3ce6c5de'
+// Emmi live-demo widget: the loader constants (script URL with its
+// cache-bust query, demo agent id) and the injection itself live in
+// src/components/EmmiWidget.tsx since the widget went site-wide (2026-09
+// audit, item 9). This page only triggers the FAB it finds in the DOM.
 
 const ICON_BASE = {
   width: 24,
@@ -197,37 +193,10 @@ export default function Emmi() {
   const lang = useLang()
   const openWidget = useEmmiWidgetTrigger(lang)
 
-  // Client-only, and only on this page. This is a SPA: navigating to another
-  // route doesn't reload the document, it unmounts this component — so
-  // without a cleanup, the loader's FAB (`#voiceagent-widget-root`) and its
-  // <script> tag would survive on every other page after a single visit to
-  // /emmi. Tear both down on unmount, and re-inject on the next mount (SPA
-  // back/forward into /emmi again) rather than reusing a stale script tag.
-  //
-  // What the loader actually does to the DOM (checked live, since it's
-  // hosted on app.emmi-agent.com, not in this repo): it appends exactly one
-  // `#voiceagent-widget-root` div to <body> — fixed-position, pointer-events
-  // on, at the top of the stacking context (z-index 2147483647) — and
-  // renders the FAB + chat UI into a closed shadow root on that div, so
-  // nothing else shows up in `document.body.children` to clean up.
-  // Removing the host div tears down the shadow tree (and whatever
-  // listeners live inside it) with it; only the <script> tag needs removing
-  // separately since it's a sibling, not a child.
-  useEffect(() => {
-    let script = document.querySelector<HTMLScriptElement>(`script[src="${WIDGET_SRC}"]`)
-    if (!script) {
-      script = document.createElement('script')
-      script.src = WIDGET_SRC
-      script.dataset.agentId = WIDGET_AGENT_ID
-      script.defer = true
-      document.body.appendChild(script)
-    }
-
-    return () => {
-      script?.remove()
-      document.getElementById('voiceagent-widget-root')?.remove()
-    }
-  }, [])
+  // The widget itself is no longer injected here: since the 2026-09 audit
+  // (item 9) `SiteLayout` mounts `EmmiWidget` on every page, so the FAB is
+  // already present — or arriving right after `load` — when this page
+  // renders. `useEmmiWidgetTrigger` above only needs its root element.
 
   return (
     <>

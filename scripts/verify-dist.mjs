@@ -70,6 +70,10 @@ for (const p of pages) {
     // `aria-current` instead. Lighthouse's `aria-allowed-attr` failed every
     // page on this until the 2026-09 perf/a11y pass.
     if (html.includes('aria-pressed=')) fail(`${file}: aria-pressed on a link (use aria-current)`)
+    // The footer carries the legal identity on every page (2026-09 audit,
+    // item 7): procurement teams verify the entity behind a site before a
+    // first call, and the IDNO is the one string they search for.
+    if (!html.includes('IDNO 1025600064372')) fail(`${file}: footer is missing the legal identity (IDNO)`)
     // Counts both plain `<link rel="stylesheet">` (every page — includes the
     // home page's own <noscript> fallback) and its preload-then-swap variant
     // (`rel="preload" ... as="style"`, home page only) — both are "this page
@@ -164,6 +168,19 @@ if (!existsSync(enIndexCopy)) {
 
 if (!existsSync('dist/CNAME')) fail('missing CNAME')
 
+// Cloudflare Pages reads these from the output root (2026-09 audit, item
+// 10): `_headers` carries the security headers and the immutable cache
+// rule for hashed assets that GitHub Pages could never send, and
+// `404.html` is served with a real 404 status by both hosts.
+if (!existsSync('dist/_headers')) fail('missing dist/_headers (Cloudflare Pages headers file)')
+if (!existsSync('dist/404.html')) {
+  fail('missing dist/404.html')
+} else {
+  const nf = readFileSync('dist/404.html', 'utf8')
+  if (!nf.includes('<html lang=')) fail('dist/404.html: not a rendered page')
+  if (!nf.includes('href="/en')) fail('dist/404.html: must link to the English site')
+}
+
 if (!existsSync('dist/robots.txt')) {
   fail('missing dist/robots.txt')
 } else {
@@ -176,7 +193,17 @@ if (!existsSync('dist/sitemap.xml')) {
 } else {
   const sm = readFileSync('dist/sitemap.xml', 'utf8')
 
-  if (sm.includes('/projects')) fail('sitemap must not contain projects')
+  // `/projects` used to be an orphaned placeholder kept out of the sitemap;
+  // since the 2026-09 audit it lists the real case studies and links to
+  // their pages, so it must be indexed like any other page (pages.json's
+  // inSitemap flag drives the generic loop below — this asserts the intent
+  // explicitly so a stray `inSitemap: false` can't quietly return).
+  if (!sm.includes(`<loc>${SITE_ORIGIN}/projects</loc>`)) fail('sitemap must contain /projects (case-study index)')
+  if (!sm.includes('/404')) {
+    // fine — the 404 page is never indexable
+  } else {
+    fail('sitemap must not contain the 404 page')
+  }
 
   if (!sm.trimStart().startsWith('<?xml')) fail('sitemap: missing XML declaration')
   if (countOf(sm, '<urlset') !== 1 || countOf(sm, '</urlset>') !== 1)

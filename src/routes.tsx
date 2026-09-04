@@ -1,10 +1,28 @@
 import type { RouteRecord } from 'vite-react-ssg'
 import React from 'react'
 import SiteLayout from './layouts/SiteLayout'
+import type { CaseKey } from './site/cases'
 import type { LegalId } from './site/jsonld'
 import pages from './site/pages.json'
 
+/**
+ * One `React.lazy` per case study, resolving the shared `CasePage` shell as
+ * a single route-level import with the id closed over — the same shape as
+ * `legalComponent` below, for the same static-build reason.
+ */
+function caseComponent(id: CaseKey) {
+  return React.lazy(async () => {
+    const { CasePage } = await import('./pages/cases/CasePage')
+    return { default: () => <CasePage id={id} /> }
+  })
+}
+
 const componentFor: Record<string, React.LazyExoticComponent<React.ComponentType>> = {
+  'case-inj': caseComponent('inj'),
+  'case-eurobridge': caseComponent('eurobridge'),
+  'case-cmda': caseComponent('cmda'),
+  trust: React.lazy(() => import('./pages/Trust')),
+  'not-found': React.lazy(() => import('./pages/NotFound')),
   home: React.lazy(() => import('./pages/Home')),
   emmi: React.lazy(() => import('./pages/product/emmi')),
   legalia: React.lazy(() => import('./pages/product/legalia')),

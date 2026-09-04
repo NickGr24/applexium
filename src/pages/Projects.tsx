@@ -1,10 +1,13 @@
 import { useRef } from 'react'
+import { CaseCard } from '../components/CaseCard'
 import { RevealText } from '../components/RevealText'
 import { Section } from '../components/Section'
 import { Seo } from '../components/Seo'
 import { t, useLang, type Lang } from '../i18n'
 import { useSpotlightPointer } from '../motion/useSpotlightPointer'
+import { CASES as CASE_STUDIES } from '../site/cases'
 import { collectionPageJsonLd } from '../site/jsonld'
+import './cases.css'
 import './projects.css'
 
 /**
@@ -83,6 +86,18 @@ export default function Projects() {
           <p className="projects-intro">{t(lang, 'projects.intro')}</p>
         </RevealText>
 
+        {/* Case studies first (2026-09 audit, item 2) — the pages with
+            context, what was built and, once supplied, results — then the
+            other delivered platforms as before. This is what put /projects
+            back into the sitemap. */}
+        <h3 className="projects-subhead mono-label">{t(lang, 'projects.casesLabel')}</h3>
+        <div className="case-cards">
+          {CASE_STUDIES.map((item) => (
+            <CaseCard key={item.key} item={item} lang={lang} />
+          ))}
+        </div>
+
+        <h3 className="projects-subhead mono-label">{t(lang, 'projects.othersLabel')}</h3>
         <div className="projects-grid">
           {CASES.map(item => (
             <ProjectCard key={item.key} item={item} lang={lang} />

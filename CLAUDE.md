@@ -10,6 +10,8 @@ The marketing site for `applexium.com` — a Moldovan software company. It is a 
 - Hosting: GitHub Pages with custom domain via `dist/CNAME` (copied from `public/CNAME` at build time) — `applexium.com`
 - Deploy: `.github/workflows/deploy.yml` runs on every push to `main` — `npm ci && npm test && npm run build`, then uploads `dist/` as a Pages artifact. **GitHub → Settings → Pages → Source must be set to "GitHub Actions"**, not "Deploy from a branch" — the old static-site setup pointed at `main` directly, and that mode ignores this workflow entirely.
 - **TEMPORARY (2026-08-09): Actions are locked by a GitHub billing issue**, so Pages currently deploys from the **`gh-pages` branch** (legacy mode), which holds a built `dist/` snapshot plus `.nojekyll`. Until billing is fixed: to deploy, run `npm run build`, copy `dist/` contents onto the `gh-pages` branch, commit, push. A push to `main` alone does NOT update the live site right now. Once billing is resolved: switch Pages → Source back to "GitHub Actions" and delete this paragraph and the `gh-pages` branch. Warning that caused an outage: in branch mode Pages needs `CNAME` at the published root — publishing raw `main` (where CNAME lives in `public/`) detached the applexium.com domain.
+- **Cloudflare Pages is prepared but not yet live (2026-09-04):** `wrangler.jsonc` + `public/_headers` + `npm run deploy` (direct upload via wrangler) are in the repo. Going live needs the owner to move applexium.com's nameservers from Hostinger (`dns-parking.com`) to Cloudflare, run `npx wrangler login` once, create the `applexium` Pages project and attach the domain — a non-Cloudflare zone cannot CNAME to a Pages project (Cloudflare error 1001). Until then, the gh-pages flow above still deploys production.
+- **TEMPORARY (2026-09-04): the working copy lives in `~/Desktop`, which iCloud Drive syncs and evicts.** Evicted ("dataless") files hang `vite build` in `fs.copyFileSync` and make `node_modules` reads return empty modules. `node_modules` is therefore a symlink to `~/.cache/applexium-deps/node_modules` (installed from the same lockfile); run `npm ci` **there**, not here, and check `find . -flags +dataless | wc -l` if a build stalls (`brctl download <path>` re-fetches). The real fix is moving the repo out of `~/Desktop`; delete this paragraph and the symlink when that happens.
 - This replaced an earlier plain-HTML/CSS/JS static site (Python-generated `/en/`, hand-written `style.css`/`script.js`). That version now lives only in git history (see the redesign's plan/spec under `docs/superpowers/`), not in this tree.
 
 ## Common workflows
@@ -71,7 +73,16 @@ src/
   layouts/                SiteLayout (nav/footer/Lenis/transitions/cursor shell),
                           LegalLayout (legal-page chrome)
   pages/                  One file/folder per route: Home, Team, Projects, Contacts,
+                          Trust (incredere), NotFound (404), cases/CasePage (three
+                          case studies, parameterised by id like the legal pages),
                           product/{emmi,legalia,precedentia}, profile/{...}, legal/
+  site/cases.ts           Case-study facts (year, link, logo) and the parts that must
+                          never be invented: `metrics` and `testimonial` stay empty
+                          until the client supplies them; CasePage hides those
+                          sections while empty. Copy lives in i18n under cases.*.
+  site/testimonials.ts    Home-page testimonials, empty until real quotes exist.
+  site/company.ts         Legal identity (SCALELAW SOLUTIONS SRL, IDNO) shown in the
+                          footer of every page; verify-dist asserts the IDNO.
 ```
 
 ### Routing model — `pages.json` is the manifest, not `routes.tsx`
@@ -117,20 +128,22 @@ Two pitfalls the 2026-09 perf audit found, both still guarded:
 - **No shader-based image distortion on photos.** This was tried during the redesign (a `DistortImage`-style WebGL warp effect) and deliberately dropped — an explicit owner decision, not an oversight. Don't reintroduce a distortion/liquid shader over photographic content without raising it first.
 - **Motion vocabulary already in place**, reuse before inventing new: Lenis smooth-scroll (`motion/LenisProvider.tsx`, wraps the whole site in `SiteLayout`), route-level curtain transitions (`motion/PageTransition.tsx`), a custom cursor (`components/Cursor.tsx`), magnetic buttons (`components/MagneticButton.tsx`, pointer-attraction on fine-pointer devices only), split-character/word heading reveals (`components/SplitHeading.tsx`), scroll-triggered reveals (`components/RevealText.tsx`, `components/Section.tsx`'s header rule), and a scramble-text effect in `components/MonoLabel.tsx`.
 
-## Emmi product page — live widget integration
+## Emmi live widget — site-wide since the 2026-09 audit
 
-`src/pages/product/emmi.tsx` is the only page that mounts the Emmi live demo widget, injected client-side (`useEffect`, not SSR) as a `<script>` tag:
+`src/components/EmmiWidget.tsx` mounts the Emmi live widget on **every** page (rendered once from `SiteLayout`, which persists across route changes), injected client-side as a `<script>` tag only after `window.load` plus a 300 ms delay so it never sits on the LCP critical path:
 
 ```ts
-const WIDGET_SRC = 'https://app.emmi-agent.com/widget.js?v=2026062301'
-const WIDGET_AGENT_ID = '06da5340-328a-4a41-a307-f52c3ce6c5de'
+export const WIDGET_SRC = 'https://app.emmi-agent.com/widget.js?v=2026062301'
+export const WIDGET_AGENT_ID = '06da5340-328a-4a41-a307-f52c3ce6c5de'
 ```
+
+`tests/emmi-widget.test.tsx` pins both the "not before load" timing and the teardown. `src/pages/product/emmi.tsx` no longer injects anything; its two CTAs just trigger the FAB via `useEmmiWidgetTrigger`. The agent's knowledge base is configured in the Emmi dashboard, not here — if the widget is to answer questions about Applexium's services and prices on the home page, that content has to be added to the `emmi-demo` agent's documents.
 
 - The widget script is hosted by the Emmi backend on `app.emmi-agent.com`, **not in this repo**. To change the loader's own behaviour, edit the `voiceagent_v2` repo and redeploy that frontend.
 - **Bump the `?v=` query whenever the widget loader's behaviour changes** — phones cache `widget.js` aggressively otherwise, and there's no other cache-bust mechanism.
 - The agent UUID `06da5340-…` is the `emmi-demo` agent in the Applexium organisation, production. Don't change it without coordinating with the Emmi backend.
-- Because this is now an SPA (not one `<script>` tag per static HTML page), the widget's injection has a matching teardown: navigating away from `/emmi` unmounts the component, whose `useEffect` cleanup removes both the `<script>` tag and the `#voiceagent-widget-root` div the loader appends to `<body>` (closed shadow root, so nothing else needs cleaning up). Re-visiting `/emmi` re-injects fresh. If you touch this effect, keep the remove-on-unmount — without it, the FAB persists (and re-attaches) on every subsequent page after one visit to `/emmi`.
-- The two CTAs ("Try Emmi Live"/hero, "Open the Live Widget"/final section) call `useEmmiWidgetTrigger`, which looks for `#voiceagent-widget-root`; if it's not there yet (widget still loading), it falls back to navigating to `/contacts` instead of scrolling to nothing.
+- The loader appends one `#voiceagent-widget-root` div to `<body>` (closed shadow root inside); `EmmiWidget`'s cleanup removes both the `<script>` tag and that div, which only matters if `SiteLayout` ever unmounts, but keeps the component testable.
+- The two CTAs on `/emmi` ("Try Emmi Live"/hero, "Open the Live Widget"/final section) call `useEmmiWidgetTrigger`, which looks for `#voiceagent-widget-root`; if it's not there yet (widget still loading), it falls back to navigating to `/contacts` instead of scrolling to nothing.
 
 ## Brand assets — `public/brand/`
 

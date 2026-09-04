@@ -7,12 +7,17 @@
   { "id": "mircea-ursu", "slug": "mircea-ursu", "inSitemap": true },
   { "id": "nichita-griu", "slug": "nichita-griu", "inSitemap": true },
   { "id": "diana-tatar", "slug": "diana-tatar", "inSitemap": true },
-  { "id": "projects", "slug": "projects", "inSitemap": false },
+  { "id": "projects", "slug": "projects", "inSitemap": true },
   { "id": "contacts", "slug": "contacts", "inSitemap": true },
   { "id": "accessibility", "slug": "accessibility", "inSitemap": true },
   { "id": "ai-ethics", "slug": "ai-ethics", "inSitemap": true },
   { "id": "cookie-policy", "slug": "cookie-policy", "inSitemap": true },
   { "id": "esg", "slug": "esg", "inSitemap": true },
   { "id": "privacy-policy", "slug": "privacy-policy", "inSitemap": true },
-  { "id": "terms-and-conditions", "slug": "terms-and-conditions", "inSitemap": true }
+  { "id": "terms-and-conditions", "slug": "terms-and-conditions", "inSitemap": true },
+  { "id": "case-inj", "slug": "proiecte/inj", "inSitemap": true },
+  { "id": "case-eurobridge", "slug": "proiecte/eurobridge", "inSitemap": true },
+  { "id": "case-cmda", "slug": "proiecte/cmda", "inSitemap": true },
+  { "id": "trust", "slug": "incredere", "inSitemap": true },
+  { "id": "not-found", "slug": "404", "inSitemap": false }
 ]

@@ -5,6 +5,9 @@ import { MagneticButton } from '../../components/MagneticButton'
 import { type Lang, localePath, t } from '../../i18n'
 import { useReducedMotion } from '../../motion/useReducedMotion'
 import { AuroraBackground } from '../../scenes/AuroraBackground'
+import { CLIENTS } from '../../site/clients'
+
+const HERO_CLIENTS = CLIENTS.filter((c) => c.hero)
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -143,6 +146,22 @@ export function HeroSection({ lang }: { lang: Lang }) {
             <MagneticButton variant="ghost" href="#servicii">
               {t(lang, 'home.hero.ghost')}
             </MagneticButton>
+          </div>
+
+          {/* "Trusted by" strip (2026-09 audit, item 1): the first proof on
+              the page, right under the buttons. Part of `.hero__tail` so it
+              dissolves with the rest of the copy on scroll. */}
+          <div className="hero__trusted hero__tail">
+            <span className="hero__trusted-label mono-label">{t(lang, 'home.hero.trusted')}</span>
+            <ul className="hero__logos" aria-label={t(lang, 'home.hero.trusted')}>
+              {HERO_CLIENTS.map((c) => (
+                <li key={c.name} className={c.tall ? 'hero__logo hero__logo--tall' : 'hero__logo'}>
+                  {/* width/height reserve the box (CLS); fetchPriority low keeps
+                      five logos from competing with the LCP text's fonts. */}
+                  <img src={c.heroSrc ?? c.src} alt={c.name} width={c.w} height={c.h} fetchPriority="low" decoding="async" />
+                </li>
+              ))}
+            </ul>
           </div>
 
           <span className="hero__scroll mono-label hero__tail">{t(lang, 'home.hero.scroll')}</span>
