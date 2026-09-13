@@ -13,6 +13,11 @@ import { softwareApplicationJsonLd } from '../../site/jsonld'
 import { ProductPage } from './ProductPage'
 import './legalia.css'
 
+/** The product's own site and store listing — the page now sends visitors
+ *  to the product first and to a sales conversation second. */
+const LEGALIA_URL = 'https://legalia.md/'
+const LEGALIA_PLAY_URL = 'https://play.google.com/store/apps/details?id=legalia.md'
+
 // Legalia's own palette (`_legacy/legalia.html`'s `--lg-vivid`) — the page's
 // single "local accent", per ProductPage's `accent` prop.
 const ACCENT = '#591EF3'
@@ -186,11 +191,11 @@ function FinalCta({ lang }: { lang: Lang }) {
           <p className="product-final__text">{t(lang, 'legalia.final.text')}</p>
         </RevealText>
         <div className="product-final__ctas">
-          <MagneticButton variant="primary" href={localePath(lang, 'contacts')}>
-            {t(lang, 'legalia.final.cta1')}
+          <MagneticButton variant="primary" href={LEGALIA_URL} target="_blank" rel="noopener">
+            {t(lang, 'legalia.hero.open')}
           </MagneticButton>
-          <MagneticButton variant="ghost" href="#how">
-            {t(lang, 'legalia.final.cta2')}
+          <MagneticButton variant="ghost" href={localePath(lang, 'contacts')}>
+            {t(lang, 'legalia.final.cta1')}
           </MagneticButton>
         </div>
       </div>
@@ -226,11 +231,11 @@ export default function Legalia() {
           sub: t(lang, 'legalia.hero.sub'),
           ctas: (
             <>
-              <MagneticButton variant="primary" href={localePath(lang, 'contacts')}>
-                {t(lang, 'legalia.hero.cta1')}
+              <MagneticButton variant="primary" href={LEGALIA_URL} target="_blank" rel="noopener">
+                {t(lang, 'legalia.hero.open')}
               </MagneticButton>
-              <MagneticButton variant="ghost" href="#how">
-                {t(lang, 'legalia.hero.cta2')}
+              <MagneticButton variant="ghost" href={LEGALIA_PLAY_URL} target="_blank" rel="noopener">
+                {t(lang, 'legalia.hero.play')}
               </MagneticButton>
             </>
           ),

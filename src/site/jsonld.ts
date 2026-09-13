@@ -132,7 +132,8 @@ const softwareApplicationSource: Record<
   legalia: {
     name: 'Legalia',
     applicationCategory: 'EducationalApplication',
-    operatingSystem: 'Web',
+    operatingSystem: 'Web, Android',
+    sameAs: ['https://legalia.md/', 'https://play.google.com/store/apps/details?id=legalia.md'],
     description:
       'O platformă de educație juridică creată pentru Moldova, care ajută utilizatorii să înțeleagă legislația prin cursuri structurate și teste interactive.',
     inLanguage: 'page',
