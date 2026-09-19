@@ -8,14 +8,14 @@ import { Seo } from '../components/Seo'
 import { SplitHeading } from '../components/SplitHeading'
 import { SpotlightCard } from '../components/SpotlightCard'
 import { StatCount } from '../components/StatCount'
-import { localePath, t, useLang, type Lang } from '../i18n'
+import { localePath, t, useLang } from '../i18n'
 import { CASES } from '../site/cases'
-import { CLIENTS } from '../site/clients'
 import { faqItems } from '../site/faq'
 import { faqPageJsonLd, organizationJsonLd, webSiteJsonLd } from '../site/jsonld'
 import { TESTIMONIALS } from '../site/testimonials'
 import './cases.css'
 import './home.css'
+import { ClientLogos } from './home/ClientLogos'
 import { HeroSection } from './home/HeroSection'
 import { IconChart, IconChip, IconCloud, IconCode, IconCog, IconShield } from './home/icons'
 import { Manifesto } from './home/Manifesto'
@@ -31,33 +31,6 @@ const SERVICES = [
   { key: 'integrations', Icon: IconCog },
   { key: 'advisory', Icon: IconChart },
 ] as const
-
-function ClientLogos({ lang }: { lang: Lang }) {
-  // Two identical passes of the list, the second hidden from assistive tech:
-  // the CSS marquee translates the track by exactly -50%, so the seam lands
-  // where the copy begins and the loop is invisible.
-  const row = (hidden: boolean) => (
-    <ul className="marquee__row" aria-hidden={hidden || undefined}>
-      {CLIENTS.map(({ src, name, plate, tall }) => (
-        <li
-          className={`marquee__item marquee__item--${plate}${tall ? ' marquee__item--tall' : ''}`}
-          key={`${name}-${hidden}`}
-        >
-          <img src={src} alt={hidden ? '' : name} loading="lazy" decoding="async" />
-        </li>
-      ))}
-    </ul>
-  )
-
-  return (
-    <div className="marquee" aria-label={t(lang, 'home.portfolio.clients')} role="group">
-      <div className="marquee__track">
-        {row(false)}
-        {row(true)}
-      </div>
-    </div>
-  )
-}
 
 export default function Home() {
   const lang = useLang()

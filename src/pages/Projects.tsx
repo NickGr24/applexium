@@ -20,12 +20,12 @@ import './projects.css'
  * describe the page itself, not the fake products under it.
  *
  * `dareEu`/`eurobridge`/`energiq` mirror the copy already used for Home's 3
- * featured cases (`home.portfolio.*`); the rest completes the same six-card
- * set from the legacy homepage's portfolio grid. Jurista — present in Home's
- * client marquee — has no card here: legacy never gave it a project entry
- * (it's Mircea Ursu's own business-law practice, not an Applexium case
- * study; see his profile's `EXPERIENCE` list), so inventing a "project" for
- * it would misattribute whose work it is.
+ * featured cases (`home.portfolio.*`); the next three complete the same
+ * six-card set from the legacy homepage's portfolio grid, and `enverde`
+ * (enverde.md, live 2026-09-19) is the first card added since. Jurista has
+ * no card and, since 2026-09-19, no chip in Home's client marquee either:
+ * it's Mircea Ursu's own business-law practice, not an Applexium delivery
+ * (it stays where it belongs, in his profile's `EXPERIENCE` list).
  *
  * `plate` picks the logo's chip colour, same split as Home's `CLIENTS`
  * marquee: Penița Dreptului's mark is white artwork that needs a dark chip
@@ -46,6 +46,7 @@ const CASES = [
   { key: 'penitaDreptului', href: 'https://penitadreptului.md/', src: '/penitadreptului.webp', plate: 'dark' },
   { key: 'cmda', href: 'https://cmda.md/', src: '/cmda.webp', plate: 'light' },
   { key: 'startItPlanet', href: 'https://startitplanet.com/#ro', src: '/startitplanet.webp', plate: 'light' },
+  { key: 'enverde', href: 'https://enverde.md/', src: '/enverde.webp', plate: 'light' },
 ] as const
 
 function ProjectCard({ item, lang }: { item: (typeof CASES)[number]; lang: Lang }) {

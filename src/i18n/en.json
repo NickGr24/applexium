@@ -668,6 +668,11 @@
         "name": "StartIT Planet",
         "text": "Educational tech platform for IT learning",
         "tag": "Education Platform"
+      },
+      "enverde": {
+        "name": "Enverde",
+        "text": "Trilingual website (RO, RU, EN) for a Moldovan land-clearing and woody-biomass processing company",
+        "tag": "Land Clearing & Biomass"
       }
     },
     "casesLabel": "Case studies",

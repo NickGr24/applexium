@@ -32,7 +32,10 @@ export type CaseStudy = {
   year: string
   /** The client's own site. */
   href: string
-  /** Logo under /public; when omitted the client's initials render instead. */
+  /** Logo under /public; when omitted the client's initials render instead.
+   * Only `CaseCard` draws it, in a 3rem chip, so these point at the small
+   * hero-strip variants (public/logos/hero): already in cache by the time
+   * the portfolio scrolls in, instead of a second, full-size download. */
   logo?: string
   initials: string
   metrics: CaseMetric[]
@@ -44,7 +47,7 @@ export const CASES: CaseStudy[] = [
     key: 'inj',
     year: '2026',
     href: 'https://www.inj.md/',
-    logo: '/inj.webp',
+    logo: '/logos/hero/inj.webp',
     initials: 'INJ',
     metrics: [],
     testimonial: null,
@@ -53,7 +56,7 @@ export const CASES: CaseStudy[] = [
     key: 'eurobridge',
     year: '2026',
     href: 'https://eurobridge-uamd.org/',
-    logo: '/eurobridge.webp',
+    logo: '/logos/hero/eurobridge.webp',
     initials: 'EUB',
     metrics: [],
     testimonial: null,
@@ -62,7 +65,7 @@ export const CASES: CaseStudy[] = [
     key: 'cmda',
     year: '2026',
     href: 'https://cmda.md/',
-    logo: '/cmda.webp',
+    logo: '/logos/hero/cmda.webp',
     initials: 'CMDA',
     metrics: [],
     testimonial: null,

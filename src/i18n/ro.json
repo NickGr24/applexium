@@ -668,6 +668,11 @@
         "name": "StartIT Planet",
         "text": "Platformă edtech pentru învățarea IT",
         "tag": "Platformă educațională"
+      },
+      "enverde": {
+        "name": "Enverde",
+        "text": "Site trilingv (RO, RU, EN) pentru o companie de defrișare și procesare a biomasei lemnoase din Moldova",
+        "tag": "Defrișări și biomasă"
       }
     },
     "casesLabel": "Studii de caz",

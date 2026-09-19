@@ -330,8 +330,34 @@
   position: relative;
   overflow: hidden;
   margin-bottom: 4rem;
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
-  mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+}
+
+/* Edge fades as two static overlays in the page colour, not a `mask-image`
+   on the container: a mask over a perpetually-animating child makes the GPU
+   re-composite the whole strip through an offscreen surface every frame,
+   which is the expensive path on integrated and phone GPUs. The ground
+   behind this section is flat --bg, so the result is pixel-identical. If
+   that ever stops being true (a gradient or a scene behind the portfolio),
+   these need to become a mask again. */
+.marquee::before,
+.marquee::after {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  bottom: 0;
+  width: 7%;
+  pointer-events: none;
+}
+
+.marquee::before {
+  left: 0;
+  background: linear-gradient(90deg, var(--bg), rgb(4 6 13 / 0));
+}
+
+.marquee::after {
+  right: 0;
+  background: linear-gradient(270deg, var(--bg), rgb(4 6 13 / 0));
 }
 
 .marquee__track {
@@ -340,7 +366,10 @@
   animation: marquee-scroll 46s linear infinite;
 }
 
-.marquee:hover .marquee__track {
+.marquee:hover .marquee__track,
+/* Set by ClientLogos' IntersectionObserver — see the note there for why an
+   off-screen "compositor-only" animation still costs main-thread time here. */
+.marquee--offscreen .marquee__track {
   animation-play-state: paused;
 }
 
