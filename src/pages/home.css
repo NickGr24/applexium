@@ -191,7 +191,7 @@
 }
 
 .manifesto__text {
-  max-width: 32ch;
+  max-width: calc(32 * var(--display-ch));
   font-family: var(--font-display);
   font-weight: 400;
   font-size: clamp(1.6rem, 3.4vw, 3rem);
@@ -550,7 +550,7 @@
 }
 
 .final__title {
-  max-width: 16ch;
+  max-width: calc(16 * var(--display-ch));
   font-family: var(--font-display);
   font-weight: 500;
   font-size: clamp(2.5rem, 6.5vw, 5.5rem);

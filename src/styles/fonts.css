@@ -41,6 +41,37 @@
   font-display: swap;
 }
 
+/* Metric-matched fallbacks — what the text is set in until the faces above
+   arrive (`font-display: swap`). Arial scaled and re-boxed to each family's
+   own average glyph width and hhea ascent/descent/line-gap, so the swap
+   keeps line breaks and block heights instead of reflowing the page: before
+   this, the swap was the site's entire layout shift (CLS 0.089 on the legal
+   pages, 0.039 on /team; 0 with the webfonts blocked). Lighthouse only began
+   to see that shift once the first paint moved ahead of the fonts — see
+   scripts/inline-css.mjs — but visitors always had it. Liberation Sans and
+   Arimo are Arial's metric-compatible stand-ins on Linux/ChromeOS; where
+   none of the three exists (Android) the stack falls through to system-ui
+   exactly as before. Numbers computed with fontTools from the shipped woff2
+   (Clash Display 500, General Sans 400 — the weights most text uses)
+   against Arial, width weighted by letter frequency; recompute if
+   scripts/fetch-fonts.sh ever brings in different files. */
+@font-face {
+  font-family: 'Clash Display Fallback';
+  src: local('Arial'), local('Liberation Sans'), local('Arimo');
+  size-adjust: 107.37%;
+  ascent-override: 82.89%;
+  descent-override: 23.28%;
+  line-gap-override: 8.38%;
+}
+@font-face {
+  font-family: 'General Sans Fallback';
+  src: local('Arial'), local('Liberation Sans'), local('Arimo');
+  size-adjust: 101.06%;
+  ascent-override: 99.95%;
+  descent-override: 23.75%;
+  line-gap-override: 9.9%;
+}
+
 /* JetBrains Mono — mono labels. One weight only, subset to Latin + Romanian
    by scripts/subset-fonts.sh (~15 KB instead of 2 × 92 KB): every mono
    element on the site is small UI text, and text asking for weight 400

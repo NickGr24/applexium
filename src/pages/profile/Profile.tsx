@@ -51,7 +51,9 @@ export function Profile({ photo, status, name, role, location, facts, bio, links
     <div className="profile-page">
       <section className="profile-hero container">
         <div className="profile-hero__photo photo-hover">
-          <img src={photo} alt={name} />
+          {/* LCP element of every profile page: fetched at high priority, and
+              never lazy. The wrapper's aspect-ratio reserves the box. */}
+          <img src={photo} alt={name} fetchPriority="high" />
         </div>
 
         <div className="profile-hero__info">

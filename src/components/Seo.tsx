@@ -3,16 +3,18 @@ import { type Lang, localePath } from '../i18n'
 import pages from '../site/pages.json'
 import { pageMeta, SITE_ORIGIN } from '../site/meta'
 
-// Clash Display 500 — every page's own H1 (hero title, legal-hero__title,
-// product-hero__title, ...) sets `font-family: var(--font-display)` at this
-// weight (tokens.css/home.css et al.), and that H1 is the LCP candidate on
-// most of this site's pages. `<Seo>` renders on every page (see its own
-// call sites), so preloading here — rather than duplicating this link once
-// per page — reaches all of them uniformly. `font-display: swap` in
-// fonts.css already prevents an invisible-text flash while it loads; this
-// preload is purely about getting the fetch started as early as possible
-// instead of only after the CSSOM discovers the @font-face rule.
-const DISPLAY_FONT_WOFF2 = '/fonts/JTSL5QESUXATU47LCPUNHZQBDDIWDOSW.woff2'
+// No `<link rel="preload" as="font">` here, deliberately. This component used
+// to preload Clash Display 500 (every page's H1) to start that fetch early.
+// Chrome holds rendering for a short grace period while a preloaded font is
+// in flight, and on this site that was enough to miss the first frame in
+// Lighthouse/PSI's Chrome, which then paints a whole second later and
+// charges every script to FCP and LCP — see scripts/inline-css.mjs for the
+// A/B numbers (this preload alone was the difference between 88-98 and a
+// steady 100). Nothing is lost in exchange: the stylesheet is inline in
+// <head>, so the @font-face rules are known from the first byte of CSS and
+// the font is requested at first layout anyway, and `font-display: swap`
+// (fonts.css) keeps the text visible meanwhile. verify-dist fails the build
+// if a font preload comes back.
 
 export function Seo({ page, lang, jsonLd = [] }: { page: string; lang: Lang; jsonLd?: object[] }) {
   const slug = pages.find(p => p.id === page)!.slug
@@ -23,7 +25,6 @@ export function Seo({ page, lang, jsonLd = [] }: { page: string; lang: Lang; jso
       <html lang={lang} />
       <title>{m.title}</title>
       <meta name="description" content={m.description} />
-      <link rel="preload" as="font" type="font/woff2" href={DISPLAY_FONT_WOFF2} crossOrigin="anonymous" />
       <link rel="canonical" href={url} />
       <link rel="alternate" hrefLang="ro" href={SITE_ORIGIN + localePath('ro', slug)} />
       <link rel="alternate" hrefLang="en" href={SITE_ORIGIN + localePath('en', slug)} />

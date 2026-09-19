@@ -21,6 +21,12 @@ export default defineConfig({
   //   larger per-page HTML (inlined CSS on all 32 pages), and the double
   //   `crossorigin` attribute bug it emits on its own body-end stylesheet
   //   swap. See Task 22's report for the full before/after numbers.
+  //   2026-09-19 follow-up: that experiment was inconclusive because a font
+  //   preload was still in <head> (Seo.tsx's own, plus beasties' seven).
+  //   Inlining only pays off together with NO font preload — then it is
+  //   worth ~10 Lighthouse points on every page. It now ships as a plain
+  //   postbuild step, scripts/inline-css.mjs (whole stylesheets, no
+  //   dependency, no body-end swap); the A/B numbers are in that file.
   // - manualChunks for `three`/`@react-three/*` and `gsap`/`lenis` (Plan's
   //   suggestion): grouping those packages into named vendor chunks by
   //   module path made rolldown (this project's build.rollupOptions runs

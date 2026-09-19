@@ -14,7 +14,7 @@ gsap.registerPlugin(ScrollTrigger)
  *
  * The dim state is applied from JS, never from CSS — that way the server's
  * HTML, a visitor with JS disabled, and anyone with `prefers-reduced-motion`
- * all get the finished, fully-legible paragraph instead of a wall of 22%
+ * all get the finished, fully-legible paragraph instead of a wall of dim
  * grey waiting for an animation that will never run.
  */
 export function Manifesto({ lang }: { lang: Lang }) {
@@ -31,7 +31,10 @@ export function Manifesto({ lang }: { lang: Lang }) {
       const words = gsap.utils.toArray<HTMLElement>('.manifesto__word', root)
       gsap.fromTo(
         words,
-        { opacity: 0.22 },
+        // 0.4, not the original 0.22: over --bg that is 3.34:1 against 1.75:1,
+        // and WCAG asks 3:1 of large text. The dim words were the home
+        // page's only accessibility failure in Lighthouse (96 -> 100).
+        { opacity: 0.4 },
         {
           opacity: 1,
           ease: 'none',

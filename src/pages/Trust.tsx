@@ -43,7 +43,9 @@ export default function Trust() {
         <ul className="trust-items">
           {ITEMS.map((key) => (
             <li key={key}>
-              <h3>{t(lang, `trust.items.${key}.title`)}</h3>
+              {/* h2, not h3: these sit directly under the page's h1 (Lighthouse's
+                  heading-order audit, the page's one accessibility failure). */}
+              <h2>{t(lang, `trust.items.${key}.title`)}</h2>
               <p>{t(lang, `trust.items.${key}.text`)}</p>
             </li>
           ))}

@@ -50,8 +50,7 @@ if (!Array.isArray(pages) || pages.length === 0) fail('src/site/pages.json has n
 
 for (const p of pages) {
   // Task 22: RO and EN of the same page must ship the same *number* of
-  // <link rel="stylesheet"> (the live ones swapped in via the preload+onload
-  // trick on the home page, or plain links everywhere else) — a mismatch
+  // stylesheets (inlined ones since 2026-09-19, see below) — a mismatch
   // means the vite-react-ssg asymmetry that dropped Home.css's stylesheet
   // link from en.html (componentFor[id]'s shared React.lazy() instance only
   // re-triggers SSR-tracking for whichever language renders first) has
@@ -74,14 +73,30 @@ for (const p of pages) {
     // item 7): procurement teams verify the entity behind a site before a
     // first call, and the IDNO is the one string they search for.
     if (!html.includes('IDNO 1025600064372')) fail(`${file}: footer is missing the legal identity (IDNO)`)
-    // Counts both plain `<link rel="stylesheet">` (every page — includes the
-    // home page's own <noscript> fallback) and its preload-then-swap variant
-    // (`rel="preload" ... as="style"`, home page only) — both are "this page
-    // loads this CSS file" signals, just phrased differently depending on
-    // whether inline-critical-css.mjs touched this file.
-    const plainLinks = html.match(/<link rel="stylesheet"[^>]*>/g) ?? []
-    const preloadStyleLinks = html.match(/<link rel="preload"[^>]*as="style"[^>]*>/g) ?? []
-    stylesheetCountByLang[lang] = plainLinks.length + preloadStyleLinks.length
+    // Since the 2026-09-19 Lighthouse pass scripts/inline-css.mjs inlines
+    // every page's stylesheets (and has a one-line script add a `disabled`
+    // marker link per file, see there); the count of files it recorded in
+    // `data-inlined` is this page's "loads this CSS" signal for the RO/EN
+    // comparison below.
+    const inlined = html.match(/<style data-inlined="([^"]*)">/)
+    stylesheetCountByLang[lang] = inlined ? inlined[1].split(' ').filter(Boolean).length : 0
+    if (!inlined) fail(`${file}: no inlined stylesheet (scripts/inline-css.mjs did not run on it)`)
+
+    // The two halves of that pass, both required (A/B numbers in
+    // inline-css.mjs): nothing may block the first paint once the HTML has
+    // arrived. A live stylesheet link or a font preload each bring back the
+    // missed first frame that cost every page ~10 Lighthouse points.
+    const stylesheetLinks = html.match(/<link rel="stylesheet"[^>]*>/g) ?? []
+    if (stylesheetLinks.length) fail(`${file}: ${stylesheetLinks.length} <link rel="stylesheet"> in the markup (should be inlined; even a disabled one is fetched)`)
+    if (/<link[^>]*rel="preload"[^>]*as="(font|style)"/.test(html)) fail(`${file}: preloads a font or stylesheet — delays the first paint, see Seo.tsx`)
+    // The marker script must name exactly the inlined files, and each must
+    // still ship: client-side navigation loads them through Vite's preload
+    // helper, and a missing marker means a second download on hydration.
+    const markerScript = html.match(/<script data-css-markers>for\(const h of (\[[^\]]*\])/)
+    const markerHrefs = markerScript ? JSON.parse(markerScript[1]) : []
+    if (inlined && markerHrefs.map((h) => h.split('/').pop()).join(' ') !== inlined[1])
+      fail(`${file}: CSS marker script does not match the inlined stylesheets`)
+    for (const h of markerHrefs) if (!existsSync(`dist${h}`)) fail(`${file}: CSS marker points at missing dist${h}`)
 
     // Anchored on "<html lang=" rather than the brief's bare `lang="${lang}"`:
     // the latter is a substring of `hreflang="ro"`/`hreflang="en"`, which
@@ -109,7 +124,10 @@ for (const p of pages) {
     // the DOM at runtime by the externally-hosted widget.js (see emmi.tsx) —
     // it never appears in SSR markup, on emmi.html or anywhere else.
     // Confirmed by inspection of the actual build output for all 32 pages.
-    if (html.includes('voiceagent-widget-root'))
+    // Matched as an element id, not as a bare string: emmi.css has a
+    // `#voiceagent-widget-root` rule, and since inline-css.mjs that
+    // stylesheet's text is part of emmi.html — a selector is not markup.
+    if (/id=["']voiceagent-widget-root["']/.test(html))
       fail(`${file}: unexpected "voiceagent-widget-root" in SSR output (widget only ever attaches client-side)`)
 
     // Task 22 regression guards for scripts/fix-preload.mjs, updated by

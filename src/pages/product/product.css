@@ -70,7 +70,7 @@
 }
 
 .product-hero__title {
-  max-width: 18ch;
+  max-width: calc(18 * var(--display-ch));
   font-family: var(--font-display);
   font-weight: 500;
   font-size: clamp(2.2rem, 5.6vw, 4.6rem);
@@ -136,7 +136,7 @@
 }
 
 .product-final__title {
-  max-width: 20ch;
+  max-width: calc(20 * var(--display-ch));
   font-family: var(--font-display);
   font-weight: 500;
   font-size: clamp(2.2rem, 5.5vw, 4.4rem);

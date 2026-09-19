@@ -121,7 +121,8 @@ function Modules({ lang }: { lang: Lang }) {
   )
 }
 
-/** App preview — two real in-app screenshots (`public/legalia-app/*.jpg`),
+/** App preview — two real in-app screenshots (`public/legalia-app/*.webp`,
+ * converted from the original JPEGs at the same 588x1272 for half the bytes),
  * wrapped in the shared `.photo-hover` (calm scale/brightness only, no
  * shader distortion — see `components.css` and this repo's own note on
  * dropping DistortImage from photography). `id="how"` is the hero's own
@@ -133,13 +134,13 @@ function Preview({ lang }: { lang: Lang }) {
       <div className="legalia-preview__grid">
         <div>
           <div className="legalia-preview__item photo-hover">
-            <img src="/legalia-app/roadmap-disciplines.jpg" alt={t(lang, 'legalia.preview.roadmap')} loading="lazy" decoding="async" />
+            <img src="/legalia-app/roadmap-disciplines.webp" width={588} height={1272} alt={t(lang, 'legalia.preview.roadmap')} loading="lazy" decoding="async" />
           </div>
           <p className="legalia-preview__caption">{t(lang, 'legalia.preview.roadmap')}</p>
         </div>
         <div>
           <div className="legalia-preview__item photo-hover">
-            <img src="/legalia-app/quiz-feedback.jpg" alt={t(lang, 'legalia.preview.quiz')} loading="lazy" decoding="async" />
+            <img src="/legalia-app/quiz-feedback.webp" width={588} height={1272} alt={t(lang, 'legalia.preview.quiz')} loading="lazy" decoding="async" />
           </div>
           <p className="legalia-preview__caption">{t(lang, 'legalia.preview.quiz')}</p>
         </div>
