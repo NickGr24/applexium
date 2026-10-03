@@ -1,36 +1,27 @@
 /**
- * Mechanically ported from `_legacy/en/privacy-policy.html`'s `.legal-content-wrap`
- * (`class` -> `className`, tags already self-closed, `data-en` attributes
- * and the dead `id="content-ro"` toggle leftover dropped, inline `style`
- * strings turned into objects). Text is verbatim from the docx-sourced
- * legacy HTML — the source of truth per CLAUDE.md's bilingual system —
- * and must not be edited here. Typography/layout comes entirely from
- * `LegalLayout`'s own CSS, scoped by tag (h2/h3/p/ul/table), not from
- * these legacy classNames, which carry no styles of their own anymore.
+ * Version 2.0 (2026-10) — English translation of `privacy-policy.ro.tsx`
+ * v2.0 (Law No. 195/2024). Written directly here, not ported from the
+ * docx; see the RO file's header. Keep both files in step.
  */
 export default function PrivacyPolicyEn() {
   return (
     <>
       <div className="legal-content active">
       <div className="legal-info-box">
-      <p>Applicable Legal Framework</p>
-      <p><span className="ib-label">Until 23 August 2026:</span></p>
-      <p><span className="ib-value">Legea nr. 133/2011</span> <span>on Personal Data Protection (Republic of Moldova)</span></p>
+      <p>Applicable legal framework</p>
+      <p><span className="ib-value">Law No. 195/2024</span> <span>on personal data protection (Republic of Moldova, in force since 23 August 2026)</span></p>
       <div className="ib-sep"></div>
-      <p><span className="ib-label">From 23 August 2026:</span></p>
-      <p><span className="ib-value">Legea nr. 195/2024</span> <span>— fully aligned with GDPR (EU Regulation 2016/679)</span></p>
-      <div className="ib-sep"></div>
-      <p><span className="ib-highlight">Fines of up to MDL 2,000,000</span> <span>or 2% of annual turnover.</span></p>
-      <p><span>Supervisory Authority:</span> <span className="ib-value">CNPDCP</span> <span>— National Center for Personal Data Protection</span></p>
+      <p><span className="ib-label">Policy version:</span> <span className="ib-value">2026-10</span></p>
+      <p><span>Supervisory authority:</span> <span className="ib-value">CNPDCP</span> <span>— National Center for Personal Data Protection</span></p>
       </div>
       <div className="legal-section">
       <div className="legal-section-num">Section 1</div>
-      <h2>Data Controller — Who We Are</h2>
-      <p>The controller of personal data collected through the applexium.com website is:</p>
+      <h2>Data controller — who we are</h2>
+      <p>The controller of personal data collected through www.applexium.com is:</p>
       <div style={{ overflowX: 'auto', marginBottom: '24px' }}>
       <table className="legal-table"><tbody>
       <tr>
-      <th>Company name</th>
+      <th>Name</th>
       <th>SRL SCALELAW SOLUTIONS</th>
       </tr>
       <tr>
@@ -42,165 +33,175 @@ export default function PrivacyPolicyEn() {
       <td>1025600064372</td>
       </tr>
       <tr>
-      <td>Legal form</td>
-      <td>Limited Liability Company (LLC)</td>
-      </tr>
-      <tr>
-      <td>Registered on</td>
-      <td>30 October 2025</td>
-      </tr>
-      <tr>
       <td>Registered address</td>
-      <td>mun. Chisinau, sec. Buiucani, str. Calea Iesilor, 67, ap. 9</td>
+      <td>mun. Chișinău, sec. Buiucani, str. Calea Ieșilor, 67, ap. 9</td>
       </tr>
       <tr>
       <td>Office address</td>
-      <td>Mihai Viteazul 2a, Chisinau, Moldova</td>
+      <td>Mihai Viteazul 2a, Chișinău, Moldova</td>
       </tr>
       <tr>
       <td>Director</td>
       <td>Mircea Ursu</td>
       </tr>
       <tr>
-      <td>Contact email</td>
+      <td>Email (including data protection)</td>
       <td><a href="mailto:info@applexium.com">info@applexium.com</a></td>
       </tr>
       <tr>
       <td>Phone</td>
       <td>+373 78 76 87 65</td>
       </tr>
-      <tr>
-      <td>Website</td>
-      <td>applexium.com</td>
-      </tr>
       </tbody></table>
       </div>
-      <p>By accessing the applexium.com website, you acknowledge that you have read and agree to this Privacy Policy. If you do not agree, please do not use the Website.</p>
+      <p>This policy applies only to www.applexium.com. Applexium's products (Legalia, Emmi, Precedentia) have their own privacy policies.</p>
       </div>
       <div className="legal-section">
       <div className="legal-section-num">Section 2</div>
-      <h2>What Data We Collect</h2>
-      <h3>Data Provided Voluntarily — Contact Form</h3>
-      <p>When you complete the contact form available at <a href="/contacts">applexium.com/contacts</a>, we collect:</p>
-      <ul><li>Full name — to identify the contact person;</li>
-      <li>Work email address — to communicate and respond to your inquiry;</li>
-      <li>Company name — optional, to understand the context of the inquiry;</li></ul>
-      <p>Message content — project description or inquiry details.</p>
-      <h3>Automatically Collected Data</h3>
-      <p>When you access the Website, our systems may automatically collect technical data, including:</p>
-      <ul><li>IP address of the device used;</li>
-      <li>Browser type and version;</li>
-      <li>Pages visited and session duration;</li></ul>
-      <p>Date and time of access.</p>
-      <p>This data is used solely for technical purposes (security, diagnostics, performance) and is not associated with a visitor's personal identity without their consent.</p>
-      <h3>Data from Social Media</h3>
-      <p>If you contact us through our official pages on Facebook, Instagram, or TikTok, data shared via those platforms is subject to the respective platform's own privacy policies. We recommend consulting:</p>
-      <p>Meta (Facebook/Instagram) Privacy Policy: <a href="https://www.facebook.com/privacy/policy/" rel="noopener" target="_blank">https://www.facebook.com/privacy/policy/</a></p>
-      <p>TikTok Privacy Policy: <a href="https://www.tiktok.com/legal/page/row/privacy-policy/" rel="noopener" target="_blank">https://www.tiktok.com/legal/page/row/privacy-policy/</a></p>
-      </div>
-      <div className="legal-section">
-      <div className="legal-section-num">Section 3</div>
-      <h2>Purpose and Legal Basis for Processing</h2>
-      <p>We process your personal data based on the following legal grounds, under Law No. 133/2011 and, from 23 August 2026, under Law No. 195/2024:</p>
+      <h2>What we process, why, and on what legal basis</h2>
       <div style={{ overflowX: 'auto', marginBottom: '24px' }}>
       <table className="legal-table"><tbody>
       <tr>
+      <th>Situation</th>
+      <th>Data</th>
       <th>Purpose</th>
-      <th>Legal basis</th>
+      <th>Legal basis (Law 195/2024)</th>
       </tr>
       <tr>
-      <td>Processing contact form inquiries</td>
-      <td>Consent (Art. 6(1)(a) / Art. 5(1)(a))</td>
+      <td>Contact form (<a href="/en/contacts">applexium.com/en/contacts</a>)</td>
+      <td>Full name, email, company name (optional), message; proof of consent: policy version, consent text, language, date and time</td>
+      <td>Replying to your request and, if you wish, pre-contractual discussions</td>
+      <td>Consent — Art. 6(1)(a); later, if you initiate a contract — Art. 6(1)(b)</td>
       </tr>
       <tr>
-      <td>Pre-contractual communication with prospective clients</td>
-      <td>Legitimate interest / pre-contractual measures</td>
+      <td>Emmi virtual assistant (the on-site chat, opened only when you choose to)</td>
+      <td>The messages you write and, if you start a voice conversation, your voice; any personal data you choose to include</td>
+      <td>Automated answers to your questions about Applexium and its services</td>
+      <td>Steps taken at your request before entering into a contract — Art. 6(1)(b); legitimate interest in answering visitors — Art. 6(1)(f)</td>
       </tr>
       <tr>
-      <td>Technical security and operation of the Website</td>
-      <td>Legitimate interest</td>
+      <td>Direct correspondence (email, phone)</td>
+      <td>Contact details and the content of the communication</td>
+      <td>Replying, pre-contractual or contractual relationship</td>
+      <td>Art. 6(1)(b) and (f)</td>
       </tr>
       <tr>
-      <td>Compliance with legal obligations</td>
-      <td>Legal obligation</td>
+      <td>Technical delivery of the site</td>
+      <td>IP address, browser type, requested page, date and time (the hosting provider's server logs)</td>
+      <td>Serving pages, security, abuse prevention</td>
+      <td>Legitimate interest — Art. 6(1)(f)</td>
       </tr>
       </tbody></table>
       </div>
-      <p>We do not process personal data for direct marketing purposes without the explicit consent of the data subject.</p>
+      <p>We use no traffic analytics or advertising tools and build no visitor profiles. We send no marketing communications. We make no decisions based solely on automated processing that produce legal effects for you; the Emmi assistant's answers are informational only.</p>
+      <p>Providing your data is not a legal or contractual requirement. Without your name, email and message, however, we cannot reply to a request sent through the form; the company name is optional.</p>
+      <p>The site is not directed at children. Persons under 14 may contact us only with the consent of their legal representative (Art. 8 of Law 195/2024).</p>
+      </div>
+      <div className="legal-section">
+      <div className="legal-section-num">Section 3</div>
+      <h2>Consent and how to withdraw it</h2>
+      <p>For the contact form we ask for your consent through a separate checkbox that is never pre-ticked. Together with your message we keep proof of that consent (policy version, consent text, date and time) so that we can demonstrate it under Art. 7(1).</p>
+      <p>You can withdraw your consent at any time, as easily as you gave it: an email to <a href="mailto:info@applexium.com">info@applexium.com</a> is enough. Withdrawal does not affect the lawfulness of processing carried out before it.</p>
       </div>
       <div className="legal-section">
       <div className="legal-section-num">Section 4</div>
-      <h2>Data Retention Period</h2>
-      <p>We retain personal data only for as long as necessary for the purpose for which it was collected:</p>
-      <p>Contact form data: up to 24 months from the date of receipt, or less if the inquiry does not lead to a contractual relationship;</p>
-      <ul><li>Technical data (logs): up to 12 months;</li></ul>
-      <p>Data included in contracts or accounting documents: as required by Moldovan legal retention obligations.</p>
-      <p>Upon expiry of the retention period, data is permanently deleted or irreversibly anonymized.</p>
+      <h2>Recipients of your data</h2>
+      <p>We do not sell or rent data. We share it only with the providers that help us run the site, acting as processors:</p>
+      <div style={{ overflowX: 'auto', marginBottom: '24px' }}>
+      <table className="legal-table"><tbody>
+      <tr>
+      <th>Recipient</th>
+      <th>Role</th>
+      <th>Country</th>
+      </tr>
+      <tr>
+      <td>Formspree, Inc.</td>
+      <td>Receives messages sent through the contact form and forwards them to us by email</td>
+      <td>USA</td>
+      </tr>
+      <tr>
+      <td>Hostinger International Ltd.</td>
+      <td>Email service for info@applexium.com</td>
+      <td>Cyprus (EU)</td>
+      </tr>
+      <tr>
+      <td>GitHub, Inc. (GitHub Pages)</td>
+      <td>Website hosting and technical server logs</td>
+      <td>USA</td>
+      </tr>
+      <tr>
+      <td>The Emmi platform (an Applexium product), hosted by Hetzner Online GmbH</td>
+      <td>The on-site virtual assistant</td>
+      <td>Germany (EU)</td>
+      </tr>
+      <tr>
+      <td>Artificial intelligence model providers used by the Emmi platform</td>
+      <td>Generating the assistant's answers (only for conversations you start)</td>
+      <td>May be located outside Moldova, including the USA</td>
+      </tr>
+      </tbody></table>
+      </div>
+      <p>We disclose data to public authorities only where the law requires us to.</p>
       </div>
       <div className="legal-section">
       <div className="legal-section-num">Section 5</div>
-      <h2>Your Rights as a Data Subject</h2>
-      <p>Under applicable legislation (Law No. 133/2011 and, from August 2026, Law No. 195/2024), you have the following rights:</p>
-      <ul><li>Right of access: to request a copy of the data we process about you;</li>
-      <li>Right to rectification: to request correction of inaccurate or incomplete data;</li>
-      <li>Right to erasure: to request deletion of your data (right to be forgotten), subject to legal conditions;</li>
-      <li>Right to restriction: to request restriction of processing in certain circumstances;</li>
-      <li>Right to data portability: to receive your data in a structured, commonly used, machine-readable format;</li>
-      <li>Right to object: to object to processing based on legitimate interest;</li></ul>
-      <p>Withdrawal of consent: to withdraw your consent at any time without affecting the lawfulness of prior processing.</p>
-      <p>To exercise these rights, please contact us at: <a href="mailto:info@applexium.com">info@applexium.com</a></p>
-      <p>We will respond to your request within 30 calendar days. In complex cases, the deadline may be extended by an additional 60 days, with prior notice to you.</p>
-      <p>You also have the right to lodge a complaint with the supervisory authority:</p>
-      <p>CNPDCP — National Center for Personal Data Protection</p>
-      <p>Address: str. Serghei Lazo nr. 48, MD-2004, Chisinau, Republic of Moldova</p>
-      <p>Email: <a href="mailto:centru@datepersonale.md">centru@datepersonale.md</a></p>
-      <p>Phone: (022) 820 801</p>
-      <p>Website: <a href="https://datepersonale.md" rel="noopener" target="_blank">https://datepersonale.md</a></p>
+      <h2>Transfers outside the Republic of Moldova</h2>
+      <p>Some of the recipients above process data in the European Union or the USA. Transfers are made only to countries ensuring an adequate level of protection or on the basis of the appropriate safeguards provided for in Art. 46 of Law 195/2024 (for example, the standard contractual clauses included in the providers' data processing agreements). You can request information about these safeguards at <a href="mailto:info@applexium.com">info@applexium.com</a>.</p>
       </div>
       <div className="legal-section">
       <div className="legal-section-num">Section 6</div>
-      <h2>International Data Transfers</h2>
-      <p>The applexium.com website is accessible to an international audience, including users from the European Union and the United States. Where your data is transferred outside the Republic of Moldova, we ensure that:</p>
-      <p>The transfer is made to countries that provide an adequate level of data protection recognized by the competent authorities;</p>
-      <p>Or appropriate safeguards are applied (standard contractual clauses or equivalent instruments).</p>
-      <p>For users in the European Union: to the extent that Law No. 195/2024 (GDPR-equivalent) is applicable or where processing falls within the scope of the GDPR, we ensure that all rights provided under Regulation (EU) 2016/679 are fully honored.</p>
+      <h2>How long we keep data</h2>
+      <ul><li>Contact form messages and the proof of consent: no longer than 24 months from receipt, or less if the request does not lead to a contractual relationship;</li>
+      <li>Conversations with the Emmi assistant: as long as needed to answer your request;</li>
+      <li>Technical server logs: kept by the hosting provider under its own policy; we do not access them or link them to your identity;</li>
+      <li>Data in contracts or accounting documents: for the periods required by the laws of the Republic of Moldova.</li></ul>
+      <p>When the period ends, the data is deleted or irreversibly anonymised.</p>
       </div>
       <div className="legal-section">
       <div className="legal-section-num">Section 7</div>
-      <h2>Data Security</h2>
-      <p>SRL SCALELAW SOLUTIONS applies appropriate technical and organizational measures to protect personal data against unauthorized access, loss, destruction, or accidental disclosure, including:</p>
-      <ul><li>Data transmission via encrypted connections (HTTPS / TLS);</li>
-      <li>Access to personal data is restricted exclusively to authorized personnel;</li></ul>
-      <p>Internal security and confidentiality policies for employees.</p>
-      <p>In the event of a security incident affecting your personal data, we will act in accordance with the legal notification obligations under applicable law, including notifying the CNPDCP within the statutory timeframes.</p>
+      <h2>Your rights</h2>
+      <p>Under Law No. 195/2024 you have the right:</p>
+      <ul><li>of access to your data and to receive a copy (Art. 15);</li>
+      <li>to rectification of inaccurate or incomplete data (Art. 16);</li>
+      <li>to erasure (“right to be forgotten”) (Art. 17);</li>
+      <li>to restriction of processing (Art. 18);</li>
+      <li>to data portability (Art. 20);</li>
+      <li>to object to processing based on legitimate interest (Art. 21);</li>
+      <li>to withdraw your consent at any time, without affecting earlier processing.</li></ul>
+      <p>To exercise these rights, write to <a href="mailto:info@applexium.com">info@applexium.com</a>. We reply within one month of receipt; for complex requests this may be extended by two further months, in which case we will let you know.</p>
+      <p>You also have the right to lodge a complaint with the supervisory authority:</p>
+      <p>CNPDCP — National Center for Personal Data Protection</p>
+      <p>Address: 48 Serghei Lazo St., MD-2004, Chișinău, Republic of Moldova</p>
+      <p>Email: <a href="mailto:centru@datepersonale.md">centru@datepersonale.md</a> · Phone: (022) 820 801</p>
+      <p>Website: <a href="https://datepersonale.md" rel="noopener" target="_blank">https://datepersonale.md</a></p>
       </div>
       <div className="legal-section">
       <div className="legal-section-num">Section 8</div>
-      <h2>Cookies</h2>
-      <p>The applexium.com website may use cookies and similar technologies for technical operation and Website usage analysis. Full details regarding the types of cookies used, their duration, and how consent is managed are available in the Cookie Policy (a separate document available on the Website).</p>
-      <p>You can manage your cookie preferences through your browser settings or through the consent mechanism displayed on your first visit to the Website.</p>
+      <h2>Data security</h2>
+      <p>SRL SCALELAW SOLUTIONS applies appropriate technical and organisational measures to protect data against unauthorised access, loss or disclosure, including:</p>
+      <ul><li>transmitting data only over encrypted connections (HTTPS / TLS);</li>
+      <li>restricting access to authorised staff;</li>
+      <li>internal security and confidentiality policies.</li></ul>
+      <p>In the event of a personal data breach we will notify the CNPDCP and, where required, the people affected, within the legal deadlines.</p>
       </div>
       <div className="legal-section">
       <div className="legal-section-num">Section 9</div>
-      <h2>Own Digital Products</h2>
-      <p>Note: The digital products developed by Applexium (Legalia, Emmi, Precedentia, and any future platforms) have or will have their own Privacy Policies, tailored to the specific nature of each platform. This document applies exclusively to the applexium.com business card website.</p>
+      <h2>Cookies</h2>
+      <p>The site uses no analytics or advertising cookies. Details about what is stored in your browser are in the <a href="/en/cookie-policy">Cookie Policy</a>.</p>
       </div>
       <div className="legal-section">
       <div className="legal-section-num">Section 10</div>
-      <h2>Changes to This Privacy Policy</h2>
-      <p>We reserve the right to update this Privacy Policy to reflect legislative changes (including the entry into force of Law No. 195/2024 on 23 August 2026), technological developments, or operational updates. Any changes will be published on the Website with the date of the update indicated.</p>
-      <p>We recommend checking this page periodically. Continued use of the Website following the publication of changes constitutes tacit acceptance of the updated version.</p>
+      <h2>Changes to this policy</h2>
+      <p>We update this policy when the law or the way we process data changes. Every version is dated (current version: 2026-10). If a change affects processing based on consent, we will ask for your consent again.</p>
       </div>
       <div className="legal-section">
       <div className="legal-section-num">Section 11</div>
-      <h2>Contact and Personal Data Requests</h2>
-      <p>For any questions or requests regarding the processing of your personal data:</p>
+      <h2>Contact</h2>
+      <p>For any question or request about your personal data:</p>
       <p>Email: <a href="mailto:info@applexium.com">info@applexium.com</a></p>
       <p>Phone: +373 78 76 87 65</p>
-      <p>Office address: Mihai Viteazul 2a, Chisinau, Moldova</p>
-      <p>Registered address: mun. Chisinau, sec. Buiucani, str. Calea Iesilor, 67, ap. 9</p>
-      <p>Pagina de contact: <a href="https://applexium.com/contacts" rel="noopener" target="_blank">Contact page: https://applexium.com/contacts</a></p>
-      <p>We are committed to responding to any request within 30 calendar days.</p>
+      <p>Office address: Mihai Viteazul 2a, Chișinău, Moldova</p>
+      <p>Registered address: mun. Chișinău, sec. Buiucani, str. Calea Ieșilor, 67, ap. 9</p>
       </div>
       </div>
       <p className="legal-copyright"><span>© 2026 SRL SCALELAW SOLUTIONS — Applexium. All rights reserved.</span></p>

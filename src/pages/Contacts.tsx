@@ -1,12 +1,14 @@
 import gsap from 'gsap'
 import { DrawSVGPlugin } from 'gsap/DrawSVGPlugin'
 import { useLayoutEffect, useRef, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { MonoLabel } from '../components/MonoLabel'
 import { RevealText } from '../components/RevealText'
 import { Seo } from '../components/Seo'
 import { SplitHeading } from '../components/SplitHeading'
-import { t, useLang } from '../i18n'
+import { localePath, t, useLang } from '../i18n'
 import { useReducedMotion } from '../motion/useReducedMotion'
+import { POLICY_VERSION } from '../site/consent'
 import { contactPageJsonLd } from '../site/jsonld'
 import './contacts.css'
 
@@ -104,6 +106,12 @@ export default function Contacts() {
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
     const form = e.currentTarget
+    // Proof of consent (Law 195/2024, art. 7(1)): there is no server of ours
+    // behind Formspree, so the submission itself carries the record — the
+    // checkbox value, policy version and text (static hidden inputs) plus the
+    // moment of submission, stamped here so the no-JS fallback below sends it too.
+    const consentAt = form.elements.namedItem('consent_at')
+    if (consentAt instanceof HTMLInputElement) consentAt.value = new Date().toISOString()
     setStatus('submitting')
 
     try {
@@ -262,6 +270,35 @@ export default function Contacts() {
                 />
                 <label htmlFor="message">{t(lang, 'contacts.form.message.label')}</label>
               </div>
+
+              <div className="consent-field">
+                <input
+                  id="consent"
+                  name="consent"
+                  type="checkbox"
+                  value={`privacy-policy@${POLICY_VERSION}`}
+                  required
+                  aria-describedby="consent-note"
+                />
+                <label htmlFor="consent">
+                  {t(lang, 'contacts.form.consent.before')}
+                  <Link to={localePath(lang, 'privacy-policy')} target="_blank" rel="noopener">
+                    {t(lang, 'contacts.form.consent.link')}
+                  </Link>
+                  {t(lang, 'contacts.form.consent.after')}
+                </label>
+                <p id="consent-note" className="consent-field__note">
+                  {t(lang, 'contacts.form.consent.note')}
+                </p>
+              </div>
+              <input type="hidden" name="consent_version" value={POLICY_VERSION} />
+              <input
+                type="hidden"
+                name="consent_text"
+                value={`${t(lang, 'contacts.form.consent.before')}${t(lang, 'contacts.form.consent.link')}${t(lang, 'contacts.form.consent.after')}`}
+              />
+              <input type="hidden" name="consent_lang" value={lang} />
+              <input type="hidden" name="consent_at" defaultValue="" />
 
               <button
                 type="submit"

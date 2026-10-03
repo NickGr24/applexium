@@ -1,4 +1,5 @@
 import { Outlet } from 'react-router-dom'
+import { CookieNotice } from '../components/CookieNotice'
 import { Cursor } from '../components/Cursor'
 import { EmmiWidget } from '../components/EmmiWidget'
 import { Footer } from '../components/Footer'
@@ -21,6 +22,7 @@ export default function SiteLayout() {
       {/* The live Emmi agent on every page, injected after `load` — see the
           component for the timing and teardown rules. */}
       <EmmiWidget />
+      <CookieNotice />
     </LenisProvider>
   )
 }

@@ -711,7 +711,13 @@
       "successTitle": "Mesaj trimis!",
       "successText": "Îți vom răspunde în curând, pe adresa de email indicată.",
       "successReset": "Trimite alt mesaj",
-      "error": "Ceva nu a mers bine. Te redirecționăm pentru a trimite mesajul direct."
+      "error": "Ceva nu a mers bine. Te redirecționăm pentru a trimite mesajul direct.",
+      "consent": {
+        "before": "Am citit ",
+        "link": "Politica de confidențialitate",
+        "after": " și sunt de acord cu prelucrarea datelor mele cu caracter personal (nume, email, companie, mesaj) în scopul de a primi un răspuns la această solicitare. Pot retrage acordul oricând, scriind la info@applexium.com.",
+        "note": "Operator: SCALELAW SOLUTIONS SRL. Mesajul este transmis prin Formspree (SUA) și păstrat cel mult 24 de luni. Ai dreptul de acces, rectificare, ștergere, restricționare, portabilitate și opoziție, precum și dreptul de a depune o plângere la CNPDCP (datepersonale.md)."
+      }
     }
   },
   "cases": {
@@ -831,5 +837,11 @@
     "products": "Produse",
     "contact": "Contact",
     "otherLang": "English version"
+  },
+  "cookieNotice": {
+    "title": "Cookie-uri",
+    "text": "Nu folosim cookie-uri de analiză sau publicitate. Site-ul păstrează în browser doar date strict necesare funcționării lui.",
+    "link": "Politica de cookie-uri",
+    "ok": "Am înțeles"
   }
 }

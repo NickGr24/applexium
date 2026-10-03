@@ -1,12 +1,12 @@
 /**
- * Mechanically ported from `_legacy/privacy-policy.html`'s `.legal-content-wrap`
- * (`class` -> `className`, tags already self-closed, `data-en` attributes
- * and the dead `id="content-ro"` toggle leftover dropped, inline `style`
- * strings turned into objects). Text is verbatim from the docx-sourced
- * legacy HTML — the source of truth per CLAUDE.md's bilingual system —
- * and must not be edited here. Typography/layout comes entirely from
- * `LegalLayout`'s own CSS, scoped by tag (h2/h3/p/ul/table), not from
- * these legacy classNames, which carry no styles of their own anymore.
+ * Version 2.0 (2026-10), rewritten for Law No. 195/2024 (in force since
+ * 2026-08-23; Law No. 133/2011 is repealed) and its art. 13 information
+ * duties: recipients, transfers, retention, rights, consent withdrawal.
+ * Unlike v1.0 this text was written directly here, NOT ported from
+ * `docs/02. Applexium_Politica_Confidentialitate_v1.0.docx` — the docx is
+ * now behind and should be brought in line by the owner. Operator data is
+ * only what v1.0 and `site/company.ts` already published.
+ * Typography/layout comes entirely from `LegalLayout`'s own CSS.
  */
 export default function PrivacyPolicyRo() {
   return (
@@ -14,13 +14,9 @@ export default function PrivacyPolicyRo() {
       <div className="legal-content active">
       <div className="legal-info-box">
       <p>Cadru legislativ aplicabil</p>
-      <p><span className="ib-label">Până la 23 august 2026:</span></p>
-      <p><span className="ib-value">Legea nr. 133/2011</span> <span>privind protecția datelor cu caracter personal (RM)</span></p>
+      <p><span className="ib-value">Legea nr. 195/2024</span> <span>privind protecția datelor cu caracter personal (în vigoare din 23 august 2026)</span></p>
       <div className="ib-sep"></div>
-      <p><span className="ib-label">Începând cu 23 august 2026:</span></p>
-      <p><span className="ib-value">Legea nr. 195/2024</span> <span>— aliniere completă cu GDPR (Reg. UE 2016/679)</span></p>
-      <div className="ib-sep"></div>
-      <p><span className="ib-highlight">Amenzi de până la 2.000.000 MDL</span> <span>sau 2% din cifra de afaceri.</span></p>
+      <p><span className="ib-label">Versiunea politicii:</span> <span className="ib-value">2026-10</span></p>
       <p><span>Autoritate de supraveghere:</span> <span className="ib-value">CNPDCP</span> <span>— Centrul Național pentru Protecția Datelor cu Caracter Personal</span></p>
       </div>
       <div className="legal-section">
@@ -42,14 +38,6 @@ export default function PrivacyPolicyRo() {
       <td>1025600064372</td>
       </tr>
       <tr>
-      <td>Forma juridică</td>
-      <td>Societate cu Răspundere Limitată</td>
-      </tr>
-      <tr>
-      <td>Înregistrată la</td>
-      <td>30 octombrie 2025</td>
-      </tr>
-      <tr>
       <td>Adresă juridică</td>
       <td>mun. Chișinău, sec. Buiucani, str. Calea Ieșilor, 67, ap. 9</td>
       </tr>
@@ -62,145 +50,163 @@ export default function PrivacyPolicyRo() {
       <td>Mircea Ursu</td>
       </tr>
       <tr>
-      <td>Email contact</td>
+      <td>Email (inclusiv pentru protecția datelor)</td>
       <td><a href="mailto:info@applexium.com">info@applexium.com</a></td>
       </tr>
       <tr>
       <td>Telefon</td>
       <td>+373 78 76 87 65</td>
       </tr>
-      <tr>
-      <td>Website</td>
-      <td>www.applexium.com</td>
-      </tr>
       </tbody></table>
       </div>
-      <p>Prin accesarea site-ului applexium.com, vă exprimați acordul cu prezenta Politică de Confidențialitate. Dacă nu sunteți de acord, vă rugăm să nu utilizați Site-ul.</p>
+      <p>Prezenta politică se aplică exclusiv site-ului www.applexium.com. Produsele Applexium (Legalia, Emmi, Precedentia) au propriile politici de confidențialitate.</p>
       </div>
       <div className="legal-section">
       <div className="legal-section-num">Section 2</div>
-      <h2>Ce date colectăm</h2>
-      <h3>Date furnizate voluntar — Formularul de contact</h3>
-      <p>Când completați formularul de contact disponibil la <a href="/contacts">applexium.com/contacts</a>, colectăm:</p>
-      <ul><li>Nume complet — pentru identificarea persoanei de contact;</li>
-      <li>Adresă de email de serviciu — pentru comunicare și răspuns la solicitare;</li>
-      <li>Numele companiei — opțional, pentru a înțelege contextul solicitării;</li></ul>
-      <p>Conținutul mesajului — descrierea proiectului sau a solicitării.</p>
-      <h3>Date colectate automat</h3>
-      <p>La accesarea Site-ului, sistemele noastre pot colecta automat date tehnice, inclusiv:</p>
-      <ul><li>Adresa IP a dispozitivului utilizat;</li>
-      <li>Tipul și versiunea browser-ului;</li>
-      <li>Paginile vizitate și durata sesiunii;</li></ul>
-      <p>Data și ora accesului.</p>
-      <p>Aceste date sunt utilizate exclusiv în scop tehnic (securitate, diagnosticare, performanță) și nu sunt asociate cu identitatea personală a vizitatorului fără consimțământul acestuia.</p>
-      <h3>Date provenind din rețele de socializare</h3>
-      <p>Dacă ne contactați prin paginile noastre oficiale de pe Facebook, Instagram sau TikTok, datele furnizate prin acele platforme sunt supuse politicilor de confidențialitate ale platformelor respective. Vă recomandăm să consultați:</p>
-      <p>Politica de confidențialitate Meta (Facebook/Instagram): <a href="https://www.facebook.com/privacy/policy/" rel="noopener" target="_blank">https://www.facebook.com/privacy/policy/</a></p>
-      <p>Politica de confidențialitate TikTok: <a href="https://www.tiktok.com/legal/page/row/privacy-policy/" rel="noopener" target="_blank">https://www.tiktok.com/legal/page/row/privacy-policy/</a></p>
-      </div>
-      <div className="legal-section">
-      <div className="legal-section-num">Section 3</div>
-      <h2>Scopul și temeiul legal al prelucrării</h2>
-      <p>Prelucrăm datele dvs. cu caracter personal în baza următoarelor temeiuri legale, conform Legii nr. 133/2011 și, începând cu 23 august 2026, conform Legii nr. 195/2024:</p>
+      <h2>Ce date prelucrăm, în ce scop și pe ce temei</h2>
       <div style={{ overflowX: 'auto', marginBottom: '24px' }}>
       <table className="legal-table"><tbody>
       <tr>
+      <th>Situația</th>
+      <th>Date</th>
       <th>Scop</th>
-      <th>Temei legal</th>
+      <th>Temei legal (Legea 195/2024)</th>
       </tr>
       <tr>
-      <td>Procesarea solicitărilor prin formularul de contact</td>
-      <td>Consimțământ (art. 6(1)(a) / art. 5(1)(a))</td>
+      <td>Formularul de contact (<a href="/contacts">applexium.com/contacts</a>)</td>
+      <td>Nume complet, email, numele companiei (opțional), mesajul; dovada acordului: versiunea politicii, textul acordului, limba, data și ora</td>
+      <td>Răspunsul la solicitarea dvs. și, dacă doriți, discuțiile premergătoare unui contract</td>
+      <td>Consimțământ — art. 6 alin. (1) lit. a); ulterior, dacă inițiați un contract — art. 6 alin. (1) lit. b)</td>
       </tr>
       <tr>
-      <td>Comunicare pre-contractuală cu potențiali clienți</td>
-      <td>Interesul legitim / măsuri precontractuale</td>
+      <td>Asistentul virtual Emmi (chat-ul de pe site, deschis doar la cererea dvs.)</td>
+      <td>Mesajele pe care le scrieți și, dacă porniți o conversație vocală, vocea dvs.; orice date personale pe care alegeți să le includeți</td>
+      <td>Răspunsuri automate la întrebările dvs. despre Applexium și serviciile sale</td>
+      <td>Măsuri la cererea dvs. înainte de încheierea unui contract — art. 6 alin. (1) lit. b); interesul legitim de a răspunde vizitatorilor — art. 6 alin. (1) lit. f)</td>
       </tr>
       <tr>
-      <td>Securitatea și funcționarea tehnică a site-ului</td>
-      <td>Interes legitim</td>
+      <td>Corespondență directă (email, telefon)</td>
+      <td>Datele de contact și conținutul comunicării</td>
+      <td>Răspunsul la solicitare, relația precontractuală sau contractuală</td>
+      <td>Art. 6 alin. (1) lit. b) și f)</td>
       </tr>
       <tr>
-      <td>Respectarea obligațiilor legale</td>
-      <td>Obligație legală</td>
+      <td>Livrarea tehnică a site-ului</td>
+      <td>Adresa IP, tipul browser-ului, pagina cerută, data și ora (jurnale de server ale furnizorului de găzduire)</td>
+      <td>Livrarea paginilor, securitate, prevenirea abuzurilor</td>
+      <td>Interes legitim — art. 6 alin. (1) lit. f)</td>
       </tr>
       </tbody></table>
       </div>
-      <p>Nu prelucrăm date în scopuri de marketing direct fără consimțământul explicit al persoanei vizate.</p>
+      <p>Nu folosim instrumente de analiză a traficului sau de publicitate și nu creăm profiluri ale vizitatorilor. Nu trimitem comunicări de marketing. Nu luăm decizii bazate exclusiv pe prelucrare automată care să producă efecte juridice asupra dvs.; răspunsurile asistentului Emmi au caracter informativ.</p>
+      <p>Furnizarea datelor nu este o obligație legală sau contractuală. Fără numele, emailul și mesajul dvs. însă nu vă putem răspunde la solicitarea trimisă prin formular; numele companiei este opțional.</p>
+      <p>Site-ul nu se adresează copiilor. Persoanele sub 14 ani ne pot contacta doar cu acordul reprezentantului legal (art. 8 din Legea 195/2024).</p>
+      </div>
+      <div className="legal-section">
+      <div className="legal-section-num">Section 3</div>
+      <h2>Consimțământul și retragerea lui</h2>
+      <p>Pentru formularul de contact vă cerem acordul printr-o căsuță separată, nebifată implicit. Împreună cu mesajul păstrăm dovada acordului (versiunea politicii, textul acordului, data și ora), pentru a o putea demonstra conform art. 7 alin. (1).</p>
+      <p>Puteți retrage consimțământul oricând, la fel de simplu cum l-ați dat: un email la <a href="mailto:info@applexium.com">info@applexium.com</a> este suficient. Retragerea nu afectează legalitatea prelucrării efectuate înainte de aceasta.</p>
       </div>
       <div className="legal-section">
       <div className="legal-section-num">Section 4</div>
-      <h2>Perioada de păstrare a datelor</h2>
-      <p>Păstrăm datele cu caracter personal numai atât timp cât este necesar scopului pentru care au fost colectate:</p>
-      <p>Datele din formularul de contact: maxim 24 de luni de la data primirii solicitării, sau mai puțin dacă solicitarea nu conduce la un raport contractual;</p>
-      <ul><li>Datele tehnice: maxim 12 luni;</li></ul>
-      <p>Datele incluse în contracte sau documente contabile: conform termenelor legale obligatorii din legislația Republicii Moldova.</p>
-      <p>La expirarea perioadei de retenție, datele sunt șterse sau anonimizate ireversibil.</p>
+      <h2>Destinatarii datelor</h2>
+      <p>Nu vindem și nu închiriem datele. Le comunicăm doar furnizorilor care ne ajută să operăm site-ul, în calitate de persoane împuternicite:</p>
+      <div style={{ overflowX: 'auto', marginBottom: '24px' }}>
+      <table className="legal-table"><tbody>
+      <tr>
+      <th>Destinatar</th>
+      <th>Rol</th>
+      <th>Țara</th>
+      </tr>
+      <tr>
+      <td>Formspree, Inc.</td>
+      <td>Primește mesajele trimise prin formularul de contact și ni le transmite pe email</td>
+      <td>SUA</td>
+      </tr>
+      <tr>
+      <td>Hostinger International Ltd.</td>
+      <td>Serviciul de email pentru adresa info@applexium.com</td>
+      <td>Cipru (UE)</td>
+      </tr>
+      <tr>
+      <td>GitHub, Inc. (GitHub Pages)</td>
+      <td>Găzduirea site-ului și jurnalele tehnice de server</td>
+      <td>SUA</td>
+      </tr>
+      <tr>
+      <td>Platforma Emmi (produs Applexium), găzduită la Hetzner Online GmbH</td>
+      <td>Asistentul virtual de pe site</td>
+      <td>Germania (UE)</td>
+      </tr>
+      <tr>
+      <td>Furnizori de modele de inteligență artificială utilizați de platforma Emmi</td>
+      <td>Generarea răspunsurilor asistentului (doar pentru conversațiile pe care le inițiați)</td>
+      <td>Pot fi situați în afara RM, inclusiv în SUA</td>
+      </tr>
+      </tbody></table>
+      </div>
+      <p>Putem divulga date autorităților publice doar atunci când legea ne obligă.</p>
       </div>
       <div className="legal-section">
       <div className="legal-section-num">Section 5</div>
-      <h2>Drepturile Dvs. ca persoană vizată</h2>
-      <p>Conform legislației aplicabile (Legea nr. 133/2011 și, din august 2026, Legea nr. 195/2024), aveți următoarele drepturi:</p>
-      <ul><li>Dreptul de acces sau să solicitați o copie a datelor dvs. prelucrate de noi;</li>
-      <li>Dreptul la rectificare sau să solicitați corectarea datelor inexacte sau incomplete;</li>
-      <li>Dreptul la ștergere sau să solicitați ștergerea datelor (dreptul de a fi uitat), în condițiile legii;</li>
-      <li>Dreptul la restricționare sau să solicitați restricționarea prelucrării în anumite circumstanțe;</li>
-      <li>Dreptul la portabilitate sau să primiți datele dvs. într-un format structurat, utilizabil și portabil;</li>
-      <li>Dreptul la opoziție sau să vă opuneți prelucrării bazate pe interes legitim;</li></ul>
-      <p>Retragerea consimțământului sau să retrageți oricând consimțământul acordat, fără a afecta legalitatea prelucrărilor anterioare.</p>
-      <p>Pentru exercitarea acestor drepturi, ne puteți contacta la: <a href="mailto:info@applexium.com">info@applexium.com</a></p>
-      <p>Vom răspunde solicitării dvs. în termen de cel mult 30 de zile calendaristice. În cazuri complexe, termenul poate fi prelungit cu 60 de zile suplimentare, cu notificarea dvs. prealabilă.</p>
-      <p>Aveți, de asemenea, dreptul de a depune o plângere la autoritatea de supraveghere:</p>
-      <p>CNPDCP — Centrul Național pentru Protecția Datelor cu Caracter Personal</p>
-      <p>Adresă: str. Serghei Lazo nr. 48, MD-2004, Chișinău, Republica Moldova</p>
-      <p>Email: <a href="mailto:centru@datepersonale.md">centru@datepersonale.md</a></p>
-      <p>Telefon: (022) 820 801</p>
-      <p>Website: <a href="https://datepersonale.md" rel="noopener" target="_blank">https://datepersonale.md</a></p>
+      <h2>Transferuri în afara Republicii Moldova</h2>
+      <p>Unii destinatari de mai sus prelucrează datele în Uniunea Europeană sau în SUA. Transferurile se fac doar către state care asigură un nivel adecvat de protecție sau pe baza garanțiilor adecvate prevăzute la art. 46 din Legea 195/2024 (de exemplu, clauzele contractuale standard incluse în acordurile de prelucrare ale furnizorilor). Puteți solicita informații despre aceste garanții la <a href="mailto:info@applexium.com">info@applexium.com</a>.</p>
       </div>
       <div className="legal-section">
       <div className="legal-section-num">Section 6</div>
-      <h2>Transferuri internaționale de date</h2>
-      <p>Site-ul www.applexium.com se adresează unui public internațional, inclusiv utilizatori din Uniunea Europeană și Statele Unite ale Americii. În cazul în care datele dvs. sunt transferate în afara Republicii Moldova, ne asigurăm că:</p>
-      <p>Transferul se realizează către țări care asigură un nivel adecvat de protecție a datelor recunoscut de autoritățile competente;</p>
-      <p>Sau sunt aplicate garanții adecvate (clauze contractuale standard, instrumente echivalente).</p>
-      <p>Pentru utilizatorii din Uniunea Europeană: în măsura în care Legea nr. 195/2024 (GDPR-echivalentă) este aplicabilă sau în care prelucrarea intră sub incidența GDPR, vă garantăm exercitarea tuturor drepturilor prevăzute de Regulamentul (UE) 2016/679.</p>
+      <h2>Cât timp păstrăm datele</h2>
+      <ul><li>Mesajele din formularul de contact și dovada acordului: cel mult 24 de luni de la primire, sau mai puțin dacă solicitarea nu duce la o relație contractuală;</li>
+      <li>Conversațiile cu asistentul Emmi: atât cât este necesar pentru a răspunde solicitării dvs.;</li>
+      <li>Jurnalele tehnice de server: sunt păstrate de furnizorul de găzduire, conform politicii acestuia; noi nu le accesăm și nu le asociem cu identitatea dvs.;</li>
+      <li>Datele incluse în contracte sau documente contabile: pe durata impusă de legislația Republicii Moldova.</li></ul>
+      <p>La expirarea termenului, datele sunt șterse sau anonimizate ireversibil.</p>
       </div>
       <div className="legal-section">
       <div className="legal-section-num">Section 7</div>
-      <h2>Securitatea datelor</h2>
-      <p>SRL SCALELAW SOLUTIONS aplică măsuri tehnice și organizatorice adecvate pentru protejarea datelor cu caracter personal împotriva accesului neautorizat, pierderii, distrugerii sau divulgării accidentale, inclusiv:</p>
-      <ul><li>Transmiterea datelor prin conexiuni criptate (HTTPS / TLS);</li>
-      <li>Accesul la datele cu caracter personal este restricționat exclusiv personalului autorizat;</li></ul>
-      <p>Politici interne de securitate și confidențialitate pentru angajați.</p>
-      <p>În cazul unui incident de securitate care afectează datele dvs. cu caracter personal, vom acționa în conformitate cu obligațiile legale de notificare prevăzute de legislația aplicabilă, inclusiv notificarea CNPDCP în termenele legale.</p>
+      <h2>Drepturile dvs.</h2>
+      <p>Conform Legii nr. 195/2024 aveți dreptul:</p>
+      <ul><li>de acces la datele dvs. și de a primi o copie a acestora (art. 15);</li>
+      <li>la rectificarea datelor inexacte sau incomplete (art. 16);</li>
+      <li>la ștergerea datelor („dreptul de a fi uitat”) (art. 17);</li>
+      <li>la restricționarea prelucrării (art. 18);</li>
+      <li>la portabilitatea datelor (art. 20);</li>
+      <li>de a vă opune prelucrării bazate pe interes legitim (art. 21);</li>
+      <li>de a retrage oricând consimțământul, fără a afecta prelucrarea anterioară.</li></ul>
+      <p>Pentru exercitarea drepturilor, scrieți la <a href="mailto:info@applexium.com">info@applexium.com</a>. Răspundem în cel mult o lună de la primire; în cazuri complexe termenul poate fi prelungit cu încă două luni, cu informarea dvs.</p>
+      <p>Aveți, de asemenea, dreptul de a depune o plângere la autoritatea de supraveghere:</p>
+      <p>CNPDCP — Centrul Național pentru Protecția Datelor cu Caracter Personal</p>
+      <p>Adresă: str. Serghei Lazo nr. 48, MD-2004, Chișinău, Republica Moldova</p>
+      <p>Email: <a href="mailto:centru@datepersonale.md">centru@datepersonale.md</a> · Telefon: (022) 820 801</p>
+      <p>Website: <a href="https://datepersonale.md" rel="noopener" target="_blank">https://datepersonale.md</a></p>
       </div>
       <div className="legal-section">
       <div className="legal-section-num">Section 8</div>
-      <h2>Cookie-uri</h2>
-      <p>Site-ul www.applexium.com poate utiliza cookie-uri și tehnologii similare pentru funcționarea tehnică și analiza utilizării Site-ului. Detaliile complete privind tipurile de cookie-uri utilizate, durata lor și modul de gestionare a consimțământului sunt disponibile în Politica de Cookie-uri (document separat, disponibil pe Site).</p>
-      <p>Puteți gestiona preferințele privind cookie-urile prin setările browser-ului dvs. sau prin mecanismul de consimțământ afișat la prima vizită pe Site.</p>
+      <h2>Securitatea datelor</h2>
+      <p>SRL SCALELAW SOLUTIONS aplică măsuri tehnice și organizatorice adecvate pentru protejarea datelor împotriva accesului neautorizat, pierderii sau divulgării, inclusiv:</p>
+      <ul><li>transmiterea datelor exclusiv prin conexiuni criptate (HTTPS / TLS);</li>
+      <li>acces la date restricționat la personalul autorizat;</li>
+      <li>politici interne de securitate și confidențialitate.</li></ul>
+      <p>În cazul unei încălcări a securității datelor, vom notifica CNPDCP și, după caz, persoanele vizate, în termenele prevăzute de lege.</p>
       </div>
       <div className="legal-section">
       <div className="legal-section-num">Section 9</div>
-      <h2>Produse digitale proprii</h2>
-      <p>Notă: Produsele digitale dezvoltate de Applexium (Legalia, Emmi, Precedentia și orice platformă viitoare) dispun sau vor dispune de propriile Politici de Confidențialitate, adaptate specificului fiecărei platforme. Prezentul document se aplică exclusiv site-ului-carte-de-vizită www.applexium.com.</p>
+      <h2>Cookie-uri</h2>
+      <p>Site-ul nu folosește cookie-uri de analiză sau publicitate. Detaliile despre datele stocate în browser sunt în <a href="/cookie-policy">Politica de cookie-uri</a>.</p>
       </div>
       <div className="legal-section">
       <div className="legal-section-num">Section 10</div>
-      <h2>Modificări ale politicii de confidențialitate</h2>
-      <p>Ne rezervăm dreptul de a actualiza prezenta Politică de Confidențialitate pentru a reflecta modificările legislative (inclusiv intrarea în vigoare a Legii nr. 195/2024 la 23 august 2026), tehnologice sau operaționale. Orice modificare va fi publicată pe Site, indicând data actualizării.</p>
-      <p>Vă recomandăm să verificați periodic această pagină. Continuarea utilizării Site-ului după publicarea modificărilor constituie acceptarea tacită a versiunii actualizate.</p>
+      <h2>Modificări ale politicii</h2>
+      <p>Actualizăm această politică atunci când se schimbă legislația sau modul în care prelucrăm datele. Fiecare versiune este datată (versiunea curentă: 2026-10). Dacă modificările afectează o prelucrare bazată pe consimțământ, vă vom cere din nou acordul.</p>
       </div>
       <div className="legal-section">
       <div className="legal-section-num">Section 11</div>
-      <h2>Contact și solicitări privind datele personale</h2>
-      <p>Pentru orice întrebare sau solicitare referitoare la prelucrarea datelor dvs. cu caracter personal:</p>
+      <h2>Contact</h2>
+      <p>Pentru orice întrebare sau solicitare privind datele dvs. cu caracter personal:</p>
       <p>Email: <a href="mailto:info@applexium.com">info@applexium.com</a></p>
       <p>Telefon: +373 78 76 87 65</p>
       <p>Adresă birou: Mihai Viteazul 2a, Chișinău, Moldova</p>
       <p>Adresă juridică: mun. Chișinău, sec. Buiucani, str. Calea Ieșilor, 67, ap. 9</p>
-      <p>Pagina de contact: <a href="https://applexium.com/contacts" rel="noopener" target="_blank">https://applexium.com/contacts</a></p>
-      <p>Ne angajăm să răspundem oricărei solicitări în cel mult 30 de zile calendaristice.</p>
       </div>
       </div>
       <p className="legal-copyright"><span>© 2026 SRL SCALELAW SOLUTIONS — Applexium. Toate drepturile rezervate.</span></p>

@@ -58,10 +58,16 @@ const LEGAL: Record<LegalId, { icon: ComponentType; ro: { title: string; subtitl
   },
 }
 
-// Identical on all six legacy pages (`.legal-version`), both languages.
+// Identical on all six legacy pages (`.legal-version`), both languages —
+// except the two policies rewritten for Law 195/2024 (consent rollout,
+// version key `POLICY_VERSION` = 2026-10 in site/consent.ts).
 const VERSION: Record<Lang, string> = {
   ro: 'Versiunea 1.0 • Aprilie 2026',
   en: 'Version 1.0 • April 2026',
+}
+const VERSION_OVERRIDE: Partial<Record<LegalId, Record<Lang, string>>> = {
+  'privacy-policy': { ro: 'Versiunea 2.0 • Octombrie 2026', en: 'Version 2.0 • October 2026' },
+  'cookie-policy': { ro: 'Versiunea 2.0 • Octombrie 2026', en: 'Version 2.0 • October 2026' },
 }
 
 /**
@@ -91,7 +97,7 @@ export function LegalPage({ id, Content }: { id: LegalId; Content: ComponentType
     <>
       <Seo page={id} lang={lang} jsonLd={[legalPageJsonLd(id, lang)]} />
 
-      <LegalLayout icon={meta.icon} title={meta[lang].title} subtitle={meta[lang].subtitle} version={VERSION[lang]}>
+      <LegalLayout icon={meta.icon} title={meta[lang].title} subtitle={meta[lang].subtitle} version={(VERSION_OVERRIDE[id] ?? VERSION)[lang]}>
         <Content />
       </LegalLayout>
     </>

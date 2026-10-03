@@ -711,7 +711,13 @@
       "successTitle": "Message sent!",
       "successText": "We'll get back to you soon at the email address you provided.",
       "successReset": "Send another message",
-      "error": "Something went wrong. Redirecting you to send the message directly."
+      "error": "Something went wrong. Redirecting you to send the message directly.",
+      "consent": {
+        "before": "I have read the ",
+        "link": "Privacy Policy",
+        "after": " and agree to the processing of my personal data (name, email, company, message) for the purpose of receiving a reply to this request. I can withdraw my consent at any time by writing to info@applexium.com.",
+        "note": "Controller: SCALELAW SOLUTIONS SRL. Your message is delivered via Formspree (USA) and kept for up to 24 months. You have the right of access, rectification, erasure, restriction, portability and objection, and the right to lodge a complaint with the CNPDCP (datepersonale.md)."
+      }
     }
   },
   "cases": {
@@ -831,5 +837,11 @@
     "products": "Products",
     "contact": "Contact",
     "otherLang": "Versiunea în română"
+  },
+  "cookieNotice": {
+    "title": "Cookies",
+    "text": "We use no analytics or advertising cookies. The site keeps only data strictly necessary for it to work in your browser.",
+    "link": "Cookie Policy",
+    "ok": "Got it"
   }
 }
