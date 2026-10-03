@@ -9,7 +9,7 @@ export default function CookiePolicyEn() {
       <div className="legal-content active">
       <div className="legal-info-box">
       <p>Data controller</p>
-      <p><span className="ib-value">SRL SCALELAW SOLUTIONS</span> · Brand: Applexium</p>
+      <p><span className="ib-value">SCALELAW SOLUTIONS SRL</span> · Brand: Applexium</p>
       <p>Email: <a href="mailto:info@applexium.com">info@applexium.com</a> · Tel: +373 78 76 87 65</p>
       <p><span className="ib-label">Applicable law:</span> <span>Law No. 195/2024 on personal data protection (Republic of Moldova)</span></p>
       <p><span className="ib-label">Policy version:</span> <span className="ib-value">2026-10</span></p>
@@ -80,7 +80,7 @@ export default function CookiePolicyEn() {
       </div>
       </div>
       </div>
-      <p className="legal-copyright">© 2026 SRL SCALELAW SOLUTIONS — Applexium. All rights reserved.</p>
+      <p className="legal-copyright">© 2026 SCALELAW SOLUTIONS SRL — Applexium. All rights reserved.</p>
     </>
   )
 }

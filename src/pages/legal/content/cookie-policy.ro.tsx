@@ -15,7 +15,7 @@ export default function CookiePolicyRo() {
       <div className="legal-content active">
       <div className="legal-info-box">
       <p>Operator de date</p>
-      <p><span className="ib-value">SRL SCALELAW SOLUTIONS</span> · Brand: Applexium</p>
+      <p><span className="ib-value">SCALELAW SOLUTIONS SRL</span> · Brand: Applexium</p>
       <p>Email: <a href="mailto:info@applexium.com">info@applexium.com</a> · Tel: +373 78 76 87 65</p>
       <p><span className="ib-label">Legislație aplicabilă:</span> <span>Legea nr. 195/2024 privind protecția datelor cu caracter personal</span></p>
       <p><span className="ib-label">Versiunea politicii:</span> <span className="ib-value">2026-10</span></p>
@@ -86,7 +86,7 @@ export default function CookiePolicyRo() {
       </div>
       </div>
       </div>
-      <p className="legal-copyright">© 2026 SRL SCALELAW SOLUTIONS — Applexium. Toate drepturile rezervate.</p>
+      <p className="legal-copyright">© 2026 SCALELAW SOLUTIONS SRL — Applexium. Toate drepturile rezervate.</p>
     </>
   )
 }

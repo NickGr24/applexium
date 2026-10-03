@@ -17,12 +17,12 @@ export default function PrivacyPolicyEn() {
       <div className="legal-section">
       <div className="legal-section-num">Section 1</div>
       <h2>Data controller — who we are</h2>
-      <p>The controller of personal data collected through www.applexium.com is:</p>
+      <p>The applexium.com website is run by SCALELAW SOLUTIONS SRL (IDNO 1025600064372), which acts as the controller of the personal data collected through it:</p>
       <div style={{ overflowX: 'auto', marginBottom: '24px' }}>
       <table className="legal-table"><tbody>
       <tr>
       <th>Name</th>
-      <th>SRL SCALELAW SOLUTIONS</th>
+      <th>SCALELAW SOLUTIONS SRL</th>
       </tr>
       <tr>
       <td>Brand</td>
@@ -33,15 +33,11 @@ export default function PrivacyPolicyEn() {
       <td>1025600064372</td>
       </tr>
       <tr>
-      <td>Registered address</td>
-      <td>mun. Chișinău, sec. Buiucani, str. Calea Ieșilor, 67, ap. 9</td>
+      <td>Address</td>
+      <td>str. Mihai Viteazul 2a, Chișinău, Republic of Moldova</td>
       </tr>
       <tr>
-      <td>Office address</td>
-      <td>Mihai Viteazul 2a, Chișinău, Moldova</td>
-      </tr>
-      <tr>
-      <td>Director</td>
+      <td>Administrator</td>
       <td>Mircea Ursu</td>
       </tr>
       <tr>
@@ -178,7 +174,7 @@ export default function PrivacyPolicyEn() {
       <div className="legal-section">
       <div className="legal-section-num">Section 8</div>
       <h2>Data security</h2>
-      <p>SRL SCALELAW SOLUTIONS applies appropriate technical and organisational measures to protect data against unauthorised access, loss or disclosure, including:</p>
+      <p>SCALELAW SOLUTIONS SRL applies appropriate technical and organisational measures to protect data against unauthorised access, loss or disclosure, including:</p>
       <ul><li>transmitting data only over encrypted connections (HTTPS / TLS);</li>
       <li>restricting access to authorised staff;</li>
       <li>internal security and confidentiality policies.</li></ul>
@@ -200,11 +196,10 @@ export default function PrivacyPolicyEn() {
       <p>For any question or request about your personal data:</p>
       <p>Email: <a href="mailto:info@applexium.com">info@applexium.com</a></p>
       <p>Phone: +373 78 76 87 65</p>
-      <p>Office address: Mihai Viteazul 2a, Chișinău, Moldova</p>
-      <p>Registered address: mun. Chișinău, sec. Buiucani, str. Calea Ieșilor, 67, ap. 9</p>
+      <p>Address: str. Mihai Viteazul 2a, Chișinău, Republic of Moldova</p>
       </div>
       </div>
-      <p className="legal-copyright"><span>© 2026 SRL SCALELAW SOLUTIONS — Applexium. All rights reserved.</span></p>
+      <p className="legal-copyright"><span>© 2026 SCALELAW SOLUTIONS SRL — Applexium. All rights reserved.</span></p>
     </>
   )
 }

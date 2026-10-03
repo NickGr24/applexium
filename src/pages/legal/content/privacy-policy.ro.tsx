@@ -4,8 +4,8 @@
  * duties: recipients, transfers, retention, rights, consent withdrawal.
  * Unlike v1.0 this text was written directly here, NOT ported from
  * `docs/02. Applexium_Politica_Confidentialitate_v1.0.docx` — the docx is
- * now behind and should be brought in line by the owner. Operator data is
- * only what v1.0 and `site/company.ts` already published.
+ * now behind and should be brought in line by the owner. Operator block per the owner's
+ * 2026-10 instruction (single address: str. Mihai Viteazul 2a).
  * Typography/layout comes entirely from `LegalLayout`'s own CSS.
  */
 export default function PrivacyPolicyRo() {
@@ -22,12 +22,12 @@ export default function PrivacyPolicyRo() {
       <div className="legal-section">
       <div className="legal-section-num">Section 1</div>
       <h2>Operator de date — cine suntem</h2>
-      <p>Operatorul datelor cu caracter personal colectate prin site-ul www.applexium.com este:</p>
+      <p>Site-ul applexium.com este administrat de SCALELAW SOLUTIONS SRL (IDNO 1025600064372), care acționează în calitate de operator al datelor cu caracter personal colectate prin intermediul acestuia:</p>
       <div style={{ overflowX: 'auto', marginBottom: '24px' }}>
       <table className="legal-table"><tbody>
       <tr>
       <th>Denumire</th>
-      <th>SRL SCALELAW SOLUTIONS</th>
+      <th>SCALELAW SOLUTIONS SRL</th>
       </tr>
       <tr>
       <td>Brand</td>
@@ -38,15 +38,11 @@ export default function PrivacyPolicyRo() {
       <td>1025600064372</td>
       </tr>
       <tr>
-      <td>Adresă juridică</td>
-      <td>mun. Chișinău, sec. Buiucani, str. Calea Ieșilor, 67, ap. 9</td>
+      <td>Adresă</td>
+      <td>str. Mihai Viteazul 2a, Chișinău, Republica Moldova</td>
       </tr>
       <tr>
-      <td>Adresă birou</td>
-      <td>Mihai Viteazul 2a, Chișinău, Moldova</td>
-      </tr>
-      <tr>
-      <td>Director</td>
+      <td>Administrator</td>
       <td>Mircea Ursu</td>
       </tr>
       <tr>
@@ -183,7 +179,7 @@ export default function PrivacyPolicyRo() {
       <div className="legal-section">
       <div className="legal-section-num">Section 8</div>
       <h2>Securitatea datelor</h2>
-      <p>SRL SCALELAW SOLUTIONS aplică măsuri tehnice și organizatorice adecvate pentru protejarea datelor împotriva accesului neautorizat, pierderii sau divulgării, inclusiv:</p>
+      <p>SCALELAW SOLUTIONS SRL aplică măsuri tehnice și organizatorice adecvate pentru protejarea datelor împotriva accesului neautorizat, pierderii sau divulgării, inclusiv:</p>
       <ul><li>transmiterea datelor exclusiv prin conexiuni criptate (HTTPS / TLS);</li>
       <li>acces la date restricționat la personalul autorizat;</li>
       <li>politici interne de securitate și confidențialitate.</li></ul>
@@ -205,11 +201,10 @@ export default function PrivacyPolicyRo() {
       <p>Pentru orice întrebare sau solicitare privind datele dvs. cu caracter personal:</p>
       <p>Email: <a href="mailto:info@applexium.com">info@applexium.com</a></p>
       <p>Telefon: +373 78 76 87 65</p>
-      <p>Adresă birou: Mihai Viteazul 2a, Chișinău, Moldova</p>
-      <p>Adresă juridică: mun. Chișinău, sec. Buiucani, str. Calea Ieșilor, 67, ap. 9</p>
+      <p>Adresă: str. Mihai Viteazul 2a, Chișinău, Republica Moldova</p>
       </div>
       </div>
-      <p className="legal-copyright"><span>© 2026 SRL SCALELAW SOLUTIONS — Applexium. Toate drepturile rezervate.</span></p>
+      <p className="legal-copyright"><span>© 2026 SCALELAW SOLUTIONS SRL — Applexium. Toate drepturile rezervate.</span></p>
     </>
   )
 }
