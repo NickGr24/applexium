@@ -5,7 +5,8 @@
  * Unlike v1.0 this text was written directly here, NOT ported from
  * `docs/02. Applexium_Politica_Confidentialitate_v1.0.docx` — the docx is
  * now behind and should be brought in line by the owner. Operator block per the owner's
- * 2026-10 instruction (single address: str. Mihai Viteazul 2a).
+ * 2026-10 instruction: registered office Calea Ieșilor 67 of. 9 (registry),
+ * Mihai Viteazul 2a as correspondence office. Emmi sub-processors as named by the owner.
  * Typography/layout comes entirely from `LegalLayout`'s own CSS.
  */
 export default function PrivacyPolicyRo() {
@@ -38,7 +39,11 @@ export default function PrivacyPolicyRo() {
       <td>1025600064372</td>
       </tr>
       <tr>
-      <td>Adresă</td>
+      <td>Sediul juridic</td>
+      <td>MD-2069, mun. Chișinău, Calea Ieșilor 67, of. 9</td>
+      </tr>
+      <tr>
+      <td>Adresa biroului (corespondență)</td>
       <td>str. Mihai Viteazul 2a, Chișinău, Republica Moldova</td>
       </tr>
       <tr>
@@ -76,7 +81,7 @@ export default function PrivacyPolicyRo() {
       </tr>
       <tr>
       <td>Asistentul virtual Emmi (chat-ul de pe site, deschis doar la cererea dvs.)</td>
-      <td>Mesajele pe care le scrieți și, dacă porniți o conversație vocală, vocea dvs.; orice date personale pe care alegeți să le includeți</td>
+      <td>Mesajele pe care le scrieți și, dacă porniți o conversație vocală, vocea dvs.; orice date personale pe care alegeți să le includeți; dacă funcția „memoria vizitatorului” este activă — un identificator pseudonim și rezumate ale conversațiilor anterioare</td>
       <td>Răspunsuri automate la întrebările dvs. despre Applexium și serviciile sale</td>
       <td>Măsuri la cererea dvs. înainte de încheierea unui contract — art. 6 alin. (1) lit. b); interesul legitim de a răspunde vizitatorilor — art. 6 alin. (1) lit. f)</td>
       </tr>
@@ -131,14 +136,29 @@ export default function PrivacyPolicyRo() {
       <td>SUA</td>
       </tr>
       <tr>
-      <td>Platforma Emmi (produs Applexium), găzduită la Hetzner Online GmbH</td>
+      <td>Hetzner Online GmbH — găzduirea platformei Emmi (produs Applexium)</td>
       <td>Asistentul virtual de pe site</td>
       <td>Germania (UE)</td>
       </tr>
       <tr>
-      <td>Furnizori de modele de inteligență artificială utilizați de platforma Emmi</td>
-      <td>Generarea răspunsurilor asistentului (doar pentru conversațiile pe care le inițiați)</td>
-      <td>Pot fi situați în afara RM, inclusiv în SUA</td>
+      <td>Anthropic, PBC</td>
+      <td>Emmi: generarea răspunsurilor asistentului</td>
+      <td>SUA</td>
+      </tr>
+      <tr>
+      <td>OpenAI, L.L.C.</td>
+      <td>Emmi: căutarea în baza de cunoștințe</td>
+      <td>SUA</td>
+      </tr>
+      <tr>
+      <td>Soniox, Inc. (cu Deepgram, Inc. și Groq, Inc. ca rezervă)</td>
+      <td>Emmi: recunoașterea vocii (doar în conversațiile vocale)</td>
+      <td>SUA</td>
+      </tr>
+      <tr>
+      <td>ElevenLabs</td>
+      <td>Emmi: sinteza vocală a răspunsurilor (doar în conversațiile vocale)</td>
+      <td>SUA</td>
       </tr>
       </tbody></table>
       </div>
@@ -147,13 +167,13 @@ export default function PrivacyPolicyRo() {
       <div className="legal-section">
       <div className="legal-section-num">Section 5</div>
       <h2>Transferuri în afara Republicii Moldova</h2>
-      <p>Unii destinatari de mai sus prelucrează datele în Uniunea Europeană sau în SUA. Transferurile se fac doar către state care asigură un nivel adecvat de protecție sau pe baza garanțiilor adecvate prevăzute la art. 46 din Legea 195/2024 (de exemplu, clauzele contractuale standard incluse în acordurile de prelucrare ale furnizorilor). Puteți solicita informații despre aceste garanții la <a href="mailto:info@applexium.com">info@applexium.com</a>.</p>
+      <p>Unii destinatari de mai sus prelucrează datele în Uniunea Europeană (Hetzner, Hostinger) sau în SUA (Formspree, GitHub, iar pentru asistentul Emmi — Anthropic, OpenAI, Soniox, Deepgram, Groq, ElevenLabs). Transferurile se fac doar către state care asigură un nivel adecvat de protecție sau pe baza garanțiilor adecvate prevăzute la art. 46 din Legea 195/2024 (de exemplu, clauzele contractuale standard incluse în acordurile de prelucrare ale furnizorilor). Puteți solicita informații despre aceste garanții la <a href="mailto:info@applexium.com">info@applexium.com</a>.</p>
       </div>
       <div className="legal-section">
       <div className="legal-section-num">Section 6</div>
       <h2>Cât timp păstrăm datele</h2>
       <ul><li>Mesajele din formularul de contact și dovada acordului: cel mult 24 de luni de la primire, sau mai puțin dacă solicitarea nu duce la o relație contractuală;</li>
-      <li>Conversațiile cu asistentul Emmi: atât cât este necesar pentru a răspunde solicitării dvs.;</li>
+      <li>Conversațiile cu asistentul Emmi: atât cât este necesar pentru a răspunde solicitării dvs.; dacă „memoria vizitatorului” este activă, identificatorul pseudonim și rezumatele conversațiilor anterioare se păstrează pentru a continua discuția la vizitele următoare;</li>
       <li>Jurnalele tehnice de server: sunt păstrate de furnizorul de găzduire, conform politicii acestuia; noi nu le accesăm și nu le asociem cu identitatea dvs.;</li>
       <li>Datele incluse în contracte sau documente contabile: pe durata impusă de legislația Republicii Moldova.</li></ul>
       <p>La expirarea termenului, datele sunt șterse sau anonimizate ireversibil.</p>
@@ -201,7 +221,8 @@ export default function PrivacyPolicyRo() {
       <p>Pentru orice întrebare sau solicitare privind datele dvs. cu caracter personal:</p>
       <p>Email: <a href="mailto:info@applexium.com">info@applexium.com</a></p>
       <p>Telefon: +373 78 76 87 65</p>
-      <p>Adresă: str. Mihai Viteazul 2a, Chișinău, Republica Moldova</p>
+      <p>Sediul juridic: MD-2069, mun. Chișinău, Calea Ieșilor 67, of. 9</p>
+      <p>Adresa biroului (corespondență): str. Mihai Viteazul 2a, Chișinău, Republica Moldova</p>
       </div>
       </div>
       <p className="legal-copyright"><span>© 2026 SCALELAW SOLUTIONS SRL — Applexium. Toate drepturile rezervate.</span></p>

@@ -33,7 +33,11 @@ export default function PrivacyPolicyEn() {
       <td>1025600064372</td>
       </tr>
       <tr>
-      <td>Address</td>
+      <td>Registered office</td>
+      <td>MD-2069, mun. Chișinău, Calea Ieșilor 67, of. 9</td>
+      </tr>
+      <tr>
+      <td>Office address (correspondence)</td>
       <td>str. Mihai Viteazul 2a, Chișinău, Republic of Moldova</td>
       </tr>
       <tr>
@@ -71,7 +75,7 @@ export default function PrivacyPolicyEn() {
       </tr>
       <tr>
       <td>Emmi virtual assistant (the on-site chat, opened only when you choose to)</td>
-      <td>The messages you write and, if you start a voice conversation, your voice; any personal data you choose to include</td>
+      <td>The messages you write and, if you start a voice conversation, your voice; any personal data you choose to include; if “visitor memory” is enabled — a pseudonymous identifier and summaries of previous conversations</td>
       <td>Automated answers to your questions about Applexium and its services</td>
       <td>Steps taken at your request before entering into a contract — Art. 6(1)(b); legitimate interest in answering visitors — Art. 6(1)(f)</td>
       </tr>
@@ -126,14 +130,29 @@ export default function PrivacyPolicyEn() {
       <td>USA</td>
       </tr>
       <tr>
-      <td>The Emmi platform (an Applexium product), hosted by Hetzner Online GmbH</td>
+      <td>Hetzner Online GmbH — hosting of the Emmi platform (an Applexium product)</td>
       <td>The on-site virtual assistant</td>
       <td>Germany (EU)</td>
       </tr>
       <tr>
-      <td>Artificial intelligence model providers used by the Emmi platform</td>
-      <td>Generating the assistant's answers (only for conversations you start)</td>
-      <td>May be located outside Moldova, including the USA</td>
+      <td>Anthropic, PBC</td>
+      <td>Emmi: generating the assistant's answers</td>
+      <td>USA</td>
+      </tr>
+      <tr>
+      <td>OpenAI, L.L.C.</td>
+      <td>Emmi: knowledge-base search</td>
+      <td>USA</td>
+      </tr>
+      <tr>
+      <td>Soniox, Inc. (with Deepgram, Inc. and Groq, Inc. as fallback)</td>
+      <td>Emmi: speech recognition (voice conversations only)</td>
+      <td>USA</td>
+      </tr>
+      <tr>
+      <td>ElevenLabs</td>
+      <td>Emmi: text-to-speech for answers (voice conversations only)</td>
+      <td>USA</td>
       </tr>
       </tbody></table>
       </div>
@@ -142,13 +161,13 @@ export default function PrivacyPolicyEn() {
       <div className="legal-section">
       <div className="legal-section-num">Section 5</div>
       <h2>Transfers outside the Republic of Moldova</h2>
-      <p>Some of the recipients above process data in the European Union or the USA. Transfers are made only to countries ensuring an adequate level of protection or on the basis of the appropriate safeguards provided for in Art. 46 of Law 195/2024 (for example, the standard contractual clauses included in the providers' data processing agreements). You can request information about these safeguards at <a href="mailto:info@applexium.com">info@applexium.com</a>.</p>
+      <p>Some of the recipients above process data in the European Union (Hetzner, Hostinger) or the USA (Formspree, GitHub and, for the Emmi assistant, Anthropic, OpenAI, Soniox, Deepgram, Groq, ElevenLabs). Transfers are made only to countries ensuring an adequate level of protection or on the basis of the appropriate safeguards provided for in Art. 46 of Law 195/2024 (for example, the standard contractual clauses included in the providers' data processing agreements). You can request information about these safeguards at <a href="mailto:info@applexium.com">info@applexium.com</a>.</p>
       </div>
       <div className="legal-section">
       <div className="legal-section-num">Section 6</div>
       <h2>How long we keep data</h2>
       <ul><li>Contact form messages and the proof of consent: no longer than 24 months from receipt, or less if the request does not lead to a contractual relationship;</li>
-      <li>Conversations with the Emmi assistant: as long as needed to answer your request;</li>
+      <li>Conversations with the Emmi assistant: as long as needed to answer your request; if “visitor memory” is enabled, the pseudonymous identifier and summaries of earlier conversations are kept so the conversation can continue on later visits;</li>
       <li>Technical server logs: kept by the hosting provider under its own policy; we do not access them or link them to your identity;</li>
       <li>Data in contracts or accounting documents: for the periods required by the laws of the Republic of Moldova.</li></ul>
       <p>When the period ends, the data is deleted or irreversibly anonymised.</p>
@@ -196,7 +215,8 @@ export default function PrivacyPolicyEn() {
       <p>For any question or request about your personal data:</p>
       <p>Email: <a href="mailto:info@applexium.com">info@applexium.com</a></p>
       <p>Phone: +373 78 76 87 65</p>
-      <p>Address: str. Mihai Viteazul 2a, Chișinău, Republic of Moldova</p>
+      <p>Registered office: MD-2069, mun. Chișinău, Calea Ieșilor 67, of. 9</p>
+      <p>Office address (correspondence): str. Mihai Viteazul 2a, Chișinău, Republic of Moldova</p>
       </div>
       </div>
       <p className="legal-copyright"><span>© 2026 SCALELAW SOLUTIONS SRL — Applexium. All rights reserved.</span></p>

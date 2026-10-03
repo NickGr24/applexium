@@ -10,6 +10,7 @@ export default function CookiePolicyEn() {
       <div className="legal-info-box">
       <p>Data controller</p>
       <p><span className="ib-value">SCALELAW SOLUTIONS SRL</span> · Brand: Applexium</p>
+      <p>Registered office: MD-2069, mun. Chișinău, Calea Ieșilor 67, of. 9 · Office address (correspondence): str. Mihai Viteazul 2a, Chișinău</p>
       <p>Email: <a href="mailto:info@applexium.com">info@applexium.com</a> · Tel: +373 78 76 87 65</p>
       <p><span className="ib-label">Applicable law:</span> <span>Law No. 195/2024 on personal data protection (Republic of Moldova)</span></p>
       <p><span className="ib-label">Policy version:</span> <span className="ib-value">2026-10</span></p>
@@ -72,7 +73,8 @@ export default function CookiePolicyEn() {
       <p>For any questions about data stored by applexium.com:</p>
       <p>Email: <a href="mailto:info@applexium.com">info@applexium.com</a></p>
       <p>Phone: +373 78 76 87 65</p>
-      <p>Office address: Mihai Viteazul 2a, Chișinău, Moldova</p>
+      <p>Registered office: MD-2069, mun. Chișinău, Calea Ieșilor 67, of. 9</p>
+      <p>Office address (correspondence): str. Mihai Viteazul 2a, Chișinău, Republic of Moldova</p>
       <div className="legal-info-box">
       <p>Supervisory authority (Republic of Moldova)</p>
       <p><span className="ib-value">CNPDCP</span> — <span>National Center for Personal Data Protection</span></p>
