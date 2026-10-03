@@ -256,7 +256,7 @@
     ]
   },
   "index.html": {
-    "file": "assets/app-DQADwtYP.js",
+    "file": "assets/app-BEEYnPF4.js",
     "name": "app",
     "src": "index.html",
     "isEntry": true,
@@ -516,7 +516,7 @@
     ]
   },
   "src/pages/legal/content/cookie-policy.en.tsx": {
-    "file": "assets/cookie-policy.en-DrswHslh.js",
+    "file": "assets/cookie-policy.en-OmSC6rvu.js",
     "name": "cookie-policy.en",
     "src": "src/pages/legal/content/cookie-policy.en.tsx",
     "isDynamicEntry": true,
@@ -525,7 +525,7 @@
     ]
   },
   "src/pages/legal/content/cookie-policy.ro.tsx": {
-    "file": "assets/cookie-policy.ro-BseeDLfg.js",
+    "file": "assets/cookie-policy.ro-CC1f95Rn.js",
     "name": "cookie-policy.ro",
     "src": "src/pages/legal/content/cookie-policy.ro.tsx",
     "isDynamicEntry": true,
@@ -552,7 +552,7 @@
     ]
   },
   "src/pages/legal/content/privacy-policy.en.tsx": {
-    "file": "assets/privacy-policy.en-HeCvRdgI.js",
+    "file": "assets/privacy-policy.en-B0nlJnn7.js",
     "name": "privacy-policy.en",
     "src": "src/pages/legal/content/privacy-policy.en.tsx",
     "isDynamicEntry": true,
@@ -561,7 +561,7 @@
     ]
   },
   "src/pages/legal/content/privacy-policy.ro.tsx": {
-    "file": "assets/privacy-policy.ro-CPR_r99O.js",
+    "file": "assets/privacy-policy.ro-BY_5s31V.js",
     "name": "privacy-policy.ro",
     "src": "src/pages/legal/content/privacy-policy.ro.tsx",
     "isDynamicEntry": true,
